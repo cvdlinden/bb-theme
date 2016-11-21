@@ -89,7 +89,7 @@ gulp.task('makepot', function () {
 
 gulp.task('browserSync', function() {
   browserSync({
-    proxy: 'http://www.bijbest.dev//',
+    proxy: 'http://www.bijbest.dev/',
     port: 8080,
     open: true,
     notify: false
