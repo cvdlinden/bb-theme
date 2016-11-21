@@ -11,15 +11,31 @@
 
 ?>
 
-	</div><!-- #content -->
+            </div><!-- row -->
+		</div><!-- #main -->
+	</section><!-- section -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'bb-theme' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'bb-theme' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'bb-theme' ), 'bb-theme', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+    <?php bb_theme_footer_callout(); ?>
+
+	<footer id="colophon" class="site-footer footer bg-dark" role="contentinfo">
+      <div class="container footer-inner">
+        <div class="row">
+          <?php get_sidebar( 'footer' ); ?>
+        </div>
+
+        <div class="row">
+          <div class="site-info col-sm-6">
+            <div class="copyright-text"><?php echo esc_attr(get_theme_mod( 'bb_theme_footer_copyright' )); ?></div>
+            <div class="footer-credits"><?php bb_theme_footer_info(); ?></div>
+          </div><!-- .site-info -->
+          <div class="col-sm-6 text-right">
+            <?php if( !get_theme_mod('footer_social') ) bb_theme_social_icons(); ?>
+          </div>
+        </div>
+      </div>
+
+      <a class="btn btn-sm fade-half back-to-top inner-link" href="#top"><i class="fa fa-angle-up"></i></a>
+    </footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

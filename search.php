@@ -9,14 +9,16 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	
+    <?php $layout_class = ( function_exists('bb_theme_get_layout_class') ) ? bb_theme_get_layout_class(): ''; ?>  
+        <section id="primary" class="content-area col-md-9 mb-xs-24 <?php echo $layout_class; ?>">
+          <main id="main" class="site-main" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'bb-theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			<header class="entry-header nolist">
+				<h1 class="post-title entry-title"><?php printf( esc_html__( 'Search Results for: %s', 'bb-theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
 
 			<?php
