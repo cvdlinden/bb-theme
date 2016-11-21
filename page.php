@@ -14,7 +14,8 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<?php $layout_class = ( function_exists('bb_theme_get_layout_class') ) ? bb_theme_get_layout_class(): ''; ?>  
+    <div id="primary" class="col-md-9 mb-xs-24 <?php echo $layout_class; ?>">
 		<main id="main" class="site-main" role="main">
 
 			<?php

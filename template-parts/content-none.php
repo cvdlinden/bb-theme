@@ -10,7 +10,7 @@
 ?>
 
 <section class="no-results not-found">
-	<header class="page-header">
+	<header class="entry-header nolist">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'bb-theme' ); ?></h1>
 	</header><!-- .page-header -->
 
