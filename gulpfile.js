@@ -1,10 +1,10 @@
 'use strict';
 
 var gulp         = require('gulp');
-var plumber         = require('gulp-plumber');
+var plumber      = require('gulp-plumber');
 var sass         = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps = require('gulp-sourcemaps');
+var sourcemaps   = require('gulp-sourcemaps');
 var rename       = require('gulp-rename');
 var uglify       = require('gulp-uglify');
 var jshint       = require('gulp-jshint');
@@ -14,10 +14,14 @@ var sort         = require('gulp-sort');
 var gcmq         = require('gulp-group-css-media-queries');
 var del          = require('del');
 var zip          = require('gulp-zip');
-var browserSync = require('browser-sync');
+var browserSync  = require('browser-sync');
 var runSequence  = require('run-sequence');
-var wiredep 		= require('wiredep').stream;
+var wiredep 		 = require('wiredep').stream;
+var useref       = require('gulp-useref');
+var cleanCSS     = require('gulp-clean-css');
+
 var js_files     = ['js/*.js', '!js/*.min.js', '!js/lib/**/*.js'];
+var css_files     = ['*.css', '!*.min.css'];
 
 var build_files = [
   '**',
@@ -59,13 +63,21 @@ gulp.task('sass', function () {
     .pipe(browserSync.reload({stream:true}));
 });
 
+gulp.task('compressCSS', function() {
+  return gulp.src(css_files, {base: '.'})
+    .pipe(gulp.dest('.'))
+    .pipe(cleanCSS())
+    .pipe(rename({extname: '.min.css'}))
+    .pipe(gulp.dest('.'));
+});
+
 gulp.task('lint', function() {
   return gulp.src(js_files)
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('compress', function() {
+gulp.task('compressJS', function() {
   return gulp.src(js_files, {base: '.'})
     .pipe(gulp.dest('.'))
     .pipe(uglify())
@@ -98,9 +110,10 @@ gulp.task('browserSync', function() {
 
 gulp.task('watch', function () {
   gulp.watch(js_files, ['lint']);
-  gulp.watch(js_files, ['compress']);
+  gulp.watch(js_files, ['compressJS']);
   gulp.watch(['**/*.php'], ['makepot']);
   gulp.watch('sass/**/*.scss', ['sass']);
+  gulp.watch(css_files, ['compressCSS']);
 });
 
 gulp.task('build-clean', function() {
@@ -126,4 +139,4 @@ gulp.task('build', function(callback) {
   runSequence('build-clean', 'build-copy', 'build-zip', 'build-delete');
 });
 
-gulp.task('default', ['sass', 'lint', 'compress', 'makepot', 'watch', 'browserSync']);
+gulp.task('default', ['sass', 'compressCSS', 'lint', 'compressJS', 'makepot', 'watch', 'browserSync']);
