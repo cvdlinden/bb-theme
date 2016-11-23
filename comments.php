@@ -7,7 +7,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Bij Best
+ * @package BijBest
  */
 
 /*
@@ -20,53 +20,49 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area comments  nolist">
+<div id="comments" class="comments-area">
 
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
-		<h5 class="comments-title">
+		<h2 class="comments-title">
 			<?php
 				printf( // WPCS: XSS OK.
-					esc_html( _nx( '1 COMMENT', '%1$s COMMENTS', get_comments_number(), 'comments title', 'bb-theme' ) ),
-					number_format_i18n( get_comments_number() )
+					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'bb' ) ),
+					number_format_i18n( get_comments_number() ),
+					'<span>' . get_the_title() . '</span>'
 				);
 			?>
-		</h5>
+		</h2>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'bb-theme' ); ?></h2>
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'bb' ); ?></h2>
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'bb-theme' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'bb-theme' ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'bb' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'bb' ) ); ?></div>
 
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-above -->
 		<?php endif; // Check for comment navigation. ?>
-        
-        <?php add_filter('comment_reply_link', 'bb_theme_reply_link_class'); ?>
-		<ul class="comments-list">
+
+		<ol class="comment-list">
 			<?php
-				wp_list_comments( array(                    
+				wp_list_comments( array(
 					'style'      => 'ol',
 					'short_ping' => true,
-					'avatar_size'=> 75,
-					'callback'   => 'bb_theme_cb_comment'
 				) );
 			?>
-		</ul><!-- .comment-list -->
-        <?php remove_filter('comment_reply_link', 'bb_theme_reply_link_class'); ?>
-
+		</ol><!-- .comment-list -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'bb-theme' ); ?></h2>
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'bb' ); ?></h2>
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'bb-theme' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'bb-theme' ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'bb' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'bb' ) ); ?></div>
 
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-below -->
@@ -79,13 +75,11 @@ if ( post_password_required() ) {
 	// If comments are closed and there are comments, let's leave a little note, shall we?
 	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'bb-theme' ); ?></p>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'bb' ); ?></p>
 	<?php
 	endif;
-    
-    /* comment form */
-    $comments_args = ( function_exists( 'bb_theme_custom_comment_form' ) ) ? bb_theme_custom_comment_form() : '';
-	comment_form($comments_args);
+
+	comment_form();
 	?>
 
 </div><!-- #comments -->

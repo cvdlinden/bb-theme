@@ -4,7 +4,8 @@
  *
  * Displays the Home page with Parallax effects.
  *
- */
+  * @package BijBest
+*/
 ?>
 
 <?php get_header(); ?>

@@ -4,13 +4,12 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package Bij Best
+ * @package BijBest
  */
 
 get_header(); ?>
 
-    <?php $layout_class = ( function_exists('bb_theme_get_layout_class') ) ? bb_theme_get_layout_class(): ''; ?>  
-	<div id="primary" class="col-md-9 mb-xs-24 <?php echo $layout_class; ?>">
+	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php
@@ -18,7 +17,7 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', get_post_format() );
 
-			bb_theme_author_bio();
+			the_post_navigation();
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :

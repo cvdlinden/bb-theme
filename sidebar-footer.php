@@ -2,7 +2,7 @@
 /**
  * The Sidebar widget area for footer.
  *
- * @package Bij Best
+ * @package BijBest
  */
 ?>
 

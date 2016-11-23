@@ -12,12 +12,6 @@ body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
 }
 
-header .container,
-#main .container,
-footer .container {
-	background: #fff;
-}
-
 blockquote, q {
 	quotes: "" "";
 

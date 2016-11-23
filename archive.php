@@ -4,25 +4,23 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Bij Best
+ * @package BijBest
  */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area col-md-9 mb-xs-24">
+	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>
-          
-          <?php if( !get_theme_mod('top_callout', true ) ) { ?>
+
 			<header class="page-header">
 				<?php
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
+					the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
-			</header><!-- .page-header --><?php
-          } ?>
+			</header><!-- .page-header -->
 
 			<?php
 			/* Start the Loop */

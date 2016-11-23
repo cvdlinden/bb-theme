@@ -4,14 +4,14 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Bij Best
+ * @package BijBest
  */
 
-if ( ! function_exists( 'bb_theme_posted_on' ) ) :
+if ( ! function_exists( 'bb_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function bb_theme_posted_on() {
+function bb_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -22,47 +22,54 @@ function bb_theme_posted_on() {
 		esc_html( get_the_date() ),
 		esc_attr( get_the_modified_date( 'c' ) ),
 		esc_html( get_the_modified_date() )
-	); ?>
+	);
 
-	<ul class="post-meta">
-        <li><i class="fa fa-user"></i><span><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) );?>" title="<?php echo get_the_author(); ?>"><?php the_author(); ?></a></span></li>
-        <li><i class="fa fa-calendar"></i><span class="posted-on"><?php echo $time_string; ?></span></li>
-        <?php bb_theme_post_category(); ?>
-    </ul><?php
-    echo ( is_archive() ) ? '<hr>' : '';
+	$posted_on = sprintf(
+		esc_html_x( 'Posted on %s', 'post date', 'bb' ),
+		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+	);
+
+	$byline = sprintf(
+		esc_html_x( 'by %s', 'post author', 'bb' ),
+		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+	);
+
+	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+
 }
 endif;
 
-if ( ! function_exists( 'bb_theme_entry_footer' ) ) :
+if ( ! function_exists( 'bb_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function bb_theme_entry_footer() {
+function bb_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'bb-theme' ) );
-		if ( $categories_list && bb_theme_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'bb-theme' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+		$categories_list = get_the_category_list( esc_html__( ', ', 'bb' ) );
+		if ( $categories_list && bb_categorized_blog() ) {
+			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'bb' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'bb-theme' ) );
+		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'bb' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'bb-theme' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'bb' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', 'bb-theme' ), esc_html__( '1 Comment', 'bb-theme' ), esc_html__( '% Comments', 'bb-theme' ) );
+		/* translators: %s: post title */
+		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'bb' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
 		echo '</span>';
 	}
 
 	edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'bb-theme' ),
+			esc_html__( 'Edit %s', 'bb' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
 		'<span class="edit-link">',
@@ -76,8 +83,8 @@ endif;
  *
  * @return bool
  */
-function bb_theme_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'bb_theme_categories' ) ) ) {
+function bb_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'bb_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -89,41 +96,27 @@ function bb_theme_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'bb_theme_categories', $all_the_cool_cats );
+		set_transient( 'bb_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so bb_theme_categorized_blog should return true.
+		// This blog has more than 1 category so bb_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so bb_theme_categorized_blog should return false.
+		// This blog has only 1 category so bb_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in bb_theme_categorized_blog.
+ * Flush out the transients used in bb_categorized_blog.
  */
-function bb_theme_category_transient_flusher() {
+function bb_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// Like, beat it. Dig?
-	delete_transient( 'bb_theme_categories' );
+	delete_transient( 'bb_categories' );
 }
-add_action( 'edit_category', 'bb_theme_category_transient_flusher' );
-add_action( 'save_post',     'bb_theme_category_transient_flusher' );
-
-
-if ( ! function_exists( 'bb_theme_post_category' ) ) :
-/**
- * Get category attached to post.
- */
-function bb_theme_post_category() {
-    $category = get_the_category();
-    if ( !empty( $category ) ) {
-      $i = ( $category[0]->slug == "uncategorized" && array_key_exists( '1', $category ) ) ? 1 : 0 ;
-      echo '<li><i class="fa fa-folder-open-o"></i><span class="cat-links"><a href="' . get_category_link( $category[$i]->term_id ) . '" title="' . sprintf( __( "View all posts in %s", 'bb-theme' ), $category[$i]->name ) . '" ' . '>' . $category[$i]->name.'</a></span></li> ';
-    }
-}
-endif;
+add_action( 'edit_category', 'bb_category_transient_flusher' );
+add_action( 'save_post',     'bb_category_transient_flusher' );

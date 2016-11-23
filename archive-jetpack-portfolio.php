@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Bij Best
+ * @package BijBest
  */
 
 get_header(); ?>
