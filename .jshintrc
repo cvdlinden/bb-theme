@@ -8,7 +8,7 @@
   "immed": true,
   "noarg": true,
   "onevar": true,
-  "quotmark": "single",
+  "quotmark": "double",
   "trailing": true,
   "undef": true,
   "unused": true,
@@ -19,6 +19,8 @@
     "_": false,
     "Backbone": false,
     "jQuery": false,
+    "Masonry": false,
+    "cl_firstSectionHeight": true,
     "JSON": false,
     "wp": false
   }
