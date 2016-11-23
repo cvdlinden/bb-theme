@@ -1,14 +1,14 @@
 /*!
 Theme Name: Bij Best
-Theme URI: www.bijbest.nl
+Theme URI: http://www.bijbest.nl
 Author: Caspar
 Author URI: http://www.thinklemon.com
-Description: Bij Best theme
+Description: Bij Best theme (based on Shapely)
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: bb-theme
-Tags:
+Tags: left-sidebar, right-sidebar, featured-images, post-formats, threaded-comments, theme-options, full-width-template, grid-layout
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -23,6 +23,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
+# Fonts
 # Normalize
 # Typography
 # Elements
@@ -36,6 +37,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Widgets
 # Content
 	## Posts and pages
+	## Asides
 	## Comments
 # Infinite scroll
 # Media
@@ -52,6 +54,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
+
+/*--------------------------------------------------------------
+# Fonts (Google)
+--------------------------------------------------------------*/
+@import "https://fonts.googleapis.com/css?family=Open+Sans|Poly";
 
 /*--------------------------------------------------------------
 # Normalize

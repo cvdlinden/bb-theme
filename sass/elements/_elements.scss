@@ -12,10 +12,10 @@ body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
 }
 
-#page {
+header .container,
+#main .container,
+footer .container {
 	background: #fff;
-	width: 960px;
-	margin: 0 auto;
 }
 
 blockquote, q {
