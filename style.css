@@ -1,9 +1,9 @@
-/*
+/*!
 Theme Name: BijBest
 Theme URI: http://underscores.me/
 Author: Automattic
 Author URI: http://automattic.com/
-Description: Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Description: Bij Best theme. Based on _s by Automattic.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -23,6 +23,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
+# Fonts
 # Normalize
 # Typography
 # Elements
@@ -46,858 +47,333 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 # Fonts (Google)
 --------------------------------------------------------------*/
+
 @import "https://fonts.googleapis.com/css?family=Open+Sans|Poly";
 
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
-html {
-	font-family: sans-serif;
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust:     100%;
-}
-
-body {
-	margin: 0;
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-section,
-summary {
-	display: block;
-}
-
-audio,
-canvas,
-progress,
-video {
-	display: inline-block;
-	vertical-align: baseline;
-}
-
-audio:not([controls]) {
-	display: none;
-	height: 0;
-}
-
-[hidden],
-template {
-	display: none;
-}
-
-a {
-	background-color: transparent;
-}
-
-a:active,
-a:hover {
-	outline: 0;
-}
-
-abbr[title] {
-	border-bottom: 1px dotted;
-}
-
-b,
-strong {
-	font-weight: bold;
-}
-
-dfn {
-	font-style: italic;
-}
-
-h1 {
-	font-size: 2em;
-	margin: 0.67em 0;
-}
-
-mark {
-	background: #ff0;
-	color: #000;
-}
-
-small {
-	font-size: 80%;
-}
-
-sub,
-sup {
-	font-size: 75%;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
-}
-
-sup {
-	top: -0.5em;
-}
-
-sub {
-	bottom: -0.25em;
-}
-
-img {
-	border: 0;
-}
-
-svg:not(:root) {
-	overflow: hidden;
-}
-
-figure {
-	margin: 1em 40px;
-}
-
-hr {
-	box-sizing: content-box;
-	height: 0;
-}
-
-pre {
-	overflow: auto;
-}
-
-code,
-kbd,
-pre,
-samp {
-	font-family: monospace, monospace;
-	font-size: 1em;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-	color: inherit;
-	font: inherit;
-	margin: 0;
-}
-
-button {
-	overflow: visible;
-}
-
-button,
-select {
-	text-transform: none;
-}
-
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	-webkit-appearance: button;
-	cursor: pointer;
-}
-
-button[disabled],
-html input[disabled] {
-	cursor: default;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-	border: 0;
-	padding: 0;
-}
-
-input {
-	line-height: normal;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-	box-sizing: border-box;
-	padding: 0;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-	height: auto;
-}
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-	-webkit-appearance: none;
-}
-
-fieldset {
-	border: 1px solid #c0c0c0;
-	margin: 0 2px;
-	padding: 0.35em 0.625em 0.75em;
-}
-
-legend {
-	border: 0;
-	padding: 0;
-}
-
-textarea {
-	overflow: auto;
-}
-
-optgroup {
-	font-weight: bold;
-}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-td,
-th {
-	padding: 0;
-}
 
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-body,
-button,
-input,
-select,
-textarea {
-	color: #404040;
-	font-family: sans-serif;
-	font-size: 16px;
-	font-size: 1rem;
-	line-height: 1.5;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	clear: both;
-}
-
-p {
-	margin-bottom: 1.5em;
-}
-
-dfn,
-cite,
-em,
-i {
-	font-style: italic;
-}
-
-blockquote {
-	margin: 0 1.5em;
-}
-
-address {
-	margin: 0 0 1.5em;
-}
-
-pre {
-	background: #eee;
-	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-size: 15px;
-	font-size: 0.9375rem;
-	line-height: 1.6;
-	margin-bottom: 1.6em;
-	max-width: 100%;
-	overflow: auto;
-	padding: 1.6em;
-}
-
-code,
-kbd,
-tt,
-var {
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	font-size: 15px;
-	font-size: 0.9375rem;
-}
-
-abbr,
-acronym {
-	border-bottom: 1px dotted #666;
-	cursor: help;
-}
-
-mark,
-ins {
-	background: #fff9c0;
-	text-decoration: none;
-}
-
-big {
-	font-size: 125%;
-}
 
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
-html {
-	box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
-	box-sizing: inherit;
-}
-
-body {
-	background: #fff; /* Fallback for when there is no custom background color defined. */
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-	content: "";
-}
-
-blockquote,
-q {
-	quotes: "" "";
-}
-
-hr {
-	background-color: #ccc;
-	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
-}
-
-ul,
-ol {
-	margin: 0 0 1.5em 3em;
-}
-
-ul {
-	list-style: disc;
-}
-
-ol {
-	list-style: decimal;
-}
-
-li > ul,
-li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
-}
-
-dt {
-	font-weight: bold;
-}
-
-dd {
-	margin: 0 1.5em 1.5em;
-}
-
-img {
-	height: auto; /* Make sure images are scaled correctly. */
-	max-width: 100%; /* Adhere to container width. */
-}
-
-figure {
-	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
-}
-
-table {
-	margin: 0 0 1.5em;
-	width: 100%;
-}
 
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
-	background: #e6e6e6;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-	color: rgba(0, 0, 0, .8);
-	font-size: 12px;
-	font-size: 0.75rem;
-	line-height: 1;
-	padding: .6em 1em .4em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
-}
-
-button:focus,
-input[type="button"]:focus,
-input[type="reset"]:focus,
-input[type="submit"]:focus,
-button:active,
-input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active {
-	border-color: #aaa #bbb #bbb;
-	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
-}
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"],
-textarea {
-	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: 3px;
-}
-
-select {
-	border: 1px solid #ccc;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-input[type="number"]:focus,
-input[type="tel"]:focus,
-input[type="range"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="week"]:focus,
-input[type="time"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="color"]:focus,
-textarea:focus {
-	color: #111;
-}
-
-textarea {
-	width: 100%;
-}
 
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
-/*--------------------------------------------------------------
-## Links
---------------------------------------------------------------*/
-a {
-	color: royalblue;
-}
-
-a:visited {
-	color: purple;
-}
-
-a:hover,
-a:focus,
-a:active {
-	color: midnightblue;
-}
-
-a:focus {
-	outline: thin dotted;
-}
-
-a:hover,
-a:active {
-	outline: 0;
-}
-
-/*--------------------------------------------------------------
-## Menus
---------------------------------------------------------------*/
-.main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-}
-
-.main-navigation ul {
-	display: none;
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-}
-
-.main-navigation li {
-	float: left;
-	position: relative;
-}
-
-.main-navigation a {
-	display: block;
-	text-decoration: none;
-}
-
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 1.5em;
-	left: -999em;
-	z-index: 99999;
-}
-
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
-}
-
-.main-navigation ul ul a {
-	width: 200px;
-}
-
-.main-navigation ul ul li {
-
-}
-
-.main-navigation li:hover > a,
-.main-navigation li.focus > a {
-}
-
-.main-navigation ul ul :hover > a,
-.main-navigation ul ul .focus > a {
-}
-
-.main-navigation ul ul a:hover,
-.main-navigation ul ul a.focus {
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
-}
-
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-	left: 100%;
-}
-
-.main-navigation .current_page_item > a,
-.main-navigation .current-menu-item > a,
-.main-navigation .current_page_ancestor > a,
-.main-navigation .current-menu-ancestor > a {
-}
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
-	}
-}
-
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
-	margin: 0 0 1.5em;
-	overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-	float: left;
-	width: 50%;
-}
-
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
-}
 
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
-/* Text meant only for screen readers. */
-.screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-}
-
-.screen-reader-text:focus {
-	background-color: #f1f1f1;
-	border-radius: 3px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
-	color: #21759b;
-	display: block;
-	font-size: 14px;
-	font-size: 0.875rem;
-	font-weight: bold;
-	height: auto;
-	left: 5px;
-	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000; /* Above WP toolbar. */
-}
-
-/* Do not show the outline on the skip link target. */
-#content[tabindex="-1"]:focus {
-	outline: 0;
-}
 
 /*--------------------------------------------------------------
 # Alignments
 --------------------------------------------------------------*/
-.alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
-}
-
-.alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
-}
-
-.aligncenter {
-	clear: both;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
 
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
-.clear:before,
-.clear:after,
-.entry-content:before,
-.entry-content:after,
-.comment-content:before,
-.comment-content:after,
-.site-header:before,
-.site-header:after,
-.site-content:before,
-.site-content:after,
-.site-footer:before,
-.site-footer:after {
-	content: "";
-	display: table;
-	table-layout: fixed;
-}
-
-.clear:after,
-.entry-content:after,
-.comment-content:after,
-.site-header:after,
-.site-content:after,
-.site-footer:after {
-	clear: both;
-}
 
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
-.widget {
-	margin: 0 0 1.5em;
-}
-
-/* Make sure select elements fit in widgets. */
-.widget select {
-	max-width: 100%;
-}
 
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-/*--------------------------------------------------------------
-## Posts and pages
---------------------------------------------------------------*/
-.sticky {
-	display: block;
-}
-
-.hentry {
-	margin: 0 0 1.5em;
-}
-
-.byline,
-.updated:not(.published) {
-	display: none;
-}
-
-.single .byline,
-.group-blog .byline {
-	display: inline;
-}
-
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
-.page-links {
-	clear: both;
-	margin: 0 0 1.5em;
-}
-
-/*--------------------------------------------------------------
-## Comments
---------------------------------------------------------------*/
-.comment-content a {
-	word-wrap: break-word;
-}
-
-.bypostauthor {
-	display: block;
-}
 
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .posts-navigation, /* Older / Newer Posts Navigation (always hidden) */
-.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
-	display: none;
-}
-
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
-.infinity-end.neverending .site-footer {
-	display: block;
-}
 
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-.page-content .wp-smiley,
-.entry-content .wp-smiley,
-.comment-content .wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
-}
-
-/* Make sure embeds and iframes fit their containers. */
-embed,
-iframe,
-object {
-	max-width: 100%;
-}
 
 /*--------------------------------------------------------------
-## Captions
+# ThemeKraft defaults
 --------------------------------------------------------------*/
+
+/* My Minimal WordPress Styling comes here */
+
+/* This is a small security for too long strings titles */
+
+body {
+  word-wrap: break-word;
+}
+
+/* Alignment */
+
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Images and wp-captions should always fit and be responsive */
+
+img {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+}
+
+img[class*="wp-image-"] {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .wp-caption {
-	margin-bottom: 1.5em;
-	max-width: 100%;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 10px;
+}
+
+.wp-caption.aligncenter {
+  margin-bottom: 10px;
 }
 
 .wp-caption img[class*="wp-image-"] {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+  display: block;
 }
 
 .wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+  text-align: center;
+  margin-top: 10px;
 }
 
-.wp-caption-text {
-	text-align: center;
-}
+/* WP Gallery */
 
-/*--------------------------------------------------------------
-## Galleries
---------------------------------------------------------------*/
 .gallery {
-	margin-bottom: 1.5em;
+  margin-bottom: 1.5em;
 }
 
-.gallery-item {
-	display: inline-block;
-	text-align: center;
-	vertical-align: top;
-	width: 100%;
+.gallery a img {
+  border: none;
+  height: auto;
+  max-width: 90%;
 }
 
-.gallery-columns-2 .gallery-item {
-	max-width: 50%;
-}
-
-.gallery-columns-3 .gallery-item {
-	max-width: 33.33%;
-}
-
-.gallery-columns-4 .gallery-item {
-	max-width: 25%;
-}
-
-.gallery-columns-5 .gallery-item {
-	max-width: 20%;
-}
-
-.gallery-columns-6 .gallery-item {
-	max-width: 16.66%;
-}
-
-.gallery-columns-7 .gallery-item {
-	max-width: 14.28%;
-}
-
-.gallery-columns-8 .gallery-item {
-	max-width: 12.5%;
-}
-
-.gallery-columns-9 .gallery-item {
-	max-width: 11.11%;
+.gallery dd {
+  margin: 0;
 }
 
 .gallery-caption {
+  display: block;
+}
+
+/* Make sure embeds and iframes fit their containers */
+
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+
+/* Text meant only for screen readers */
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar */
+}
+
+/* Content */
+
+.main-content-inner {
+  padding-bottom: 1.5em;
+}
+
+.hentry {
+  margin: 0 0 1.5em;
+}
+
+.sticky {
+  display: block;
+}
+
+.bypostauthor {
+  display: block;
+}
+
+/* Clearing */
+
+.clear {
+  clear: both;
+}
+
+/* Navigation */
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:active > .dropdown-menu,
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-submenu > a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+
+.dropdown-submenu:active > a:after {
+  border-left-color: #ffffff;
+}
+
+.dropdown-submenu.pull-left {
+  float: none;
+}
+
+.dropdown-submenu.pull-left > .dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+
+/* Here some needed widget styles
+ * Most widgets are adapted in the file bootstrap-wp.js - and REALLY easy to modify! ;) */
+
+.widget {
+  margin-bottom: 2em;
+}
+
+.widget_nav_menu ul.sub-menu li,
+.widget_pages ul.children li {
+  padding-left: 15px;
+}
+
+/* Hiding the search widget's button in widgets. thats just too old-skool. :) but if you want it back, just delete the next line.
+ * Note: you can change the whole appearance of the search_form() function in our searchform.php */
+
+.widget_search .search-form input[type="submit"] {
+  display: none;
+}
+
+/* Make sure select elements fit in widgets */
+
+.widget select {
+  max-width: 100%;
+}
+
+/* Nested comments? They are threaded and nested already, you just need to add your own styling to finalize!
+ * For example with some margin, like the line below ;) Delete, modify, change classes in HTML if you desire another style */
+
+.comment .children {
+  margin-left: 1.5em;
+}
+
+/**
+* Some WP Theme Repository requirements
+*/
+
+.entry-meta {
+  clear: both;
+}
+
+/*
+ == Quick CSS styling tips ==
+
+ You can start off in a rough direction with some minimal styles.
+ See below for some tips. ;)
+
+
+ == Want to have the whole site wrapped? ==
+
+ Just fill the .container class with some background color to have a the whole site "wrapped".
+ This works so easy because every main part is wrapped only once into a container class by bootstrap.
+ Try out by decommenting the next line and go from there.
+
+ .container { background: #f9f9f9; border-right: 1px solid #eee; border-left: 1px solid #eee; }
+
+
+ == Want to wrap just the content and sidebar in Bootstrap style? ==
+
+ That one is a great example to show that some things are much cleaner and easier to do via just adding some HTML classes.
+ In this case, we will add just one CSS class "panel", look for example at the beginning in content.php!
+
+
+ == Infinite Scrolling by Jetpack ==
+ You can enable this cool feature by simply decommenting the lines below and make sure you use the same classes on the right place in your html..
+
+/* Globally hidden elements when Infinite Scroll is supported and in use.
+ * Older / Newer Posts Navigation (the pagination, must always be hidden), Theme Footer only when set to scrolling.. */
+
+/*
+.infinite-scroll .page-links,
+.infinite-scroll.neverending .site-footer {
+	display: none;
+}
+*/
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+
+/*
+.infinity-end.neverending .site-footer {
 	display: block;
 }
+*/
+
+/* Hey, if you don't need my comments anymore, just delete me! :)  */
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLnNjc3MiLCJfdGsuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7RUFvQkU7QUFFRjs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztnRUFzQmdFO0FBSWhFOztnRUFFZ0U7QUFDaEUsaUVBQU87QUFFUDs7Z0VBRWdFO0FBR2hFOztnRUFFZ0U7QUFHaEU7O2dFQUVnRTtBQUdoRTs7Z0VBRWdFO0FBR2hFOztnRUFFZ0U7QUFHaEU7O2dFQUVnRTtBQUdoRTs7Z0VBRWdFO0FBR2hFOztnRUFFZ0U7QUFHaEU7O2dFQUVnRTtBQUdoRTs7Z0VBRWdFO0FBR2hFOztnRUFFZ0U7QUFHaEU7O2dFQUVnRTtBQzlHaEU7O2dFQUVnRTtBQUVoRSw2Q0FBNkM7QUFFN0MsMERBQTBEO0FBQzFEO0VBQ0Msc0JBQXNCO0NBQ3RCOztBQUVELGVBQWU7QUFDZjtFQUNDLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1osb0JBQW9CO0NBQ3BCOztBQUNEO0VBQ0MsZ0JBQWdCO0VBQ2hCLGFBQWE7RUFDYixtQkFBbUI7Q0FDbkI7O0FBQ0Q7RUFDQyxZQUFZO0VBQ1osZUFBZTtFQUNmLGVBQWU7Q0FDZjs7QUFHRCxnRUFBZ0U7QUFDaEU7RUFDQyxzQkFBc0I7RUFDdEIsYUFBYTtFQUNiLGdCQUFnQjtDQUNoQjs7QUFDRDtFQUNDLGlCQUFpQjtFQUNqQixvQkFBb0I7Q0FDcEI7O0FBQ0Q7RUFDQyx1QkFBdUI7RUFDdkIsb0JBQW9CO0VBQ3BCLGdCQUFnQjtFQUNoQix1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLGdCQUFnQjtDQUNoQjs7QUFDRDtFQUNDLG9CQUFvQjtDQUNwQjs7QUFDRDtFQUNDLGVBQWU7Q0FDZjs7QUFDRDtFQUNDLG1CQUFtQjtFQUNuQixpQkFBaUI7Q0FDakI7O0FBRUQsZ0JBQWdCO0FBQ2hCO0VBQ0MscUJBQXFCO0NBQ3JCOztBQUNEO0VBQ0MsYUFBYTtFQUNiLGFBQWE7RUFDYixlQUFlO0NBQ2Y7O0FBQ0Q7RUFDQyxVQUFVO0NBQ1Y7O0FBQ0Q7RUFDQyxlQUFlO0NBQ2Y7O0FBRUQsdURBQXVEO0FBQ3ZEOzs7RUFHQyxnQkFBZ0I7Q0FDaEI7O0FBR0Qsd0NBQXdDO0FBQ3hDO0VBQ0MsK0JBQVU7RUFDViw4QkFBOEI7Q0FDOUI7O0FBQ0Q7OztFQUdDLDBCQUEwQjtFQUMxQixtQkFBbUI7RUFDbkIsMkNBQTRCO0VBQzVCLHNCQUFzQjtFQUN0QixlQUFlO0VBQ2YsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFVBQVU7RUFDVixvQkFBb0I7RUFDcEIsd0JBQXdCO0VBQ3hCLHNCQUFzQjtFQUN0QixTQUFTO0VBQ1QsWUFBWTtFQUNaLGdCQUFnQjtFQUFFLHNCQUFzQjtDQUN4Qzs7QUFHRCxhQUFhO0FBQ2I7RUFDQyxzQkFBc0I7Q0FDdEI7O0FBQ0Q7RUFDQyxrQkFBa0I7Q0FDbEI7O0FBQ0Q7RUFDQyxlQUFlO0NBQ2Y7O0FBQ0Q7RUFDQyxlQUFlO0NBQ2Y7O0FBR0QsY0FBYztBQUNkO0VBQ0MsWUFBWTtDQUNaOztBQUVELGdCQUFnQjtBQUVoQjtFQUFrQixtQkFBa0I7Q0FBRzs7QUFDdkM7RUFBaUMsT0FBTTtFQUFDLFdBQVU7RUFBd0UsNkJBQTRCO0NBQUc7O0FBQ3pKO0VBQ0EsZUFBZTtDQUNkOztBQUNEO0VBQTBCLGVBQWM7RUFBQyxhQUFZO0VBQUMsYUFBWTtFQUFDLFNBQVE7RUFBQyxVQUFTO0VBQUMsMEJBQXlCO0VBQUMsb0JBQW1CO0VBQUMsNEJBQTJCO0VBQUMsMkJBQTBCO0VBQUMsZ0JBQWU7RUFBQyxvQkFBbUI7Q0FBRzs7QUFDak87RUFBaUMsMkJBQTBCO0NBQUc7O0FBQzlEO0VBQTRCLFlBQVc7Q0FBRzs7QUFBRDtFQUEyQyxZQUFXO0VBQUMsa0JBQWlCO0VBQXdFLDZCQUE0QjtDQUFHOztBQUd4TjswRkFDMEY7QUFDMUY7RUFBVSxtQkFBbUI7Q0FBSTs7QUFDakM7RUFBZ0UsbUJBQW1CO0NBQUk7O0FBRXZGO21HQUNtRztBQUNuRztFQUFtRCxjQUFjO0NBQUk7O0FBRXJFLDhDQUE4QztBQUM5QztFQUNDLGdCQUFnQjtDQUNoQjs7QUFFRDs2SEFDNkg7QUFDNUg7RUFBcUIsbUJBQW1CO0NBQUk7O0FBRTdDOztFQUVFO0FBV0Y7RUFDQyxZQUFZO0NBQ1o7O0FEM0REOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozt1SEEwQnVIO0FBRXZIOzs7OztFQUtFO0FBRUYsd0hBQXdIO0FBRXhIOzs7O0VBSUU7QUFFRixxRUFBcUUiLCJmaWxlIjoic3R5bGUuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyohXHJcblRoZW1lIE5hbWU6IEJpakJlc3RcclxuVGhlbWUgVVJJOiBodHRwOi8vdW5kZXJzY29yZXMubWUvXHJcbkF1dGhvcjogQXV0b21hdHRpY1xyXG5BdXRob3IgVVJJOiBodHRwOi8vYXV0b21hdHRpYy5jb20vXHJcbkRlc2NyaXB0aW9uOiBCaWogQmVzdCB0aGVtZS4gQmFzZWQgb24gX3MgYnkgQXV0b21hdHRpYy5cclxuVmVyc2lvbjogMS4wLjBcclxuTGljZW5zZTogR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgdjIgb3IgbGF0ZXJcclxuTGljZW5zZSBVUkk6IGh0dHA6Ly93d3cuZ251Lm9yZy9saWNlbnNlcy9ncGwtMi4wLmh0bWxcclxuVGV4dCBEb21haW46IGJiXHJcblRhZ3M6XHJcblxyXG5UaGlzIHRoZW1lLCBsaWtlIFdvcmRQcmVzcywgaXMgbGljZW5zZWQgdW5kZXIgdGhlIEdQTC5cclxuVXNlIGl0IHRvIG1ha2Ugc29tZXRoaW5nIGNvb2wsIGhhdmUgZnVuLCBhbmQgc2hhcmUgd2hhdCB5b3UndmUgbGVhcm5lZCB3aXRoIG90aGVycy5cclxuXHJcbkJpakJlc3QgaXMgYmFzZWQgb24gVW5kZXJzY29yZXMgaHR0cDovL3VuZGVyc2NvcmVzLm1lLywgKEMpIDIwMTItMjAxNiBBdXRvbWF0dGljLCBJbmMuXHJcblVuZGVyc2NvcmVzIGlzIGRpc3RyaWJ1dGVkIHVuZGVyIHRoZSB0ZXJtcyBvZiB0aGUgR05VIEdQTCB2MiBvciBsYXRlci5cclxuXHJcbk5vcm1hbGl6aW5nIHN0eWxlcyBoYXZlIGJlZW4gaGVscGVkIGFsb25nIHRoYW5rcyB0byB0aGUgZmluZSB3b3JrIG9mXHJcbk5pY29sYXMgR2FsbGFnaGVyIGFuZCBKb25hdGhhbiBOZWFsIGh0dHA6Ly9uZWNvbGFzLmdpdGh1Yi5jb20vbm9ybWFsaXplLmNzcy9cclxuKi9cclxuXHJcbi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuPj4+IFRBQkxFIE9GIENPTlRFTlRTOlxyXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXHJcbiMgRm9udHNcclxuIyBOb3JtYWxpemVcclxuIyBUeXBvZ3JhcGh5XHJcbiMgRWxlbWVudHNcclxuIyBGb3Jtc1xyXG4jIE5hdmlnYXRpb25cclxuXHQjIyBMaW5rc1xyXG5cdCMjIE1lbnVzXHJcbiMgQWNjZXNzaWJpbGl0eVxyXG4jIEFsaWdubWVudHNcclxuIyBDbGVhcmluZ3NcclxuIyBXaWRnZXRzXHJcbiMgQ29udGVudFxyXG5cdCMjIFBvc3RzIGFuZCBwYWdlc1xyXG5cdCMjIENvbW1lbnRzXHJcbiMgSW5maW5pdGUgc2Nyb2xsXHJcbiMgTWVkaWFcclxuXHQjIyBDYXB0aW9uc1xyXG5cdCMjIEdhbGxlcmllc1xyXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXHJcbi8vIEBpbXBvcnQgXCJ2YXJpYWJsZXMtc2l0ZS92YXJpYWJsZXMtc2l0ZVwiO1xyXG4vLyBAaW1wb3J0IFwibWl4aW5zL21peGlucy1tYXN0ZXJcIjtcclxuXHJcbi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuIyBGb250cyAoR29vZ2xlKVxyXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXHJcbkBpbXBvcnQgXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9T3BlbitTYW5zfFBvbHlcIjtcclxuXHJcbi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuIyBOb3JtYWxpemVcclxuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0qL1xyXG4vLyBAaW1wb3J0IFwibm9ybWFsaXplXCI7XHJcblxyXG4vKi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXHJcbiMgVHlwb2dyYXBoeVxyXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXHJcbi8vIEBpbXBvcnQgXCJ0eXBvZ3JhcGh5L3R5cG9ncmFwaHlcIjtcclxuXHJcbi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuIyBFbGVtZW50c1xyXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXHJcbi8vIEBpbXBvcnQgXCJlbGVtZW50cy9lbGVtZW50c1wiO1xyXG5cclxuLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxyXG4jIEZvcm1zXHJcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi9cclxuLy8gQGltcG9ydCBcImZvcm1zL2Zvcm1zXCI7XHJcblxyXG4vKi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXHJcbiMgTmF2aWdhdGlvblxyXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXHJcbi8vIEBpbXBvcnQgXCJuYXZpZ2F0aW9uL25hdmlnYXRpb25cIjtcclxuXHJcbi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuIyBBY2Nlc3NpYmlsaXR5XHJcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi9cclxuLy8gQGltcG9ydCBcIm1vZHVsZXMvYWNjZXNzaWJpbGl0eVwiO1xyXG5cclxuLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxyXG4jIEFsaWdubWVudHNcclxuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0qL1xyXG4vLyBAaW1wb3J0IFwibW9kdWxlcy9hbGlnbm1lbnRzXCI7XHJcblxyXG4vKi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXHJcbiMgQ2xlYXJpbmdzXHJcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi9cclxuLy8gQGltcG9ydCBcIm1vZHVsZXMvY2xlYXJpbmdzXCI7XHJcblxyXG4vKi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXHJcbiMgV2lkZ2V0c1xyXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXHJcbi8vIEBpbXBvcnQgXCJzaXRlL3NlY29uZGFyeS93aWRnZXRzXCI7XHJcblxyXG4vKi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXHJcbiMgQ29udGVudFxyXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXHJcbi8vIEBpbXBvcnQgXCJzaXRlL3NpdGVcIjtcclxuXHJcbi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuIyBJbmZpbml0ZSBzY3JvbGxcclxuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0qL1xyXG4vLyBAaW1wb3J0IFwibW9kdWxlcy9pbmZpbml0ZS1zY3JvbGxcIjtcclxuXHJcbi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuIyBNZWRpYVxyXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXHJcbi8vIEBpbXBvcnQgXCJtZWRpYS9tZWRpYVwiO1xyXG5cclxuQGltcG9ydCBcInRrXCI7XHJcblxyXG4vKlxyXG4gPT0gUXVpY2sgQ1NTIHN0eWxpbmcgdGlwcyA9PVxyXG5cclxuIFlvdSBjYW4gc3RhcnQgb2ZmIGluIGEgcm91Z2ggZGlyZWN0aW9uIHdpdGggc29tZSBtaW5pbWFsIHN0eWxlcy5cclxuIFNlZSBiZWxvdyBmb3Igc29tZSB0aXBzLiA7KVxyXG5cclxuXHJcbiA9PSBXYW50IHRvIGhhdmUgdGhlIHdob2xlIHNpdGUgd3JhcHBlZD8gPT1cclxuXHJcbiBKdXN0IGZpbGwgdGhlIC5jb250YWluZXIgY2xhc3Mgd2l0aCBzb21lIGJhY2tncm91bmQgY29sb3IgdG8gaGF2ZSBhIHRoZSB3aG9sZSBzaXRlIFwid3JhcHBlZFwiLlxyXG4gVGhpcyB3b3JrcyBzbyBlYXN5IGJlY2F1c2UgZXZlcnkgbWFpbiBwYXJ0IGlzIHdyYXBwZWQgb25seSBvbmNlIGludG8gYSBjb250YWluZXIgY2xhc3MgYnkgYm9vdHN0cmFwLlxyXG4gVHJ5IG91dCBieSBkZWNvbW1lbnRpbmcgdGhlIG5leHQgbGluZSBhbmQgZ28gZnJvbSB0aGVyZS5cclxuXHJcbiAuY29udGFpbmVyIHsgYmFja2dyb3VuZDogI2Y5ZjlmOTsgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI2VlZTsgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjZWVlOyB9XHJcblxyXG5cclxuID09IFdhbnQgdG8gd3JhcCBqdXN0IHRoZSBjb250ZW50IGFuZCBzaWRlYmFyIGluIEJvb3RzdHJhcCBzdHlsZT8gPT1cclxuXHJcbiBUaGF0IG9uZSBpcyBhIGdyZWF0IGV4YW1wbGUgdG8gc2hvdyB0aGF0IHNvbWUgdGhpbmdzIGFyZSBtdWNoIGNsZWFuZXIgYW5kIGVhc2llciB0byBkbyB2aWEganVzdCBhZGRpbmcgc29tZSBIVE1MIGNsYXNzZXMuXHJcbiBJbiB0aGlzIGNhc2UsIHdlIHdpbGwgYWRkIGp1c3Qgb25lIENTUyBjbGFzcyBcInBhbmVsXCIsIGxvb2sgZm9yIGV4YW1wbGUgYXQgdGhlIGJlZ2lubmluZyBpbiBjb250ZW50LnBocCFcclxuXHJcblxyXG4gPT0gSW5maW5pdGUgU2Nyb2xsaW5nIGJ5IEpldHBhY2sgPT1cclxuIFlvdSBjYW4gZW5hYmxlIHRoaXMgY29vbCBmZWF0dXJlIGJ5IHNpbXBseSBkZWNvbW1lbnRpbmcgdGhlIGxpbmVzIGJlbG93IGFuZCBtYWtlIHN1cmUgeW91IHVzZSB0aGUgc2FtZSBjbGFzc2VzIG9uIHRoZSByaWdodCBwbGFjZSBpbiB5b3VyIGh0bWwuLlxyXG5cclxuLyogR2xvYmFsbHkgaGlkZGVuIGVsZW1lbnRzIHdoZW4gSW5maW5pdGUgU2Nyb2xsIGlzIHN1cHBvcnRlZCBhbmQgaW4gdXNlLlxyXG4gKiBPbGRlciAvIE5ld2VyIFBvc3RzIE5hdmlnYXRpb24gKHRoZSBwYWdpbmF0aW9uLCBtdXN0IGFsd2F5cyBiZSBoaWRkZW4pLCBUaGVtZSBGb290ZXIgb25seSB3aGVuIHNldCB0byBzY3JvbGxpbmcuLiAqL1xyXG5cclxuLypcclxuLmluZmluaXRlLXNjcm9sbCAucGFnZS1saW5rcyxcclxuLmluZmluaXRlLXNjcm9sbC5uZXZlcmVuZGluZyAuc2l0ZS1mb290ZXIge1xyXG5cdGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuKi9cclxuXHJcbi8qIFdoZW4gSW5maW5pdGUgU2Nyb2xsIGhhcyByZWFjaGVkIGl0cyBlbmQgd2UgbmVlZCB0byByZS1kaXNwbGF5IGVsZW1lbnRzIHRoYXQgd2VyZSBoaWRkZW4gKHZpYSAubmV2ZXJlbmRpbmcpIGJlZm9yZSAqL1xyXG5cclxuLypcclxuLmluZmluaXR5LWVuZC5uZXZlcmVuZGluZyAuc2l0ZS1mb290ZXIge1xyXG5cdGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbiovXHJcblxyXG4vKiBIZXksIGlmIHlvdSBkb24ndCBuZWVkIG15IGNvbW1lbnRzIGFueW1vcmUsIGp1c3QgZGVsZXRlIG1lISA6KSAgKi9cclxuIiwiLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxyXG4jIFRoZW1lS3JhZnQgZGVmYXVsdHNcclxuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0qL1xyXG5cclxuLyogTXkgTWluaW1hbCBXb3JkUHJlc3MgU3R5bGluZyBjb21lcyBoZXJlICovXHJcblxyXG4vKiBUaGlzIGlzIGEgc21hbGwgc2VjdXJpdHkgZm9yIHRvbyBsb25nIHN0cmluZ3MgdGl0bGVzICovXHJcbmJvZHkge1xyXG5cdHdvcmQtd3JhcDogYnJlYWstd29yZDtcclxufVxyXG5cclxuLyogQWxpZ25tZW50ICovXHJcbi5hbGlnbmxlZnQge1xyXG5cdGRpc3BsYXk6IGlubGluZTtcclxuXHRmbG9hdDogbGVmdDtcclxuXHRtYXJnaW4tcmlnaHQ6IDEuNWVtO1xyXG59XHJcbi5hbGlnbnJpZ2h0IHtcclxuXHRkaXNwbGF5OiBpbmxpbmU7XHJcblx0ZmxvYXQ6IHJpZ2h0O1xyXG5cdG1hcmdpbi1sZWZ0OiAxLjVlbTtcclxufVxyXG4uYWxpZ25jZW50ZXIge1xyXG5cdGNsZWFyOiBib3RoO1xyXG5cdGRpc3BsYXk6IGJsb2NrO1xyXG5cdG1hcmdpbjogMCBhdXRvO1xyXG59XHJcblxyXG5cclxuLyogSW1hZ2VzIGFuZCB3cC1jYXB0aW9ucyBzaG91bGQgYWx3YXlzIGZpdCBhbmQgYmUgcmVzcG9uc2l2ZSAqL1xyXG5pbWcge1xyXG5cdGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuXHRoZWlnaHQ6IGF1dG87XHJcblx0bWF4LXdpZHRoOiAxMDAlO1xyXG59XHJcbmltZ1tjbGFzcyo9XCJ3cC1pbWFnZS1cIl0ge1xyXG5cdG1hcmdpbi10b3A6IDEwcHg7XHJcblx0bWFyZ2luLWJvdHRvbTogMTBweDtcclxufVxyXG4ud3AtY2FwdGlvbiB7XHJcblx0Ym9yZGVyOiAxcHggc29saWQgI2NjYztcclxuXHRtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG5cdG1heC13aWR0aDogMTAwJTtcclxuXHRib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xyXG5cdGJvcmRlci1yYWRpdXM6IDRweDtcclxuXHRwYWRkaW5nOiAwIDEwcHg7XHJcbn1cclxuLndwLWNhcHRpb24uYWxpZ25jZW50ZXIge1xyXG5cdG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbn1cclxuLndwLWNhcHRpb24gaW1nW2NsYXNzKj1cIndwLWltYWdlLVwiXSB7XHJcblx0ZGlzcGxheTogYmxvY2s7XHJcbn1cclxuLndwLWNhcHRpb24gLndwLWNhcHRpb24tdGV4dCB7XHJcblx0dGV4dC1hbGlnbjogY2VudGVyO1xyXG5cdG1hcmdpbi10b3A6IDEwcHg7XHJcbn1cclxuXHJcbi8qIFdQIEdhbGxlcnkgKi9cclxuLmdhbGxlcnkge1xyXG5cdG1hcmdpbi1ib3R0b206IDEuNWVtO1xyXG59XHJcbi5nYWxsZXJ5IGEgaW1nIHtcclxuXHRib3JkZXI6IG5vbmU7XHJcblx0aGVpZ2h0OiBhdXRvO1xyXG5cdG1heC13aWR0aDogOTAlO1xyXG59XHJcbi5nYWxsZXJ5IGRkIHtcclxuXHRtYXJnaW46IDA7XHJcbn1cclxuLmdhbGxlcnktY2FwdGlvbiB7XHJcblx0ZGlzcGxheTogYmxvY2s7XHJcbn1cclxuXHJcbi8qIE1ha2Ugc3VyZSBlbWJlZHMgYW5kIGlmcmFtZXMgZml0IHRoZWlyIGNvbnRhaW5lcnMgKi9cclxuZW1iZWQsXHJcbmlmcmFtZSxcclxub2JqZWN0IHtcclxuXHRtYXgtd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcblxyXG4vKiBUZXh0IG1lYW50IG9ubHkgZm9yIHNjcmVlbiByZWFkZXJzICovXHJcbi5zY3JlZW4tcmVhZGVyLXRleHQge1xyXG5cdGNsaXA6IHJlY3QoMXB4LCAxcHgsIDFweCwgMXB4KTtcclxuXHRwb3NpdGlvbjogYWJzb2x1dGUgIWltcG9ydGFudDtcclxufVxyXG4uc2NyZWVuLXJlYWRlci10ZXh0OmhvdmVyLFxyXG4uc2NyZWVuLXJlYWRlci10ZXh0OmFjdGl2ZSxcclxuLnNjcmVlbi1yZWFkZXItdGV4dDpmb2N1cyB7XHJcblx0YmFja2dyb3VuZC1jb2xvcjogI2YxZjFmMTtcclxuXHRib3JkZXItcmFkaXVzOiAzcHg7XHJcblx0Ym94LXNoYWRvdzogMCAwIDJweCAycHggcmdiYSgwLCAwLCAwLCAwLjYpO1xyXG5cdGNsaXA6IGF1dG8gIWltcG9ydGFudDtcclxuXHRjb2xvcjogIzIxNzU5YjtcclxuXHRkaXNwbGF5OiBibG9jaztcclxuXHRmb250LXNpemU6IDE0cHg7XHJcblx0Zm9udC13ZWlnaHQ6IGJvbGQ7XHJcblx0aGVpZ2h0OiBhdXRvO1xyXG5cdGxlZnQ6IDVweDtcclxuXHRsaW5lLWhlaWdodDogbm9ybWFsO1xyXG5cdHBhZGRpbmc6IDE1cHggMjNweCAxNHB4O1xyXG5cdHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuXHR0b3A6IDVweDtcclxuXHR3aWR0aDogYXV0bztcclxuXHR6LWluZGV4OiAxMDAwMDA7IC8qIEFib3ZlIFdQIHRvb2xiYXIgKi9cclxufVxyXG5cclxuXHJcbi8qIENvbnRlbnQgKi9cclxuLm1haW4tY29udGVudC1pbm5lciB7XHJcblx0cGFkZGluZy1ib3R0b206IDEuNWVtO1xyXG59XHJcbi5oZW50cnkge1xyXG5cdG1hcmdpbjogMCAwIDEuNWVtO1xyXG59XHJcbi5zdGlja3kge1xyXG5cdGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbi5ieXBvc3RhdXRob3Ige1xyXG5cdGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcblxyXG5cclxuLyogQ2xlYXJpbmcgKi9cclxuLmNsZWFyIHtcclxuXHRjbGVhcjogYm90aDtcclxufVxyXG5cclxuLyogTmF2aWdhdGlvbiAqL1xyXG5cclxuLmRyb3Bkb3duLXN1Ym1lbnV7cG9zaXRpb246cmVsYXRpdmU7fVxyXG4uZHJvcGRvd24tc3VibWVudT4uZHJvcGRvd24tbWVudXt0b3A6MDtsZWZ0OjEwMCU7LXdlYmtpdC1ib3JkZXItcmFkaXVzOjAgNnB4IDZweCA2cHg7LW1vei1ib3JkZXItcmFkaXVzOjAgNnB4IDZweCA2cHg7Ym9yZGVyLXJhZGl1czowIDZweCA2cHggNnB4O31cclxuLmRyb3Bkb3duLXN1Ym1lbnU6YWN0aXZlPi5kcm9wZG93bi1tZW51LCAuZHJvcGRvd24tc3VibWVudTpob3Zlcj4uZHJvcGRvd24tbWVudSB7XHJcbmRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbi5kcm9wZG93bi1zdWJtZW51PmE6YWZ0ZXJ7ZGlzcGxheTpibG9jaztjb250ZW50OlwiIFwiO2Zsb2F0OnJpZ2h0O3dpZHRoOjA7aGVpZ2h0OjA7Ym9yZGVyLWNvbG9yOnRyYW5zcGFyZW50O2JvcmRlci1zdHlsZTpzb2xpZDtib3JkZXItd2lkdGg6NXB4IDAgNXB4IDVweDtib3JkZXItbGVmdC1jb2xvcjojY2NjY2NjO21hcmdpbi10b3A6NXB4O21hcmdpbi1yaWdodDotMTBweDt9XHJcbi5kcm9wZG93bi1zdWJtZW51OmFjdGl2ZT5hOmFmdGVye2JvcmRlci1sZWZ0LWNvbG9yOiNmZmZmZmY7fVxyXG4uZHJvcGRvd24tc3VibWVudS5wdWxsLWxlZnR7ZmxvYXQ6bm9uZTt9LmRyb3Bkb3duLXN1Ym1lbnUucHVsbC1sZWZ0Pi5kcm9wZG93bi1tZW51e2xlZnQ6LTEwMCU7bWFyZ2luLWxlZnQ6MTBweDstd2Via2l0LWJvcmRlci1yYWRpdXM6NnB4IDAgNnB4IDZweDstbW96LWJvcmRlci1yYWRpdXM6NnB4IDAgNnB4IDZweDtib3JkZXItcmFkaXVzOjZweCAwIDZweCA2cHg7fVxyXG5cclxuXHJcbi8qIEhlcmUgc29tZSBuZWVkZWQgd2lkZ2V0IHN0eWxlc1xyXG4gKiBNb3N0IHdpZGdldHMgYXJlIGFkYXB0ZWQgaW4gdGhlIGZpbGUgYm9vdHN0cmFwLXdwLmpzIC0gYW5kIFJFQUxMWSBlYXN5IHRvIG1vZGlmeSEgOykgKi9cclxuLndpZGdldCB7IG1hcmdpbi1ib3R0b206IDJlbTsgfVxyXG4ud2lkZ2V0X25hdl9tZW51IHVsLnN1Yi1tZW51IGxpLCAud2lkZ2V0X3BhZ2VzIHVsLmNoaWxkcmVuIGxpIHsgcGFkZGluZy1sZWZ0OiAxNXB4OyB9XHJcblxyXG4vKiBIaWRpbmcgdGhlIHNlYXJjaCB3aWRnZXQncyBidXR0b24gaW4gd2lkZ2V0cy4gdGhhdHMganVzdCB0b28gb2xkLXNrb29sLiA6KSBidXQgaWYgeW91IHdhbnQgaXQgYmFjaywganVzdCBkZWxldGUgdGhlIG5leHQgbGluZS5cclxuICogTm90ZTogeW91IGNhbiBjaGFuZ2UgdGhlIHdob2xlIGFwcGVhcmFuY2Ugb2YgdGhlIHNlYXJjaF9mb3JtKCkgZnVuY3Rpb24gaW4gb3VyIHNlYXJjaGZvcm0ucGhwICovXHJcbi53aWRnZXRfc2VhcmNoIC5zZWFyY2gtZm9ybSBpbnB1dFt0eXBlPVwic3VibWl0XCJdIHsgZGlzcGxheTogbm9uZTsgfVxyXG5cclxuLyogTWFrZSBzdXJlIHNlbGVjdCBlbGVtZW50cyBmaXQgaW4gd2lkZ2V0cyAqL1xyXG4ud2lkZ2V0IHNlbGVjdCB7XHJcblx0bWF4LXdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG4vKiBOZXN0ZWQgY29tbWVudHM/IFRoZXkgYXJlIHRocmVhZGVkIGFuZCBuZXN0ZWQgYWxyZWFkeSwgeW91IGp1c3QgbmVlZCB0byBhZGQgeW91ciBvd24gc3R5bGluZyB0byBmaW5hbGl6ZSFcclxuICogRm9yIGV4YW1wbGUgd2l0aCBzb21lIG1hcmdpbiwgbGlrZSB0aGUgbGluZSBiZWxvdyA7KSBEZWxldGUsIG1vZGlmeSwgY2hhbmdlIGNsYXNzZXMgaW4gSFRNTCBpZiB5b3UgZGVzaXJlIGFub3RoZXIgc3R5bGUgKi9cclxuIC5jb21tZW50IC5jaGlsZHJlbiB7IG1hcmdpbi1sZWZ0OiAxLjVlbTsgfVxyXG5cclxuLyoqXHJcbiogU29tZSBXUCBUaGVtZSBSZXBvc2l0b3J5IHJlcXVpcmVtZW50c1xyXG4qL1xyXG5cclxuLnN0aWNreSB7XHJcbn1cclxuXHJcbi5nYWxsZXJ5LWNhcHRpb24ge1xyXG59XHJcblxyXG4uYnlwb3N0YXV0aG9yIHtcclxufVxyXG5cclxuLmVudHJ5LW1ldGEge1xyXG5cdGNsZWFyOiBib3RoO1xyXG59XHJcbiJdfQ== */

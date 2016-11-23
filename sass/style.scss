@@ -43,8 +43,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
-@import "variables-site/variables-site";
-@import "mixins/mixins-master";
+// @import "variables-site/variables-site";
+// @import "mixins/mixins-master";
 
 /*--------------------------------------------------------------
 # Fonts (Google)
@@ -54,59 +54,106 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
-@import "normalize";
+// @import "normalize";
 
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-@import "typography/typography";
+// @import "typography/typography";
 
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
-@import "elements/elements";
+// @import "elements/elements";
 
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-@import "forms/forms";
+// @import "forms/forms";
 
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
-@import "navigation/navigation";
+// @import "navigation/navigation";
 
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
-@import "modules/accessibility";
+// @import "modules/accessibility";
 
 /*--------------------------------------------------------------
 # Alignments
 --------------------------------------------------------------*/
-@import "modules/alignments";
+// @import "modules/alignments";
 
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
-@import "modules/clearings";
+// @import "modules/clearings";
 
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
-@import "site/secondary/widgets";
+// @import "site/secondary/widgets";
 
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-@import "site/site";
+// @import "site/site";
 
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
-@import "modules/infinite-scroll";
+// @import "modules/infinite-scroll";
 
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-@import "media/media";
+// @import "media/media";
+
+@import "tk";
+
+/*
+ == Quick CSS styling tips ==
+
+ You can start off in a rough direction with some minimal styles.
+ See below for some tips. ;)
+
+
+ == Want to have the whole site wrapped? ==
+
+ Just fill the .container class with some background color to have a the whole site "wrapped".
+ This works so easy because every main part is wrapped only once into a container class by bootstrap.
+ Try out by decommenting the next line and go from there.
+
+ .container { background: #f9f9f9; border-right: 1px solid #eee; border-left: 1px solid #eee; }
+
+
+ == Want to wrap just the content and sidebar in Bootstrap style? ==
+
+ That one is a great example to show that some things are much cleaner and easier to do via just adding some HTML classes.
+ In this case, we will add just one CSS class "panel", look for example at the beginning in content.php!
+
+
+ == Infinite Scrolling by Jetpack ==
+ You can enable this cool feature by simply decommenting the lines below and make sure you use the same classes on the right place in your html..
+
+/* Globally hidden elements when Infinite Scroll is supported and in use.
+ * Older / Newer Posts Navigation (the pagination, must always be hidden), Theme Footer only when set to scrolling.. */
+
+/*
+.infinite-scroll .page-links,
+.infinite-scroll.neverending .site-footer {
+	display: none;
+}
+*/
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+
+/*
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+*/
+
+/* Hey, if you don't need my comments anymore, just delete me! :)  */
