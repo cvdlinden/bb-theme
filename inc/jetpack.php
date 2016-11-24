@@ -1,8 +1,7 @@
 <?php
 /**
- * Jetpack Compatibility File.
- *
- * @link https://jetpack.com/
+ * Jetpack Compatibility File
+ * See: http://jetpack.me/
  *
  * @package BijBest
  */
@@ -13,14 +12,14 @@
  * See: https://jetpack.com/support/infinite-scroll/
  * See: https://jetpack.com/support/responsive-videos/
  */
-function bb_jetpack_setup() {
+ function bb_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
-	add_theme_support( 'infinite-scroll', array(
-		'container' => 'main',
-		'render'    => 'bb_infinite_scroll_render',
-		'footer'    => 'page',
-	) );
-
+	if ( function_exists( 'add_theme_support' ) ) {
+		add_theme_support( 'infinite-scroll', array(
+			'container' => 'content',
+			'footer'    => 'page',
+		) );
+	}
 	// Add theme support for Responsive Videos.
 	add_theme_support( 'jetpack-responsive-videos' );
 }
