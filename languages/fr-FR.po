@@ -1,5 +1,5 @@
-# Translation of _tk in French (France)
-# This file is distributed under the same license as the _tk package.
+# Translation of bb in French (France)
+# This file is distributed under the same license as the bb package.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2016-10-04 20:50-0400\n"
@@ -8,19 +8,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Poedit 1.8.7\n"
-"Project-Id-Version: _tk\n"
+"Project-Id-Version: bb\n"
 "POT-Creation-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
 
 #. Description of the plugin/theme
-msgid "Hi, I am the ultra minimal starter theme _tk, ready for your next awesome WordPress project! I am the most seamless and minimalistic integration of Twitter Bootstrap Framework into the _s starter theme from Automattic, the guys behind WordPress. You can find me on GitHub. Fork me! I'm waiting for you ;)"
-msgstr "Bonjour, Je suis le thème starter ultra minimal _tk, prêt pour votre génial projet WordPress ! Je suis l'intégration du framework Bootstrap Twitter le plus minimaliste et homogène dans le thème starter _s d&rsquo;Automattic, les gars qui sont derrière WordPress. Vous pouvez me trouver sur GitHub. Forkez-moi ! Je vous attends ;)"
+msgid "Hi, I am the ultra minimal starter theme bb, ready for your next awesome WordPress project! I am the most seamless and minimalistic integration of Twitter Bootstrap Framework into the _s starter theme from Automattic, the guys behind WordPress. You can find me on GitHub. Fork me! I'm waiting for you ;)"
+msgstr "Bonjour, Je suis le thème starter ultra minimal bb, prêt pour votre génial projet WordPress ! Je suis l'intégration du framework Bootstrap Twitter le plus minimaliste et homogène dans le thème starter _s d&rsquo;Automattic, les gars qui sont derrière WordPress. Vous pouvez me trouver sur GitHub. Forkez-moi ! Je vous attends ;)"
 
 #. Theme Name of the plugin/theme
-msgid "_tk"
-msgstr "_tk"
+msgid "bb"
+msgstr "bb"
 
 #: sidebar.php:31
 msgid "Meta"
@@ -321,8 +321,8 @@ msgid "Author: %s"
 msgstr "Auteur : %s"
 
 #. Theme URI of the plugin/theme
-msgid "http://themekraft.com/store/_tk-free-wordpress-starter-theme-based-on-twitter-bootstrap/"
-msgstr "http://themekraft.com/store/_tk-free-wordpress-starter-theme-based-on-twitter-bootstrap/"
+msgid "http://themekraft.com/store/bb-free-wordpress-starter-theme-based-on-twitter-bootstrap/"
+msgstr "http://themekraft.com/store/bb-free-wordpress-starter-theme-based-on-twitter-bootstrap/"
 
 #. Author of the plugin/theme
 msgid "ThemeKraft"
