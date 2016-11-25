@@ -40,7 +40,9 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
+			// bb_content_nav( 'nav-below' );
+			//the_posts_navigation();
+			bb_pagination();
 
 		else :
 
@@ -51,6 +53,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php
-get_sidebar();
-get_footer();
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>
