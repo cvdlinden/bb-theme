@@ -27,6 +27,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Fonts
+# Bootstrap
 # Normalize
 # Typography
 # Elements
@@ -53,6 +54,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Fonts (Google)
 --------------------------------------------------------------*/
 @import "https://fonts.googleapis.com/css?family=Open+Sans|Poly";
+
+/*--------------------------------------------------------------
+# Bootstrap
+--------------------------------------------------------------*/
+@import "../libs/bootstrap-sass/assets/stylesheets/bootstrap";
 
 /*--------------------------------------------------------------
 # Normalize

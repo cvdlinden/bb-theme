@@ -122,7 +122,7 @@ function bb_scripts() {
 	wp_enqueue_style( 'bb-bootstrap-wp', get_template_directory_uri() . '/inc/css/bootstrap-wp.css' );
 
 	// load bootstrap css
-	wp_enqueue_style( 'bb-bootstrap', get_template_directory_uri() . '/inc/resources/bootstrap/css/bootstrap.min.css' );
+	//wp_enqueue_style( 'bb-bootstrap', get_template_directory_uri() . '/inc/resources/bootstrap/css/bootstrap.min.css' );
 
 	// load Font Awesome css
 	wp_enqueue_style( 'bb-font-awesome', get_template_directory_uri() . '/inc/css/font-awesome.min.css', false, '4.1.0' );
