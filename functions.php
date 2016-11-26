@@ -121,20 +121,12 @@ function bb_scripts() {
 	// Import the necessary TK Bootstrap WP CSS additions
 	wp_enqueue_style( 'bb-bootstrap-wp', get_template_directory_uri() . '/inc/css/bootstrap-wp.css' );
 
-	// load bootstrap css
-	//wp_enqueue_style( 'bb-bootstrap', get_template_directory_uri() . '/inc/resources/bootstrap/css/bootstrap.min.css' );
-	// ... merged with style.css
-
-	// load Font Awesome css
-	//wp_enqueue_style( 'bb-font-awesome', get_template_directory_uri() . '/inc/css/font-awesome.min.css', false, '4.1.0' );
-	// ... merged with style.css
-
 	// load bb styles
-	//wp_enqueue_style( 'bb-style', get_stylesheet_uri() );
+	//wp_enqueue_style( 'bb-style', get_stylesheet_uri() ); // Default WP Style.css
 	wp_enqueue_style( 'bb-style', get_template_directory_uri() . '/style.min.css' );
 
 	// load bootstrap js
-	wp_enqueue_script('bb-bootstrapjs', get_template_directory_uri() . '/inc/resources/bootstrap/js/bootstrap.min.js', array('jquery') );
+	wp_enqueue_script('bb-bootstrapjs', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array('jquery') );
 
 	// load bootstrap wp js
 	wp_enqueue_script( 'bb-bootstrapwp', get_template_directory_uri() . '/inc/js/bootstrap-wp.js', array('jquery') );

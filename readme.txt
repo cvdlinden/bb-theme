@@ -31,12 +31,9 @@ the _s starter theme from Automattic, the guys behind WordPress.
 
 1. Bootstrap
 
- * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-
- * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=f58353a31151a8c05d7c)
- * Config saved to config.json and https://gist.github.com/f58353a31151a8c05d7c
 
 2. wp_bootstrap_navwalker
 

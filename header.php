@@ -74,14 +74,15 @@
 					<!-- The WordPress Menu goes here -->
 					<?php wp_nav_menu(
 						array(
+							'menu'              => 'primary',
+							'menu_id'			=> 'main-menu',
 							'theme_location' 	=> 'primary',
-							'depth'             => 2,
+							'depth'             => 3,
 							'container'         => 'div',
 							'container_id'      => 'navbar-collapse',
 							'container_class'   => 'collapse navbar-collapse',
 							'menu_class' 		=> 'nav navbar-nav',
 							'fallback_cb' 		=> 'wp_bootstrap_navwalker::fallback',
-							'menu_id'			=> 'main-menu',
 							'walker' 			=> new wp_bootstrap_navwalker()
 						)
 					); ?>
