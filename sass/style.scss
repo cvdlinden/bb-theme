@@ -58,7 +58,12 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 # Bootstrap
 --------------------------------------------------------------*/
-@import "../libs/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "bootstrap/bootstrap";
+
+/*--------------------------------------------------------------
+# Font Awesome
+--------------------------------------------------------------*/
+@import "font-awesome/font-awesome";
 
 /*--------------------------------------------------------------
 # Normalize
