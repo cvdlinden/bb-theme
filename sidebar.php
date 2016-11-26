@@ -41,7 +41,8 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 						<?php wp_meta(); ?>
 					</ul>
 				</aside>
-			<?php else 
+
+			<?php else :
 				dynamic_sidebar( 'sidebar-1' ); 
 			endif ?>
 

@@ -668,7 +668,3 @@ msgid "%d item"
 msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
-
-#: template-home.php:29
-msgid "This is the \"Home Sidebar Section\", add some widgets to it to change it."
-msgstr ""
