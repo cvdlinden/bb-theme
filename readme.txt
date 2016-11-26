@@ -4,15 +4,14 @@ Theme Name: Bij Best
 Theme URI: http://www.bijbest.nl/
 Author: Caspar
 Author URI: http://thinklemon.com/
-Description: Theme standing on the shoulders of _s (Underscores) and _tk (ThemeKraft)
+Description: Bij Best theme. Standing on the shoulders of _s by Automattic and _tk by ThemeKraft.
+Version: 1.0
 Contributors: automattic, ThemeKraft
+License: GNU General Public License v3.0 /
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: gray, light, two-columns, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, sticky-post, theme-options, threaded-comments, translation-ready, post-formats
 Requires at least: 4.0
 Tested up to: 4.5.3
-Stable tag: 1.0.0
-Version: 1.1.10
-License: GNU General Public License v3.0 /
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
