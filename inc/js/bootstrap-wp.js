@@ -1,3 +1,4 @@
+// TODO: Clean up...
 jQuery( document ).ready( function( $ ) {
 
     // here for each comment reply link of wordpress
