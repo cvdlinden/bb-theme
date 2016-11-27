@@ -1,127 +1,121 @@
 <?php
-
 /**
  * Homepage parralax section Widget
  * Bij Best Theme
  */
-class bb_theme_home_portfolio extends WP_Widget
-{
-    function __construct(){
 
-        $widget_ops = array('classname' => 'bb_theme_home_portfolio','description' => esc_html__( "Bij Best Porfolio for Home Widget Section" ,'bb-theme') );
-        parent::__construct('bb_theme_home_portfolio', esc_html__('[Bij Best] Porfolio for Home Widget Section','bb-theme'), $widget_ops);
-    }
+class bb_home_portfolio extends WP_Widget {
 
-    function widget($args , $instance) {
-      extract($args);
-        $title = isset($instance['title']) ? $instance['title'] : '';
-        $body_content = isset($instance['body_content']) ? $instance['body_content'] : '';
+	function __construct(){
+		$widget_ops = array('classname' => 'bb_home_portfolio','description' => esc_html__( "Porfolio for Home Widget Section" ,'bb') );
+		parent::__construct('bb_home_portfolio', esc_html__('[BB] Porfolio for Home Widget Section','bb'), $widget_ops);
+	}
 
-        if (post_type_exists( 'jetpack-portfolio' ) ) {
+	function widget($args , $instance) {
+		extract($args);
+		$title = isset($instance['title']) ? $instance['title'] : '';
+		$body_content = isset($instance['body_content']) ? $instance['body_content'] : '';
 
-        echo $before_widget;
+		if (post_type_exists( 'jetpack-portfolio' ) ) {
 
-        /**
-     * Widget Content
-     */
-    ?>
-        <section class="projects bg-dark pb0">
-              <div class="container">
-                <div class="col-sm-12 text-center">
-                    <h3 class="mb32"><?php echo $title; ?></h3>
-                    <p class="mb40"><?php echo $body_content; ?></p>
-                </div>
-              </div><?php
+			echo $before_widget;
 
-              $portfolio_args = array(
-                  'post_type' => 'jetpack-portfolio',
-                  'posts_per_page' => 10,
-                  'ignore_sticky_posts' => 1
-              );
+			/**
+			* Widget Content
+			*/
+			?>
+			<section class="projects bg-dark pb0">
+				<div class="container">
+				<div class="col-sm-12 text-center">
+					<h3 class="mb32"><?php echo $title; ?></h3>
+					<p class="mb40"><?php echo $body_content; ?></p>
+				</div>
+				</div><?php
 
-              $portfolio_query = new WP_Query($portfolio_args);
+				$portfolio_args = array(
+					'post_type' => 'jetpack-portfolio',
+					'posts_per_page' => 10,
+					'ignore_sticky_posts' => 1
+				);
 
-              if ( $portfolio_query->have_posts() ) : ?>
+				$portfolio_query = new WP_Query($portfolio_args);
 
-                <div class="row masonry-loader fixed-center fadeOut">
-                    <div class="col-sm-12 text-center">
-                        <div class="spinner"></div>
-                    </div>
-                </div>
-                <div class="row masonry masonryFlyIn fadeIn"><?php
+				if ( $portfolio_query->have_posts() ) : ?>
 
-                  while ($portfolio_query->have_posts()) : $portfolio_query->the_post();
+				<div class="row masonry-loader fixed-center fadeOut">
+					<div class="col-sm-12 text-center">
+						<div class="spinner"></div>
+					</div>
+				</div>
+				<div class="row masonry masonryFlyIn fadeIn"><?php
 
-                  if( has_post_thumbnail() ){ ?>
-                    <div class="col-md-3 col-sm-6 masonry-item project fadeIn">
-                        <div class="image-tile inner-title hover-reveal text-center">
-                          <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                            <?php the_post_thumbnail( 'full' ); ?>
-                            <div class="title"><?php
-                              the_title('<h5 class="mb0">','</h5>');
+					while ($portfolio_query->have_posts()) : $portfolio_query->the_post();
 
-                              $project_types = wp_get_post_terms(get_the_ID(), 'jetpack-portfolio-type', array("fields" => "names"));
-                              if( !empty( $project_types ) ){
-                                echo '<span>'.implode(' / ',$project_types).'</span>';
-                              }?>
-                            </div>
-                          </a>
-                        </div>
-                    </div><?php
-                  }
-                  endwhile; ?>
-                </div><?php
-              endif;
-              wp_reset_postdata(); ?>
-      </section>
+					if( has_post_thumbnail() ){ ?>
+					<div class="col-md-3 col-sm-6 masonry-item project fadeIn">
+						<div class="image-tile inner-title hover-reveal text-center">
+							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+							<?php the_post_thumbnail( 'full' ); ?>
+							<div class="title"><?php
+								the_title('<h5 class="mb0">','</h5>');
 
+								$project_types = wp_get_post_terms(get_the_ID(), 'jetpack-portfolio-type', array("fields" => "names"));
+								if( !empty( $project_types ) ){
+								echo '<span>'.implode(' / ',$project_types).'</span>';
+								}?>
+							</div>
+							</a>
+						</div>
+					</div><?php
+					}
+					endwhile; ?>
+				</div><?php
+				endif;
+				wp_reset_postdata(); ?>
+			</section>
 
-    <?php
-
-    echo $after_widget;
-
-        }
-    }
+			<?php
+			echo $after_widget;
+		}
+	}
 
 
-    function form($instance) {
-        if(!isset($instance['title']) ) $instance['title']='';
-        if(!isset($instance['body_content'])) $instance['body_content']='';
-    ?>
+	function form($instance) {
+		if(!isset($instance['title']) ) $instance['title']='';
+		if(!isset($instance['body_content'])) $instance['body_content']='';
+		?>
 
-      <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php esc_html_e('Title ','bb-theme') ?></label>
+		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php esc_html_e('Title ','bb') ?></label>
+			<input  type="text" value="<?php echo esc_attr($instance['title']); ?>"
+					name="<?php echo $this->get_field_name('title'); ?>"
+					id="<?php $this->get_field_id('title'); ?>"
+					class="widefat" />
+		</p>
 
-      <input type="text" value="<?php echo esc_attr($instance['title']); ?>"
-                          name="<?php echo $this->get_field_name('title'); ?>"
-                          id="<?php $this->get_field_id('title'); ?>"
-                          class="widefat" />
-      </p>
+		<p><label for="<?php echo $this->get_field_id('body_content'); ?>"><?php esc_html_e('Content ','bb') ?></label>
+			<textarea   name="<?php echo $this->get_field_name('body_content'); ?>"
+						id="<?php $this->get_field_id('body_content'); ?>"
+						class="widefat"><?php echo esc_attr($instance['body_content']); ?></textarea>
+		</p><?php
+	}
 
-      <p><label for="<?php echo $this->get_field_id('body_content'); ?>"><?php esc_html_e('Content ','bb-theme') ?></label>
+	/**
+	* Sanitize widget form values as they are saved.
+	*
+	* @see WP_Widget::update()
+	*
+	* @param array $new_instance Values just sent to be saved.
+	* @param array $old_instance Previously saved values from database.
+	*
+	* @return array Updated safe values to be saved.
+	*/
+	public function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? esc_html( $new_instance['title'] ) : '';
+		$instance['body_content'] = ( ! empty( $new_instance['body_content'] ) ) ? wp_kses_post( $new_instance['body_content'] ) : '';
 
-      <textarea name="<?php echo $this->get_field_name('body_content'); ?>"
-                          id="<?php $this->get_field_id('body_content'); ?>"
-                          class="widefat"><?php echo esc_attr($instance['body_content']); ?></textarea>
-      </p><?php
-    }
-
-    /**
-   * Sanitize widget form values as they are saved.
-   *
-   * @see WP_Widget::update()
-   *
-   * @param array $new_instance Values just sent to be saved.
-   * @param array $old_instance Previously saved values from database.
-   *
-   * @return array Updated safe values to be saved.
-   */
-  public function update( $new_instance, $old_instance ) {
-    $instance = array();
-    $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? esc_html( $new_instance['title'] ) : '';
-    $instance['body_content'] = ( ! empty( $new_instance['body_content'] ) ) ? wp_kses_post( $new_instance['body_content'] ) : '';
-
-    return $instance;
-  }
+		return $instance;
+	}
 
 }
 

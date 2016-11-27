@@ -3,30 +3,30 @@
  *  WooCommerce Functions for Bij Best theme
  */
 
-if ( ! function_exists( 'bb_theme_woo_setup' ) ) :
+if ( ! function_exists( 'bb_woo_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
-function bb_theme_woo_setup() {
+function bb_woo_setup() {
 	/*
 	 * Enable support for WooCemmerce.
 	*/
 	add_theme_support( 'woocommerce' );
 
 }
-endif; // bb_theme_woo_setup
-add_action( 'after_setup_theme', 'bb_theme_woo_setup' );
+endif; // bb_woo_setup
+add_action( 'after_setup_theme', 'bb_woo_setup' );
 
 /**
  * Set Default Thumbnail Sizes for Woo Commerce Product Pages, on Theme Activation
 */
 global $pagenow;
 
-if ( is_admin() && isset( $_GET['activated'] ) && $pagenow == 'themes.php' ) add_action( 'init', 'bb_theme_woocommerce_image_dimensions', 1 );
+if ( is_admin() && isset( $_GET['activated'] ) && $pagenow == 'themes.php' ) add_action( 'init', 'bb_woocommerce_image_dimensions', 1 );
 /**
  * Define image sizes
 */
-function bb_theme_woocommerce_image_dimensions() {
+function bb_woocommerce_image_dimensions() {
   $catalog = array(
 		'width' 	=> '350',	// px
 		'height'	=> '453',	// px
@@ -59,24 +59,24 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wr
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
 // Now we can add our own, the same used for theme Pages
-add_action('woocommerce_before_main_content', 'bb_theme_wrapper_start', 10);
-add_action('woocommerce_after_main_content', 'bb_theme_wrapper_end', 10);
+add_action('woocommerce_before_main_content', 'bb_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'bb_wrapper_end', 10);
 
-function bb_theme_wrapper_start() {
-  $layout_class = ( function_exists('bb_theme_get_layout_class') ) ? bb_theme_get_layout_class(): '';
+function bb_wrapper_start() {
+  $layout_class = ( function_exists('bb_get_layout_class') ) ? bb_get_layout_class(): '';
   echo '<div id="primary" class="col-md-9 mb-xs-24 '.$layout_class.'">';
   echo '<main id="main" class="site-main" role="main">';
 }
 
 
-function bb_theme_wrapper_end() {
+function bb_wrapper_end() {
   echo '</main></div>';
 }
 
 // Replace WooComemrce button class with Bootstrap
-add_filter('woocommerce_loop_add_to_cart_link', 'bb_theme_commerce_switch_buttons');
+add_filter('woocommerce_loop_add_to_cart_link', 'bb_commerce_switch_buttons');
 
-function bb_theme_commerce_switch_buttons( $button ){
+function bb_commerce_switch_buttons( $button ){
 
   $button = str_replace('button', 'btn btn-filled', $button);
 
@@ -87,7 +87,7 @@ function bb_theme_commerce_switch_buttons( $button ){
 /**
  * Place a cart icon with number of items and total cost in the menu bar.
  */
-function bb_theme_woomenucart($menu, $args) {
+function bb_woomenucart($menu, $args) {
 
 	// Check if WooCommerce is active and add a new item to a menu assigned to Primary Navigation Menu location
 	if ( !in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) || 'primary' !== $args->theme_location )
@@ -95,12 +95,12 @@ function bb_theme_woomenucart($menu, $args) {
 
 	ob_start();
 		global $woocommerce;
-		$viewing_cart = __('View your shopping cart', 'bb-theme');
-		$start_shopping = __('Start shopping', 'bb-theme');
+		$viewing_cart = __('View your shopping cart', 'bb');
+		$start_shopping = __('Start shopping', 'bb');
 		$cart_url = $woocommerce->cart->get_cart_url();
 		$shop_page_url = get_permalink( woocommerce_get_page_id( 'shop' ) );
 		$cart_contents_count = $woocommerce->cart->cart_contents_count;
-		$cart_contents = sprintf(_n('%d item', '%d items', $cart_contents_count, 'bb-theme'), $cart_contents_count);
+		$cart_contents = sprintf(_n('%d item', '%d items', $cart_contents_count, 'bb'), $cart_contents_count);
 		$cart_total = $woocommerce->cart->get_cart_total();
 		// Uncomment the line below to hide nav menu cart item when there are no items in the cart
 		// if ( $cart_contents_count > 0 ) {
@@ -121,4 +121,4 @@ function bb_theme_woomenucart($menu, $args) {
 	return $menu . $social;
 
 }
-add_filter('wp_nav_menu_items','bb_theme_woomenucart', 10, 2);
+add_filter('wp_nav_menu_items','bb_woomenucart', 10, 2);

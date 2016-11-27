@@ -1,121 +1,115 @@
 <?php
-
 /**
  * Homepage parralax section Widget
  * Bij Best Theme
  */
-class bb_theme_home_testimonial extends WP_Widget
-{
-    function __construct(){
 
-        $widget_ops = array('classname' => 'bb_theme_home_testimonial','description' => esc_html__( "Bij Best Testimonial Widget Section" ,'bb-theme') );
-        parent::__construct('bb_theme_home_testimonial', esc_html__('[Bij Best] Testimonial Section For FrontPage','bb-theme'), $widget_ops);
-    }
+class bb_home_testimonial extends WP_Widget {
 
-    function widget($args , $instance) {
-    	extract($args);
-        $title = isset($instance['title']) ? $instance['title'] : esc_html__('People just like you are already loving Colorlib', 'bb-theme');
-        $limit = isset($instance['limit']) ? $instance['limit'] : 5;
-        $image_src = isset($instance['image_src']) ? $instance['image_src'] : '';
+	function __construct(){
+		$widget_ops = array('classname' => 'bb_home_testimonial','description' => esc_html__( "Testimonial Widget Section" ,'bb') );
+		parent::__construct('bb_home_testimonial', esc_html__('[bb] Testimonial Section For FrontPage','bb'), $widget_ops);
+	}
 
-        if (post_type_exists( 'jetpack-testimonial' ) ) {
-        echo $before_widget;
+	function widget($args , $instance) {
+		extract($args);
+		$title = isset($instance['title']) ? $instance['title'] : esc_html__('People just like you are already loving Colorlib', 'bb');
+		$limit = isset($instance['limit']) ? $instance['limit'] : 5;
+		$image_src = isset($instance['image_src']) ? $instance['image_src'] : '';
 
-        /**
-         * Widget Content
-         */
-        ?>
+		if (post_type_exists( 'jetpack-testimonial' ) ) {
+		echo $before_widget;
 
-      <?php
-      $testimonial_args = array(
-          'post_type' => 'jetpack-testimonial',
-          'posts_per_page' => $limit,
-          'ignore_sticky_posts' => 1
-      );
+		/**
+		 * Widget Content
+		 */
+		?>
 
-      $testimonial_query = new WP_Query($testimonial_args);
+		<?php
+		$testimonial_args = array(
+			'post_type' => 'jetpack-testimonial',
+			'posts_per_page' => $limit,
+			'ignore_sticky_posts' => 1
+		);
 
-      if ($testimonial_query->have_posts()) : ?>
-        <section class="parallax-section testimonial-section">
-              <div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo $image_src; ?>" style="height: 500px;">
-                  <div class="container align-transform">
-                      <div class="parallax-text image-bg testimonial">
-                          <div class="row">
-                              <div class="col-sm-12 text-center">
-                                  <h3><?php echo $title; ?></h3>
-                              </div>
-                          </div>
-                          <!--end of row-->
-                          <div class="row">
-                              <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                                  <div class="text-slider slider-arrow-controls text-center relative">
-                                      <ul class="slides" style="overflow: hidden;"><?php
-                                        while ($testimonial_query->have_posts()) : $testimonial_query->the_post(); ?>
-                                          <?php if ( get_the_title() != '' ) : ?>
-                                          <li>
-                                            <p><?php the_content(); ?></p>
-                                              <div class="testimonial-author-section"><?php
-                                                  the_post_thumbnail( 'thumbnail', array( 'class' => 'testimonial-img')); ?>
+		$testimonial_query = new WP_Query($testimonial_args);
 
-                                                  <div class="testimonial-author">
-                                                      <strong><?php echo get_the_title(); ?></strong>
-                                                  </div>
-                                              </div>
-                                          </li>
-                                          <?php endif; ?>
+		if ($testimonial_query->have_posts()) : ?>
+			<section class="parallax-section testimonial-section">
+				<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo $image_src; ?>" style="height: 500px;">
+					<div class="container align-transform">
+						<div class="parallax-text image-bg testimonial">
+							<div class="row">
+								<div class="col-sm-12 text-center">
+									<h3><?php echo $title; ?></h3>
+								</div>
+							</div>
+							<!--end of row-->
+							<div class="row">
+								<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+									<div class="text-slider slider-arrow-controls text-center relative">
+										<ul class="slides" style="overflow: hidden;"><?php
+											while ($testimonial_query->have_posts()) : $testimonial_query->the_post(); ?>
+											<?php if ( get_the_title() != '' ) : ?>
+											<li>
+												<p><?php the_content(); ?></p>
+												<div class="testimonial-author-section"><?php
+													the_post_thumbnail( 'thumbnail', array( 'class' => 'testimonial-img')); ?>
 
-                                        <?php endwhile; ?>
-                                      </ul>
-                                  </div>
-                              </div>
-                          </div>
-                          <!--end of row-->
-                      </div>
-                  </div>
-              <!--end of container-->
-              </div>
-            </section><?php
-          endif;
-          wp_reset_postdata();
-		echo $after_widget;
-      }
-    }
+													<div class="testimonial-author">
+														<strong><?php echo get_the_title(); ?></strong>
+													</div>
+												</div>
+											</li>
+											<?php endif; ?>
+
+											<?php endwhile; ?>
+										</ul>
+									</div>
+								</div>
+							</div><!--end of row-->
+						</div>
+					</div><!--end of container-->
+				</div>
+				</section><?php
+			endif;
+			wp_reset_postdata();
+			echo $after_widget;
+		}
+	}
 
 
-    function form($instance) {
-        if(!isset($instance['title']) ) $instance['title']='';
-        if(!isset($instance['limit']) ) $instance['limit']='';
-        if(!isset($instance['image_src'])) $instance['image_src']='';
+	function form($instance) {
+		if(!isset($instance['title']) ) $instance['title']='';
+		if(!isset($instance['limit']) ) $instance['limit']='';
+		if(!isset($instance['image_src'])) $instance['image_src']='';
+	?>
 
-    ?>
+		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php esc_html_e('Title ','bb') ?></label>
+			<input  type="text" value="<?php echo esc_attr($instance['title']); ?>"
+					name="<?php echo $this->get_field_name('title'); ?>"
+					id="<?php $this->get_field_id('title'); ?>"
+					class="widefat" />
+		</p>
 
-      <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php esc_html_e('Title ','bb-theme') ?></label>
+		<p><label for="<?php echo $this->get_field_id('limit'); ?>"><?php esc_html_e('Limit ','bb') ?></label>
+			<input  type="text" value="<?php echo esc_attr($instance['limit']); ?>"
+					name="<?php echo $this->get_field_name('limit'); ?>"
+					id="<?php $this->get_field_id('limit'); ?>"
+					class="widefat" />
+		</p>
 
-      <input type="text" value="<?php echo esc_attr($instance['title']); ?>"
-                          name="<?php echo $this->get_field_name('title'); ?>"
-                          id="<?php $this->get_field_id('title'); ?>"
-                          class="widefat" />
-      </p>
+		<p>
+			<label for="<?php echo $this->get_field_name( 'image_src' ); ?>"><?php _e( 'Background Parallax Image:', 'bb' ); ?></label>
+			<input name="<?php echo $this->get_field_name( 'image_src' ); ?>" id="<?php echo $this->get_field_id( 'image_src' ); ?>" class="widefat image_src" type="hidden" value="<?php echo esc_url( $instance['image_src'] ); ?>" /><br><br>
+			<button id="<?php echo $this->get_field_id('image_src_button'); ?>" class="button button-primary custom_media_button" data-fieldid="<?php echo $this->get_field_id('image_src'); ?>"><?php _e( 'Upload Image','bb' ); ?></button>
+			<img class="image_demo" id="img_demo_<?php echo $this->get_field_id( 'image_src' ); ?>" width="100px" height="100px" style="margin-left: 20px; vertical-align: top;" src="<?php echo esc_url( $instance['image_src'] ); ?>" />
+		</p>
 
-      <p><label for="<?php echo $this->get_field_id('limit'); ?>"><?php esc_html_e('Limit ','bb-theme') ?></label>
+		<?php
+	}
 
-      <input type="text" value="<?php echo esc_attr($instance['limit']); ?>"
-                          name="<?php echo $this->get_field_name('limit'); ?>"
-                          id="<?php $this->get_field_id('limit'); ?>"
-                          class="widefat" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_name( 'image_src' ); ?>"><?php _e( 'Background Parallax Image:', 'bb-theme' ); ?></label>
-        <input name="<?php echo $this->get_field_name( 'image_src' ); ?>" id="<?php echo $this->get_field_id( 'image_src' ); ?>" class="widefat image_src" type="hidden" value="<?php echo esc_url( $instance['image_src'] ); ?>" /><br><br>
-        <button id="<?php echo $this->get_field_id('image_src_button'); ?>" class="button button-primary custom_media_button" data-fieldid="<?php echo $this->get_field_id('image_src'); ?>"><?php _e( 'Upload Image','bb-theme' ); ?></button>
-        <img class="image_demo" id="img_demo_<?php echo $this->get_field_id( 'image_src' ); ?>" width="100px" height="100px" style="margin-left: 20px; vertical-align: top;" src="<?php echo esc_url( $instance['image_src'] ); ?>" />
-      </p>
-
-        <?php
-    }
-
-    /**
+	/**
 	 * Sanitize widget form values as they are saved.
 	 *
 	 * @see WP_Widget::update()
