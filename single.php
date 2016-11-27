@@ -9,22 +9,31 @@
 
 get_header(); ?>
 
-	<?php
-	while ( have_posts() ) : the_post();
+	<?php $layout_class = ( function_exists('bb_get_layout_class') ) ? bb_get_layout_class(): ''; ?>  
+	<div id="primary" class="col-md-9 mb-xs-24 <?php echo $layout_class; ?>">
+		<main id="main" class="site-main" role="main">
 
-		get_template_part( 'template-parts/content', get_post_format() );
+		<?php
+		while ( have_posts() ) : the_post();
 
-		// bb_content_nav( 'nav-below' );
-		//the_post_navigation();
-		bb_pagination();
+			get_template_part( 'template-parts/content', get_post_format() );
 
-		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) :
-			comments_template();
-		endif;
+			bb_author_bio();
 
-	endwhile; // End of the loop.
-	?>
+			// bb_content_nav( 'nav-below' );
+			//the_post_navigation();
+			bb_pagination();
+
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
+		endwhile; // End of the loop.
+		?>
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

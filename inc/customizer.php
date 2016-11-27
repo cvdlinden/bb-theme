@@ -39,7 +39,7 @@ function bb_customizer($wp_customize) {
 	$wp_customize->add_panel('bb_main_options', array(
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
-		'title' => __('bb Options', 'bb'),
+		'title' => __('Bij Best Options', 'bb'),
 		'description' => __('Panel to update bb theme options', 'bb'), // Include html tags such as <p>.
 		'priority' => 10, // Mixed with top-level-section hierarchy.
 	));

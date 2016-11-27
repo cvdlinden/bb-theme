@@ -11,13 +11,15 @@ get_header(); ?>
 
 	<?php
 	if ( have_posts() ) : ?>
-
+		
+		<?php if( !get_theme_mod('top_callout', true ) ) { ?>
 		<header class="page-header">
 			<?php
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
+				the_archive_description( '<div class="taxonomy-description">', '</div>' );
 			?>
-		</header><!-- .page-header -->
+		</header><!-- .page-header --><?php
+		} ?>
 
 		<?php
 		/* Start the Loop */

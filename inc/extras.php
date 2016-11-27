@@ -142,30 +142,10 @@ function bb_add_custom_table_class( $content ) {
 add_filter( 'the_content', 'bb_add_custom_table_class' );
 
 /**
- * Header menu (should you choose to use one)
- */
-if ( ! function_exists( 'bb_header_menu' ) ) :
-	function bb_header_menu() {
-		// display the WordPress Custom Menu if available
-		wp_nav_menu(array(
-			'menu'              => 'primary',
-			'menu_id'           => 'menu',
-			'theme_location'    => 'primary',
-			'depth'             => 3,
-			'container'         => 'div',
-			'container_class'   => 'collapse navbar-collapse navbar-ex1-collapse',
-			'menu_class'        => 'menu',
-			'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-			'walker'            => new wp_bootstrap_navwalker()
-		));
-	} /* end header menu */
-endif;
-
-/**
  * function to show the footer info, copyright information
  */
 function bb_footer_info() {
-	printf( esc_html__( 'Theme by %1$s Powered by %2$s', 'bb' ) , '<a href="https://colorlib.com/" target="_blank" title="Colorlib">Colorlib</a>', '<a href="http://wordpress.org/" target="_blank" title="WordPress.org">WordPress</a>');
+	printf( esc_html__( 'Theme: %1$s. Powered by: %2$s', 'bb' ) , 'BijBest', '_s - Automattic; _tk - ThemeKraft; Shapely - Colorlib');
 }
 
 /**
@@ -564,10 +544,26 @@ function bb_custom_comment_form(){
 	);
 
 	$comments_args = array(
-		'label_submit'      => __( 'Leave Comment', 'bb' ),
-		'comment_field' =>  '<textarea placeholder="'._x( 'Comment', 'noun', 'bb' ).'" id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required">' .
-							'</textarea>',
+		'id_form'           => 'commentform',  // that's the wordpress default value! delete it or edit it ;)
+		'id_submit'         => 'commentsubmit',
+		'title_reply'       => esc_html__( 'Leave a Reply', 'bb' ),  // that's the wordpress default value! delete it or edit it ;)
+		'title_reply_to'    => esc_html__( 'Leave a Reply to %s', 'bb' ),  // that's the wordpress default value! delete it or edit it ;)
+		'cancel_reply_link' => esc_html__( 'Cancel Reply', 'bb' ),  // that's the wordpress default value! delete it or edit it ;)
+		'label_submit'      => esc_html__( 'Post Comment', 'bb' ),  // that's the wordpress default value! delete it or edit it ;)
+
+		'comment_field' =>  '<p><textarea placeholder="Start typing..." id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+
+		'comment_notes_after' => '<p class="form-allowed-tags">' .
+		esc_html__( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'bb' ) .
+		'</p><div class="alert alert-info">' . allowed_tags() . '</div>',
+
 		'fields' => apply_filters( 'comment_form_default_fields', $fields )
+
+		// So, that was the needed stuff to have bootstrap basic styles for the form elements and buttons
+
+		// Basically you can edit everything here!
+		// Checkout the docs for more: http://codex.wordpress.org/Function_Reference/comment_form
+		// Another note: some classes are added in the bootstrap-wp.js - check from line 1
 	);
 	return $comments_args;
 }

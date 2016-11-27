@@ -23,7 +23,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-	<div id="comments" class="comments-area">
+<div id="comments" class="comments-area">
 
 	<?php
 	// You can start editing here -- including this comment!
@@ -51,7 +51,8 @@ if ( post_password_required() ) {
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-above -->
 		<?php endif; // Check for comment navigation. ?>
-
+		
+		<?php add_filter('comment_reply_link', 'bb_reply_link_class'); ?>
 		<ol class="comment-list media-list">
 			<?php
 				/* Loop through and list the comments. Tell wp_list_comments()
@@ -60,12 +61,16 @@ if ( post_password_required() ) {
 				 * define bb_comment() and that will be used instead.
 				 * See bb_comment() in includes/template-tags.php for more.
 				 */
-				wp_list_comments( array( 
+				wp_list_comments( array(
+					'style'      => 'ol',
+					'short_ping' => true,
 					'callback' => 'bb_comment', 
 					'avatar_size' => 50 ,
+					//'callback'   => 'bb_cb_comment'
 				) );
 			?>
 		</ol><!-- .comment-list -->
+		<?php remove_filter('comment_reply_link', 'bb_reply_link_class'); ?>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
@@ -82,36 +87,17 @@ if ( post_password_required() ) {
 
 	endif; // Check for have_comments().
 
-
 	// If comments are closed and there are comments, let's leave a little note, shall we?
 	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 
 		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'bb' ); ?></p>
 
-	<?php 
-	endif; 
+	<?php
+	endif;
 	
-	comment_form( $args = array(
-		'id_form'           => 'commentform',  // that's the wordpress default value! delete it or edit it ;)
-		'id_submit'         => 'commentsubmit',
-		'title_reply'       => esc_html__( 'Leave a Reply', 'bb' ),  // that's the wordpress default value! delete it or edit it ;)
-		'title_reply_to'    => esc_html__( 'Leave a Reply to %s', 'bb' ),  // that's the wordpress default value! delete it or edit it ;)
-		'cancel_reply_link' => esc_html__( 'Cancel Reply', 'bb' ),  // that's the wordpress default value! delete it or edit it ;)
-		'label_submit'      => esc_html__( 'Post Comment', 'bb' ),  // that's the wordpress default value! delete it or edit it ;)
-
-		'comment_field' =>  '<p><textarea placeholder="Start typing..." id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
-
-		'comment_notes_after' => '<p class="form-allowed-tags">' .
-		esc_html__( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'bb' ) .
-		'</p><div class="alert alert-info">' . allowed_tags() . '</div>'
-
-		// So, that was the needed stuff to have bootstrap basic styles for the form elements and buttons
-
-		// Basically you can edit everything here!
-		// Checkout the docs for more: http://codex.wordpress.org/Function_Reference/comment_form
-		// Another note: some classes are added in the bootstrap-wp.js - ckeck from line 1
-	));
-
+	/* comment form */
+	$comments_args = ( function_exists( 'bb_custom_comment_form' ) ) ? bb_custom_comment_form() : '';
+	comment_form($comments_args);
 	?>
 
 </div><!-- #comments -->
