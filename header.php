@@ -71,28 +71,34 @@
 									<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 								</div>
 
-								<!-- The WordPress Menu goes here -->
-								<?php wp_nav_menu(
-									array(
-										'menu'              => 'primary',
-										'menu_id'			=> 'main-menu',
-										'theme_location' 	=> 'primary',
-										'depth'             => 3,
-										'container'         => 'div',
-										'container_id'      => 'navbar-collapse',
-										'container_class'   => 'collapse navbar-collapse',
-										'menu_class' 		=> 'nav navbar-nav',
-										'fallback_cb' 		=> 'wp_bootstrap_navwalker::fallback',
-										'walker' 			=> new wp_bootstrap_navwalker()
-									)
-								); ?>
+								<div id="navbar-collapse" class="collapse navbar-collapse">
+									<!-- The WordPress Menu goes here -->
+									<?php wp_nav_menu(
+										array(
+											'menu'              => 'primary',
+											'menu_id'			=> 'main-menu',
+											'theme_location' 	=> 'primary',
+											'depth'             => 3,
+											'container'         => 'div',
+											'container_id'      => '',
+											'container_class'   => '',
+											'menu_class' 		=> 'nav navbar-nav',
+											'fallback_cb' 		=> 'wp_bootstrap_navwalker::fallback',
+											'walker' 			=> new wp_bootstrap_navwalker()
+										)
+									); ?>
+
+									<form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+										<div class="input-group">
+											<input type="text" class="form-control" placeholder="<?php __('Search', 'bb'); ?>" type="text" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" id="s">
+											<div class="input-group-btn">
+												<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+											</div>
+										</div>
+									</form>
+								</div>
 
 							</div><!-- .navbar -->
-
-							<div class="col-sm-3 col-md-3">
-								<i class="fa fa-search"></i> <span class="title"><?php _e("Site Search", 'bb'); ?></span>
-								<?php get_search_form(); ?>
-							</div>
 
 						</div><!-- .site-navigation-inner -->
 					</div><!-- .row -->

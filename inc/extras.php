@@ -319,7 +319,6 @@ function bb_search_form( $form ) {
 		<label class="screen-reader-text" for="s">' . __( 'Search for:', 'bb' ) . '</label>
 		<input type="text" placeholder="'.  __('Type Here', 'bb').'" type="text" value="' . get_search_query() . '" name="s" id="s" />
 		<input type="submit" class="btn btn-fillded searchsubmit" id="searchsubmit" value="'. esc_attr__( 'Search', 'bb' ) .'" />
-
 	</form>';
 
 	return $form;
