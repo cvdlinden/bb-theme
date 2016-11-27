@@ -18,16 +18,30 @@
 // Remember to do this for all content templates you want to have this,
 // for example content-single.php for the post single view. ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('post-snippet mb64'.( is_single() ? ' content': "")); ?>>
 
 	<header>
-		<h1 class="page-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+
+		<?php
+		if( has_post_thumbnail() && !is_single() ){ ?>
+			<a class="text-center" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php
+				the_post_thumbnail( 'bb-featured', array( 'class' => 'mb24')); ?>
+			</a><?php
+		}
+
+		if ( is_single() ) {
+			the_title( '<h1 class="page-title">', '</h1>' );
+		} else {
+			the_title( '<h2 class="page-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		}
+		?>
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php bb_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
+
 	</header><!-- .entry-header -->
 
 	<?php if ( is_search() || is_archive() ) : // Only display Excerpts for Search and Archive Pages ?>
@@ -36,19 +50,26 @@
 	</div><!-- .entry-summary -->
 	<?php else : ?>
 	<div class="entry-content">
-		<?php 
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'bb' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
+		<?php
+			if( !is_single() ){
+				the_excerpt();
+			}
+			else{
+				the_content( sprintf(
+					/* translators: %s: Name of current post. */
+					wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'bb' ), array( 'span' => array( 'class' => array() ) ) ),
+					the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				) );
+				
+				echo '<hr>';
+			}
 		?>
 		<?php bb_link_pages(); ?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 
-	<footer class="entry-footer">
+	<!-- <footer class="entry-footer">
 		<?php bb_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	</footer> -->
 
 </article><!-- #post-## -->
