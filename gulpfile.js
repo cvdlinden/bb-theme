@@ -19,6 +19,7 @@ var runSequence  = require('run-sequence');
 var wiredep 		 = require('wiredep').stream;
 var useref       = require('gulp-useref');
 var cleanCSS     = require('gulp-clean-css');
+var flatten      = require('gulp-flatten');
 
 var js_files     = ['js/*.js', '!js/*.min.js', '!js/lib/**/*.js'];
 var css_files     = ['*.css', '!*.min.css'];
@@ -80,7 +81,9 @@ gulp.task('lint', function() {
 gulp.task('compressJS', function() {
   return gulp.src(js_files, {base: '.'})
     .pipe(gulp.dest('.'))
-    .pipe(uglify())
+    .pipe(uglify({
+      preserveComments: 'all'
+    }))
     .pipe(rename({extname: '.min.js'}))
     .pipe(gulp.dest('.'));
 });
@@ -97,6 +100,24 @@ gulp.task('makepot', function () {
     }))
     .pipe(gulp.dest('languages'))
     .pipe(browserSync.reload({stream:true}));
+});
+
+gulp.task('collectLibCSS', function() {
+  return gulp.src(['libs/**/*.min.css'])
+    .pipe(flatten())
+    .pipe(gulp.dest('inc/css'));
+});
+
+gulp.task('collectLibFonts', function() {
+  return gulp.src(['libs/**/fonts/**'])
+    .pipe(flatten())
+    .pipe(gulp.dest('inc/fonts'));
+});
+
+gulp.task('collectLibJS', function() {
+  return gulp.src(['libs/**/*.min.js'])
+    .pipe(flatten())
+    .pipe(gulp.dest('js'));
 });
 
 gulp.task('browserSync', function() {
@@ -139,4 +160,4 @@ gulp.task('build', function(callback) {
   runSequence('build-clean', 'build-copy', 'build-zip', 'build-delete');
 });
 
-gulp.task('default', ['sass', 'compressCSS', 'lint', 'compressJS', 'makepot', 'watch', 'browserSync']);
+gulp.task('default', ['sass', 'compressCSS', 'lint', 'compressJS', 'makepot', 'collectLibCSS', 'collectLibFonts', 'collectLibJS', 'watch', 'browserSync']);

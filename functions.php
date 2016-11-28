@@ -169,14 +169,14 @@ function bb_scripts() {
 	wp_enqueue_style( 'bb-style', get_template_directory_uri() . '/style.min.css' );
 
 	// load bootstrap js
-	wp_enqueue_script('bb-bootstrapjs', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array('jquery') );
+	wp_enqueue_script('bb-bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery') );
 
 	// load bootstrap wp js
-	wp_enqueue_script( 'bb-bootstrapwp', get_template_directory_uri() . '/inc/js/bootstrap-wp.js', array('jquery') );
+	wp_enqueue_script( 'bb-bootstrapwp', get_template_directory_uri() . '/js/bootstrap-wp.min.js', array('jquery') );
 
-	wp_enqueue_script( 'bb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'bb-navigation', get_template_directory_uri() . '/js/navigation.min.js', array(), '20120206', true );
 
-	wp_enqueue_script( 'bb-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20160115', true );
+	wp_enqueue_script( 'bb-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.min.js', array(), '20160115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -191,17 +191,17 @@ function bb_scripts() {
 	}
 	
 	// Add slider JS
-	wp_enqueue_script( 'flexslider-js', get_template_directory_uri() . '/js/flexslider.min.js', array('jquery'), '20160222', true );
+	wp_enqueue_script( 'flexslider-js', get_template_directory_uri() . '/js/jquery.flexslider.min.js', array('jquery'), '20160222', true );
 	
 	if ( is_page_template( 'template-home.php' ) ) {
 		wp_enqueue_script( 'bb-parallax', get_template_directory_uri() . '/js/parallax.min.js', array('jquery'), '20160115', true );
 	}
 
 	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'bb-keyboard-image-navigation', get_template_directory_uri() . '/inc/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
+		wp_enqueue_script( 'bb-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.min.js', array( 'jquery' ), '20120202' );
 	}
 
-	wp_enqueue_script( 'bb-scripts', get_template_directory_uri() . '/js/bb-scripts.js', array('jquery'), '20160115', true );
+	wp_enqueue_script( 'bb-scripts', get_template_directory_uri() . '/js/bb-scripts.min.js', array('jquery'), '20160115', true );
 }
 add_action( 'wp_enqueue_scripts', 'bb_scripts' );
 

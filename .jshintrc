@@ -21,6 +21,8 @@
     "jQuery": false,
     "Masonry": false,
     "cl_firstSectionHeight": true,
+    "setupFloatingProjectFilters": true,
+    "updateFloatingFilters": true,
     "JSON": false,
     "wp": false
   }

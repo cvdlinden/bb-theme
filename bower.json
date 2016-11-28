@@ -14,5 +14,13 @@
     "libs",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "flexslider": "^2.6.3",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.1.1",
+    "jquery-cloneya": "cloneya#^1.1.0",
+    "parallax.js": "^1.4.2"
+  }
 }
