@@ -14,7 +14,7 @@
 	<div id="primary" class="col-md-12 mb-xs-24 <?php echo $layout_class; ?>">
 		<main id="main" class="site-main" role="main">
 
-			<?php if ( ! dynamic_sidebar( 'sidebar-home' ) ) : ?>
+			<?php if ( ! is_active_sidebar( 'sidebar-home' ) ) : ?>
 
 				<?php 
 				while ( have_posts() ) : the_post(); 

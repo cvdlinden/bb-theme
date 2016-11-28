@@ -92,7 +92,7 @@ gulp.task('makepot', function () {
   return gulp.src(['**/*.php'])
     .pipe(sort())
     .pipe(wpPot({
-      domain: 'bb-theme',
+      domain: 'bb',
       destFile: 'bb-theme.pot',
       package: 'Bij Best',
       bugReport: 'https://example.com/bugreport/',
