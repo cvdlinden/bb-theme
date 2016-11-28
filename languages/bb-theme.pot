@@ -111,39 +111,39 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: image.php:45
+#: image.php:23
 msgid "Published <span class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</a>"
 msgstr ""
 
-#: image.php:67, image.php:155, inc/extras.php:492, inc/template-tags.php:105
+#: image.php:34, image.php:78, inc/extras.php:492, inc/template-tags.php:105
 msgid "Edit"
 msgstr ""
 
-#: image.php:77
+#: image.php:39
 msgid "<span class=\"meta-nav\">&larr;</span> Previous"
 msgstr ""
 
-#: image.php:79
+#: image.php:40
 msgid "Next <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: image.php:119
+#: image.php:60
 msgid "Pages:"
 msgstr ""
 
-#: image.php:137
+#: image.php:69
 msgid "<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
 msgstr ""
 
-#: image.php:141
+#: image.php:71
 msgid "Comments are closed, but you can leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
 msgstr ""
 
-#: image.php:145
+#: image.php:73
 msgid "Trackbacks are closed, but you can <a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">post a comment</a>."
 msgstr ""
 
-#: image.php:149
+#: image.php:75
 msgid "Both comments and trackbacks are currently closed."
 msgstr ""
 
@@ -796,7 +796,7 @@ msgstr ""
 msgid "<span style=\"margin-left: 5px;\" class=\"glyphicon glyphicon-edit\"></span> Edit"
 msgstr ""
 
-#: inc/template-tags.php:169, inc/template-tags.php:175, template-parts/content-single.php:65, template-parts/content-single.php:71
+#: inc/template-tags.php:169, inc/template-tags.php:175, template-parts/content-single.php:33, template-parts/content-single.php:36
 msgid ", "
 msgstr ""
 
@@ -812,7 +812,7 @@ msgstr ""
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:191, template-home.php:40, template-parts/content-page.php:32, template-parts/content-single.php:137
+#: inc/template-tags.php:191, template-home.php:40, template-parts/content-page.php:32, template-parts/content-single.php:69
 msgid "Edit %s"
 msgstr ""
 
@@ -1078,17 +1078,17 @@ msgstr[1] ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: searchform.php:19
+#: searchform.php:10
 msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr ""
 
-#: searchform.php:19
+#: searchform.php:10
 msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: searchform.php:23
+#: searchform.php:12
 msgctxt "submit button"
 msgid "Search"
 msgstr ""
@@ -1113,19 +1113,19 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-single.php:81
+#: template-parts/content-single.php:41
 msgid "This entry was tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: template-parts/content-single.php:85
+#: template-parts/content-single.php:43
 msgid "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: template-parts/content-single.php:97
+#: template-parts/content-single.php:49
 msgid "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: template-parts/content-single.php:101
+#: template-parts/content-single.php:51
 msgid "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
