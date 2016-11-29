@@ -257,13 +257,13 @@ add_filter( 'nav_menu_link_attributes', 'bb_add_top_level_menu_url', 99, 3 );
 function bb_make_top_level_menu_clickable(){
 	if ( !wp_is_mobile() ) { ?>
 		<script type="text/javascript">
-			jQuery( document ).ready( function( $ ){
+		jQuery( document ).ready( function( $ ){
 			if ( $( window ).width() >= 767 ){
 				$( '.navbar-nav > li.menu-item > a' ).click( function(){
 					window.location = $( this ).attr( 'href' );
 				});
 			}
-			});
+		});
 		</script>
 	<?php }
 }

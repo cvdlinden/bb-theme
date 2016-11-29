@@ -28,13 +28,10 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 ----------------------------------------------------------------
 # Fonts
 # Bootstrap
-# Normalize
 # Typography
 # Elements
 # Forms
 # Navigation
-	## Links
-	## Menus
 # Accessibility
 # Alignments
 # Clearings
@@ -66,11 +63,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "font-awesome/font-awesome";
 
 /*--------------------------------------------------------------
-# Normalize
---------------------------------------------------------------*/
-// @import "normalize";
-
-/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 // @import "typography/typography";
@@ -88,7 +80,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
-// @import "navigation/navigation";
+@import "navigation/navigation";
 
 /*--------------------------------------------------------------
 # Accessibility
