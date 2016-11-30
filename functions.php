@@ -158,9 +158,6 @@ add_action( 'widgets_init', 'bb_widgets_init' );
  */
 function bb_scripts() {
 
-	// Import the necessary TK Bootstrap WP CSS additions
-	wp_enqueue_style( 'bb-bootstrap-wp', get_template_directory_uri() . '/inc/css/bootstrap-wp.css' );
-
 	// Add slider CSS
 	wp_enqueue_style( 'flexslider-css', get_template_directory_uri().'/inc/css/flexslider.css' );
 

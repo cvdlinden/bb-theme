@@ -83,19 +83,19 @@ msgstr ""
 msgid "Used for footer widget area"
 msgstr ""
 
-#: functions.php:366
+#: functions.php:363
 msgid "Left Sidebar"
 msgstr ""
 
-#: functions.php:366
+#: functions.php:363
 msgid "Right Sidebar"
 msgstr ""
 
-#: functions.php:366
+#: functions.php:363
 msgid "No Sidebar"
 msgstr ""
 
-#: functions.php:366
+#: functions.php:363
 msgid "Full Width"
 msgstr ""
 
