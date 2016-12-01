@@ -28,21 +28,22 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 ----------------------------------------------------------------
 # Fonts
 # Bootstrap
-# Typography
-# Elements
-# Forms
+# Font Awesome
+	# Typography
+	# Elements
+	# Forms
 # Navigation
 # Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-	## Posts and pages
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
+	# Alignments
+	# Clearings
+	# Widgets
+	# Content
+		## Posts and pages
+		## Comments
+	# Infinite scroll
+	# Media
+		## Captions
+		## Galleries
 # Theme specific
 --------------------------------------------------------------*/
 // @import "variables-site/variables-site";
@@ -86,7 +87,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
-// @import "modules/accessibility";
+@import "modules/accessibility";
 
 /*--------------------------------------------------------------
 # Alignments
@@ -119,6 +120,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 // @import "media/media";
 
 /*--------------------------------------------------------------
-# Theme specific
+# Theme specifics
 --------------------------------------------------------------*/
 @import "theme/theme";
