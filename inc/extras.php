@@ -119,17 +119,16 @@ function custom_password_form() {
 	global $post;
 	$label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
 	$o = '<form class="protected-post-form" action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post">
-	<div class="row">
-		<div class="col-lg-10">
-			<p>' . esc_html__( "This post is password protected. To view it please enter your password below:" ,'bb') . '</p>
-			<label for="' . $label . '">' . esc_html__( "Password:" ,'bb') . ' </label>
-		<div class="input-group">
-			<input class="form-control" value="' . get_search_query() . '" name="post_password" id="' . $label . '" type="password">
-			<span class="input-group-btn"><button type="submit" class="btn btn-default" name="submit" id="searchsubmit" value="' . esc_attr__( "Submit",'bb' ) . '">' . esc_html__( "Submit" ,'bb') . '</button>
-			</span>
+		<p>' . esc_html__( "This post is password protected. To view it please enter your password below:" ,'bb') . '</p>
+		<div class="row">
+			<div class="col-md-6">
+				<label for="' . $label . '">' . esc_html__( "Password:" ,'bb') . ' </label>
+				<div class="input-group">
+					<input class="form-control" value="' . get_search_query() . '" name="post_password" id="' . $label . '" type="password">
+					<span class="input-group-btn"><button type="submit" class="btn btn-primary" name="submit" id="searchsubmit" value="' . esc_attr__( "Submit",'bb' ) . '">' . esc_html__( "Submit" ,'bb') . '</button></span>
+				</div>
+			</div>
 		</div>
-		</div>
-	</div>
 	</form>';
 	return $o;
 }
