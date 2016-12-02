@@ -1,5 +1,5 @@
 /*!
- * TODO: Clean up...
+ * TODO: Clean up... and merge with bb-scripts.js
  */
 
 jQuery( document ).ready( function( $ ) {

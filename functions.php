@@ -209,7 +209,7 @@ function bb_admin_script($hook) {
 	
 	if( $hook == 'widgets.php' || $hook == 'customize.php' ){
 	  wp_enqueue_script( 'bb_cloneya_js', get_template_directory_uri() . '/js/jquery-cloneya.min.js', array( 'jquery' ) );
-	  wp_enqueue_script('widget-js', get_template_directory_uri() . '/js/widget.js', array('media-upload'), '1.0', true);
+	  wp_enqueue_script('widget-js', get_template_directory_uri() . '/js/widget.min.js', array('media-upload'), '1.0', true);
 	  
 	  // Add Font Awesome stylesheet    
 	  wp_enqueue_style( 'bb-icons', get_template_directory_uri().'/inc/css/font-awesome.min.css' );

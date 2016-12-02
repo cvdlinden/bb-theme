@@ -1,3 +1,6 @@
+/*!
+ * Custom theme scripts
+ */
 (function($){
 	
 	var cl_nav,

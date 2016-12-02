@@ -1,3 +1,6 @@
+/*!
+ * Widgets helper scripts (admin only)
+ */
 jQuery(document).ready( function($) {
 
 	/* Media uploader */
