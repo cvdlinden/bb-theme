@@ -107,7 +107,7 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: header.php:93, inc/extras.php:320, inc/extras.php:633
+#: header.php:93, header.php:98, inc/extras.php:319, inc/extras.php:636
 msgid "Search"
 msgstr ""
 
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Published <span class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</a>"
 msgstr ""
 
-#: image.php:34, image.php:78, inc/extras.php:491, inc/template-tags.php:105
+#: image.php:34, image.php:78, inc/extras.php:494, inc/template-tags.php:105
 msgid "Edit"
 msgstr ""
 
@@ -648,59 +648,51 @@ msgctxt "Read More"
 msgid "Read More"
 msgstr ""
 
-#: inc/extras.php:318
-msgid "Search for:"
-msgstr ""
-
-#: inc/extras.php:319
-msgid "Type Here"
-msgstr ""
-
-#: inc/extras.php:491
+#: inc/extras.php:494
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/extras.php:499, inc/template-tags.php:132
+#: inc/extras.php:502, inc/template-tags.php:132
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/extras.php:532
+#: inc/extras.php:535
 msgid "Your Name"
 msgstr ""
 
-#: inc/extras.php:536
+#: inc/extras.php:539
 msgid "Email Address"
 msgstr ""
 
-#: inc/extras.php:540
+#: inc/extras.php:543
 msgid "Your Website (optional)"
 msgstr ""
 
-#: inc/extras.php:547
+#: inc/extras.php:550
 msgid "Leave a Reply"
 msgstr ""
 
-#: inc/extras.php:548
+#: inc/extras.php:551
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: inc/extras.php:549
+#: inc/extras.php:552
 msgid "Cancel Reply"
 msgstr ""
 
-#: inc/extras.php:550
+#: inc/extras.php:553
 msgid "Post Comment"
 msgstr ""
 
-#: inc/extras.php:555
+#: inc/extras.php:558
 msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes:"
 msgstr ""
 
-#: inc/extras.php:630
+#: inc/extras.php:633
 msgid "get_theme_modblog_name?get_theme_modblog_name:Blog"
 msgstr ""
 
-#: inc/extras.php:636, inc/extras.php:639
+#: inc/extras.php:639, inc/extras.php:642
 msgid "Portfolio"
 msgstr ""
 

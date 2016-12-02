@@ -7,18 +7,26 @@
 
 	@media (min-width: $grid-float-breakpoint) {
 
-		// Enable dropdown on hover, when not in 'mobile mode'
-		// And smooth animate
-		#main-menu {
+		ul.nav {
+
+			// Enable dropdown on hover, when not in 'mobile mode'
+			// And smooth animate
 			> li.dropdown > ul {
 				display: block;
 				transition: all 0.25s ease;
 				opacity: 0;
 				visibility: hidden;
+				top: 40px;
 			}
 			> li.dropdown:hover > ul {
 				opacity: 1;
 				visibility: visible;
+				top: 50px;
+			}
+
+			ul.dropdown-menu form.form {
+				min-width: 260px;
+				margin: 10px 15px;
 			}
 		}
 

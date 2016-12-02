@@ -88,15 +88,26 @@
 										)
 									); ?>
 
-									<form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-										<div class="input-group">
-											<input type="text" class="form-control" placeholder="<?php __('Search', 'bb'); ?>" type="text" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" id="s">
-											<div class="input-group-btn">
-												<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-											</div>
-										</div>
-									</form>
-								</div>
+									<ul class="nav navbar-nav navbar-right" aria-expanded="false">
+										<li class="menu-item menu-item-has-children dropdown">
+											<a title="<?php echo __('Search', 'bb'); ?>" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><span class="visible-xs-inline">Search </span><i class="fa fa-search"></i></a>
+											<ul role="menu" class="dropdown-menu">
+												<li class="menu-item">
+													<form class="form" role="search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+														<div class="input-group">
+															<input type="text" class="form-control" placeholder="<?php echo __('Search', 'bb'); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" id="s">
+															<div class="input-group-btn">
+																<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+															</div>
+														</div>
+													</form>
+												</li>
+											</ul>
+
+										</li>
+									</ul>
+
+								</div><!-- .navbar-collapse -->
 
 							</div><!-- .navbar -->
 

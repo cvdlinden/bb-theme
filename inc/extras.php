@@ -315,9 +315,12 @@ if( !function_exists('bb_pagination') ) {
  */
 function bb_search_form( $form ) {
 	$form = '<form role="search" method="get" id="searchform" class="search-form" action="' . home_url( '/' ) . '" >
-		<label class="screen-reader-text" for="s">' . __( 'Search for:', 'bb' ) . '</label>
-		<input type="text" placeholder="'.  __('Type Here', 'bb').'" type="text" value="' . get_search_query() . '" name="s" id="s" />
-		<input type="submit" class="btn btn-fillded searchsubmit" id="searchsubmit" value="'. esc_attr__( 'Search', 'bb' ) .'" />
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="'.  __('Search', 'bb').'" value="' . get_search_query() . '" name="s" id="s" />
+			<div class="input-group-btn">
+				<button id="searchsubmit" class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+			</div>
+		</div>
 	</form>';
 
 	return $form;
