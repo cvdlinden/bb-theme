@@ -15,4 +15,6 @@
 
 	<!-- Include sniffs for PHP cross-version compatibility. -->
 	<rule ref="PHPCompatibility"/>
+	<config name="testVersion" value="5.2-7.1"/>
+
 </ruleset>

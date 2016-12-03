@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<?php // add the class "panel" below here to wrap the content-padder in Bootstrap style ;) ?>
+	<?php // Add the class "panel" below here to wrap the content-padder in Bootstrap style. ?>
 	<section class="content-padder error-404 not-found">
 
 			<header>
@@ -21,12 +21,12 @@ get_header(); ?>
 				<p><?php esc_html_e( 'Nothing could be found at this location. Maybe try a search?', 'bb' ); ?></p>
 
 				<?php
-					get_search_form();
+				get_search_form();
 
-					the_widget( 'WP_Widget_Recent_Posts' );
+				the_widget( 'WP_Widget_Recent_Posts' );
 
-					// Only show the widget if site has multiple categories.
-					if ( bb_categorized_blog() ) :
+				// Only show the widget if site has multiple categories.
+				if ( bb_categorized_blog() ) :
 				?>
 
 					<div class="widget widget_categories">
@@ -45,18 +45,18 @@ get_header(); ?>
 					</div><!-- .widget -->
 
 				<?php
-					endif;
+				endif;
 
-					/* translators: %1$s: smiley */
-					$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'bb' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
+				/* translators: %1$s: smiley */
+				$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'bb' ), convert_smilies( ':)' ) ) . '</p>';
+				the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
 
-					the_widget( 'WP_Widget_Tag_Cloud' );
+				the_widget( 'WP_Widget_Tag_Cloud' );
 				?>
 
 			</div><!-- .page-content -->
 
 	</section><!-- .content-padder -->
 
-<?php //get_sidebar(); ?>
+<?php // Obsolete get_sidebar();. ?>
 <?php get_footer(); ?>

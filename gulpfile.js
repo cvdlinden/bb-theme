@@ -20,6 +20,7 @@ var wiredep 		 = require('wiredep').stream;
 var useref       = require('gulp-useref');
 var cleanCSS     = require('gulp-clean-css');
 var flatten      = require('gulp-flatten');
+var phpcs        = require('gulp-phpcs');
 
 var js_files     = ['js/*.js', '!js/*.min.js', '!js/lib/**/*.js'];
 var css_files     = ['*.css', '!*.min.css'];
@@ -89,6 +90,20 @@ gulp.task('compressJS', function() {
     }))
     .pipe(rename({extname: '.min.js'}))
     .pipe(gulp.dest('.'));
+});
+
+gulp.task('phpcs', function () {
+    return gulp.src(['**/*.php'])
+        // Validate files using PHP Code Sniffer 
+        .pipe(phpcs({
+            //bin: 'src/vendor/bin/phpcs',
+            standard: 'codesniffer.ruleset.xml',
+            warningSeverity: 0
+        }))
+        // Log all problems that was found 
+        .pipe(phpcs.reporter('file', {
+          path: "codesniffer.report.txt"
+        }));
 });
 
 gulp.task('makepot', function () {
