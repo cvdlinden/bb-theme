@@ -15,7 +15,7 @@
 get_header(); ?>
 
 	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>  
-	<div id="primary" class="col-md-9 mb-xs-24 <?php echo esc_attr( $layout_class ); ?>"><?php
+	<div id="primary" class="col-md-12 <?php echo esc_attr( $layout_class ); ?>"><?php
 	if ( have_posts() ) :
 
 		if ( is_home() && ! is_front_page() ) : ?>

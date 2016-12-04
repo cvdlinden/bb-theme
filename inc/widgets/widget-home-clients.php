@@ -42,7 +42,7 @@ class BB_Home_Clients extends WP_Widget {
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h3 class="mb64 mb-xs-40"><?php echo $title; ?></h3>
+						<h3><?php echo $title; ?></h3>
 					</div>
 				</div>
 				<!--end of row-->

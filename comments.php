@@ -55,8 +55,8 @@ if ( post_password_required() ) {
 		<?php add_filter( 'comment_reply_link', 'bb_reply_link_class' ); ?>
 		<ol class="comment-list media-list">
 			<?php
-				/*
-				 * Loop through and list the comments. 
+				/**
+				 * Loop through and list the comments.
 				 * Tell wp_list_comments() to use bb_comment() to format the comments.
 				 * If you want to overload this in a child theme then you can
 				 * define bb_comment() and that will be used instead.
@@ -67,7 +67,6 @@ if ( post_password_required() ) {
 					'short_ping' => true,
 					'callback' => 'bb_comment',
 					'avatar_size' => 50,
-					// 'callback'   => 'bb_cb_comment'
 				) );
 			?>
 		</ol><!-- .comment-list -->

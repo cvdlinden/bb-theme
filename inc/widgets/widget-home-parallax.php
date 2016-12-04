@@ -41,11 +41,11 @@ class BB_Home_Parallax extends WP_Widget {
 
 		/* Classes */
 		$class_section = ( 'background-full' == $image_pos )  ? 'cover fullscreen image-bg' : ( ( 'background-small' == $image_pos ) ? 'small-screen image-bg p0' : ( ( 'right' == $image_pos ) ? 'bg-secondary' : ( ( 'bottom' == $image_pos ) ? 'bg-secondary pb0' : '' ) ) );
-		$class_pos_background_parallax = ( ( 'background-full' == $image_pos ) || ( 'background-small' == $image_pos ) ) ? 'top-parallax-section' : ( ( 'right' == $image_pos ) ? 'col-md-4 col-sm-5 mb-xs-24' : ( ( 'left' == $image_pos ) ? 'col-md-4 col-md-offset-1 col-sm-5 col-sm-offset-1' : ( ( 'bottom' == $image_pos ) ? 'col-sm-10 col-sm-offset-1 text-center' : ( ( 'top' == $image_pos ) ? 'col-sm-10 col-sm-offset-1 text-center mt30' : '' ) ) ) );
+		$class_pos_background_parallax = ( ( 'background-full' == $image_pos ) || ( 'background-small' == $image_pos ) ) ? 'top-parallax-section' : ( ( 'right' == $image_pos ) ? 'col-md-4 col-sm-5' : ( ( 'left' == $image_pos ) ? 'col-md-4 col-md-offset-1 col-sm-5 col-sm-offset-1' : ( ( 'bottom' == $image_pos ) ? 'col-sm-10 col-sm-offset-1 text-center' : ( ( 'top' == $image_pos ) ? 'col-sm-10 col-sm-offset-1 text-center mt30' : '' ) ) ) );
 		$class_pos_background = ( ( 'background-full' == $image_pos ) || ( 'background-small' == $image_pos ) ) ? 'col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center' : '';
 		$class_pos = ( 'left' == $image_pos || 'right' == $image_pos ) ? 'row align-children' : 'row';
 		$class_pos_right = ( 'right' == $image_pos ) ? 'col-md-7 col-md-offset-1 col-sm-6 col-sm-offset-1 text-center' : '';
-		$class_pos_left = ( 'left' == $image_pos ) ? 'col-md-7 col-sm-6 text-center mb-xs-24' : '';
+		$class_pos_left = ( 'left' == $image_pos ) ? 'col-md-7 col-sm-6 text-center' : '';
 		$class_fullscreen = ( 'background-full' == $image_pos ) ? 'fullscreen' : '';
 
 		/**

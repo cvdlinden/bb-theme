@@ -23,74 +23,74 @@ if ( ! function_exists( 'bb_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function bb_setup() {
-		global $cap, $content_width;
+	global $cap, $content_width;
 
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on BijBest, use a find and replace
-		 * to change 'bb' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'bb', get_template_directory() . '/languages' );
+	/*
+		* Make theme available for translation.
+		* Translations can be filed in the /languages/ directory.
+		* If you're building a theme based on BijBest, use a find and replace
+		* to change 'bb' to the name of your theme in all the template files.
+		*/
+	load_theme_textdomain( 'bb', get_template_directory() . '/languages' );
 
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
 
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
+	/*
+		* Let WordPress manage the document title.
+		* By adding theme support, we declare that this theme does not use a
+		* hard-coded <title> tag in the document head, and expect WordPress to
+		* provide it for us.
+		*/
+	add_theme_support( 'title-tag' );
 
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
-		add_theme_support( 'post-thumbnails' );
+	/*
+		* Enable support for Post Thumbnails on posts and pages.
+		*
+		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		*/
+	add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'bb' ),
-		) );
+	) );
 
-			/*
-			 * Switch default core markup for search form, comment form, and comments
-			 * to output valid HTML5.
-			 */
-			add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			) );
+	/*
+		* Switch default core markup for search form, comment form, and comments
+		* to output valid HTML5.
+		*/
+	add_theme_support( 'html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	) );
 
-			// This theme styles the visual editor with editor-style.css to match the theme style.
-			add_editor_style();
+	// This theme styles the visual editor with editor-style.css to match the theme style.
+	add_editor_style();
 
-			// Set up the WordPress core custom background feature.
-			add_theme_support( 'custom-background', apply_filters( 'bb_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-			) ) );
+	// Set up the WordPress core custom background feature.
+	add_theme_support( 'custom-background', apply_filters( 'bb_custom_background_args', array(
+		'default-color' => 'ffffff',
+		'default-image' => '',
+	) ) );
 
-			/*
-			 * Enable support for Post Formats.
-			 * See https://developer.wordpress.org/themes/functionality/post-formats/
-			 */
-			add_theme_support( 'post-formats', array(
-			'aside',
-			'image',
-			'video',
-			'quote',
-			'link',
-			) );
+	/*
+		* Enable support for Post Formats.
+		* See https://developer.wordpress.org/themes/functionality/post-formats/
+		*/
+	add_theme_support( 'post-formats', array(
+		'aside',
+		'image',
+		'video',
+		'quote',
+		'link',
+	) );
 
 }
-endif; // bb_setup
+endif; // bb_setup.
 add_action( 'after_setup_theme', 'bb_setup' );
 
 /**
@@ -159,17 +159,17 @@ add_action( 'widgets_init', 'bb_widgets_init' );
  */
 function bb_scripts() {
 
-	// Add slider CSS
+	// Add slider CSS.
 	wp_enqueue_style( 'flexslider-css', get_template_directory_uri() . '/inc/css/flexslider.css' );
 
-	// Add custom theme css
-	// wp_enqueue_style( 'bb-style', get_stylesheet_uri() ); // Default WP Style.css
+	// Add custom theme css.
+	// Add default WP Style.css through: wp_enqueue_style( 'bb-style', get_stylesheet_uri() );.
 	wp_enqueue_style( 'bb-style', get_template_directory_uri() . '/style.min.css' );
 
-	// load bootstrap js
+	// Load bootstrap.js.
 	wp_enqueue_script( 'bb-bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ) );
 
-	// load bootstrap wp js
+	// Load bootstrap-wp.js.
 	wp_enqueue_script( 'bb-bootstrapwp', get_template_directory_uri() . '/js/bootstrap-wp.min.js', array( 'jquery' ) );
 
 	wp_enqueue_script( 'bb-navigation', get_template_directory_uri() . '/js/navigation.min.js', array(), '20120206', true );
@@ -188,7 +188,7 @@ function bb_scripts() {
 		wp_enqueue_script( 'jquery-masonry', array( 'jquery' ), '20160115', true );
 	}
 
-	// Add slider JS
+	// Add slider JS.
 	wp_enqueue_script( 'flexslider-js', get_template_directory_uri() . '/js/jquery.flexslider.min.js', array( 'jquery' ), '20160222', true );
 
 	if ( is_page_template( 'template-home.php' ) ) {
@@ -203,16 +203,20 @@ function bb_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'bb_scripts' );
 
-// add admin scripts
+/**
+ * Add admin scripts.
+ *
+ * @param string $hook Hook for admin page.
+ */
 function bb_admin_script( $hook ) {
 
 	wp_enqueue_media();
 
-	if ( $hook == 'widgets.php' || $hook == 'customize.php' ) {
+	if ( 'widgets.php' === $hook || 'customize.php' === $hook ) {
 	  wp_enqueue_script( 'bb_cloneya_js', get_template_directory_uri() . '/js/jquery-cloneya.min.js', array( 'jquery' ) );
 	  wp_enqueue_script( 'widget-js', get_template_directory_uri() . '/js/widget.min.js', array( 'media-upload' ), '1.0', true );
 
-	  // Add Font Awesome stylesheet
+	  // Add Font Awesome stylesheet.
 	  wp_enqueue_style( 'bb-icons', get_template_directory_uri() . '/inc/css/font-awesome.min.css' );
 
 	}
@@ -273,19 +277,20 @@ if ( class_exists( 'WooCommerce' ) ) {
 }
 
 /**
- * Load Social Navition
+ * Load Social Navigation
  */
 require get_template_directory() . '/inc/socialnav.php';
 
 /**
- * Load Metboxes
+ * Load Metaboxes
  */
 require get_template_directory() . '/inc/metaboxes.php';
 
-/*
- --------------------------------------------------------------
-	   Theme Widgets
--------------------------------------------------------------- */
+/**
+ * --------------------------------------------------------------
+ * Theme Widgets
+ * --------------------------------------------------------------
+ */
 foreach ( glob( get_template_directory() . '/inc/widgets/*.php' ) as $lib_filename ) {
 	require_once( $lib_filename );
 }
@@ -365,6 +370,5 @@ function bb__register_required_plugins() {
 /*
  * GLOBALS
  */
-/* Globals */
 global $bb_site_layout;
 $bb_site_layout = array( 'pull-right' => esc_html__( 'Left Sidebar','bb' ), 'side-right' => esc_html__( 'Right Sidebar','bb' ), 'no-sidebar' => esc_html__( 'No Sidebar','bb' ),'full-width' => esc_html__( 'Full Width', 'bb' ) );

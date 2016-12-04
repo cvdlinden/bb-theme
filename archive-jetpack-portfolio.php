@@ -9,13 +9,14 @@
 
 get_header(); ?>
 
-	<?php
+	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>  
+	<div id="primary" class="col-md-12 <?php echo esc_attr( $layout_class ); ?>"><?php
 	if ( have_posts() ) : ?>
 		
 		<header>
 			<?php
-				echo ( get_theme_mod( 'portfolio_name' ) != '') ? '<h1 class="post-title">' . get_theme_mod( 'portfolio_name' ) . '</h1>' : '';
-				echo ( get_theme_mod( 'portfolio_description' ) != '') ? '<p>' . get_theme_mod( 'portfolio_description' ) . '</p>' : '';
+				echo ( '' !== get_theme_mod( 'portfolio_name' ) ) ? '<h1 class="post-title">' . esc_html( get_theme_mod( 'portfolio_name' ) ) . '</h1>' : '';
+				echo ( '' !== get_theme_mod( 'portfolio_description' ) ) ? '<p>' . esc_html( get_theme_mod( 'portfolio_description' ) ) . '</p>' : '';
 			?>
 		</header><!-- .page-header -->
 		
@@ -23,32 +24,42 @@ get_header(); ?>
 			<div class="col-sm-12 text-center">
 				<div class="spinner"></div>
 			</div>
-		</div>
+		</div><!-- .masonry-loader -->
 		<div class="masonry masonryFlyIn">
+			<?php
+			/* Start the Loop */
+			while ( have_posts() ) : the_post();
+			?>
+
+				<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-snippet col-md-3 col-sm-6 masonry-item project' ); ?>>
+					<div class="image-tile inner-title hover-reveal text-center"><?php
+					if ( has_post_thumbnail() ) { ?>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+							<?php the_post_thumbnail( 'medium' ); ?>
+							<div class="title"><?php
+								the_title( '<h5>','</h5>' );
+
+								$terms = get_the_terms( get_the_ID(), 'jetpack-portfolio-type' );
+								if ( $terms ) {
+									$out = array();
+									foreach ( $terms as $term ) {
+										$out[] = '<span>' . $term->name . '</span>';
+									}
+									echo wp_kses_post( join( ' / ', $out ) );
+								}
+								?>
+							</div>
+						</a><?php
+					} ?>
+					</div>
+				</article><!-- #post-## -->
+			
+			<?php
+			endwhile;
+			?>
+		</div><!-- .masonry -->
+
 		<?php
-		/* Start the Loop */
-		while ( have_posts() ) : the_post(); ?>
-
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-snippet col-md-3 col-sm-6 masonry-item project' ); ?>>
-				<div class="image-tile inner-title hover-reveal text-center"><?php
-				if ( has_post_thumbnail() ) { ?>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-						<?php the_post_thumbnail( 'medium' ); ?>
-						<div class="title"><?php
-							the_title( '<h5 class="mb0">','</h5>' );
-
-							$project_types = wp_get_post_terms( $post->ID, 'jetpack-portfolio-type', array( 'fields' => 'names' ) );
-							if ( ! empty( $project_types ) ) {
-							echo '<span>' . implode( ' / ',$project_types ) . '</span>';
-							}?>
-						</div>
-					</a><?php
-				} ?>
-				</div>
-			</article><!-- #post-## --><?php
-
-		endwhile;
-
 		the_posts_navigation();
 
 	else :
@@ -56,5 +67,6 @@ get_header(); ?>
 		get_template_part( 'template-parts/content', 'none' );
 
 	endif; ?>
+	</div><!-- #primary -->
 
 <?php get_footer(); ?>

@@ -28,17 +28,20 @@
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'bb' ); ?></a>
 
 		<header id="masthead" class="site-header" role="banner">
-		<?php // substitute the class "container-fluid" below if you want a wider content area ?>
+		<?php // Substitute the class "container-fluid" below if you want a wider content area. ?>
 			<div class="container">
 				<div class="row">
 					<div class="site-header-inner col-sm-12">
 
-						<?php $header_image = get_header_image();
+						<?php
+						$header_image = get_header_image();
 						if ( ! empty( $header_image ) ) { ?>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-								<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">
+								<img src="<?php esc_attr( header_image() ); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
 							</a>
-						<?php } // end if ( ! empty( $header_image ) ) ?>
+						<?php
+						} // end if
+						?>
 
 
 						<div class="site-branding">
@@ -51,7 +54,7 @@
 			</div><!-- .container -->
 
 			<nav id="site-navigation" class="site-navigation" role="navigation">
-				<?php // substitute the class "container-fluid" below if you want a wider content area ?>
+				<?php // Substitute the class "container-fluid" below if you want a wider content area. ?>
 				<div class="container">
 					<div class="row">
 						<div class="site-navigation-inner col-sm-12">
@@ -60,14 +63,14 @@
 								<div class="navbar-header">
 									<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
 									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-										<span class="sr-only"><?php _e( 'Toggle navigation','bb' ) ?> </span>
+										<span class="sr-only"><?php esc_html_e( 'Toggle navigation','bb' ) ?> </span>
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 									</button>
 
 									<!-- Your site title as branding in the menu -->
-									<?php // bb_get_header_logo(); ?>
+									<?php // bb_get_header_logo();. ?>
 									<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 								</div>
 
@@ -90,12 +93,12 @@
 
 									<ul class="nav navbar-nav navbar-right" aria-expanded="false">
 										<li class="menu-item menu-item-has-children dropdown">
-											<a title="<?php echo __( 'Search', 'bb' ); ?>" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><span class="visible-xs-inline">Search </span><i class="fa fa-search"></i></a>
+											<a title="<?php echo esc_attr__( 'Search', 'bb' ); ?>" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><span class="visible-xs-inline">Search </span><i class="fa fa-search"></i></a>
 											<ul role="menu" class="dropdown-menu">
 												<li class="menu-item">
 													<form class="form" role="search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 														<div class="input-group">
-															<input type="text" class="form-control" placeholder="<?php echo __( 'Search', 'bb' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" id="s">
+															<input type="text" class="form-control" placeholder="<?php echo esc_attr__( 'Search', 'bb' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" id="s">
 															<div class="input-group-btn">
 																<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
 															</div>

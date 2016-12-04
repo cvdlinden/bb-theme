@@ -31,7 +31,7 @@
 					<div class="footer-credits"><?php bb_footer_info(); ?></div>
 				</div><!-- .site-info -->
 				<div class="col-sm-6 text-right">
-					<?php if ( ! get_theme_mod( 'footer_social' ) ) { bb_social_icons();} ?>
+					<?php if ( ! get_theme_mod( 'footer_social' ) ) { bb_social_icons(); } ?>
 				</div>
 			</div>
 		</div><!-- close .container -->

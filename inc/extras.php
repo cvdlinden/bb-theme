@@ -473,57 +473,6 @@ if ( ! function_exists( 'bb_author_bio' ) ) {
 	}
 }
 
-/**
- * Custom comment template
- */
-function bb_cb_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
-	extract( $args, EXTR_SKIP );
-
-	if ( 'ul' == $args['style'] ) {
-		$tag = 'ul';
-		$add_below = 'comment';
-	} else {
-		$tag = 'li';
-		$add_below = 'div-comment';
-	}
-	?>
-	<li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
-		<?php if ( 'div' != $args['style'] ) : ?>
-		<div id="div-comment-<?php comment_ID() ?>" class="comment-body">
-		<?php endif; ?>
-			<div class="avatar">
-			<?php if ( $args['avatar_size'] != 0 ) { echo get_avatar( $comment, $args['avatar_size'] );} ?>
-			</div>
-			<div class="comment">
-				<b class="fn"><?php echo get_comment_author(); ?></b>
-				<div class="comment-date">
-				<time datetime="2016-01-28T12:43:17+00:00">
-				<?php
-					/* translators: 1: date, 2: time */
-					printf( __( '%1$s at %2$s', 'bb' ), get_comment_date(), get_comment_time() ); ?></time><?php edit_comment_link( __( 'Edit', 'bb' ), '  ', '' );
-				?>
-				</div>
-
-				<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-
-				<?php if ( $comment->comment_approved == '0' ) : ?>
-				<p>
-					<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'bb' ); ?></em>
-					<br />
-				</p>
-				<?php endif; ?>
-
-				<?php comment_text(); ?>
-
-			</div>
-		<?php if ( 'div' != $args['style'] ) : ?>
-			</div>
-		<?php endif; ?>
-	</li>
-<?php
-}
-
 /*
  * Filter to replace
  * Reply button class

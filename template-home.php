@@ -6,12 +6,13 @@
  *
  * @package BijBest
  */
+
 ?>
 
 <?php get_header(); ?>
 
 	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>  
-	<div id="primary" class="col-md-12 mb-xs-24 <?php echo $layout_class; ?>">
+	<div id="primary" class="col-md-12 <?php echo esc_attr( $layout_class ); ?>">
 		<main id="main" class="site-main" role="main">
 
 			<?php if ( ! is_active_sidebar( 'sidebar-home' ) ) : ?>
