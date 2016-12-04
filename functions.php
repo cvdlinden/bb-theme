@@ -149,6 +149,7 @@ function bb_widgets_init() {
 	register_widget( 'bb_home_CFA' );
 	register_widget( 'bb_home_clients' );
 	register_widget( 'bb_home_portfolio' );
+	register_widget( 'bb_social_widget' );
 	
 }
 add_action( 'widgets_init', 'bb_widgets_init' );

@@ -1,28 +1,42 @@
 <?php
 /**
  * Top Posts Widget
- * Bij Best Theme
+ *
+ * @package BijBest
  */
 
-class bb_recent_posts extends WP_Widget {
+/**
+ * Top Posts Widget Class.
+ *
+ * @see WP_Widget
+ */
+class BB_Recent_Posts extends WP_Widget {
 
+	/**
+	 * PHP5 constructor.
+	 */
 	function __construct() {
-		$widget_ops = array('classname' => 'bb-recent-posts col-sm-12 text-center', 'description' => esc_html__("Widget to show recent posts with thumbnails", 'bb'));
-		parent::__construct('bb_recent_posts', esc_html__('[BB] Recent Posts', 'bb'), $widget_ops);
+		$widget_ops = array( 'classname' => 'bb-recent-posts col-sm-12 text-center', 'description' => esc_html__( 'Widget to show recent posts with thumbnails', 'bb' ) );
+		parent::__construct( 'bb_recent_posts', esc_html__( '[BB] Recent Posts', 'bb' ), $widget_ops );
 	}
 
-	function widget($args, $instance) {
-		extract($args);
-		$title = isset($instance['title']) ? $instance['title'] : esc_html__('recent Posts', 'bb');
-		$limit = isset($instance['limit']) ? $instance['limit'] : 5;
+	/**
+	 * Echoes the widget content.
+	 *
+	 * @param array $args     Display arguments including 'before_title', 'after_title',
+	 *                        'before_widget', and 'after_widget'.
+	 * @param array $instance The settings for the particular instance of the widget.
+	 */
+	function widget( $args, $instance ) {
+		$title = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Recent Posts', 'bb' );
+		$limit = isset( $instance['limit'] ) ? $instance['limit'] : 5;
 
-		echo $before_widget;
+		echo $args['before_widget'];
 		?>
+
 		<section>
 			<?php
-			echo $before_title;
-			echo $title;
-			echo $after_title;
+			echo $args['before_title'] . $title . $args['after_title'];
 
 			/**
 			* Widget Content
@@ -36,28 +50,28 @@ class bb_recent_posts extends WP_Widget {
 				$featured_args = array(
 					'posts_per_page' => $limit,
 					'post_type' => 'post',
-					'ignore_sticky_posts' => 1
+					'ignore_sticky_posts' => 1,
 				);
 
-				$featured_query = new WP_Query($featured_args);
-				$bootstrapColWidth = floor(12/$featured_query->post_count);
-				if ($featured_query->have_posts()) : ?>
+				$featured_query = new WP_Query( $featured_args );
+				$bootstrap_col_width = floor( 12 / $featured_query->post_count );
+				if ( $featured_query->have_posts() ) : ?>
 
 					<ul class="link-list recent-posts"><?php
 
-					while ($featured_query->have_posts()) : $featured_query->the_post(); ?>
+					while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
 
-						<?php if (get_the_content() != '') : ?>
+						<?php if ( get_the_content() != '' ) : ?>
 
 						<!-- content -->
-						<li class="post-content col-sm-<?php echo $bootstrapColWidth; ?>">
-							<a href="<?php echo get_permalink(); ?>">
+						<li class="post-content col-sm-<?php echo esc_attr( $bootstrap_col_width ); ?>">
+							<a href="<?php echo esc_url( get_permalink() ); ?>">
 							<?php if ( has_post_thumbnail() ) {
 								the_post_thumbnail();
 							} ?>
 							<?php echo get_the_title(); ?>
 							</a>
-							<span class="date"><?php echo get_the_date('d M , Y'); ?></span>
+							<span class="date"><?php echo get_the_date( 'd M , Y' ); ?></span>
 						</li>
 						<!-- end content -->
 
@@ -72,29 +86,37 @@ class bb_recent_posts extends WP_Widget {
 
 			</div> <!-- end posts wrapper -->
 		</section>
+
 		<?php
-		echo $after_widget;
+		echo $args['after_widget'];
 	}
 
-	function form($instance) {
+	/**
+	 * Outputs the settings update form.
+	 *
+	 * @param array $instance Current settings.
+	 */
+	function form( $instance ) {
 
-		if (!isset($instance['title']))
-		$instance['title'] = esc_html__('recent Posts', 'bb');
-		if (!isset($instance['limit']))
-		$instance['limit'] = 5;
+		if ( ! isset( $instance['title'] ) ) {
+			$instance['title'] = esc_html__( 'Recent Posts', 'bb' );
+		}
+		if ( ! isset( $instance['limit'] ) ) {
+			$instance['limit'] = 5;
+		}
 		?>
 
-		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php esc_html_e('Title', 'bb') ?></label>
-			<input  type="text" value="<?php echo esc_attr($instance['title']); ?>"
-					name="<?php echo $this->get_field_name('title'); ?>"
-					id="<?php $this->get_field_id('title'); ?>"
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'bb' ) ?></label>
+			<input  type="text" value="<?php echo esc_attr( $instance['title'] ); ?>"
+					name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
+					id="<?php $this->get_field_id( 'title' ); ?>"
 					class="widefat" />
 		</p>
 
-		<p><label for="<?php echo $this->get_field_id('limit'); ?>"><?php esc_html_e('Limit Posts Number', 'bb') ?></label>
-			<input  type="text" value="<?php echo esc_attr($instance['limit']); ?>"
-					name="<?php echo $this->get_field_name('limit'); ?>"
-					id="<?php $this->get_field_id('limit'); ?>"
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'limit' ) ); ?>"><?php esc_html_e( 'Limit Posts Number', 'bb' ) ?></label>
+			<input  type="text" value="<?php echo esc_attr( $instance['limit'] ); ?>"
+					name="<?php echo esc_attr( $this->get_field_name( 'limit' ) ); ?>"
+					id="<?php $this->get_field_id( 'limit' ); ?>"
 					class="widefat" />
 		<p>
 

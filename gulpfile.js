@@ -92,8 +92,8 @@ gulp.task('compressJS', function() {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('phpcs', function () {
-    return gulp.src(['**/*.php'])
+gulp.task('codesniffer', function () {
+    return gulp.src(['inc/widgets/**/*.php'])
         // Validate files using PHP Code Sniffer 
         .pipe(phpcs({
             //bin: 'src/vendor/bin/phpcs',
