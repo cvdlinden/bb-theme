@@ -36,22 +36,20 @@
 			$tag_list = get_the_tag_list( '', esc_html__( ', ', 'bb' ) );
 
 			if ( ! bb_categorized_blog() ) {
-				// This blog only has 1 category so we just need to worry about tags in the meta text.
-				if ( '' != $tag_list ) {
-					$meta_text = esc_html__( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'bb' );
+			// This blog only has 1 category so we just need to worry about tags in the meta text.
+			if ( '' != $tag_list ) {
+				$meta_text = esc_html__( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'bb' );
 				} else {
-					$meta_text = esc_html__( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'bb' );
+				$meta_text = esc_html__( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'bb' );
 				}
-
-			} else {
-				// But this blog has loads of categories so we should probably display them here.
-				if ( '' != $tag_list ) {
-					$meta_text = esc_html__( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'bb' );
+} else {
+			// But this blog has loads of categories so we should probably display them here.
+			if ( '' != $tag_list ) {
+				$meta_text = esc_html__( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'bb' );
 				} else {
-					$meta_text = esc_html__( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'bb' );
+				$meta_text = esc_html__( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'bb' );
 				}
-
-			} // End check for categories on this blog.
+} // End check for categories on this blog.
 
 			printf(
 				$meta_text,
@@ -62,7 +60,7 @@
 			);
 		?>
 
-		<?php if ( get_edit_post_link() ) : 
+		<?php if ( get_edit_post_link() ) :
 			edit_post_link(
 				sprintf(
 					/* translators: %s: Name of current post */

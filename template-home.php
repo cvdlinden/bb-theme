@@ -10,18 +10,18 @@
 
 <?php get_header(); ?>
 
-	<?php $layout_class = ( function_exists('bb_get_layout_class') ) ? bb_get_layout_class(): ''; ?>  
+	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>  
 	<div id="primary" class="col-md-12 mb-xs-24 <?php echo $layout_class; ?>">
 		<main id="main" class="site-main" role="main">
 
 			<?php if ( ! is_active_sidebar( 'sidebar-home' ) ) : ?>
 
-				<?php 
-				while ( have_posts() ) : the_post(); 
+				<?php
+				while ( have_posts() ) : the_post();
 				?>
 
 				<div class="jumbotron">
-					<h3><?php esc_html_e('This is the "Home Sidebar Section", add some widgets to it to override the look and feel.', 'bb'); ?></h3>
+					<h3><?php esc_html_e( 'This is the "Home Sidebar Section", add some widgets to it to override the look and feel.', 'bb' ); ?></h3>
 				</div>
 
 				<div class="entry-content">
@@ -52,7 +52,7 @@
 				?>
 
 			<?php else :
-				dynamic_sidebar( 'sidebar-home' ); 
+				dynamic_sidebar( 'sidebar-home' );
 			endif ?>
 
 		</main><!-- #main -->

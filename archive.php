@@ -12,7 +12,7 @@ get_header(); ?>
 	<?php
 	if ( have_posts() ) : ?>
 		
-		<?php if( !get_theme_mod('top_callout', true ) ) { ?>
+		<?php if ( ! get_theme_mod( 'top_callout', true ) ) { ?>
 		<header class="page-header">
 			<?php
 				the_archive_title( '<h1 class="page-title">', '</h1>' );

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Social Navigation Menu 
+ * Social Navigation Menu
  */
 
 /**
@@ -19,7 +19,7 @@ function register_social_menu() {
  * @package Bij Best
  */
 if ( ! function_exists( 'bb_social_icons' ) ) :
-	function bb_social_icons(){
+	function bb_social_icons() {
 		if ( has_nav_menu( 'social-menu' ) ) {
 			wp_nav_menu(
 				array(
@@ -32,7 +32,7 @@ if ( ! function_exists( 'bb_social_icons' ) ) :
 					'depth'           => 1,
 					'fallback_cb'     => '',
 					'link_before'     => '<i class="social_icon fa"><span>',
-					'link_after'      => '</span></i>'
+					'link_after'      => '</span></i>',
 				)
 			);
 		}

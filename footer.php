@@ -19,7 +19,7 @@
 	<?php bb_footer_callout(); ?>
 
 	<footer id="colophon" class="site-footer footer bg-dark" role="contentinfo">
-		<?php // substitute the class "container-fluid" below if you want a wider content area ?>
+		<?php // Substitute the class "container-fluid" below if you want a wider content area. ?>
 		<div class="container footer-inner">
 			<div class="row">
 				<?php get_sidebar( 'footer' ); ?>
@@ -27,11 +27,11 @@
 
 			<div class="row">
 				<div class="site-info col-sm-6">
-					<div class="copyright-text"><?php esc_attr(get_theme_mod( 'bb_footer_copyright' )); ?></div>
+					<div class="copyright-text"><?php esc_attr( get_theme_mod( 'bb_footer_copyright' ) ); ?></div>
 					<div class="footer-credits"><?php bb_footer_info(); ?></div>
 				</div><!-- .site-info -->
 				<div class="col-sm-6 text-right">
-					<?php if( !get_theme_mod('footer_social') ) bb_social_icons(); ?>
+					<?php if ( ! get_theme_mod( 'footer_social' ) ) { bb_social_icons();} ?>
 				</div>
 			</div>
 		</div><!-- close .container -->

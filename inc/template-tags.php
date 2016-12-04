@@ -12,29 +12,29 @@ if ( ! function_exists( 'bb_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function bb_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-	}
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+			}
 
-	$time_string = sprintf( $time_string,
+		$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() ),
 		esc_attr( get_the_modified_date( 'c' ) ),
 		esc_html( get_the_modified_date() )
-	);
+			);
 
-	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'bb' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
+			$posted_on = sprintf(
+			esc_html_x( 'Posted on %s', 'post date', 'bb' ),
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			);
 
-	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'bb' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
+			$byline = sprintf(
+			esc_html_x( 'by %s', 'post author', 'bb' ),
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+			echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
 }
 endif; // bb_posted_on
@@ -44,25 +44,27 @@ if ( ! function_exists( 'bb_content_nav' ) ) :
  * Display navigation to next/previous pages when applicable
  */
 function bb_content_nav( $nav_id ) {
-	global $wp_query, $post;
+		global $wp_query, $post;
 
-	// Don't print empty markup on single pages if there's nowhere to navigate.
-	if ( is_single() ) {
-		$previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
-		$next = get_adjacent_post( false, '', false );
+		// Don't print empty markup on single pages if there's nowhere to navigate.
+		if ( is_single() ) {
+			$previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
+			$next = get_adjacent_post( false, '', false );
 
-		if ( ! $next && ! $previous )
+			if ( ! $next && ! $previous ) {
 			return;
-	}
+			}
+			}
 
-	// Don't print empty markup in archives if there's only one page.
-	if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
+		// Don't print empty markup in archives if there's only one page.
+		if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) ) {
 		return;
+			}
 
-	$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
+		$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
 
-	?>
-	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
+		?>
+		<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'bb' ); ?></h1>
 		<ul class="pager">
 
@@ -84,8 +86,8 @@ function bb_content_nav( $nav_id ) {
 		<?php endif; ?>
 
 		</ul>
-	</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
-	<?php
+		</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
+		<?php
 }
 endif; // bb_content_nav
 
@@ -96,21 +98,21 @@ if ( ! function_exists( 'bb_comment' ) ) :
  * Used as a callback by wp_list_comments() for displaying the comments.
  */
 function bb_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
+		$GLOBALS['comment'] = $comment;
 
-	if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
+		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
 
-	<li id="comment-<?php comment_ID(); ?>" <?php comment_class( 'media' ); ?>>
-		<div class="comment-body">
-			<?php _e( 'Pingback:', 'bb' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'bb' ), '<span class="edit-link">', '</span>' ); ?>
-		</div>
+		<li id="comment-<?php comment_ID(); ?>" <?php comment_class( 'media' ); ?>>
+			<div class="comment-body">
+				<?php _e( 'Pingback:', 'bb' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'bb' ), '<span class="edit-link">', '</span>' ); ?>
+			</div>
 
-	<?php else : ?>
+		<?php else : ?>
 
 	<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
 		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body media">
 			<a class="pull-left" href="#">
-				<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+				<?php if ( 0 != $args['avatar_size'] ) { echo get_avatar( $comment, $args['avatar_size'] );} ?>
 			</a>
 
 			<div class="media-body">
@@ -143,7 +145,7 @@ function bb_comment( $comment, $args, $depth ) {
 								'depth' 	=> $depth,
 								'max_depth' => $args['max_depth'],
 								'before' 	=> '<footer class="reply comment-reply panel-footer">',
-								'after' 	=> '</footer><!-- .reply -->'
+								'after' 	=> '</footer><!-- .reply -->',
 							)
 						)
 					); ?>
@@ -163,29 +165,29 @@ if ( ! function_exists( 'bb_entry_footer' ) ) :
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function bb_entry_footer() {
-	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'bb' ) );
-		if ( $categories_list && bb_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'bb' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list( esc_html__( ', ', 'bb' ) );
+			if ( $categories_list && bb_categorized_blog() ) {
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'bb' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			}
 
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'bb' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'bb' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-		}
-	}
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'bb' ) );
+			if ( $tags_list ) {
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'bb' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			}
+			}
 
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		/* translators: %s: post title */
-		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'bb' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
-		echo '</span>';
-	}
+		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			echo '<span class="comments-link">';
+			/* translators: %s: post title */
+			comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'bb' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
+			echo '</span>';
+			}
 
-	edit_post_link(
+		edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
 			esc_html__( 'Edit %s', 'bb' ),
@@ -193,7 +195,7 @@ function bb_entry_footer() {
 		),
 		'<span class="edit-link">',
 		'</span>'
-	);
+			);
 }
 endif; // bb_entry_footer
 
@@ -202,17 +204,17 @@ if ( ! function_exists( 'bb_the_attached_image' ) ) :
  * Prints the attached image with a link to the next attached image.
  */
 function bb_the_attached_image() {
-	$post                = get_post();
-	$attachment_size     = apply_filters( 'bb_attachment_size', array( 1200, 1200 ) );
-	$next_attachment_url = wp_get_attachment_url();
+		$post                = get_post();
+		$attachment_size     = apply_filters( 'bb_attachment_size', array( 1200, 1200 ) );
+		$next_attachment_url = wp_get_attachment_url();
 
-	/**
+		/**
 	 * Grab the IDs of all the image attachments in a gallery so we can get the
 	 * URL of the next adjacent image in a gallery, or the first image (if
 	 * we're looking at the last image in a gallery), or, in a gallery of one,
 	 * just the link to that image file.
 	 */
-	$attachment_ids = get_posts( array(
+		$attachment_ids = get_posts( array(
 		'post_parent'    => $post->post_parent,
 		'fields'         => 'ids',
 		'numberposts'    => -1,
@@ -220,32 +222,31 @@ function bb_the_attached_image() {
 		'post_type'      => 'attachment',
 		'post_mime_type' => 'image',
 		'order'          => 'ASC',
-		'orderby'        => 'menu_order ID'
-	) );
+		'orderby'        => 'menu_order ID',
+		) );
 
-	// If there is more than 1 attachment in a gallery...
-	if ( count( $attachment_ids ) > 1 ) {
-		foreach ( $attachment_ids as $attachment_id ) {
-			if ( $attachment_id == $post->ID ) {
-				$next_id = current( $attachment_ids );
-				break;
-			}
-		}
+			// If there is more than 1 attachment in a gallery...
+			if ( count( $attachment_ids ) > 1 ) {
+				foreach ( $attachment_ids as $attachment_id ) {
+					if ( $attachment_id == $post->ID ) {
+						$next_id = current( $attachment_ids );
+						break;
+					}
+					}
 
-		// get the URL of the next image attachment...
-		if ( $next_id )
-			$next_attachment_url = get_attachment_link( $next_id );
+				// get the URL of the next image attachment...
+				if ( $next_id ) {
+					$next_attachment_url = get_attachment_link( $next_id );
+				} // or get the URL of the first image attachment.
+				else { 					$next_attachment_url = get_attachment_link( array_shift( $attachment_ids ) );
+				}
+				}
 
-		// or get the URL of the first image attachment.
-		else
-			$next_attachment_url = get_attachment_link( array_shift( $attachment_ids ) );
-	}
-
-	printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
-		esc_url( $next_attachment_url ),
-		the_title_attribute( array( 'echo' => false ) ),
-		wp_get_attachment_image( $post->ID, $attachment_size )
-	);
+			printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
+			esc_url( $next_attachment_url ),
+			the_title_attribute( array( 'echo' => false ) ),
+			wp_get_attachment_image( $post->ID, $attachment_size )
+			);
 }
 endif; // bb_the_attached_image
 
@@ -254,41 +255,41 @@ if ( ! function_exists( 'bb_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function bb_posted_on() {
-	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 
-	$time_string = sprintf( $time_string,
+		$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() )
-	);
+			);
 
-	$time_string = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
-		esc_url( get_permalink() ),
-		esc_attr( get_the_time() ),
-		$time_string
-	);
-
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ){
-		$time_string_update = '<time class="updated" datetime="%1$s">%2$s</time>';
-		$time_string_update = sprintf( $time_string_update,
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
-		);
-		$time_string_update = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
+			$time_string = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
-			$time_string_update
-		);
-		$time_string .= __(', updated on ', 'bb') . $time_string_update;
-	}
+			$time_string
+			);
 
-	printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'bb' ),
-		$time_string,
-		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
+			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+				$time_string_update = '<time class="updated" datetime="%1$s">%2$s</time>';
+				$time_string_update = sprintf( $time_string_update,
+					esc_attr( get_the_modified_date( 'c' ) ),
+					esc_html( get_the_modified_date() )
+					);
+					$time_string_update = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
+					esc_url( get_permalink() ),
+					esc_attr( get_the_time() ),
+					$time_string_update
+					);
+					$time_string .= __( ', updated on ', 'bb' ) . $time_string_update;
+				}
+
+			printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'bb' ),
+			$time_string,
+			sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_attr( sprintf( __( 'View all posts by %s', 'bb' ), get_the_author() ) ),
 			esc_html( get_the_author() )
-		)
-	);
+			)
+			);
 }
 endif; // bb_posted_on
 
@@ -338,68 +339,68 @@ add_action( 'save_post',     'bb_category_transient_flusher' );
 // bb Bootstrap pagination function
 // original: http://fellowtuts.com/wordpress/bootstrap-3-pagination-in-wordpress/
 /**
- * 
+ *
  * @global int $paged
  * @global type $wp_query
- * @param int $pages
+ * @param int  $pages
  * @param type $range
  */
 function bb_pagination() {
 	global $paged, $wp_query;
 
-	if (empty($paged)) {
+	if ( empty( $paged ) ) {
 		$paged = 1;
 	}
 
 	$pages = $wp_query->max_num_pages;
-	if (!$pages) {
+	if ( ! $pages ) {
 		$pages = 1;
 	}
 
-	if (1 != $pages):
+	if ( 1 != $pages ) :
 
-		$input_width = strlen((string)$pages) + 3;
+		$input_width = strlen( (string) $pages ) + 3;
 ?>
 <div class="text-center">
 	<nav>
 		<ul class="pagination">
 			<li class="disabled hidden-xs">
 				<span>
-					<span aria-hidden="true"><?php _e('Page', 'tk'); ?> <?php echo $paged; ?> <?php _e('of', 'tk'); ?> <?php echo $pages; ?></span>
+					<span aria-hidden="true"><?php _e( 'Page', 'tk' ); ?> <?php echo $paged; ?> <?php _e( 'of', 'tk' ); ?> <?php echo $pages; ?></span>
 				</span>
 			</li>
-			<li><a href="<?php echo get_pagenum_link(1); ?>" aria-label="First">&laquo;<span class="hidden-xs"> <?php _e('First', 'tk'); ?></span></a></li>
+			<li><a href="<?php echo get_pagenum_link( 1 ); ?>" aria-label="First">&laquo;<span class="hidden-xs"> <?php _e( 'First', 'tk' ); ?></span></a></li>
 
-			<?php if ($paged == 1): ?>
-			<li class="disabled"><span>&lsaquo;<span class="hidden-xs aria-hidden"> <?php _e('Previous', 'tk'); ?></span></span></li>
-			<?php else: ?>
-				<li><a href="<?php echo get_pagenum_link($paged-1); ?>" aria-label="Previous">&lsaquo;<span class="hidden-xs"> <?php _e('Previous', 'tk'); ?></span></a></li>
+			<?php if ( $paged == 1 ) : ?>
+			<li class="disabled"><span>&lsaquo;<span class="hidden-xs aria-hidden"> <?php _e( 'Previous', 'tk' ); ?></span></span></li>
+			<?php else : ?>
+				<li><a href="<?php echo get_pagenum_link( $paged -1 ); ?>" aria-label="Previous">&lsaquo;<span class="hidden-xs"> <?php _e( 'Previous', 'tk' ); ?></span></a></li>
 			<?php endif; ?>
 
-			<?php $start_page = min(max($paged - 2, 1), max($pages - 4, 1)); ?>
-			<?php $end_page   = min(max($paged + 2, 5), $pages); ?>
+			<?php $start_page = min( max( $paged - 2, 1 ), max( $pages - 4, 1 ) ); ?>
+			<?php $end_page   = min( max( $paged + 2, 5 ), $pages ); ?>
 
-			<?php for ($i = $start_page; $i <= $end_page; $i++): ?>
-				<?php if ($paged == $i): ?>
+			<?php for ( $i = $start_page; $i <= $end_page; $i++ ) : ?>
+				<?php if ( $paged == $i ) : ?>
 					<li class="active"><span><?php echo $i; ?><span class="sr-only">(current)</span></span></li>
-				<?php else: ?>
-					<li><a href="<?php echo get_pagenum_link($i); ?>"><?php echo $i; ?></a></li>
+				<?php else : ?>
+					<li><a href="<?php echo get_pagenum_link( $i ); ?>"><?php echo $i; ?></a></li>
 				<?php endif; ?>
 			<?php endfor; ?>
 
-			<?php if ($paged == $pages): ?>
-				<li class="disabled"><span><span class="hidden-xs aria-hidden"><?php _e('Next', 'tk'); ?> </span>&rsaquo;</span></li>
-			<?php else: ?>
-				<li><a href="<?php echo get_pagenum_link($paged+1); ?>" aria-label="Next"><span class="hidden-xs"><?php _e('Next', 'tk'); ?> </span>&rsaquo;</a></li>
+			<?php if ( $paged == $pages ) : ?>
+				<li class="disabled"><span><span class="hidden-xs aria-hidden"><?php _e( 'Next', 'tk' ); ?> </span>&rsaquo;</span></li>
+			<?php else : ?>
+				<li><a href="<?php echo get_pagenum_link( $paged + 1 ); ?>" aria-label="Next"><span class="hidden-xs"><?php _e( 'Next', 'tk' ); ?> </span>&rsaquo;</a></li>
 			<?php endif; ?>
 
-			<li><a href="<?php echo get_pagenum_link($pages); ?>" aria-label='Last'><span class='hidden-xs'><?php _e('Last', 'tk'); ?> </span>&raquo;</a></li>
+			<li><a href="<?php echo get_pagenum_link( $pages ); ?>" aria-label='Last'><span class='hidden-xs'><?php _e( 'Last', 'tk' ); ?> </span>&raquo;</a></li>
 			<li>
 				<form method="get" id="tk-pagination" class="tk-page-nav">
 					<div class="input-group">
 						<input oninput="if(!jQuery(this)[0].checkValidity()) {jQuery('#tk-pagination').find(':submit').click();};" type="number" name="paged" min="1" max="<?php echo $pages; ?>" value="<?php echo $paged; ?>" class="form-control text-right" style="width: <?php echo $input_width; ?>em;">
 						<span class="input-group-btn">
-							<input type="submit" value="<?php _e('Go to', 'tk'); ?>" class="btn btn-success">
+							<input type="submit" value="<?php _e( 'Go to', 'tk' ); ?>" class="btn btn-success">
 						</span>
 					</div>
 				</form>
@@ -414,54 +415,53 @@ function bb_pagination() {
 /**
  * bb_link_pages()
  * Creates bootstraped pagination for paginated posts
- * 
  */
 function bb_link_pages() {
 	global $numpages, $page, $post;
 
-	if (1 != $numpages):
-		$input_width = strlen((string)$numpages) + 3;
+	if ( 1 != $numpages ) :
+		$input_width = strlen( (string) $numpages ) + 3;
 	?>
 	<div class="text-center">
 	<nav>
 		<ul class="pagination">
 			<li class="disabled hidden-xs">
 				<span>
-					<span aria-hidden="true"><?php _e('Page', 'tk'); ?> <?php echo $page; ?> <?php _e('of', 'tk'); ?> <?php echo $numpages; ?></span>
+					<span aria-hidden="true"><?php _e( 'Page', 'tk' ); ?> <?php echo $page; ?> <?php _e( 'of', 'tk' ); ?> <?php echo $numpages; ?></span>
 				</span>
 			</li>
-			<li><?php echo bb_link_page(1, 'First'); ?>&laquo;<span class="hidden-xs"> <?php _e('First', 'tk'); ?></span></a></li>
-			<?php if ($page == 1): ?>
-				<li class="disabled"><span>&lsaquo;<span class="hidden-xs aria-hidden"> <?php _e('Previous', 'tk'); ?></span></span></li>
-			<?php else: ?>
-				<li><?php echo bb_link_page($page - 1, 'Previous'); ?>&lsaquo;<span class="hidden-xs"> <?php _e('Previous', 'tk'); ?></span></a></li>                        
+			<li><?php echo bb_link_page( 1, 'First' ); ?>&laquo;<span class="hidden-xs"> <?php _e( 'First', 'tk' ); ?></span></a></li>
+			<?php if ( $page == 1 ) : ?>
+				<li class="disabled"><span>&lsaquo;<span class="hidden-xs aria-hidden"> <?php _e( 'Previous', 'tk' ); ?></span></span></li>
+			<?php else : ?>
+				<li><?php echo bb_link_page( $page - 1, 'Previous' ); ?>&lsaquo;<span class="hidden-xs"> <?php _e( 'Previous', 'tk' ); ?></span></a></li>                        
 			<?php endif; ?>
 
-			<?php $start_page = min(max($page - 2, 1), max($numpages - 4, 1)); ?>
-			<?php $end_page   = min(max($page + 2, 5), $numpages); ?>
+			<?php $start_page = min( max( $page - 2, 1 ), max( $numpages - 4, 1 ) ); ?>
+			<?php $end_page   = min( max( $page + 2, 5 ), $numpages ); ?>
 
-			<?php for ($i = $start_page; $i <= $end_page; $i++): ?>
-				<?php if ($page == $i): ?>
+			<?php for ( $i = $start_page; $i <= $end_page; $i++ ) : ?>
+				<?php if ( $page == $i ) : ?>
 					<li class="active">
 						<span><?php echo $i; ?><span class="sr-only">(current)</span></span>
 					</li>
-				<?php else: ?>
-					<li><?php echo bb_link_page($i) . $i . '</a>'; ?></li>
+				<?php else : ?>
+					<li><?php echo bb_link_page( $i ) . $i . '</a>'; ?></li>
 				<?php endif; ?>
 			<?php endfor; ?>
 
-			<?php if ($page == $numpages): ?>
-				<li class="disabled"><span><span class="hidden-xs aria-hidden"><?php _e('Next', 'tk'); ?> </span>&rsaquo;</span></li>
-			<?php else: ?>
-				<li><?php echo bb_link_page($page + 1, 'Next'); ?><span class="hidden-xs"><?php _e('Next', 'tk'); ?> </span>&rsaquo;</a></li>
+			<?php if ( $page == $numpages ) : ?>
+				<li class="disabled"><span><span class="hidden-xs aria-hidden"><?php _e( 'Next', 'tk' ); ?> </span>&rsaquo;</span></li>
+			<?php else : ?>
+				<li><?php echo bb_link_page( $page + 1, 'Next' ); ?><span class="hidden-xs"><?php _e( 'Next', 'tk' ); ?> </span>&rsaquo;</a></li>
 			<?php endif; ?>
-			<li><?php echo bb_link_page($numpages, 'Last'); ?><span class="hidden-xs"><?php _e('Last', 'tk'); ?> </span>&raquo;</a></li>
+			<li><?php echo bb_link_page( $numpages, 'Last' ); ?><span class="hidden-xs"><?php _e( 'Last', 'tk' ); ?> </span>&raquo;</a></li>
 			<li>
-				<form action="<?php echo get_permalink($post->ID); ?>" method="get" class="tk-page-nav" id="tk-paging-<?php echo $post->ID; ?>">
+				<form action="<?php echo get_permalink( $post->ID ); ?>" method="get" class="tk-page-nav" id="tk-paging-<?php echo $post->ID; ?>">
 					<div class="input-group">
 						<input oninput="if(!jQuery(this)[0].checkValidity()) {jQuery('#tk-paging-<?php echo $post->ID; ?>').find(':submit').click();};" type="number" name="page" min="1" max="<?php echo $numpages; ?>" value="<?php echo $page; ?>" class="form-control text-right" style="width: <?php echo $input_width; ?>em;">
 						<span class="input-group-btn">
-							<input type="submit" value="<?php _e('Go to', 'tk'); ?>" class="btn btn-success">
+							<input type="submit" value="<?php _e( 'Go to', 'tk' ); ?>" class="btn btn-success">
 						</span>
 						</div>
 				</form>
@@ -475,50 +475,50 @@ function bb_link_pages() {
 
 /**
  * bb_link_page
- * 
+ *
  * Customized _wp_link_page from wp-includes/post_template.php
- * 
+ *
  * @global WP_Rewrite $wp_rewrite
  * @global int $page
  * @global int $numpages
- * @param int $i
+ * @param int    $i
  * @param string $aria_label
  * @param string $class
  * @return string
  */
-function bb_link_page($i, $aria_label = '', $class = '') {
+function bb_link_page( $i, $aria_label = '', $class = '' ) {
 	global $wp_rewrite, $page, $numpages;
 	$post       = get_post();
 	$query_args = array();
 
-	if (1 == $i) {
+	if ( 1 == $i ) {
 		$url = get_permalink();
 	} else {
-		if ('' == get_option('permalink_structure') || in_array($post->post_status, array('draft', 'pending')))
-			$url = add_query_arg('page', $i, get_permalink());
-		elseif ('page' == get_option('show_on_front') && get_option('page_on_front') == $post->ID)
-			$url = trailingslashit(get_permalink()) . user_trailingslashit("$wp_rewrite->pagination_base/" . $i, 'single_paged');
-		else
-			$url = trailingslashit(get_permalink()) . user_trailingslashit($i, 'single_paged');
+		if ( '' == get_option( 'permalink_structure' ) || in_array( $post->post_status, array( 'draft', 'pending' ) ) ) {
+			$url = add_query_arg( 'page', $i, get_permalink() );
+		} elseif ( 'page' == get_option( 'show_on_front' ) && get_option( 'page_on_front' ) == $post->ID ) {
+			$url = trailingslashit( get_permalink() ) . user_trailingslashit( "$wp_rewrite->pagination_base/" . $i, 'single_paged' );
+		} else { $url = trailingslashit( get_permalink() ) . user_trailingslashit( $i, 'single_paged' );
+		}
 	}
 
-	if (is_preview()) {
+	if ( is_preview() ) {
 
-		if (( 'draft' !== $post->post_status ) && isset($_GET['preview_id'], $_GET['preview_nonce'])) {
-			$query_args['preview_id']    = wp_unslash($_GET['preview_id']);
-			$query_args['preview_nonce'] = wp_unslash($_GET['preview_nonce']);
+		if ( ( 'draft' !== $post->post_status ) && isset( $_GET['preview_id'], $_GET['preview_nonce'] ) ) {
+			$query_args['preview_id']    = wp_unslash( $_GET['preview_id'] );
+			$query_args['preview_nonce'] = wp_unslash( $_GET['preview_nonce'] );
 		}
 
-		$url = get_preview_post_link($post, $query_args, $url);
+		$url = get_preview_post_link( $post, $query_args, $url );
 	}
 
-	if ($class != '') {
+	if ( $class != '' ) {
 		$class = ' class="' . $class . '"';
 	}
-	if ($aria_label != '') {
+	if ( $aria_label != '' ) {
 		$aria_label = ' aria-label="' . $aria_label . '"';
 	}
-	return '<a href="' . esc_url($url) . '"' . $aria_label . $class . '>';
+	return '<a href="' . esc_url( $url ) . '"' . $aria_label . $class . '>';
 }
 
 if ( ! function_exists( 'bb_post_category' ) ) :
@@ -526,10 +526,10 @@ if ( ! function_exists( 'bb_post_category' ) ) :
  * Get category attached to post.
  */
 function bb_post_category() {
-	$category = get_the_category();
-	if ( !empty( $category ) ) {
-		$i = ( $category[0]->slug == "uncategorized" && array_key_exists( '1', $category ) ) ? 1 : 0 ;
-		echo '<li><i class="fa fa-folder-open-o"></i><span class="cat-links"><a href="' . get_category_link( $category[$i]->term_id ) . '" title="' . sprintf( __( "View all posts in %s", 'bb' ), $category[$i]->name ) . '" ' . '>' . $category[$i]->name.'</a></span></li> ';
-	}
+		$category = get_the_category();
+		if ( ! empty( $category ) ) {
+			$i = ( $category[0]->slug == 'uncategorized' && array_key_exists( '1', $category ) ) ? 1 : 0 ;
+			echo '<li><i class="fa fa-folder-open-o"></i><span class="cat-links"><a href="' . get_category_link( $category[ $i ]->term_id ) . '" title="' . sprintf( __( 'View all posts in %s', 'bb' ), $category[ $i ]->name ) . '" ' . '>' . $category[ $i ]->name . '</a></span></li> ';
+			}
 }
 endif;

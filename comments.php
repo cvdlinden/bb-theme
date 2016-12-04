@@ -52,11 +52,12 @@ if ( post_password_required() ) {
 		</nav><!-- #comment-nav-above -->
 		<?php endif; // Check for comment navigation. ?>
 		
-		<?php add_filter('comment_reply_link', 'bb_reply_link_class'); ?>
+		<?php add_filter( 'comment_reply_link', 'bb_reply_link_class' ); ?>
 		<ol class="comment-list media-list">
 			<?php
-				/* Loop through and list the comments. Tell wp_list_comments()
-				 * to use bb_comment() to format the comments.
+				/*
+				 * Loop through and list the comments. 
+				 * Tell wp_list_comments() to use bb_comment() to format the comments.
 				 * If you want to overload this in a child theme then you can
 				 * define bb_comment() and that will be used instead.
 				 * See bb_comment() in includes/template-tags.php for more.
@@ -64,13 +65,13 @@ if ( post_password_required() ) {
 				wp_list_comments( array(
 					'style'      => 'ol',
 					'short_ping' => true,
-					'callback' => 'bb_comment', 
-					'avatar_size' => 50 ,
-					//'callback'   => 'bb_cb_comment'
+					'callback' => 'bb_comment',
+					'avatar_size' => 50,
+					// 'callback'   => 'bb_cb_comment'
 				) );
 			?>
 		</ol><!-- .comment-list -->
-		<?php remove_filter('comment_reply_link', 'bb_reply_link_class'); ?>
+		<?php remove_filter( 'comment_reply_link', 'bb_reply_link_class' ); ?>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
@@ -94,10 +95,10 @@ if ( post_password_required() ) {
 
 	<?php
 	endif;
-	
+
 	/* comment form */
 	$comments_args = ( function_exists( 'bb_custom_comment_form' ) ) ? bb_custom_comment_form() : '';
-	comment_form($comments_args);
+	comment_form( $comments_args );
 	?>
 
 </div><!-- #comments -->

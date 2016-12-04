@@ -18,14 +18,14 @@
 // Remember to do this for all content templates you want to have this,
 // for example content-single.php for the post single view. ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('post-snippet mb64'.( is_single() ? ' content': "")); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-snippet mb64' . ( is_single() ? ' content': '') ); ?>>
 
 	<header>
 
 		<?php
-		if( has_post_thumbnail() && !is_single() ){ ?>
+		if ( has_post_thumbnail() && ! is_single() ) { ?>
 			<a class="text-center" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php
-				the_post_thumbnail( 'bb-featured', array( 'class' => 'mb24')); ?>
+				the_post_thumbnail( 'bb-featured', array( 'class' => 'mb24' ) ); ?>
 			</a><?php
 		}
 
@@ -44,24 +44,23 @@
 
 	</header><!-- .entry-header -->
 
-	<?php if ( is_search() || is_archive() ) : // Only display Excerpts for Search and Archive Pages ?>
+	<?php if ( is_search() || is_archive() ) : // Only display Excerpts for Search and Archive Pages. ?>
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 	<?php else : ?>
 	<div class="entry-content">
 		<?php
-			if( !is_single() ){
-				the_excerpt();
-			}
-			else{
-				the_content( sprintf(
-					/* translators: %s: Name of current post. */
-					wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'bb' ), array( 'span' => array( 'class' => array() ) ) ),
-					the_title( '<span class="screen-reader-text">"', '"</span>', false )
-				) );
-				
-				echo '<hr>';
+			if ( ! is_single() ) {
+			the_excerpt();
+			} else {
+			the_content( sprintf(
+			/* translators: %s: Name of current post. */
+			wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'bb' ), array( 'span' => array( 'class' => array() ) ) ),
+			the_title( '<span class="screen-reader-text">"', '"</span>', false )
+			) );
+
+		echo '<hr>';
 			}
 		?>
 		<?php bb_link_pages(); ?>

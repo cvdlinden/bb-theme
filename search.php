@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	
-	<?php $layout_class = ( function_exists('bb_get_layout_class') ) ? bb_get_layout_class(): ''; ?>
+	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>
 	<section id="primary" class="content-area col-md-9 mb-xs-24 <?php echo $layout_class; ?>">
 		<main id="main" class="site-main" role="main">
 
@@ -34,7 +34,7 @@ get_header(); ?>
 
 			endwhile;
 
-			//the_posts_navigation();
+			// the_posts_navigation();
 			bb_pagination();
 
 		else :

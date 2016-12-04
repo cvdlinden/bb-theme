@@ -19,11 +19,11 @@ get_header( 'alt' ); ?>
 	
 	<?php
 	/**
-		* woocommerce_before_main_content hook
-		*
-		* @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		* @hooked woocommerce_breadcrumb - 20
-		*/
+	 * woocommerce_before_main_content hook
+	 *
+	 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+	 * @hooked woocommerce_breadcrumb - 20
+	 */
 	do_action( 'woocommerce_before_main_content' );
 	?>
 
@@ -39,11 +39,11 @@ get_header( 'alt' ); ?>
 
 		<?php
 			/**
-				* woocommerce_before_shop_loop hook
-				*
-				* @hooked woocommerce_result_count - 20
-				* @hooked woocommerce_catalog_ordering - 30
-				*/
+			 * woocommerce_before_shop_loop hook
+			 *
+			 * @hooked woocommerce_result_count - 20
+			 * @hooked woocommerce_catalog_ordering - 30
+			 */
 			do_action( 'woocommerce_before_shop_loop' );
 			?>
 
@@ -51,18 +51,18 @@ get_header( 'alt' ); ?>
 
 			<?php woocommerce_product_subcategories(); ?>
 
-			<?php $i=0; ?>
+			<?php $i = 0; ?>
 			<div class="row">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<div class="col-sm-4">
 						<?php wc_get_template_part( 'content', 'product' ); ?>
 					</div>
-					<?php 
+					<?php
 					$i++;
-					if ($i%3==0) {
+					if ( $i % 3 == 0 ) {
 						echo '</div><div class="row">';
-					} 
-					
+					}
+
 					?>
 				<?php endwhile; // end of the loop. ?>
 			</div>
@@ -70,10 +70,10 @@ get_header( 'alt' ); ?>
 
 			<?php
 			/**
-				* woocommerce_after_shop_loop hook
-				*
-				* @hooked woocommerce_pagination - 10
-				*/
+			 * woocommerce_after_shop_loop hook
+			 *
+			 * @hooked woocommerce_pagination - 10
+			 */
 			do_action( 'woocommerce_after_shop_loop' );
 			?>
 
@@ -85,10 +85,10 @@ get_header( 'alt' ); ?>
 
 		<?php
 	/**
-		* woocommerce_after_main_content hook
-		*
-		* @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		*/
+	 * woocommerce_after_main_content hook
+	 *
+	 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+	 */
 	do_action( 'woocommerce_after_main_content' );
 	?>
 </div>

@@ -7,7 +7,7 @@
  * @package BijBest
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) || ( function_exists('bb_show_sidebar') && !bb_show_sidebar() ) ) {
+if ( ! is_active_sidebar( 'sidebar-1' ) || ( function_exists( 'bb_show_sidebar' ) && ! bb_show_sidebar() ) ) {
 	return;
 }
 ?>
