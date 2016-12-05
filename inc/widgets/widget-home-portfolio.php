@@ -97,6 +97,9 @@ class BB_Home_Portfolio extends WP_Widget {
 
 			<?php
 			echo $args['after_widget'];
+
+		} else {
+			echo '<div class="container"><div class="row"><div class="col-sm-12 text-center"><div class="alert alert-warning">Please activate the JetPack Portfolio Content Type in order to see the portfolio.</div></div></div></div>';
 		}
 	}
 

@@ -94,6 +94,9 @@ class BB_Home_Testimonial extends WP_Widget {
 			endif;
 			wp_reset_postdata();
 			echo $args['after_widget'];
+
+		} else {
+			echo '<div class="container"><div class="row"><div class="col-sm-12 text-center"><div class="alert alert-warning">Please activate the JetPack Testimonials Content Type in order to see the testimonials.</div></div></div></div>';
 		}
 	}
 
