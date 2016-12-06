@@ -53,8 +53,8 @@ class BB_Home_Features extends WP_Widget {
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h3 class="mb16"><?php echo $title[0]; ?></h3>
-						<p class="mb64"><?php echo $body_content[0]; ?></p>
+						<h3><?php echo $title[0]; ?></h3>
+						<p><?php echo $body_content[0]; ?></p>
 					</div>
 				</div>
 				<!--end of row-->

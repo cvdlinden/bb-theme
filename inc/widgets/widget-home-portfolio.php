@@ -40,11 +40,11 @@ class BB_Home_Portfolio extends WP_Widget {
 			* Widget Content
 			*/
 			?>
-			<section class="projects bg-dark pb0">
+			<section class="projects bg-dark">
 				<div class="container">
 					<div class="col-sm-12 text-center">
-						<h3 class="mb32"><?php echo $title; ?></h3>
-						<p class="mb40"><?php echo $body_content; ?></p>
+						<h3><?php echo $title; ?></h3>
+						<p><?php echo $body_content; ?></p>
 					</div>
 				</div><?php
 
@@ -73,7 +73,7 @@ class BB_Home_Portfolio extends WP_Widget {
 							<a href="<?php esc_attr( the_permalink() ); ?>" title="<?php esc_attr( the_title_attribute() ); ?>">
 								<?php the_post_thumbnail( 'full' ); ?>
 								<div class="title"><?php
-									the_title( '<h5 class="mb0">', '</h5>' );
+									the_title( '<h5>', '</h5>' );
 
 									$terms = get_the_terms( get_the_ID(), 'jetpack-portfolio-type' );
 									if ( $terms ) {

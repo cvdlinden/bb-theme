@@ -1,0 +1,24 @@
+// TODO: Clean up
+
+.bg-primary {
+  background: #745cf9 !important;
+}
+.bg-secondary {
+  background: #f5f5f5;
+}
+.bg-dark {
+  background: #0e1015;
+}
+
+//  == Want to have the whole site wrapped? ==
+
+//  Just fill the .container class with some background color to have a the whole site "wrapped".
+//  This works so easy because every main part is wrapped only once into a container class by bootstrap.
+//  Try out by decommenting the next line and go from there.
+
+// .container { background: #f9f9f9; border-right: 1px solid #eee; border-left: 1px solid #eee; }
+.container {
+	position: relative;
+	padding: 0 15px 15px 15px; 
+	background: #fff;
+}

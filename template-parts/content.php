@@ -18,14 +18,14 @@
 // Remember to do this for all content templates you want to have this,
 // for example content-single.php for the post single view. ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-snippet mb64' . ( is_single() ? ' content': '') ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-snippet' . ( is_single() ? ' content': '') ); ?>>
 
 	<header>
 
 		<?php
 		if ( has_post_thumbnail() && ! is_single() ) { ?>
 			<a class="text-center" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php
-				the_post_thumbnail( 'bb-featured', array( 'class' => 'mb24' ) ); ?>
+				the_post_thumbnail( 'bb-featured' ); ?>
 			</a><?php
 		}
 

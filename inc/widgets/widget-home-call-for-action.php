@@ -42,13 +42,13 @@ class BB_Home_CfA extends WP_Widget {
 		<section class="cfa-section bg-secondary">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-12 text-center p0">
+					<div class="col-sm-12 text-center">
 						<div class="overflow-hidden">
 							<div class="col-sm-9">
 									<h3 class="cfa-text"><?php echo $title; ?></h3>
 							</div>
 							<div class="col-sm-3">
-									<a href="<?php echo esc_attr( $button_link ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="mb0 btn btn-lg btn-filled cfa-button"><?php echo esc_html( $button ); ?></a>
+									<a href="<?php echo esc_attr( $button_link ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="btn btn-lg btn-filled cfa-button"><?php echo esc_html( $button ); ?></a>
 							</div>
 						</div>
 					</div>

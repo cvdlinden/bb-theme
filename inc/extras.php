@@ -607,7 +607,7 @@ function bb_top_callout() {
 		</section><?php
 	} else { ?>
 		<?php if ( function_exists( 'yoast_breadcrumb' ) ) { ?>
-		<div class="container mt20"><?php
+		<div class="container"><?php
 			yoast_breadcrumb( '<p id="breadcrumbs">','</p>' ); ?>
 		</div><?php
 		}
@@ -622,13 +622,13 @@ function bb_footer_callout() {
 		<section class="cfa-section bg-secondary">
 			<div class="container">
 			<div class="row">
-				<div class="col-sm-12 text-center p0">
+				<div class="col-sm-12 text-center">
 				<div class="overflow-hidden">
 					<div class="col-sm-9">
 					<h3 class="cfa-text"><?php esc_attr( get_theme_mod( 'footer_callout_text' ) ); ?></h3>
 					</div>
 					<div class="col-sm-3">
-					<a href='<?php echo esc_url( get_theme_mod( 'footer_callout_link' ) ); ?>' class="mb0 btn btn-lg btn-filled cfa-button">
+					<a href='<?php echo esc_url( get_theme_mod( 'footer_callout_link' ) ); ?>' class="btn btn-lg btn-filled cfa-button">
 					<?php esc_attr( get_theme_mod( 'footer_callout_btntext' ), 'bb' ); ?>
 					</a>
 					</div>
