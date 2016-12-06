@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Theme specifics
+# BB Theme specifics
 --------------------------------------------------------------*/
 
 // This is a small security for too long strings titles
@@ -14,7 +14,8 @@ body {
 //  Try out by decommenting the next line and go from there.
 
 // .container { background: #f9f9f9; border-right: 1px solid #eee; border-left: 1px solid #eee; }
-.container { 
+.container {
+	position: relative;
 	padding: 0 15px 15px 15px; 
 	background: #fff;
 }
@@ -50,6 +51,66 @@ figure {
 // 	text-align: center;
 // 	margin-top: 10px;
 // }
+
+/*--------------------------------------------------------------
+## BB Theme Sections
+--------------------------------------------------------------*/
+@import "sections";
+
+/*--------------------------------------------------------------
+## BB Theme Icon Features
+--------------------------------------------------------------*/
+@import "icon_features";
+
+/*--------------------------------------------------------------
+## BB Theme Image Tiles
+--------------------------------------------------------------*/
+@import "img_tiles";
+
+/*--------------------------------------------------------------
+## BB Theme Sliders
+--------------------------------------------------------------*/
+@import "sliders";
+
+/*--------------------------------------------------------------
+## BB Theme Image Blocks
+--------------------------------------------------------------*/
+@import "img_blocks";
+
+/*--------------------------------------------------------------
+## BB Theme Image Galleries
+--------------------------------------------------------------*/
+@import "img_galleries";
+
+/*--------------------------------------------------------------
+## BB Theme Header Area
+--------------------------------------------------------------*/
+@import "header_area";
+
+/*--------------------------------------------------------------
+## BB Theme Masonry
+--------------------------------------------------------------*/
+@import "masonry";
+
+/*--------------------------------------------------------------
+## BB Theme FlexSlider
+--------------------------------------------------------------*/
+@import "flexslider";
+
+/*--------------------------------------------------------------
+## BB Theme Portfolio (JetPack)
+--------------------------------------------------------------*/
+@import "portfolio";
+
+/*--------------------------------------------------------------
+## BB Theme Footer
+--------------------------------------------------------------*/
+@import "footer";
+
+/*--------------------------------------------------------------
+## BB Theme Other
+--------------------------------------------------------------*/
+@import "other";
 
 // /* WP Gallery */
 // .gallery {
@@ -89,18 +150,6 @@ figure {
 // .bypostauthor {
 // 	display: block;
 // }
-
-
-// /* Navigation */
-
-// .dropdown-submenu{position:relative;}
-// .dropdown-submenu>.dropdown-menu{top:0;left:100%;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
-// .dropdown-submenu:active>.dropdown-menu, .dropdown-submenu:hover>.dropdown-menu {
-// display: block;
-// }
-// .dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
-// .dropdown-submenu:active>a:after{border-left-color:#ffffff;}
-// .dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
 
 
 // /* Here some needed widget styles

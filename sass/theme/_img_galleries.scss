@@ -1,0 +1,36 @@
+// TODO: Clean up
+
+.lightbox-grid, .lightbox-grid ul, .lightbox-grid li {
+  position: relative;
+  overflow: hidden;
+}
+.lightbox-grid li {
+  width: 25%;
+  float: left;
+  border: 8px solid rgba(0, 0, 0, 0);
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  opacity: 1;
+}
+.lightbox-grid li:hover {
+  opacity: .9;
+}
+.third-thumbs li {
+  width: 25%;
+  height: 13.08vw;
+  border: none;
+}
+@media all and (max-width: 991px) {
+  .lightbox-grid li {
+    width: 33.33333%;
+  }
+}
+@media all and (max-width: 767px) {
+  .lightbox-grid li {
+    width: 50%;
+  }
+  .third-thumbs li {
+    height: 50vw;
+  }
+}

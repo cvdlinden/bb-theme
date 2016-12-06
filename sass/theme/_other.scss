@@ -1,0 +1,35 @@
+// TODO: Clean up
+
+section {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.feature-1 i {
+  font-size: 64px;
+}
+.parallax-section {
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 0;
+}
+.small-screen .top-parallax-section {
+  overflow: hidden;
+  padding: 96px 0;
+}
+.social-list {
+  font-size: 22px;
+}
+.testimonial-img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin-bottom: 16px;
+}
+.image-bg a {
+  color: #745cf9;
+}
+.widget-area section {
+  border-bottom: 0;
+  padding: 0;
+}

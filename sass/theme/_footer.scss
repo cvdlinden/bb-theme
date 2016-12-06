@@ -1,0 +1,52 @@
+// TODO: Clean up
+
+footer.bg-dark a {
+  color: #fff;
+}
+.social-list {
+  margin: 0;
+}
+.bg-dark .social-list a {
+  color: #fff;
+  opacity: .5;
+}
+.bg-dark .social-list a:hover {
+  opacity: 1;
+}
+.back-to-top {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  height: 36px;
+  width: 36px;
+  padding: 5px 11px;
+}
+.back-to-top .fa {
+  font-size: 18px;
+  color: #fff;
+}
+.back-to-top:hover {
+  opacity: 1;
+}
+.bg-dark .back-to-top {
+  border-color: #fff;
+}
+.bg-dark .back-to-top:active, .bg-dark .back-to-top:focus {
+  color: #fff;
+}
+.bg-dark .back-to-top:hover {
+  background: none;
+}
+.footer input[type="submit"] {
+  border: 0;
+  margin-top: 3px;
+}
+.copyright-text {
+  color: #fefefe;
+}
+.footer .footer-credits a {
+  color: #fefefe;
+  opacity: .8;
+}

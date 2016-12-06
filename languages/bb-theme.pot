@@ -780,7 +780,7 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: inc/widgets/widget-categories.php:97, inc/widgets/widget-home-clients.php:87, inc/widgets/widget-home-features.php:110, inc/widgets/widget-home-features.php:128, inc/widgets/widget-home-parallax.php:116, inc/widgets/widget-home-portfolio.php:117, inc/widgets/widget-home-testimonials.php:117, inc/widgets/widget-social.php:63
+#: inc/widgets/widget-categories.php:97, inc/widgets/widget-home-clients.php:87, inc/widgets/widget-home-features.php:110, inc/widgets/widget-home-features.php:128, inc/widgets/widget-home-parallax.php:116, inc/widgets/widget-home-portfolio.php:120, inc/widgets/widget-home-testimonials.php:120, inc/widgets/widget-social.php:63
 msgid "Title "
 msgstr ""
 
@@ -856,7 +856,7 @@ msgstr ""
 msgid "[BB] Features Section For FrontPage"
 msgstr ""
 
-#: inc/widgets/widget-home-features.php:117, inc/widgets/widget-home-features.php:147, inc/widgets/widget-home-parallax.php:130, inc/widgets/widget-home-portfolio.php:124
+#: inc/widgets/widget-home-features.php:117, inc/widgets/widget-home-features.php:147, inc/widgets/widget-home-parallax.php:130, inc/widgets/widget-home-portfolio.php:127
 msgid "Content "
 msgstr ""
 
@@ -888,7 +888,7 @@ msgstr ""
 msgid "Image:"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:126, inc/widgets/widget-home-testimonials.php:141
+#: inc/widgets/widget-home-parallax.php:126, inc/widgets/widget-home-testimonials.php:144
 msgid "Upload Image"
 msgstr ""
 
@@ -956,11 +956,11 @@ msgstr ""
 msgid "People just like you are already loving Colorlib"
 msgstr ""
 
-#: inc/widgets/widget-home-testimonials.php:124
+#: inc/widgets/widget-home-testimonials.php:127
 msgid "Limit "
 msgstr ""
 
-#: inc/widgets/widget-home-testimonials.php:132
+#: inc/widgets/widget-home-testimonials.php:135
 msgid "Background Parallax Image:"
 msgstr ""
 
