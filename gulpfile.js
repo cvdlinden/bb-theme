@@ -31,20 +31,17 @@ var build_files = [
   '!node_modules/**',
   '!bower_components',
   '!bower_components/**',
+  '!bower.json',
   '!libs',
   '!libs/**',
   '!dist',
   '!dist/**',
   '!sass',
   '!sass/**',
-  '!.git',
-  '!.git/**',
   '!package.json',
-  '!*.xml',
-  '!.gitignore',
+  '!codesniffer.*',
   '!gulpfile.js',
-  '!.editorconfig',
-  '!.jshintrc'
+  '!.*'
 ];
 
 gulp.task('wiredep', function () {
