@@ -122,7 +122,10 @@
 		</header><!-- #masthead -->
 		
 		<div id="content" class="main-container">
+			
+			<!-- Page Title Section - Optional -->
 			<?php ( is_page_template( 'template-home.php' ) ) ? '' : bb_top_callout(); ?>
-			<section class="content-area <?php echo ( get_theme_mod( 'top_callout', true ) ) ? ' top-callout' : '' ?>">
-				<div id="main" class="<?php echo ( ! is_page_template( 'template-home.php' )) ? 'container': 'container-fluid'; ?>" role="main">
-						<div class="row">
+
+			<!-- Content Area -->
+			<div id="main" class="container content-area <?php echo ( get_theme_mod( 'top_callout', true ) ) ? ' top-callout-present' : '' ?>" role="main">
+					<div class="row">

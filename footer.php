@@ -11,9 +11,9 @@
 
 ?>
 
-			</div><!-- close .row -->
-		</div><!-- close #main -->
-	</section><!-- close section -->
+		</div><!-- close .row -->
+	</div><!-- close #main -->
+
 </div><!-- close .main-container -->
 
 	<?php bb_footer_callout(); ?>

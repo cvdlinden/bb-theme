@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'alt' ); ?>
 
-	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>  
-	<div id="primary" class="col-md-12 <?php echo esc_attr( $layout_class ); ?>">
+	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>
+	<section id="primary" class="content-area col-md-9 <?php echo esc_attr( $layout_class ); ?>">
 		
 		<?php
 		/**
@@ -92,6 +92,6 @@ get_header( 'alt' ); ?>
 		 */
 		do_action( 'woocommerce_after_main_content' );
 		?>
-	</div><!-- #primary -->
+	</section><!-- #primary -->
 
 <?php get_footer( 'alt' ); ?>

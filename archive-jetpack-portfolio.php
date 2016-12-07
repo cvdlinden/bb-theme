@@ -10,7 +10,9 @@
 get_header(); ?>
 
 	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>  
-	<div id="primary" class="col-md-12 <?php echo esc_attr( $layout_class ); ?>"><?php
+	<section id="primary" class="content-area col-md-9 <?php echo esc_attr( $layout_class ); ?>">
+
+	<?php
 	if ( have_posts() ) : ?>
 		
 		<header>
@@ -67,6 +69,6 @@ get_header(); ?>
 		get_template_part( 'template-parts/content', 'none' );
 
 	endif; ?>
-	</div><!-- #primary -->
+	</section><!-- #primary -->
 
 <?php get_footer(); ?>

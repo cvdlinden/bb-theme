@@ -255,24 +255,6 @@ function bb_add_top_level_menu_url( $atts, $item, $args ) {
 }
 add_filter( 'nav_menu_link_attributes', 'bb_add_top_level_menu_url', 99, 3 );
 
-/**
- * Makes the top level navigation menu item clickable
- */
-function bb_make_top_level_menu_clickable() {
-	if ( ! wp_is_mobile() ) { ?>
-		<script type="text/javascript">
-		jQuery( document ).ready( function( $ ){
-			if ( $( window ).width() >= 767 ){
-				$( '.navbar-nav > li.menu-item > a' ).click( function(){
-					window.location = $( this ).attr( 'href' );
-				});
-			}
-		});
-		</script>
-	<?php }
-}
-add_action( 'wp_footer', 'bb_make_top_level_menu_clickable', 1 );
-
 /*
  * Add Read More button to post archive
  */
@@ -574,42 +556,44 @@ function bb_show_sidebar() {
 }
 
 /*
- * Top Callout
+ * Top Callout (optional section see customizer settings)
+ * If disabled you may also want to configure Yoast SEO - Breadcrumbs
  */
 function bb_top_callout() {
 	if ( get_theme_mod( 'top_callout', true ) ) { ?>
-		<section class="page-title-section bg-secondary">
-		<div class="container">
+		<div class="container bg-secondary top-callout">
 			<div class="row">
-				<div class="col-md-6 col-sm-6 col-xs-12">
-					<h3 class="page-title">
+				<div class="col-xs-12">
+					<h3>
 						<?php
 						if ( is_home() ) {
-							_e( ( get_theme_mod( 'blog_name' ) ) ? get_theme_mod( 'blog_name' ) : 'Blog'  , 'bb' );
+							esc_html_e( ( get_theme_mod( 'blog_name' ) ) ? get_theme_mod( 'blog_name' ) : 'Blog'  , 'bb' );
 						} elseif ( is_search() ) {
-							_e( 'Search'  , 'bb' );
+							esc_html_e( 'Search'  , 'bb' );
 						} elseif ( is_archive() ) {
 							echo ( is_post_type_archive( 'jetpack-portfolio' ) ) ? __( 'Portfolio', 'bb' ) : get_the_archive_title();
 						} else {
 							echo ( is_singular( 'jetpack-portfolio' ) ) ? __( 'Portfolio', 'bb' ) : get_the_title();
 						}?>
 					</h3>
+					<?php if ( function_exists( 'yoast_breadcrumb' ) ) {
+						yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>' );
+					} ?>
 				</div>
-				<div class="col-md-6 col-sm-6 col-xs-12 text-right">
-				<?php if ( function_exists( 'yoast_breadcrumb' ) ) {
-					yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-				} ?>
+			</div><!--end of row-->
+		</div><!--end of container-->
+	<?php
+	} else {
+	?>
+		<?php if ( function_exists( 'yoast_breadcrumb' ) ) { ?>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<?php yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>' ); ?>
 				</div>
 			</div>
-			<!--end of row-->
 		</div>
-		<!--end of container-->
-		</section><?php
-	} else { ?>
-		<?php if ( function_exists( 'yoast_breadcrumb' ) ) { ?>
-		<div class="container"><?php
-			yoast_breadcrumb( '<p id="breadcrumbs">','</p>' ); ?>
-		</div><?php
+		<?php
 		}
 	}
 }

@@ -1,16 +1,25 @@
 /*!
  * Custom theme scripts
+ * 
+ * TODO: Make sense of this!
  */
 (function($){
 	
 	var cl_nav,
 		cl_navOuterHeight;
 
+	// Execute when HTML-Document is loaded and DOM is ready
 	jQuery(document).ready(function($) {
 		//"use strict";
 
-		// Smooth scroll to inner links
+		// Make Bootstrap nav first level dropdown clickable
+		if ($( window ).width() >= 767) {
+			$(".navbar-nav > li.menu-item > a").click( function(){
+				window.location = $(this).attr("href");
+			});
+		}
 
+		// Smooth scroll to inner links
 		jQuery(".inner-link").each(function(){
 			var href = jQuery(this).attr("href");
 			if(href.charAt(0) !== "#"){
@@ -26,7 +35,6 @@
 		});
 
 		// Append .background-image-holder <img>s as CSS backgrounds
-
 		jQuery(".background-image-holder").each(function() {
 			var imgSrc = jQuery(this).children("img").attr("src");
 			jQuery(this).css("background", "url('" + imgSrc + "')");
@@ -35,7 +43,6 @@
 		});
 
 		// Fade in background images
-
 		setTimeout(function() {
 			jQuery(".background-image-holder").each(function() {
 				jQuery(this).addClass("fadeIn");
@@ -44,15 +51,12 @@
 
 		
 		// Fix nav to top while scrolling
-
 		cl_nav = $("body .nav-container nav:first");
 		cl_navOuterHeight = $("body .nav-container nav:first").outerHeight();
 		window.addEventListener("scroll", updateNav, false);
 		updateNav();
 		
-		
 		// Menu dropdown positioning
-
 		$(".menu > li > ul").each(function() {
 			var menu = $(this).offset();
 			var farRight = menu.left + $(this).outerWidth(true);
@@ -66,7 +70,6 @@
 		});
 
 		// Mobile Menu
-
 		$(".mobile-toggle").click(function() {
 			$(".nav-bar").toggleClass("nav-open");
 			$(this).toggleClass("active");
@@ -157,7 +160,9 @@
 
 	});
 
-	jQuery(window).load(function() {
+	// Execute when complete page is fully loaded, including all frames, objects and images
+	jQuery(window).on("load", function () {
+
 		// "use strict";
 
 		// Resetting testimonial parallax height
@@ -167,7 +172,6 @@
 		}
 
 		// Initialize Masonry
-
 		if (jQuery(".masonry").length && typeof Masonry !== "undefined") {
 			var container = document.querySelector(".masonry");
 			var msnry = new Masonry(container, {
@@ -199,9 +203,9 @@
 
 	});
 
-	/* Function To 
-	* keep menu fixed
-	**/
+	/**
+	 * Function to keep menu fixed to top of page
+	 */
 	function updateNav(){
 		if( $(window).scrollTop() > cl_navOuterHeight ){//if href = #element id
 			cl_nav.addClass("fixed scrolled");
@@ -226,7 +230,7 @@
 
 })(jQuery);
 
-/*
+/**
  * Resetting testimonial parallax height
  */
 function testimonialHeight(){
