@@ -170,14 +170,14 @@ if ( ! function_exists( 'get_bb_theme_options' ) ) {
 		}
 
 		if ( get_theme_mod( 'button_color' ) ) {
-			echo '.btn-filled, .btn-filled:visited, .woocommerce #respond input#submit.alt,
+			echo '.btn-primary, .btn-primary:visited, .woocommerce #respond input#submit.alt,
 			.woocommerce a.button.alt, .woocommerce button.button.alt,
 			.woocommerce input.button.alt, .woocommerce #respond input#submit,
 			.woocommerce a.button, .woocommerce button.button,
 			.woocommerce input.button { background:' . get_theme_mod( 'button_color' ) . ' !important; border: 2px solid' . get_theme_mod( 'button_color' ) . ' !important;}';
 		}
 		if ( get_theme_mod( 'button_hover_color' ) ) {
-			echo '.btn-filled:hover, .woocommerce #respond input#submit.alt:hover,
+			echo '.btn-primary:hover, .woocommerce #respond input#submit.alt:hover,
 			.woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover,
 			.woocommerce input.button.alt:hover, .woocommerce #respond input#submit:hover,
 			.woocommerce a.button:hover, .woocommerce button.button:hover,

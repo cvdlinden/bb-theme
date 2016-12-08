@@ -21,12 +21,12 @@
   height: 13.08vw;
   border: none;
 }
-@media all and (max-width: 991px) {
+@media all and (max-width: $screen-sm-max) {
   .lightbox-grid li {
     width: 33.33333%;
   }
 }
-@media all and (max-width: 767px) {
+@media all and (max-width: $grid-float-breakpoint-max) {
   .lightbox-grid li {
     width: 50%;
   }

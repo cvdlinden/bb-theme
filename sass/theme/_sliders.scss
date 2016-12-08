@@ -18,7 +18,7 @@
 	}
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: $grid-float-breakpoint-max) {
 	.logo-carousel {
 		.slides {
 			li {

@@ -6,25 +6,6 @@
 footer {
   padding: 72px 0;
 }
-.fullscreen {
-  height: 100vh;
-}
-.bg-dark h3, .bg-dark h5, footer.bg-dark h5, .bg-primary h5, .bg-dark h6, footer.bg-dark h6 {
-  color: #ffffff;
-}
-.bg-dark p, footer.bg-dark p, .bg-primary p, .bg-dark span, footer.bg-dark span, .bg-dark li, footer.bg-dark li {
-  color: #fefefe;
-}
-.image-bg h3, .image-bg h1 {
-  color: #ffffff;
-}
-.image-bg p, .image-bg li {
-  color: #ffffff;
-}
-.image-bg div[class*='col-'] {
-  position: relative;
-  z-index: 3;
-}
 .background-image-holder {
   position: absolute;
   width: 100%;

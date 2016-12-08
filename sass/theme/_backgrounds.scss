@@ -8,6 +8,15 @@ header .container {
 // Differing backgrounds
 .bg-primary {
 	background: #745cf9;
+
+	h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+
+	p {
+		color: #fefefe;
+	}
+
 }
 
 .bg-secondary {
@@ -16,4 +25,12 @@ header .container {
 
 .bg-dark {
 	background: #0e1015;
+
+	h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+
+	p, span, li {
+		color: #fefefe;
+	}
 }

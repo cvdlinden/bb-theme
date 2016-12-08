@@ -1,8 +1,38 @@
 // TODO: Clean up
 
-footer.bg-dark a {
-  color: #fff;
+footer {
+
+	position: relative;
+	overflow: hidden;
+
+	&.bg-dark {
+
+		a {
+			color: #fff;
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			color: #fff;
+		}
+
+		p, span, li {
+			color: #fefefe;
+		}
+
+	}
+
+	.copyright-text {
+		color: #fefefe;
+	}
+
+	.footer-credits,
+	.footer-credits a {
+		color: #fefefe;
+		opacity: .8;
+	}
+
 }
+
 .social-list {
   margin: 0;
 }
@@ -42,11 +72,4 @@ footer.bg-dark a {
 .footer input[type="submit"] {
   border: 0;
   margin-top: 3px;
-}
-.copyright-text {
-  color: #fefefe;
-}
-.footer .footer-credits a {
-  color: #fefefe;
-  opacity: .8;
 }

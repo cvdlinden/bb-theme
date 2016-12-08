@@ -1,0 +1,104 @@
+//
+// Parallax Widgets
+// --------------------------------------------------
+
+.bb_home_parallax {
+
+	section {
+		padding: 45px 0;
+		position: relative;
+		overflow: hidden;
+		background-color: #fff;
+	}
+
+	.cover {
+		margin: 0;
+		padding: 0;
+
+		&:first-child .fullscreen {
+			max-height: 100%;
+		}
+
+		p {
+			color: #fff;
+		}
+
+	}
+
+	.image-bg {
+		background-color: transparent;
+
+		// Text on image needs some readability
+		h1, h3,
+		p, li {
+			color: #fff;
+			text-shadow: 2px 2px 3px #000;
+		}
+
+		p {
+			font-size: 1.5em;
+			margin-bottom: 1em;
+		}
+
+		div[class*='col-'] {
+			position: relative;
+			z-index: 3;
+		}
+
+		h1 {
+			font-size: 4em;
+		}
+
+		h3 {
+			font-size: 3em;
+		}
+
+	}
+
+	// Full screen height backgrounds
+	.fullscreen {
+		height: 100vh;
+	}
+
+	@media all and (max-width: $grid-float-breakpoint-max) {
+		.cover.fullscreen {
+			height: auto;
+			padding: 0;
+		}
+	}
+
+	// Align content
+	.align-children {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flexbox;
+		display: flex;
+		align-items: center;
+		-webkit-align-items: center;
+		justify-content: center;
+		-webkit-justify-content: center;
+		flex-direction: row;
+		-webkit-flex-direction: row;
+	}
+	@media all and (max-width: $screen-sm-max) {
+		.align-children {
+			display: block !important;
+		}
+	}
+	.align-transform {
+		position: relative;
+		transform: translate3d(0, -50%, 0);
+		top: 50%;
+		z-index: 2;
+	}
+
+	.btn-lg {
+		min-width: 200px;
+		margin-right: 10px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+}

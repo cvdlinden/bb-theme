@@ -7,6 +7,11 @@
 
 	@media (min-width: $grid-float-breakpoint) {
 
+		// Remove extra spacing in case of missing .navbar-brand text
+		.navbar-collapse {
+			padding-left: 0;
+		}
+
 		ul.nav {
 
 			// Enable dropdown on hover, when not in 'mobile mode'
@@ -28,6 +33,7 @@
 				min-width: 260px;
 				margin: 10px 15px;
 			}
+
 		}
 
 	}

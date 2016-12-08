@@ -42,7 +42,7 @@ class BB_Home_Parallax extends WP_Widget {
 		/* Classes */
 		$class_section = ( 'background-full' == $image_pos )  ? 'cover fullscreen image-bg' : ( ( 'background-small' == $image_pos ) ? 'small-screen image-bg' : ( ( 'right' == $image_pos ) ? 'bg-secondary' : ( ( 'bottom' == $image_pos ) ? 'bg-secondary' : '' ) ) );
 		$class_pos_background_parallax = ( ( 'background-full' == $image_pos ) || ( 'background-small' == $image_pos ) ) ? 'top-parallax-section' : ( ( 'right' == $image_pos ) ? 'col-md-4 col-sm-5' : ( ( 'left' == $image_pos ) ? 'col-md-4 col-md-offset-1 col-sm-5 col-sm-offset-1' : ( ( 'bottom' == $image_pos ) ? 'col-sm-10 col-sm-offset-1 text-center' : ( ( 'top' == $image_pos ) ? 'col-sm-10 col-sm-offset-1 text-center' : '' ) ) ) );
-		$class_pos_background = ( ( 'background-full' == $image_pos ) || ( 'background-small' == $image_pos ) ) ? 'col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center' : '';
+		$class_pos_background = ( ( 'background-full' == $image_pos ) || ( 'background-small' == $image_pos ) ) ? 'col-sm-10 col-sm-offset-1 text-center' : '';
 		$class_pos = ( 'left' == $image_pos || 'right' == $image_pos ) ? 'row align-children' : 'row';
 		$class_pos_right = ( 'right' == $image_pos ) ? 'col-md-7 col-md-offset-1 col-sm-6 col-sm-offset-1 text-center' : '';
 		$class_pos_left = ( 'left' == $image_pos ) ? 'col-md-7 col-sm-6 text-center' : '';
@@ -70,11 +70,13 @@ class BB_Home_Parallax extends WP_Widget {
 					} ?>
 
 					<div class="<?php echo esc_attr( $class_pos_background_parallax ); ?>">
-						<div class="<?php echo esc_attr( $class_pos_background ); ?>"><?php
+						<div class="<?php echo esc_attr( $class_pos_background ); ?>">
+							<?php
 							echo ( '' != $title ) ? ( ( 'background-full' == $image_pos ) || ( 'background-small' == $image_pos ) ) ? '<h1>' . $title . '</h1>': '<h3>' . $title . '</h3>' : '';
 							echo ( '' != $body_content ) ? '<p>' . $body_content . '</p>' : '';
-							echo ( '' != $button2 && '' != $button2_link ) ? '<a class="btn btn-lg btn-filled" href="' . esc_attr( $button2_link ) . '">' . esc_html( $button2 ) . '</a>': '';
-							echo ( '' != $button1 && '' != $button1_link ) ? '<a class="btn btn-lg btn-filled" href="' . esc_attr( $button1_link ) . '">' . esc_html( $button1 ) . '</a>': ''; ?>
+							echo ( '' != $button1 && '' != $button1_link ) ? '<a class="btn btn-lg btn-primary" href="' . esc_attr( $button1_link ) . '">' . esc_html( $button1 ) . '</a>': '';
+							echo ( '' != $button2 && '' != $button2_link ) ? '<a class="btn btn-lg btn-primary" href="' . esc_attr( $button2_link ) . '">' . esc_html( $button2 ) . '</a>': '';
+							?>
 						</div>
 					</div>
 					<!--end of row-->

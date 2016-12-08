@@ -71,7 +71,7 @@
 
 									<!-- Your site title as branding in the menu -->
 									<?php // bb_get_header_logo();. ?>
-									<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+									<!--<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>-->
 								</div>
 
 								<div id="navbar-collapse" class="collapse navbar-collapse">
@@ -93,7 +93,7 @@
 
 									<ul class="nav navbar-nav navbar-right" aria-expanded="false">
 										<li class="menu-item menu-item-has-children dropdown">
-											<a title="<?php echo esc_attr__( 'Search', 'bb' ); ?>" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><span class="visible-xs-inline">Search </span><i class="fa fa-search"></i></a>
+											<a title="<?php echo esc_attr__( 'Search', 'bb' ); ?>" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><i class="fa fa-search"></i> <?php echo esc_attr__( 'Search', 'bb' ); ?></a>
 											<ul role="menu" class="dropdown-menu">
 												<li class="menu-item">
 													<form class="form" role="search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -128,4 +128,4 @@
 
 			<!-- Content Area -->
 			<div id="main" class="container content-area <?php echo ( get_theme_mod( 'top_callout', true ) ) ? ' top-callout-present' : '' ?>" role="main">
-					<div class="row">
+				<div class="row">
