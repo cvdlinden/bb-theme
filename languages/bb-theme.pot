@@ -780,7 +780,7 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: inc/widgets/widget-categories.php:193, inc/widgets/widget-home-clients.php:173, inc/widgets/widget-home-features.php:219, inc/widgets/widget-home-features.php:255, inc/widgets/widget-home-parallax.php:235, inc/widgets/widget-home-portfolio.php:239, inc/widgets/widget-home-testimonials.php:239, inc/widgets/widget-social.php:125
+#: inc/widgets/widget-categories.php:193, inc/widgets/widget-home-clients.php:173, inc/widgets/widget-home-features.php:219, inc/widgets/widget-home-features.php:255, inc/widgets/widget-home-parallax.php:241, inc/widgets/widget-home-portfolio.php:239, inc/widgets/widget-home-testimonials.php:239, inc/widgets/widget-social.php:125
 msgid "Title "
 msgstr ""
 
@@ -856,7 +856,7 @@ msgstr ""
 msgid "[BB] Features Section For FrontPage"
 msgstr ""
 
-#: inc/widgets/widget-home-features.php:233, inc/widgets/widget-home-features.php:293, inc/widgets/widget-home-parallax.php:263, inc/widgets/widget-home-portfolio.php:253
+#: inc/widgets/widget-home-features.php:233, inc/widgets/widget-home-features.php:293, inc/widgets/widget-home-parallax.php:269, inc/widgets/widget-home-portfolio.php:253
 msgid "Content "
 msgstr ""
 
@@ -872,67 +872,67 @@ msgstr ""
 msgid "Select Icon"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:37
+#: inc/widgets/widget-home-parallax.php:41
 msgid "FrontPage Parallax Section"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:39
+#: inc/widgets/widget-home-parallax.php:43
 msgid "[BB] Parralax Section For FrontPage"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:65
+#: inc/widgets/widget-home-parallax.php:69
 msgid "left"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:251
+#: inc/widgets/widget-home-parallax.php:257
 msgid "Image:"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:255, inc/widgets/widget-home-testimonials.php:287
+#: inc/widgets/widget-home-parallax.php:261, inc/widgets/widget-home-testimonials.php:287
 msgid "Upload Image"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:275
+#: inc/widgets/widget-home-parallax.php:281
 msgid "Image Position "
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:281
+#: inc/widgets/widget-home-parallax.php:287
 msgid "Left"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:283
+#: inc/widgets/widget-home-parallax.php:289
 msgid "Right"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:285
+#: inc/widgets/widget-home-parallax.php:291
 msgid "Top"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:287
+#: inc/widgets/widget-home-parallax.php:293
 msgid "Bottom"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:289
+#: inc/widgets/widget-home-parallax.php:295
 msgid "Background Full"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:291
+#: inc/widgets/widget-home-parallax.php:297
 msgid "Background Small"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:299
+#: inc/widgets/widget-home-parallax.php:305
 msgid "Button 1 Text "
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:313
+#: inc/widgets/widget-home-parallax.php:319
 msgid "Button 1 Link "
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:327
+#: inc/widgets/widget-home-parallax.php:333
 msgid "Button 2 Text "
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:341
+#: inc/widgets/widget-home-parallax.php:347
 msgid "Button 2 Link "
 msgstr ""
 

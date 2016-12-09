@@ -29,21 +29,21 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Fonts
 # Bootstrap
 # Font Awesome
-	# Typography
-	# Elements
-	# Forms
+	x Typography
+	x Elements
+	x Forms
 # Navigation
 # Accessibility
 # Alignments
 # Clearings
-	# Widgets
-	# Content
-		## Posts and pages
-		## Comments
-	# Infinite scroll
-	# Media
-		## Captions
-		## Galleries
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
 # Theme specifics
 --------------------------------------------------------------*/
 // @import "variables-site/variables-site";
@@ -102,12 +102,12 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
-// @import "site/secondary/widgets";
+@import "site/secondary/widgets";
 
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-// @import "site/site";
+@import "site/site";
 
 /*--------------------------------------------------------------
 # Infinite scroll
@@ -117,7 +117,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-// @import "media/media";
+@import "media/media";
 
 /*--------------------------------------------------------------
 # Theme specifics

@@ -3,6 +3,8 @@
  * Homepage parralax section Widget
  *
  * @package BijBest
+ *
+ * TODO: Untangle the class mess in widget(). Re-use $image_pos class in section.
  */
 
 /**
@@ -40,12 +42,12 @@ class BB_Home_Parallax extends WP_Widget {
 		echo $args['before_widget'];
 
 		/* Classes */
-		$class_section = ( 'background-full' == $image_pos )  ? 'cover fullscreen image-bg' : ( ( 'background-small' == $image_pos ) ? 'small-screen image-bg' : ( ( 'right' == $image_pos ) ? 'bg-secondary' : ( ( 'bottom' == $image_pos ) ? 'bg-secondary' : '' ) ) );
-		$class_pos_background_parallax = ( ( 'background-full' == $image_pos ) || ( 'background-small' == $image_pos ) ) ? 'top-parallax-section' : ( ( 'right' == $image_pos ) ? 'col-md-4 col-sm-5' : ( ( 'left' == $image_pos ) ? 'col-md-4 col-md-offset-1 col-sm-5 col-sm-offset-1' : ( ( 'bottom' == $image_pos ) ? 'col-sm-10 col-sm-offset-1 text-center' : ( ( 'top' == $image_pos ) ? 'col-sm-10 col-sm-offset-1 text-center' : '' ) ) ) );
-		$class_pos_background = ( ( 'background-full' == $image_pos ) || ( 'background-small' == $image_pos ) ) ? 'col-sm-10 col-sm-offset-1 text-center' : '';
-		$class_pos = ( 'left' == $image_pos || 'right' == $image_pos ) ? 'row align-children' : 'row';
-		$class_pos_right = ( 'right' == $image_pos ) ? 'col-md-7 col-md-offset-1 col-sm-6 col-sm-offset-1 text-center' : '';
-		$class_pos_left = ( 'left' == $image_pos ) ? 'col-md-7 col-sm-6 text-center' : '';
+		$class_section = ( 'background-full' == $image_pos )  ? 'cover fullscreen image-bg ' . $image_pos : ( ( 'background-small' == $image_pos ) ? 'cover smallscreen image-bg ' . $image_pos : ( ( 'right' == $image_pos ) ? 'bg-secondary ' . $image_pos : ( ( 'bottom' == $image_pos ) ? 'bg-secondary ' . $image_pos : $image_pos ) ) );
+		$class_pos_content_wrapper = ( ( 'background-full' == $image_pos ) || ( 'background-small' == $image_pos ) ) ? 'top-parallax-section' : ( ( 'right' == $image_pos ) ? 'col-md-4 col-sm-5' : ( ( 'left' == $image_pos ) ? 'col-md-4 col-sm-5' : ( ( 'bottom' == $image_pos ) ? 'col-sm-10 col-sm-offset-1 text-center' : ( ( 'top' == $image_pos ) ? 'col-sm-10 col-sm-offset-1 text-center' : '' ) ) ) );
+		$class_pos_content = ( ( 'background-full' == $image_pos ) || ( 'background-small' == $image_pos ) ) ? 'col-sm-10 col-sm-offset-1 text-center' : '';
+		$class_pos_row = ( 'left' == $image_pos || 'right' == $image_pos ) ? 'row align-children' : 'row';
+		$class_pos_right_col = ( 'right' == $image_pos ) ? 'col-md-7 col-sm-6 text-center' : '';
+		$class_pos_left_col = ( 'left' == $image_pos ) ? 'col-md-7 col-sm-6 text-center' : '';
 		$class_fullscreen = ( 'background-full' == $image_pos ) ? 'fullscreen' : '';
 
 		/**
@@ -60,17 +62,17 @@ class BB_Home_Parallax extends WP_Widget {
 				<div class="container"><?php
 			} ?>
 
-				<div class="<?php echo esc_attr( $class_pos ); ?>">
+				<div class="<?php echo esc_attr( $class_pos_row ); ?>">
 
 					<?php
 						if ( ( 'left' == $image_pos || 'top' == $image_pos ) && '' != $image_src ) { ?>
-						<div class="<?php echo esc_attr( $class_pos_left ); ?>">
-							<img class="cast-shadow" alt="<?php echo esc_attr( $title ); ?>" src="<?php echo esc_attr( $image_src ); ?>">
+						<div class="<?php echo esc_attr( $class_pos_left_col ); ?>">
+							<img alt="<?php echo esc_attr( $title ); ?>" src="<?php echo esc_attr( $image_src ); ?>">
 						</div><?php
 					} ?>
 
-					<div class="<?php echo esc_attr( $class_pos_background_parallax ); ?>">
-						<div class="<?php echo esc_attr( $class_pos_background ); ?>">
+					<div class="<?php echo esc_attr( $class_pos_content_wrapper ); ?>">
+						<div class="<?php echo esc_attr( $class_pos_content ); ?>">
 							<?php
 							echo ( '' != $title ) ? ( ( 'background-full' == $image_pos ) || ( 'background-small' == $image_pos ) ) ? '<h1>' . $title . '</h1>': '<h3>' . $title . '</h3>' : '';
 							echo ( '' != $body_content ) ? '<p>' . $body_content . '</p>' : '';
@@ -79,14 +81,15 @@ class BB_Home_Parallax extends WP_Widget {
 							?>
 						</div>
 					</div>
-					<!--end of row-->
+
 					<?php
 						if ( ( 'right' == $image_pos || 'bottom' == $image_pos ) && '' != $image_src ) { ?>
-						<div class="<?php echo esc_attr( $class_pos_right ); ?>">
-							<img class="cast-shadow" alt="<?php echo esc_attr( $title ); ?>" src="<?php echo esc_attr( $image_src ); ?>">
+						<div class="<?php echo esc_attr( $class_pos_right_col ); ?>">
+							<img alt="<?php echo esc_attr( $title ); ?>" src="<?php echo esc_attr( $image_src ); ?>">
 						</div><?php
 					} ?>
-				</div>
+
+				</div><!--end of row-->
 			</div>
 			<?php if ( 'background-full' == $image_pos || 'background-small' == $image_pos ) { ?>
 			</div><?php

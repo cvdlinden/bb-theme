@@ -1,29 +1,26 @@
 // TODO: Clean up
 
-.feature-1 i {
-  font-size: 64px;
-}
-.parallax-section {
-  padding-top: 0;
-  padding-bottom: 0;
-  border: 0;
-}
-.small-screen .top-parallax-section {
-  overflow: hidden;
-  padding: 96px 0;
-}
 .social-list {
   font-size: 22px;
 }
 .testimonial-img {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   height: 100px;
   width: 100px;
   margin-bottom: 16px;
 }
-.widget-area section {
-  border-bottom: 0;
-  padding: 0;
+
+// This is a small security for too long strings titles
+body {
+	word-wrap: break-word;
+}
+
+// Images and wp-captions should always fit and be responsive
+img {
+	display: inline-block;
+	height: auto;
+	max-width: 100%;
+}
+figure {
+	max-width: 100%;
 }
