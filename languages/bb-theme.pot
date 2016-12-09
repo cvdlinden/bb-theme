@@ -780,7 +780,7 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: inc/widgets/widget-categories.php:193, inc/widgets/widget-home-clients.php:173, inc/widgets/widget-home-features.php:219, inc/widgets/widget-home-features.php:255, inc/widgets/widget-home-parallax.php:241, inc/widgets/widget-home-portfolio.php:239, inc/widgets/widget-home-testimonials.php:239, inc/widgets/widget-social.php:125
+#: inc/widgets/widget-categories.php:193, inc/widgets/widget-home-clients.php:173, inc/widgets/widget-home-features.php:219, inc/widgets/widget-home-features.php:255, inc/widgets/widget-home-parallax.php:241, inc/widgets/widget-home-portfolio.php:249, inc/widgets/widget-home-testimonials.php:239, inc/widgets/widget-social.php:125
 msgid "Title "
 msgstr ""
 
@@ -856,7 +856,7 @@ msgstr ""
 msgid "[BB] Features Section For FrontPage"
 msgstr ""
 
-#: inc/widgets/widget-home-features.php:233, inc/widgets/widget-home-features.php:293, inc/widgets/widget-home-parallax.php:269, inc/widgets/widget-home-portfolio.php:253
+#: inc/widgets/widget-home-features.php:233, inc/widgets/widget-home-features.php:293, inc/widgets/widget-home-parallax.php:269, inc/widgets/widget-home-portfolio.php:263
 msgid "Content "
 msgstr ""
 

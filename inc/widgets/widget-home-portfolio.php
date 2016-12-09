@@ -42,10 +42,12 @@ class BB_Home_Portfolio extends WP_Widget {
 			?>
 			<section class="projects bg-dark">
 				<div class="container">
-					<div class="col-sm-12 text-center">
-						<h3><?php echo $title; ?></h3>
-						<p><?php echo $body_content; ?></p>
-					</div>
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<h3><?php echo $title; ?></h3>
+							<p><?php echo $body_content; ?></p>
+						</div>
+					</div><!--end of row-->
 				</div><?php
 
 				$portfolio_args = array(
@@ -58,39 +60,42 @@ class BB_Home_Portfolio extends WP_Widget {
 
 				if ( $portfolio_query->have_posts() ) : ?>
 
-				<div class="row masonry-loader fixed-center fadeOut">
-					<div class="col-sm-12 text-center">
-						<div class="spinner"></div>
-					</div>
-				</div>
-				<div class="row masonry masonryFlyIn fadeIn"><?php
-
-					while ( $portfolio_query->have_posts() ) : $portfolio_query->the_post();
-
-					if ( has_post_thumbnail() ) { ?>
-					<div class="col-md-3 col-sm-6 masonry-item project fadeIn">
-						<div class="image-tile inner-title hover-reveal text-center">
-							<a href="<?php esc_attr( the_permalink() ); ?>" title="<?php esc_attr( the_title_attribute() ); ?>">
-								<?php the_post_thumbnail( 'full' ); ?>
-								<div class="title"><?php
-									the_title( '<h5>', '</h5>' );
-
-									$terms = get_the_terms( get_the_ID(), 'jetpack-portfolio-type' );
-									if ( $terms ) {
-										$out = array();
-										foreach ( $terms as $term ) {
-											$out[] = '<span>' . $term->name . '</span>';
-										}
-										echo join( ' / ', $out );
-									}
-									?>
-								</div>
-							</a>
+				<div class="container">
+					<div class="row masonry-loader fixed-center fadeOut">
+						<div class="col-sm-12 text-center">
+							<div class="spinner"></div>
 						</div>
-					</div><?php
-					}
-					endwhile; ?>
-				</div><?php
+					</div><!--end of row-->
+					<div class="row masonry masonryFlyIn fadeIn"><?php
+
+						while ( $portfolio_query->have_posts() ) : $portfolio_query->the_post();
+
+						if ( has_post_thumbnail() ) { ?>
+						<div class="col-md-3 col-sm-6 masonry-item project fadeIn">
+							<div class="image-tile inner-title hover-reveal text-center">
+								<a href="<?php esc_attr( the_permalink() ); ?>" title="<?php esc_attr( the_title_attribute() ); ?>">
+									<?php the_post_thumbnail( 'full' ); ?>
+									<div class="title"><?php
+										the_title( '<h5>', '</h5>' );
+
+										$terms = get_the_terms( get_the_ID(), 'jetpack-portfolio-type' );
+										if ( $terms ) {
+											$out = array();
+											foreach ( $terms as $term ) {
+												$out[] = '<span>' . $term->name . '</span>';
+											}
+											echo join( ' / ', $out );
+										}
+										?>
+									</div>
+								</a>
+							</div>
+						</div><?php
+						}
+						endwhile; ?>
+					</div><!--end of row-->
+				</div>
+				<?php
 				endif;
 				wp_reset_postdata(); ?>
 			</section>
