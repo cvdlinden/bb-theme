@@ -30,6 +30,25 @@
 			z-index: 3;
 		}
 
+		.text-slider { // Nav arrow hovers
+			.flex-direction-nav {
+				li {
+					a {
+						&:before {
+							color: #fff;
+							transition: all 0.3s ease;
+							opacity: .25;
+						}
+						&:hover {
+							&:before {
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+		}
+
 	}
 
 	h3 {
@@ -51,28 +70,3 @@
 
 }
 
-// .text-slider {
-// 	.flex-direction-nav {
-// 		li {
-// 			a {
-// 				&:before {
-// 					color: #222;
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-// .image-bg .text-slider .flex-direction-nav li a:before {
-// 	color: #fff;
-// 	transition: all 0.3s ease;
-// 	opacity: .5;
-// }
-// .image-bg .text-slider .flex-direction-nav li a:hover:before {
-// 	opacity: 1;
-// }
-// .text-slider .flex-direction-nav a.flex-prev {
-// 	left: -60px;
-// }
-// .text-slider .flex-direction-nav a.flex-next {
-// 	right: -60px;
-// }
