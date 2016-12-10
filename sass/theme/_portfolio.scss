@@ -1,12 +1,27 @@
-// TODO: Clean up
+//
+// Portfolio Widgets
+// --------------------------------------------------
 
-.project {
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  opacity: 1;
-  padding: 0;
-}
-.project .image-tile {
-  margin: 0;
+.bb_home_portfolio {
+
+	> .container {
+		padding: 60px 0 30px;
+	}
+
+	section {
+		padding: 45px 0 15px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	h3 {
+		font-size: 2.5em;
+		margin: 0 0 .8em;
+	}
+
+	p {
+		font-size: 1.2em;
+		margin-bottom: 2em;
+	}
+
 }

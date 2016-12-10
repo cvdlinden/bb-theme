@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>  
-	<section id="primary" class="content-area col-md-9 <?php echo esc_attr( $layout_class ); ?>">
+	<section id="primary" class="content-area col-md-12 <?php echo esc_attr( $layout_class ); ?>">
 
 	<?php
 	if ( have_posts() ) : ?>
@@ -39,7 +39,7 @@ get_header(); ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail( 'medium' ); ?>
 							<div class="title"><?php
-								the_title( '<h5>','</h5>' );
+								the_title( '<h4>','</h4>' );
 
 								$terms = get_the_terms( get_the_ID(), 'jetpack-portfolio-type' );
 								if ( $terms ) {

@@ -31,16 +31,17 @@ class BB_Home_Portfolio extends WP_Widget {
 		$title = isset( $instance['title'] ) ? $instance['title'] : '';
 		$body_content = isset( $instance['body_content'] ) ? $instance['body_content'] : '';
 
+		echo $args['before_widget'];
+
 		// Only start working if JetPack Portfolio content type is activated.
 		if ( post_type_exists( 'jetpack-portfolio' ) ) {
-
-			echo $args['before_widget'];
 
 			/**
 			* Widget Content
 			*/
 			?>
 			<section class="projects bg-dark">
+
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 text-center">
@@ -52,7 +53,7 @@ class BB_Home_Portfolio extends WP_Widget {
 
 				$portfolio_args = array(
 					'post_type' => 'jetpack-portfolio',
-					'posts_per_page' => 10,
+					'posts_per_page' => 12,
 					'ignore_sticky_posts' => 1,
 				);
 
@@ -61,22 +62,22 @@ class BB_Home_Portfolio extends WP_Widget {
 				if ( $portfolio_query->have_posts() ) : ?>
 
 				<div class="container">
-					<div class="row masonry-loader fixed-center fadeOut">
+					<div class="row masonry-loader fixed-center">
 						<div class="col-sm-12 text-center">
 							<div class="spinner"></div>
 						</div>
 					</div><!--end of row-->
-					<div class="row masonry masonryFlyIn fadeIn"><?php
+					<div class="row masonry masonryFlyIn"><?php
 
 						while ( $portfolio_query->have_posts() ) : $portfolio_query->the_post();
 
 						if ( has_post_thumbnail() ) { ?>
 						<div class="col-md-3 col-sm-6 masonry-item project fadeIn">
 							<div class="image-tile inner-title hover-reveal text-center">
-								<a href="<?php esc_attr( the_permalink() ); ?>" title="<?php esc_attr( the_title_attribute() ); ?>">
+								<a href="<?php esc_attr( the_permalink() ); ?>">
 									<?php the_post_thumbnail( 'full' ); ?>
 									<div class="title"><?php
-										the_title( '<h5>', '</h5>' );
+										the_title( '<h4>', '</h4>' );
 
 										$terms = get_the_terms( get_the_ID(), 'jetpack-portfolio-type' );
 										if ( $terms ) {
@@ -100,12 +101,23 @@ class BB_Home_Portfolio extends WP_Widget {
 				wp_reset_postdata(); ?>
 			</section>
 
-			<?php
-			echo $args['after_widget'];
-
+		<?php
 		} else {
-			echo '<div class="container"><div class="row"><div class="col-sm-12 text-center"><div class="alert alert-warning">Please activate the JetPack Portfolio Content Type in order to see the portfolio.</div></div></div></div>';
+		?>
+
+			<div class="container bg-dark">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1 text-center">
+						<div class="alert alert-warning">Please activate the JetPack Portfolio Content Type in order to see the portfolio.</div>
+					</div>
+				</div>
+			</div>
+
+		<?php
 		}
+
+		echo $args['after_widget'];
+
 	}
 
 	/**

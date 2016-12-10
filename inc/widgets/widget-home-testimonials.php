@@ -28,7 +28,7 @@ class BB_Home_Testimonial extends WP_Widget {
 	 * @param array $instance The settings for the particular instance of the widget.
 	 */
 	function widget( $args, $instance ) {
-		$title = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'People just like you are already loving Colorlib', 'bb' );
+		$title = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Testimonials', 'bb' );
 		$limit = isset( $instance['limit'] ) ? $instance['limit'] : 5;
 		$image_src = isset( $instance['image_src'] ) ? $instance['image_src'] : '';
 

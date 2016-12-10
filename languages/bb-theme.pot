@@ -75,19 +75,19 @@ msgstr ""
 msgid "Used for footer widget area"
 msgstr ""
 
-#: functions.php:747
+#: functions.php:761
 msgid "Left Sidebar"
 msgstr ""
 
-#: functions.php:747
+#: functions.php:761
 msgid "Right Sidebar"
 msgstr ""
 
-#: functions.php:747
+#: functions.php:761
 msgid "No Sidebar"
 msgstr ""
 
-#: functions.php:747
+#: functions.php:761
 msgid "Full Width"
 msgstr ""
 
@@ -752,19 +752,19 @@ msgstr ""
 msgid "Edit %s"
 msgstr ""
 
-#: inc/template-tags.php:459
+#: inc/template-tags.php:467
 msgid ", updated on "
 msgstr ""
 
-#: inc/template-tags.php:465
+#: inc/template-tags.php:473
 msgid "<span class=\"posted-on\">Posted on %1$s</span><span class=\"byline\"> by %2$s</span>"
 msgstr ""
 
-#: inc/template-tags.php:473
+#: inc/template-tags.php:481
 msgid "View all posts by %s"
 msgstr ""
 
-#: inc/template-tags.php:959
+#: inc/template-tags.php:967
 msgid "View all posts in %s"
 msgstr ""
 
@@ -780,7 +780,7 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: inc/widgets/widget-categories.php:193, inc/widgets/widget-home-clients.php:173, inc/widgets/widget-home-features.php:219, inc/widgets/widget-home-features.php:255, inc/widgets/widget-home-parallax.php:241, inc/widgets/widget-home-portfolio.php:249, inc/widgets/widget-home-testimonials.php:239, inc/widgets/widget-social.php:125
+#: inc/widgets/widget-categories.php:193, inc/widgets/widget-home-clients.php:173, inc/widgets/widget-home-features.php:219, inc/widgets/widget-home-features.php:255, inc/widgets/widget-home-parallax.php:241, inc/widgets/widget-home-portfolio.php:273, inc/widgets/widget-home-testimonials.php:239, inc/widgets/widget-social.php:125
 msgid "Title "
 msgstr ""
 
@@ -856,7 +856,7 @@ msgstr ""
 msgid "[BB] Features Section For FrontPage"
 msgstr ""
 
-#: inc/widgets/widget-home-features.php:233, inc/widgets/widget-home-features.php:293, inc/widgets/widget-home-parallax.php:269, inc/widgets/widget-home-portfolio.php:263
+#: inc/widgets/widget-home-features.php:233, inc/widgets/widget-home-features.php:293, inc/widgets/widget-home-parallax.php:269, inc/widgets/widget-home-portfolio.php:287
 msgid "Content "
 msgstr ""
 
@@ -953,7 +953,7 @@ msgid "[bb] Testimonial Section For FrontPage"
 msgstr ""
 
 #: inc/widgets/widget-home-testimonials.php:61
-msgid "People just like you are already loving Colorlib"
+msgid "Testimonials"
 msgstr ""
 
 #: inc/widgets/widget-home-testimonials.php:253

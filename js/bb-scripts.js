@@ -189,8 +189,13 @@
 					window.addEventListener("scroll", updateFloatingFilters, false);
 				}
 
+				// Swap loader for masonry
 				jQuery(".masonry").addClass("fadeIn");
-				jQuery(".masonry-loader").addClass("fadeOut");
+				jQuery(".masonry-loader")
+					.addClass("fadeOut")
+					.one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
+						jQuery(this).hide();
+					});
 				if (jQuery(".masonryFlyIn").length) {
 					masonryFlyIn();
 				}
