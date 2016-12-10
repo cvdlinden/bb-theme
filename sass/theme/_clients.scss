@@ -1,0 +1,46 @@
+//
+// Clients Widgets
+// --------------------------------------------------
+
+.bb_home_clients {
+
+	section {
+		background: #fff;
+		padding: 60px 0;
+		position: relative;
+		overflow: hidden;
+	}
+
+	h3 {
+		font-size: 2.5em;
+		margin: 0 0 .8em;
+	}
+
+	// Home client logo carousel
+	.logo-carousel {
+		li {
+			text-align: center;
+			transition: all 0.3s ease;
+			opacity: .5;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		img {
+			max-height: 60px;
+		}
+	}
+
+	@media all and (max-width: $grid-float-breakpoint-max) {
+		.logo-carousel {
+			.slides {
+				li {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+}

@@ -780,7 +780,7 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: inc/widgets/widget-categories.php:193, inc/widgets/widget-home-clients.php:173, inc/widgets/widget-home-features.php:219, inc/widgets/widget-home-features.php:255, inc/widgets/widget-home-parallax.php:241, inc/widgets/widget-home-portfolio.php:273, inc/widgets/widget-home-testimonials.php:239, inc/widgets/widget-social.php:125
+#: inc/widgets/widget-categories.php:193, inc/widgets/widget-home-clients.php:173, inc/widgets/widget-home-features.php:219, inc/widgets/widget-home-features.php:255, inc/widgets/widget-home-parallax.php:241, inc/widgets/widget-home-portfolio.php:273, inc/widgets/widget-home-testimonials.php:265, inc/widgets/widget-social.php:125
 msgid "Title "
 msgstr ""
 
@@ -888,7 +888,7 @@ msgstr ""
 msgid "Image:"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:261, inc/widgets/widget-home-testimonials.php:287
+#: inc/widgets/widget-home-parallax.php:261, inc/widgets/widget-home-testimonials.php:313
 msgid "Upload Image"
 msgstr ""
 
@@ -956,11 +956,11 @@ msgstr ""
 msgid "Testimonials"
 msgstr ""
 
-#: inc/widgets/widget-home-testimonials.php:253
+#: inc/widgets/widget-home-testimonials.php:279
 msgid "Limit "
 msgstr ""
 
-#: inc/widgets/widget-home-testimonials.php:269
+#: inc/widgets/widget-home-testimonials.php:295
 msgid "Background Parallax Image:"
 msgstr ""
 

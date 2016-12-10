@@ -32,9 +32,10 @@ class BB_Home_Testimonial extends WP_Widget {
 		$limit = isset( $instance['limit'] ) ? $instance['limit'] : 5;
 		$image_src = isset( $instance['image_src'] ) ? $instance['image_src'] : '';
 
+		echo $args['before_widget'];
+
 		// Only start working if JetPack Testimonial content type is activated.
 		if ( post_type_exists( 'jetpack-testimonial' ) ) {
-			echo $args['before_widget'];
 
 			/**
 			* Widget Content
@@ -60,13 +61,13 @@ class BB_Home_Testimonial extends WP_Widget {
 								<div class="col-sm-12 text-center">
 									<h3><?php echo $title; ?></h3>
 								</div>
-							</div>
-							<!--end of row-->
+							</div><!--end of row-->
 							<div class="row">
 								<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
 									<div class="text-slider slider-arrow-controls text-center relative">
-										<ul class="slides" style="overflow: hidden;"><?php
-											while ( $testimonial_query->have_posts() ) : $testimonial_query->the_post(); ?>
+										<ul class="slides" style="overflow: hidden;">
+											<?php while ( $testimonial_query->have_posts() ) : $testimonial_query->the_post(); ?>
+
 											<?php if ( get_the_title() != '' ) : ?>
 											<li>
 												<p><?php the_content(); ?></p>
@@ -93,11 +94,23 @@ class BB_Home_Testimonial extends WP_Widget {
 			<?php
 			endif;
 			wp_reset_postdata();
-			echo $args['after_widget'];
 
 		} else {
-			echo '<div class="container"><div class="row"><div class="col-sm-12 text-center"><div class="alert alert-warning">Please activate the JetPack Testimonials Content Type in order to see the testimonials.</div></div></div></div>';
+		?>
+
+			<div class="container bg-dark">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1 text-center">
+						<div class="alert alert-warning">Please activate the JetPack Testimonials Content Type in order to see the testimonials.</div>
+					</div>
+				</div>
+			</div>
+
+		<?php
 		}
+
+		echo $args['after_widget'];
+
 	}
 
 	/**

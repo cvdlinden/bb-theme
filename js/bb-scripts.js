@@ -106,7 +106,7 @@
 		});
 
 		// Image Sliders
-		$(".slider-all-controls").flexslider({
+		$(".slider-all-controls").flexslider({ // Not used?
 			start: function(slider){
 				if(slider.find(".slides li:first-child").find(".fs-vid-background video").length){
 				slider.find(".slides li:first-child").find(".fs-vid-background video").get(0).play();
@@ -123,23 +123,23 @@
 				}
 			}
 		});
-		$(".slider-paging-controls").flexslider({
+		$(".slider-paging-controls").flexslider({ // Not used?
 			animation: "slide",
 			directionNav: false
 		});
-		$(".slider-arrow-controls").flexslider({
+		$(".slider-arrow-controls").flexslider({ // Home testimonials widget
 			controlNav: false
 		});
-		$(".slider-thumb-controls .slides li").each(function() {
+		$(".slider-thumb-controls .slides li").each(function() { // Not used?
 			var imgSrc = $(this).find("img").attr("src");
 			$(this).attr("data-thumb", imgSrc);
 		});
-		$(".slider-thumb-controls").flexslider({
+		$(".slider-thumb-controls").flexslider({ // Not used?
 			animation: "slide",
 			controlNav: "thumbnails",
 			directionNav: true
 		});
-		$(".logo-carousel").flexslider({
+		$(".logo-carousel").flexslider({ // Home clients widget
 			minItems: 1,
 			maxItems: 4,
 			move: 1,

@@ -1,7 +1,78 @@
-// TODO
+//
+// Testimonial Widgets
+// --------------------------------------------------
 
-.parallax-section {
-	padding-top: 0;
-	padding-bottom: 0;
-	border: 0;
+.bb_home_testimonial {
+
+	> .container {
+		padding: 60px 15px 30px;
+	}
+
+	.align-transform {
+		position: relative;
+		transform: translate3d(0, -50%, 0);
+		top: 50%;
+		z-index: 2;
+	}
+
+	.image-bg {
+		background-color: transparent;
+
+		// Text on image needs some readability
+		h1, h3,
+		p, li {
+			color: #fff;
+			text-shadow: 2px 2px 3px #000;
+		}
+
+		div[class*='col-'] {
+			position: relative;
+			z-index: 3;
+		}
+
+	}
+
+	h3 {
+		font-size: 2.5em;
+		margin: 0 0 .8em;
+	}
+
+	p {
+		// font-size: 1.2em;
+		// margin-bottom: 2em;
+	}
+
+	.testimonial-img {
+		border-radius: 50%;
+		height: 100px;
+		width: 100px;
+		margin-bottom: 10px;
+	}
+
 }
+
+// .text-slider {
+// 	.flex-direction-nav {
+// 		li {
+// 			a {
+// 				&:before {
+// 					color: #222;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// .image-bg .text-slider .flex-direction-nav li a:before {
+// 	color: #fff;
+// 	transition: all 0.3s ease;
+// 	opacity: .5;
+// }
+// .image-bg .text-slider .flex-direction-nav li a:hover:before {
+// 	opacity: 1;
+// }
+// .text-slider .flex-direction-nav a.flex-prev {
+// 	left: -60px;
+// }
+// .text-slider .flex-direction-nav a.flex-next {
+// 	right: -60px;
+// }
