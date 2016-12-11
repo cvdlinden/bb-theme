@@ -34,20 +34,21 @@
 			return false;
 		});
 
-		// Append .background-image-holder <img>s as CSS backgrounds
-		jQuery(".background-image-holder").each(function() {
-			var imgSrc = jQuery(this).children("img").attr("src");
-			jQuery(this).css("background", "url('" + imgSrc + "')");
-			jQuery(this).children("img").hide();
-			jQuery(this).css("background-position", "initial");
-		});
+		// OBSOLETE?
+		// // Append .background-image-holder <img>s as CSS backgrounds
+		// jQuery(".background-image-holder").each(function() {
+		// 	var imgSrc = jQuery(this).children("img").attr("src");
+		// 	jQuery(this).css("background", "url('" + imgSrc + "')");
+		// 	jQuery(this).children("img").hide();
+		// 	jQuery(this).css("background-position", "initial");
+		// });
 
-		// Fade in background images
-		setTimeout(function() {
-			jQuery(".background-image-holder").each(function() {
-				jQuery(this).addClass("fadeIn");
-			});
-		}, 200);
+		// // Fade in background images
+		// setTimeout(function() {
+		// 	jQuery(".background-image-holder").each(function() {
+		// 		jQuery(this).addClass("fadeIn");
+		// 	});
+		// }, 200);
 
 		
 		// Fix nav to top while scrolling
@@ -106,39 +107,39 @@
 		});
 
 		// Image Sliders
-		$(".slider-all-controls").flexslider({ // Not used?
-			start: function(slider){
-				if(slider.find(".slides li:first-child").find(".fs-vid-background video").length){
-				slider.find(".slides li:first-child").find(".fs-vid-background video").get(0).play();
-				}
-			},
-			after: function(slider){
-				if(slider.find(".fs-vid-background video").length){
-					if(slider.find("li:not(.flex-active-slide)").find(".fs-vid-background video").length){
-						slider.find("li:not(.flex-active-slide)").find(".fs-vid-background video").get(0).pause();
-					}
-					if(slider.find(".flex-active-slide").find(".fs-vid-background video").length){
-						slider.find(".flex-active-slide").find(".fs-vid-background video").get(0).play();
-					}
-				}
-			}
-		});
-		$(".slider-paging-controls").flexslider({ // Not used?
-			animation: "slide",
-			directionNav: false
-		});
+		// $(".slider-all-controls").flexslider({ // Not used?
+		// 	start: function(slider){
+		// 		if(slider.find(".slides li:first-child").find(".fs-vid-background video").length){
+		// 		slider.find(".slides li:first-child").find(".fs-vid-background video").get(0).play();
+		// 		}
+		// 	},
+		// 	after: function(slider){
+		// 		if(slider.find(".fs-vid-background video").length){
+		// 			if(slider.find("li:not(.flex-active-slide)").find(".fs-vid-background video").length){
+		// 				slider.find("li:not(.flex-active-slide)").find(".fs-vid-background video").get(0).pause();
+		// 			}
+		// 			if(slider.find(".flex-active-slide").find(".fs-vid-background video").length){
+		// 				slider.find(".flex-active-slide").find(".fs-vid-background video").get(0).play();
+		// 			}
+		// 		}
+		// 	}
+		// });
+		// $(".slider-paging-controls").flexslider({ // Not used?
+		// 	animation: "slide",
+		// 	directionNav: false
+		// });
 		$(".slider-arrow-controls").flexslider({ // Home testimonials widget
 			controlNav: false
 		});
-		$(".slider-thumb-controls .slides li").each(function() { // Not used?
-			var imgSrc = $(this).find("img").attr("src");
-			$(this).attr("data-thumb", imgSrc);
-		});
-		$(".slider-thumb-controls").flexslider({ // Not used?
-			animation: "slide",
-			controlNav: "thumbnails",
-			directionNav: true
-		});
+		// $(".slider-thumb-controls .slides li").each(function() { // Not used?
+		// 	var imgSrc = $(this).find("img").attr("src");
+		// 	$(this).attr("data-thumb", imgSrc);
+		// });
+		// $(".slider-thumb-controls").flexslider({ // Not used?
+		// 	animation: "slide",
+		// 	controlNav: "thumbnails",
+		// 	directionNav: true
+		// });
 		$(".logo-carousel").flexslider({ // Home clients widget
 			minItems: 1,
 			maxItems: 4,

@@ -83,24 +83,24 @@ gulp.task('compressJS', function() {
   return gulp.src(js_files, {base: '.'})
     .pipe(gulp.dest('.'))
     .pipe(uglify({
-      preserveComments: 'all'
+      preserveComments: 'some'
     }))
     .pipe(rename({extname: '.min.js'}))
     .pipe(gulp.dest('.'));
 });
 
 gulp.task('codesniffer', function () {
-    return gulp.src(['**/*.php', '!inc/widgets/**'])
-        // Validate files using PHP Code Sniffer 
-        .pipe(phpcs({
-            //bin: 'src/vendor/bin/phpcs',
-            standard: 'codesniffer.ruleset.xml',
-            warningSeverity: 0
-        }))
-        // Log all problems that was found 
-        .pipe(phpcs.reporter('file', {
-          path: "codesniffer.report.txt"
-        }));
+  return gulp.src(['**/*.php', '!inc/widgets/**'])
+    // Validate files using PHP Code Sniffer 
+    .pipe(phpcs({
+      //bin: 'src/vendor/bin/phpcs',
+      standard: 'codesniffer.ruleset.xml',
+      warningSeverity: 0
+    }))
+    // Log all problems that was found 
+    .pipe(phpcs.reporter('file', {
+      path: "codesniffer.report.txt"
+    }));
 });
 
 gulp.task('makepot', function () {

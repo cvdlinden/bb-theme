@@ -2,40 +2,22 @@
 // Sections
 // --------------------------------------------------
 
-// Images and wp-captions should always fit and be responsive
+// Images and wp-captions should always fit and be responsive.
 img {
 	display: inline-block;
 	height: auto;
 	max-width: 100%;
 }
+
 figure {
 	max-width: 100%;
 }
 
-.page-template-template-home-php .content-area {
-  padding: 0;
-}
-footer {
-  padding: 72px 0;
-}
-.background-image-holder {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  background: #0e1015;
-  background-size: cover !important;
-  background-position: 50% 50% !important;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  opacity: 0;
-}
-.background-image-holder img {
-  display: none;
-}
-.background-image-holder.fadeIn {
-  opacity: 1;
+// Reset paddings on homepage.
+.page-template-template-home-php {
+
+	.content-area {
+		padding: 0;
+	}
+
 }
