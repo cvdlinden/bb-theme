@@ -603,25 +603,28 @@ function bb_top_callout() {
  */
 function bb_footer_callout() {
 	if ( get_theme_mod( 'footer_callout_text' ) != '' ) { ?>
+
+	<div class="bb_home_CFA">
 		<section class="cfa-section bg-secondary">
 			<div class="container">
-			<div class="row">
-				<div class="col-sm-12 text-center">
-				<div class="overflow-hidden">
-					<div class="col-sm-9">
-					<h3 class="cfa-text"><?php esc_attr( get_theme_mod( 'footer_callout_text' ) ); ?></h3>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="overflow-hidden">
+							<div class="col-sm-9">
+								<h3 class="cfa-text"><?php echo esc_attr( get_theme_mod( 'footer_callout_text' ) ); ?></h3>
+							</div>
+							<div class="col-sm-3">
+								<a href='<?php echo esc_url( get_theme_mod( 'footer_callout_link' ) ); ?>' class="btn btn-lg btn-primary cfa-button">
+									<?php echo esc_attr( get_theme_mod( 'footer_callout_btntext' ), 'bb' ); ?>
+								</a>
+							</div>
+						</div>
 					</div>
-					<div class="col-sm-3">
-					<a href='<?php echo esc_url( get_theme_mod( 'footer_callout_link' ) ); ?>' class="btn btn-lg btn-filled cfa-button">
-					<?php esc_attr( get_theme_mod( 'footer_callout_btntext' ), 'bb' ); ?>
-					</a>
-					</div>
-				</div>
-				</div>
-			</div>
-			<!--end of row-->
-			</div>
-			<!--end of container-->
-		</section><?php
+				</div><!--end of row-->
+			</div><!--end of container-->
+		</section>
+	</div>
+
+	<?php
 	}
 }

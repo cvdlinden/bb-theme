@@ -11,7 +11,6 @@ get_header(); ?>
 
 	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>
 	<section id="primary" class="content-area col-md-9 <?php echo esc_attr( $layout_class ); ?>">
-		<main id="main" class="site-main" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>
@@ -41,7 +40,6 @@ get_header(); ?>
 
 		endif; ?>
 
-		</main><!-- #main -->
 	</section><!-- #primary -->
 
 <?php get_sidebar(); ?>

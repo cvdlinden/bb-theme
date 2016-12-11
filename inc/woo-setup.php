@@ -66,12 +66,11 @@ add_action( 'woocommerce_after_main_content', 'bb_wrapper_end', 10 );
 function bb_wrapper_start() {
 	$layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): '';
 	echo '<div id="primary" class="col-md-9 ' . $layout_class . '">';
-	echo '<main id="main" class="site-main" role="main">';
 }
 
 
 function bb_wrapper_end() {
-	echo '</main></div>';
+	echo '</div>';
 }
 
 // Replace WooComemrce button class with Bootstrap
