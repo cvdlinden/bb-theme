@@ -776,19 +776,19 @@ msgstr ""
 msgid "[BB] Categories"
 msgstr ""
 
-#: inc/widgets/widget-categories.php:31, inc/widgets/widget-categories.php:89
+#: inc/widgets/widget-categories.php:31, inc/widgets/widget-categories.php:90
 msgid "Categories"
 msgstr ""
 
-#: inc/widgets/widget-categories.php:97, inc/widgets/widget-home-clients.php:87, inc/widgets/widget-home-features.php:110, inc/widgets/widget-home-features.php:128, inc/widgets/widget-home-parallax.php:121, inc/widgets/widget-home-portfolio.php:137, inc/widgets/widget-home-testimonials.php:133, inc/widgets/widget-social.php:63
+#: inc/widgets/widget-categories.php:98, inc/widgets/widget-home-clients.php:87, inc/widgets/widget-home-features.php:110, inc/widgets/widget-home-features.php:128, inc/widgets/widget-home-parallax.php:121, inc/widgets/widget-home-portfolio.php:137, inc/widgets/widget-home-testimonials.php:133, inc/widgets/widget-social.php:63
 msgid "Title "
 msgstr ""
 
-#: inc/widgets/widget-categories.php:105
+#: inc/widgets/widget-categories.php:106
 msgid "Limit Categories "
 msgstr ""
 
-#: inc/widgets/widget-categories.php:118
+#: inc/widgets/widget-categories.php:119
 msgid "Enable Posts Count"
 msgstr ""
 
@@ -972,15 +972,15 @@ msgstr ""
 msgid "[BB] Recent Posts"
 msgstr ""
 
-#: inc/widgets/widget-recent-posts.php:31, inc/widgets/widget-recent-posts.php:102
+#: inc/widgets/widget-recent-posts.php:31, inc/widgets/widget-recent-posts.php:110
 msgid "Recent Posts"
 msgstr ""
 
-#: inc/widgets/widget-recent-posts.php:109
+#: inc/widgets/widget-recent-posts.php:117
 msgid "Title"
 msgstr ""
 
-#: inc/widgets/widget-recent-posts.php:116
+#: inc/widgets/widget-recent-posts.php:124
 msgid "Limit Posts Number"
 msgstr ""
 

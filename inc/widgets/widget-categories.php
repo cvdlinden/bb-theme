@@ -31,7 +31,7 @@ class BB_Categories extends WP_Widget {
 		$title = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Categories' , 'bb' );
 		$enable_count = '';
 		if ( isset( $instance['enable_count'] ) ) {
-		$enable_count = $instance['enable_count'] ? $instance['enable_count'] : 'checked';
+			$enable_count = $instance['enable_count'] ? $instance['enable_count'] : 'checked';
 		}
 
 		$limit = ($instance['limit']) ? $instance['limit'] : 4;
@@ -47,31 +47,32 @@ class BB_Categories extends WP_Widget {
 		<div class="cats-widget nolist">
 
 			<ul class="category-list"><?php
-			if ( '' != $enable_count ) {
-				$args = array(
-					'echo' => 0,
-					'show_count' => 1,
-					'title_li' => '',
-					'depth' => 1,
-					'orderby' => 'count',
-					'order' => 'DESC',
-					'number' => $limit,
-				);
-			} else {
-				$args = array(
-					'echo' => 0,
-					'show_count' => 0,
-					'title_li' => '',
-					'depth' => 1,
-					'orderby' => 'count',
-					'order' => 'DESC',
-					'number' => $limit,
-				);
-			}
-			$variable = wp_list_categories( $args );
-			$variable = str_replace( '(' , '<span>', $variable );
-			$variable = str_replace( ')' , '</span>', $variable );
-			echo $variable; ?></ul>
+				if ( '' != $enable_count ) {
+					$cat_args = array(
+						'echo' => 0,
+						'show_count' => 1,
+						'title_li' => '',
+						'depth' => 1,
+						'orderby' => 'count',
+						'order' => 'DESC',
+						'number' => $limit,
+					);
+				} else {
+					$cat_args = array(
+						'echo' => 0,
+						'show_count' => 0,
+						'title_li' => '',
+						'depth' => 1,
+						'orderby' => 'count',
+						'order' => 'DESC',
+						'number' => $limit,
+					);
+				}
+				$variable = wp_list_categories( $cat_args );
+				$variable = str_replace( '(' , '<span>', $variable );
+				$variable = str_replace( ')' , '</span>', $variable );
+				echo $variable; ?>
+			</ul>
 
 		</div><!-- end widget content -->
 

@@ -16,7 +16,7 @@ class BB_Recent_Posts extends WP_Widget {
 	 * PHP5 constructor.
 	 */
 	function __construct() {
-		$widget_ops = array( 'classname' => 'bb-recent-posts col-sm-12 text-center', 'description' => esc_html__( 'Widget to show recent posts with thumbnails', 'bb' ) );
+		$widget_ops = array( 'classname' => 'bb-recent-posts', 'description' => esc_html__( 'Widget to show recent posts with thumbnails', 'bb' ) );
 		parent::__construct( 'bb_recent_posts', esc_html__( '[BB] Recent Posts', 'bb' ), $widget_ops );
 	}
 
@@ -34,57 +34,65 @@ class BB_Recent_Posts extends WP_Widget {
 		echo $args['before_widget'];
 		?>
 
-		<section>
-			<?php
-			echo $args['before_title'] . $title . $args['after_title'];
+		<section class="bg-secondary">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<h3><?php echo $title; ?></h3>
 
-			/**
-			* Widget Content
-			*/
-			?>
+							<?php
+							/**
+							* Widget Content
+							*/
+							?>
 
-			<!-- recent posts -->
-			<div class="recent-posts-wrapper nolist">
+							<!-- recent posts -->
+							<div class="recent-posts-wrapper nolist">
 
-				<?php
-				$featured_args = array(
-					'posts_per_page' => $limit,
-					'post_type' => 'post',
-					'ignore_sticky_posts' => 1,
-				);
+								<?php
+								$featured_args = array(
+									'posts_per_page' => $limit,
+									'post_type' => 'post',
+									'ignore_sticky_posts' => 1,
+								);
 
-				$featured_query = new WP_Query( $featured_args );
-				$bootstrap_col_width = floor( 12 / $featured_query->post_count );
-				if ( $featured_query->have_posts() ) : ?>
+								$featured_query = new WP_Query( $featured_args );
+								$bootstrap_col_width = floor( 12 / $featured_query->post_count );
+								if ( $featured_query->have_posts() ) : ?>
 
-					<ul class="link-list recent-posts"><?php
+									<ul class="link-list list-inline recent-posts"><?php
 
-					while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
+									while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
 
-						<?php if ( get_the_content() != '' ) : ?>
+										<?php if ( get_the_content() != '' ) : ?>
 
-						<!-- content -->
-						<li class="post-content col-sm-<?php echo esc_attr( $bootstrap_col_width ); ?>">
-							<a href="<?php echo esc_url( get_permalink() ); ?>">
-							<?php if ( has_post_thumbnail() ) {
-								the_post_thumbnail();
-							} ?>
-							<?php echo get_the_title(); ?>
-							</a>
-							<span class="date"><?php echo get_the_date( 'd M , Y' ); ?></span>
-						</li>
-						<!-- end content -->
+										<!-- content -->
+										<li class="post-content col-sm-<?php echo esc_attr( $bootstrap_col_width ); ?>">
+											<a href="<?php echo esc_url( get_permalink() ); ?>">
+												<?php if ( has_post_thumbnail() ) {
+													the_post_thumbnail();
+												} ?>
+												<?php echo get_the_title(); ?>
+											</a>
+											<span class="date"><?php echo get_the_date( 'd M , Y' ); ?></span>
+										</li>
+										<!-- end content -->
 
-						<?php endif; ?>
+										<?php endif; ?>
 
-					<?php endwhile; ?>
-					</ul><?php
+									<?php endwhile; ?>
 
-				endif;
-				wp_reset_query();
-				?>
+									</ul><?php
 
-			</div> <!-- end posts wrapper -->
+								endif;
+								wp_reset_query();
+								?>
+
+							</div> <!-- end posts wrapper -->
+
+					</div>
+				</div><!--end of row-->
+			</div>
 		</section>
 
 		<?php
