@@ -1,0 +1,52 @@
+//
+// Features Widgets
+// --------------------------------------------------
+
+.bb_home_features {
+
+	section {
+		background: #fff;
+		padding: 60px 0;
+		position: relative;
+		overflow: hidden;
+	}
+
+	h3 {
+		font-size: 2.5em;
+		margin: 0 0 .8em;
+	}
+
+	h4 {
+		font-size: 1.5em;
+		margin: 0 0 .8em;
+	}
+
+	p {
+		font-size: 1.2em;
+		margin-bottom: 2em;
+	}
+
+	.feature {
+
+		p {
+			font-size: 1em;
+			margin-bottom: 1em;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		i {
+			margin-bottom: 15px;
+			color: $headings-color;
+			font-size: 7em;
+		}
+	}
+
+}
+
+
+// .page-title {
+//   padding: 0;
+// }

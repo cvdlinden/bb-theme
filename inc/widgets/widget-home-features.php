@@ -49,6 +49,7 @@ class BB_Home_Features extends WP_Widget {
 		 * Widget Content
 		 */
 	?>
+
 		<section>
 			<div class="container">
 				<div class="row">
@@ -62,7 +63,7 @@ class BB_Home_Features extends WP_Widget {
 					for ( $i = 1; $i < 4; $i++ ) {
 						if ( '' != $title[ $i ] ) {?>
 							<div class="col-sm-4">
-								<div class="feature feature-1">
+								<div class="feature <?php echo esc_attr( "feature-" . $i ) ?>">
 									<div class="text-center">
 										<i class="<?php echo esc_attr( $icon[ $i ] ); ?>"></i>
 										<h4><?php echo $title[ $i ]; ?></h4>
@@ -78,7 +79,6 @@ class BB_Home_Features extends WP_Widget {
 			</div>
 			<!--end of container-->
 		</section>
-
 
 		<?php
 
