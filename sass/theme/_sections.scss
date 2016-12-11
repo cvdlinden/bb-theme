@@ -1,4 +1,16 @@
-// TODO: Clean up
+//
+// Sections
+// --------------------------------------------------
+
+// Images and wp-captions should always fit and be responsive
+img {
+	display: inline-block;
+	height: auto;
+	max-width: 100%;
+}
+figure {
+	max-width: 100%;
+}
 
 .page-template-template-home-php .content-area {
   padding: 0;

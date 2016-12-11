@@ -5,26 +5,23 @@ header .container {
 	background-color: #fff;
 }
 
-// Differing backgrounds
-.bg-primary {
-	background: #745cf9;
+section {
+	background: #fff;
+	position: relative;
+	overflow: hidden;
+}
 
-	h1, h2, h3, h4, h5, h6 {
-		color: #fff;
-	}
-
-	p {
-		color: #fefefe;
-	}
-
+// Alternative backgrounds
+.image-bg { // used for parallax sections
+	background-color: transparent;
 }
 
 .bg-secondary {
-	background: $breadcrumb-bg;
+	background: $gray-lighter;
 }
 
 .bg-dark {
-	background: #0e1015;
+	background: $gray-darker;
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #fff;

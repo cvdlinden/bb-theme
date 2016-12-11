@@ -53,10 +53,10 @@ class BB_Home_Testimonial extends WP_Widget {
 
 			if ( $testimonial_query->have_posts() ) : ?>
 
-			<section class="parallax-section testimonial-section">
+			<section class="parallax-section testimonial-section image-bg">
 				<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo esc_attr( $image_src ); ?>" style="height: 500px;">
 					<div class="container align-transform">
-						<div class="parallax-text image-bg testimonial">
+						<div class="parallax-text testimonial">
 							<div class="row">
 								<div class="col-sm-12 text-center">
 									<h3><?php echo $title; ?></h3>
