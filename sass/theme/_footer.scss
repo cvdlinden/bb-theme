@@ -1,76 +1,40 @@
-// TODO: Clean up
+//
+// Footer
+// --------------------------------------------------
 
 footer {
+	padding: 75px 0;
 
-	padding: 72px 0;
-	position: relative;
-	overflow: hidden;
+	.back-to-top {
+		position: absolute;
+		right: 30px;
+		bottom: 30px;
+		transition: all 0.3s ease;
+		opacity: 0.5;
+		color: #ccc;
+
+		&:hover,
+		&:active,
+		&:focus {
+			opacity: 1;
+		}
+	}
 
 	&.bg-dark {
 
-		a {
-			color: #fff;
-		}
+		.back-to-top {
+			border-color: #fff;
+			border-width: 2px;
+			background: transparent;
 
-		h1, h2, h3, h4, h5, h6 {
-			color: #fff;
-		}
-
-		p, span, li {
-			color: #fefefe;
+			&:hover,
+			&:active,
+			&:focus {
+				opacity: 1;
+				color: #fff;
+			}
 		}
 
 	}
 
-	.copyright-text {
-		color: #fefefe;
-	}
-
-	.footer-credits,
-	.footer-credits a {
-		color: #fefefe;
-		opacity: .8;
-	}
-
-}
-
-.social-list {
-  margin: 0;
-}
-.bg-dark .social-list a {
-  color: #fff;
-  opacity: .5;
-}
-.bg-dark .social-list a:hover {
-  opacity: 1;
-}
-.back-to-top {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  height: 36px;
-  width: 36px;
-  padding: 5px 11px;
-}
-.back-to-top .fa {
-  font-size: 18px;
-  color: #fff;
-}
-.back-to-top:hover {
-  opacity: 1;
-}
-.bg-dark .back-to-top {
-  border-color: #fff;
-}
-.bg-dark .back-to-top:active, .bg-dark .back-to-top:focus {
-  color: #fff;
-}
-.bg-dark .back-to-top:hover {
-  background: none;
-}
-.footer input[type="submit"] {
-  border: 0;
-  margin-top: 3px;
 }

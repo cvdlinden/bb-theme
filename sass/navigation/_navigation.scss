@@ -40,25 +40,18 @@
 
 }
 
-// Social menu
-#social { 
+// Social icons menu
+.icon-menu {
 
-	background: transparent; 
-	float: right; 
+	.fa {
+		font-size: 1.5em;
 
-	li{
-		display: inline-block;
+		span {
+			display: none;
+		}
 	}
-	li,
-	ul {
-		border: 0!important;
-		list-style: none;
-		padding-left: 0;
-		text-align: center;
-	}
-	.social_icon span { 
-		display: none; 
-	}
+
+	// dynamic FA icon replacement
 	li a[href*="twitter.com"] .fa:before,
 	.fa-twitter:before {
 		content: "\f099"

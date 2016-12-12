@@ -16,8 +16,8 @@ class BB_Social_Widget extends WP_Widget {
 	 * PHP5 constructor.
 	 */
 	function __construct() {
-		$widget_ops = array( 'classname' => 'bb-social','description' => esc_html__( 'Social Widget' ,'bb' ) );
-		parent::__construct( 'bb-social', esc_html__( '[BB] Social Widget', 'bb' ), $widget_ops );
+		$widget_ops = array( 'classname' => 'bb-icon-menu','description' => esc_html__( 'Social Icon Menu Widget' ,'bb' ) );
+		parent::__construct( 'bb-icon-menu', esc_html__( '[BB] Social Icon Menu Widget', 'bb' ), $widget_ops );
 	}
 
 	/**
@@ -36,16 +36,9 @@ class BB_Social_Widget extends WP_Widget {
 		/**
 		* Widget Content
 		*/
-		?>
 
-		<!-- social icons -->
-		<div class="social-icons sticky-sidebar-social">
+		bb_social_icons(); 
 
-			<?php bb_social_icons(); ?>
-
-		</div><!-- end social icons -->
-
-		<?php
 		echo $args['after_widget'];
 	}
 

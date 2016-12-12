@@ -185,7 +185,7 @@ if ( ! function_exists( 'get_bb_theme_options' ) ) {
 		}
 
 		if ( get_theme_mod( 'social_color' ) ) {
-			echo '.social-icons li a {color: ' . get_theme_mod( 'social_color' ) . ' !important ;}';
+			echo '.icon-menu li a {color: ' . get_theme_mod( 'social_color' ) . ' !important ;}';
 		}
 
 		if ( get_theme_mod( 'custom_css' ) ) {
@@ -348,8 +348,10 @@ add_action( 'admin_head', 'bb_admin_style' );
 add_action( 'customize_controls_print_styles', 'bb_admin_style' );
 
 /* Social Fields in Author Profile */
-if ( ! function_exists( 'bb_author_socialLinks' ) ) {
-	function bb_author_socialLinks( $contactmethods ) {
+if ( ! function_exists( 'bb_author_social_links' ) ) {
+	function bb_author_social_links( $contactmethods ) {
+		// Add Google+
+		$contactmethods['googleplus'] = 'Google+';
 		// Add Twitter
 		$contactmethods['twitter'] = 'Twitter';
 		// add Facebook
@@ -364,7 +366,7 @@ if ( ! function_exists( 'bb_author_socialLinks' ) ) {
 		return $contactmethods;
 	}
 }
-add_filter( 'user_contactmethods','bb_author_socialLinks',10,1 );
+add_filter( 'user_contactmethods','bb_author_social_links',10,1 );
 
 /*
  * Author bio on single page
@@ -386,70 +388,80 @@ if ( ! function_exists( 'bb_author_bio' ) ) {
 
 		<div class="author-bio">
 			<div class="row">
-			<div class="col-sm-2">
-				<div class="avatar">
-					<?php echo get_avatar( get_the_author_meta( 'ID' ), 100 ); ?>
+				<div class="col-sm-2">
+					<div class="avatar">
+						<?php echo get_avatar( get_the_author_meta( 'ID' ), 100 ); ?>
+					</div>
 				</div>
-			</div>
-			<div class="col-sm-10">
-				<b class="fn"><?php echo $author_name; ?></b>
-				<p><?php
-				if ( trim( $author_description ) != '' ) {
-					echo $author_description;
-				} ?>
-				</p>
-				<ul class="list-inline social-list author-social">
-					<?php
-					$twitter_profile = get_the_author_meta( 'twitter' );
-					if ( $twitter_profile && $twitter_profile != '' ) { ?>
-					<li>
-						<a href="<?php echo esc_url( $twitter_profile ); ?>">
-							<i class="fa fa-twitter"></i>
-						</a>
-					</li><?php
-					}
-
-					$fb_profile = get_the_author_meta( 'facebook' );
-					if ( $fb_profile && $fb_profile != '' ) { ?>
-					<li>
-						<a href="<?php echo esc_url( $fb_profile ); ?>">
-						<i class="fa fa-facebook"></i>
-						</a>
-					</li><?php
-					}
-
-					$dribble_profile = get_the_author_meta( 'dribble' );
-					if ( $dribble_profile && $dribble_profile != '' ) { ?>
-					<li>
-						<a href="<?php echo esc_url( $dribble_profile ); ?>">
-						<i class="fa fa-dribbble"></i>
-						</a>
-					</li>
-						<?php
-					}
-
-					$github_profile = get_the_author_meta( 'github' );
-					if ( $github_profile && $github_profile != '' ) { ?>
-					<li>
-						<a href="<?php echo esc_url( $github_profile ); ?>">
-						<i class="fa fa-vimeo"></i>
-						</a>
-					</li><?php
-					}
-
-					$vimeo_profile = get_the_author_meta( 'vimeo' );
-					if ( $vimeo_profile && $vimeo_profile != '' ) { ?>
-					<li>
-						<a href="<?php echo esc_url( $vimeo_profile ); ?>">
-						<i class="fa fa-github"></i>
-						</a>
-					</li><?php
+				<div class="col-sm-10">
+					<b class="fn"><?php echo $author_name; ?></b>
+					<p><?php
+					if ( trim( $author_description ) != '' ) {
+						echo $author_description;
 					} ?>
-				</ul>
-			</div>
-			</div>
-		</div>
-		<!--end of author-bio-->
+					</p>
+					<nav class="icon-menu">
+						<ul class="nav nav-pills">
+							<?php
+							$googleplus_profile = get_the_author_meta( 'googleplus' );
+							if ( $googleplus_profile && $googleplus_profile != '' ) { ?>
+							<li>
+								<a href="<?php echo esc_url( $googleplus_profile ); ?>" title="My Google Plus">
+									<i class="fa fa-google-plus"></i>
+								</a>
+							</li><?php
+							}
+
+							$twitter_profile = get_the_author_meta( 'twitter' );
+							if ( $twitter_profile && $twitter_profile != '' ) { ?>
+							<li>
+								<a href="<?php echo esc_url( $twitter_profile ); ?>" title="My Twitter">
+									<i class="fa fa-twitter"></i>
+								</a>
+							</li><?php
+							}
+
+							$fb_profile = get_the_author_meta( 'facebook' );
+							if ( $fb_profile && $fb_profile != '' ) { ?>
+							<li>
+								<a href="<?php echo esc_url( $fb_profile ); ?>" title="My Facebook">
+									<i class="fa fa-facebook"></i>
+								</a>
+							</li><?php
+							}
+
+							$dribble_profile = get_the_author_meta( 'dribble' );
+							if ( $dribble_profile && $dribble_profile != '' ) { ?>
+							<li>
+								<a href="<?php echo esc_url( $dribble_profile ); ?>" title="My Dribble">
+									<i class="fa fa-dribbble"></i>
+								</a>
+							</li>
+								<?php
+							}
+
+							$github_profile = get_the_author_meta( 'github' );
+							if ( $github_profile && $github_profile != '' ) { ?>
+							<li>
+								<a href="<?php echo esc_url( $github_profile ); ?>" title="My Github">
+									<i class="fa fa-github"></i>
+								</a>
+							</li><?php
+							}
+
+							$vimeo_profile = get_the_author_meta( 'vimeo' );
+							if ( $vimeo_profile && $vimeo_profile != '' ) { ?>
+							<li>
+								<a href="<?php echo esc_url( $vimeo_profile ); ?>" title="My Vimeo">
+									<i class="fa fa-vimeo"></i>
+								</a>
+							</li><?php
+							} ?>
+						</ul>
+					</nav><!-- .icon-menu -->
+				</div>
+			</div><!-- .row -->
+		</div><!--end of author-bio-->
 		<?php
 
 	}

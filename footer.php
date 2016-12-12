@@ -19,24 +19,31 @@
 	<?php bb_footer_callout(); ?>
 
 	<footer id="colophon" class="site-footer footer bg-dark" role="contentinfo">
+
 		<?php // Substitute the class "container-fluid" below if you want a wider content area. ?>
-		<div class="container footer-inner">
+		<div class="container">
 			<div class="row">
 				<?php get_sidebar( 'footer' ); ?>
 			</div>
-
 			<div class="row">
-				<div class="site-info col-sm-6">
-					<div class="copyright-text"><?php esc_attr( get_theme_mod( 'bb_footer_copyright' ) ); ?></div>
+				<div class="col-sm-6">
+					<?php if ( '' != get_theme_mod( 'bb_footer_copyright' ) ) { ?>
+					<div class="copyright-text"><?php echo esc_attr( get_theme_mod( 'bb_footer_copyright' ) ); ?></div>
+					<?php } else { ?>
 					<div class="footer-credits"><?php bb_footer_info(); ?></div>
+					<?php }; ?>
 				</div><!-- .site-info -->
-				<div class="col-sm-6 text-right">
-					<?php if ( ! get_theme_mod( 'footer_social' ) ) { bb_social_icons(); } ?>
+				<div class="col-sm-6">
+					<div class="pull-right">
+						<?php bb_social_icons(); ?>
+					</div>
 				</div>
 			</div>
 		</div><!-- close .container -->
 
-		<a class="btn btn-sm fade-half back-to-top inner-link" href="#top"><i class="fa fa-angle-up"></i></a>
+		<!-- Back to top link -->
+		<a class="btn btn-default btn-sm fade-half back-to-top inner-link" href="#top"><i class="fa fa-angle-up fa-2x"></i></a>
+
 	</footer><!-- close #colophon -->
 
 </div><!-- #page -->

@@ -1,11 +1,14 @@
-// TODO: Clean up
+//
+// Backgrounds
+// --------------------------------------------------
 
 header .container {
 	position: relative;
 	background-color: #fff;
 }
 
-section {
+section,
+footer {
 	background: #fff;
 	position: relative;
 	overflow: hidden;
@@ -16,18 +19,51 @@ section {
 	background-color: transparent;
 }
 
-.bg-secondary {
+.bg-secondary { // alt light grey background
 	background: $gray-lighter;
 }
 
-.bg-dark {
+.bg-dark { // alt dark background
 	background: $gray-darker;
+	color: $gray-light;
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #fff;
+		color: $gray-lighter;
 	}
 
 	p, span, li {
-		color: #fefefe;
+		color: $gray-light;
+	}
+
+	a {
+		color: $gray-lighter;
+		transition: all 0.3s ease;
+
+		&:hover,
+		&:focus {
+			color: #fff;
+		}
+	}
+
+	.icon-menu {
+		a {
+			color: $gray-light;
+
+			&:hover,
+			&:focus {
+				color: #fff;
+			}
+		}
+	}
+
+	.nav {
+		> li {
+			> a {
+				&:hover,
+				&:focus {
+					background: $gray;
+				}
+			}
+		}
 	}
 }

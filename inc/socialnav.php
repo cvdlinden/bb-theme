@@ -26,11 +26,11 @@ if ( ! function_exists( 'bb_social_icons' ) ) :
 					'theme_location'  => 'social-menu',
 					'depth'           => 1,
 					'container'       => 'nav',
-					'container_id'    => 'social',
-					'container_class' => 'social-icons',
-					'menu_class'      => 'list-inline social-list',
+					'container_id'    => '',
+					'container_class' => 'icon-menu',
+					'menu_class'      => 'nav nav-pills',
 					'fallback_cb'     => '',
-					'link_before'     => '<i class="social_icon fa"><span>',
+					'link_before'     => '<i class="fa fa-share-square fa-fw"><span>',
 					'link_after'      => '</span></i>',
 				)
 			);

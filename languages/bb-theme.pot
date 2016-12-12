@@ -99,7 +99,7 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: header.php:96, header.php:96, header.php:101, inc/extras.php:309, inc/extras.php:572
+#: header.php:96, header.php:96, header.php:101, inc/extras.php:309, inc/extras.php:584
 msgid "Search"
 msgstr ""
 
@@ -603,15 +603,15 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer.php:215
+#: inc/customizer.php:216
 msgid "Other"
 msgstr ""
 
-#: inc/customizer.php:224
+#: inc/customizer.php:225
 msgid "Custom CSS"
 msgstr ""
 
-#: inc/customizer.php:225
+#: inc/customizer.php:226
 msgid "Additional CSS"
 msgstr ""
 
@@ -640,43 +640,43 @@ msgctxt "Read More"
 msgid "Read More"
 msgstr ""
 
-#: inc/extras.php:476
+#: inc/extras.php:488
 msgid "Your Name"
 msgstr ""
 
-#: inc/extras.php:480
+#: inc/extras.php:492
 msgid "Email Address"
 msgstr ""
 
-#: inc/extras.php:484
+#: inc/extras.php:496
 msgid "Your Website (optional)"
 msgstr ""
 
-#: inc/extras.php:491
+#: inc/extras.php:503
 msgid "Leave a Reply"
 msgstr ""
 
-#: inc/extras.php:492
+#: inc/extras.php:504
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: inc/extras.php:493
+#: inc/extras.php:505
 msgid "Cancel Reply"
 msgstr ""
 
-#: inc/extras.php:494
+#: inc/extras.php:506
 msgid "Post Comment"
 msgstr ""
 
-#: inc/extras.php:499
+#: inc/extras.php:511
 msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes:"
 msgstr ""
 
-#: inc/extras.php:570
+#: inc/extras.php:582
 msgid "get_theme_modblog_name?get_theme_modblog_name:Blog"
 msgstr ""
 
-#: inc/extras.php:574, inc/extras.php:576
+#: inc/extras.php:586, inc/extras.php:588
 msgid "Portfolio"
 msgstr ""
 
@@ -780,7 +780,7 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: inc/widgets/widget-categories.php:98, inc/widgets/widget-home-clients.php:87, inc/widgets/widget-home-features.php:110, inc/widgets/widget-home-features.php:128, inc/widgets/widget-home-parallax.php:121, inc/widgets/widget-home-portfolio.php:137, inc/widgets/widget-home-testimonials.php:133, inc/widgets/widget-social.php:63
+#: inc/widgets/widget-categories.php:98, inc/widgets/widget-home-clients.php:87, inc/widgets/widget-home-features.php:110, inc/widgets/widget-home-features.php:128, inc/widgets/widget-home-parallax.php:121, inc/widgets/widget-home-portfolio.php:137, inc/widgets/widget-home-testimonials.php:133, inc/widgets/widget-social.php:56
 msgid "Title "
 msgstr ""
 
@@ -985,14 +985,14 @@ msgid "Limit Posts Number"
 msgstr ""
 
 #: inc/widgets/widget-social.php:19
-msgid "Social Widget"
+msgid "Social Icon Menu Widget"
 msgstr ""
 
 #: inc/widgets/widget-social.php:20
-msgid "[BB] Social Widget"
+msgid "[BB] Social Icon Menu Widget"
 msgstr ""
 
-#: inc/widgets/widget-social.php:31, inc/widgets/widget-social.php:59
+#: inc/widgets/widget-social.php:31, inc/widgets/widget-social.php:52
 msgid "Follow us"
 msgstr ""
 

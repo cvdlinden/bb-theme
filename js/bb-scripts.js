@@ -22,11 +22,10 @@
 		// Smooth scroll to inner links
 		jQuery(".inner-link").each(function(){
 			var href = jQuery(this).attr("href");
-			if(href.charAt(0) !== "#"){
+			if (href.charAt(0) !== "#") {
 				jQuery(this).removeClass("inner-link");
 			}
 		});
-
 		jQuery(".inner-link").click(function() {
 			jQuery("html, body").animate({
 				scrollTop: 0

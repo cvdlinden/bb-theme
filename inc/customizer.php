@@ -196,6 +196,7 @@ function bb_customizer( $wp_customize ) {
 	$wp_customize->add_section('bb_footer_section', array(
 		'title' => esc_html__( 'Footer', 'bb' ),
 		'priority' => 90,
+		'panel' => 'bb_main_options',
 	));
 
 	$wp_customize->add_setting('bb_footer_copyright', array(
