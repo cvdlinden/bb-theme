@@ -576,7 +576,7 @@ function bb_top_callout() {
 		<div class="container bg-secondary top-callout">
 			<div class="row">
 				<div class="col-xs-12">
-					<h3>
+					<h2>
 						<?php
 						if ( is_home() ) {
 							esc_html_e( ( get_theme_mod( 'blog_name' ) ) ? get_theme_mod( 'blog_name' ) : 'Blog'  , 'bb' );
@@ -587,7 +587,7 @@ function bb_top_callout() {
 						} else {
 							echo ( is_singular( 'jetpack-portfolio' ) ) ? __( 'Portfolio', 'bb' ) : get_the_title();
 						}?>
-					</h3>
+					</h2>
 					<?php if ( function_exists( 'yoast_breadcrumb' ) ) {
 						yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>' );
 					} ?>
@@ -598,7 +598,7 @@ function bb_top_callout() {
 	} else {
 	?>
 		<?php if ( function_exists( 'yoast_breadcrumb' ) ) { ?>
-		<div class="container">
+		<div class="container bg-primary">
 			<div class="row">
 				<div class="col-xs-12">
 					<?php yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>' ); ?>

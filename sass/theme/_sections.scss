@@ -13,11 +13,17 @@ figure {
 	max-width: 100%;
 }
 
+.content-area {
+	padding-top: 20px;
+	background: #fff;
+}
+
 // Reset paddings on homepage.
 .page-template-template-home-php {
 
 	.content-area {
 		padding: 0;
+		background: transparent;
 	}
 
 }

@@ -5,31 +5,43 @@
 .top-callout {
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.5) inset;
 
-	p.breadcrumb {
-		padding: 0;
-		margin: $line-height-computed 0;
-	}
-
-}
-
-p.breadcrumb {
-	color: $breadcrumb-color;
-
-	span span span {
-		padding: 0 0 0 5px;
-	}
-
-	a {
-		padding: 0 5px 0 0;
-	}
-	
-	.breadcrumb_last {
-		color: $breadcrumb-active-color;
+	h3 {
+		margin-bottom: 20px;
 	}
 
 }
 
 .top-callout-present {
 	padding-top: 20px;
+}
+
+p {
+	&.breadcrumb {
+		padding: 0;
+		margin: $line-height-computed 0;
+		color: $breadcrumb-color;
+		background: transparent;
+
+		span span span {
+			padding: 0 0 0 5px;
+		}
+
+		a {
+			padding: 0 5px 0 0;
+		}
+		
+		.breadcrumb_last {
+			color: $breadcrumb-active-color;
+		}
+	}
+}
+
+.bg-primary {
+	p {
+		&.breadcrumb {
+			margin: 0;
+		}
+	}
 }
