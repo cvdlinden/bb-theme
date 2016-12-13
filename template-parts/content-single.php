@@ -12,7 +12,9 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header>
-		<h1 class="page-title"><?php the_title(); ?></h1>
+		<?php if ( ! get_theme_mod( 'top_callout', true ) ) { ?>
+			<h1 class="page-title"><?php the_title(); ?></h1>
+		<?php }; ?>
 
 		<div class="entry-meta">
 			<?php bb_posted_on(); ?>

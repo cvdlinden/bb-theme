@@ -581,9 +581,11 @@ function bb_top_callout() {
 						if ( is_home() ) {
 							esc_html_e( ( get_theme_mod( 'blog_name' ) ) ? get_theme_mod( 'blog_name' ) : 'Blog'  , 'bb' );
 						} elseif ( is_search() ) {
-							esc_html_e( 'Search'  , 'bb' );
+							printf( esc_html__( 'Search Results for: %s', 'bb' ), '<span>' . get_search_query() . '</span>' );
 						} elseif ( is_archive() ) {
 							echo ( is_post_type_archive( 'jetpack-portfolio' ) ) ? __( 'Portfolio', 'bb' ) : get_the_archive_title();
+						} elseif ( is_404() ) {
+							esc_html_e( 'Oops! Something went wrong here.', 'bb' );
 						} else {
 							echo ( is_singular( 'jetpack-portfolio' ) ) ? __( 'Portfolio', 'bb' ) : get_the_title();
 						}?>

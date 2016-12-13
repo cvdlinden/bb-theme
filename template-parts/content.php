@@ -30,7 +30,9 @@
 		}
 
 		if ( is_single() ) {
-			the_title( '<h1 class="page-title">', '</h1>' );
+			if ( ! get_theme_mod( 'top_callout', true ) ) {
+				the_title( '<h1 class="page-title">', '</h1>' );
+			}
 		} else {
 			the_title( '<h2 class="page-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		}

@@ -16,11 +16,11 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 404.php:18
+#: 404.php:19, inc/extras.php:588
 msgid "Oops! Something went wrong here."
 msgstr ""
 
-#: 404.php:23
+#: 404.php:25
 msgid "Nothing could be found at this location. Maybe try a search?"
 msgstr ""
 
@@ -99,43 +99,15 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: header.php:96, header.php:96, header.php:101, inc/extras.php:309, inc/extras.php:584
+#: header.php:96, header.php:96, header.php:101, inc/extras.php:309
 msgid "Search"
 msgstr ""
 
-#: image.php:23
-msgid "Published <span class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</a>"
-msgstr ""
-
-#: image.php:34, image.php:78, inc/template-tags.php:55
-msgid "Edit"
-msgstr ""
-
-#: image.php:39
-msgid "<span class=\"meta-nav\">&larr;</span> Previous"
-msgstr ""
-
-#: image.php:40
-msgid "Next <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: image.php:60
+#: image.php:66
 msgid "Pages:"
 msgstr ""
 
-#: image.php:69
-msgid "<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
-msgstr ""
-
-#: image.php:71
-msgid "Comments are closed, but you can leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
-msgstr ""
-
-#: image.php:73
-msgid "Trackbacks are closed, but you can <a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">post a comment</a>."
-msgstr ""
-
-#: image.php:75
+#: image.php:81
 msgid "Both comments and trackbacks are currently closed."
 msgstr ""
 
@@ -676,7 +648,11 @@ msgstr ""
 msgid "get_theme_modblog_name?get_theme_modblog_name:Blog"
 msgstr ""
 
-#: inc/extras.php:586, inc/extras.php:588
+#: inc/extras.php:584, search.php:20
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/extras.php:586, inc/extras.php:590
 msgid "Portfolio"
 msgstr ""
 
@@ -715,6 +691,10 @@ msgstr ""
 msgid "Pingback:"
 msgstr ""
 
+#: inc/template-tags.php:55
+msgid "Edit"
+msgstr ""
+
 #: inc/template-tags.php:70
 msgid "%s <span class=\"says\">says:</span>"
 msgstr ""
@@ -732,7 +712,7 @@ msgstr ""
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:119, inc/template-tags.php:125, template-parts/content-single.php:33, template-parts/content-single.php:36
+#: inc/template-tags.php:119, inc/template-tags.php:125, template-parts/content-single.php:35, template-parts/content-single.php:38
 msgid ", "
 msgstr ""
 
@@ -748,7 +728,7 @@ msgstr ""
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:141, template-home.php:40, template-parts/content-page.php:32, template-parts/content-single.php:67
+#: inc/template-tags.php:141, template-home.php:40, template-parts/content-page.php:34, template-parts/content-single.php:69
 msgid "Edit %s"
 msgstr ""
 
@@ -1010,10 +990,6 @@ msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: search.php:19
-msgid "Search Results for: %s"
-msgstr ""
-
 #: searchform.php:11
 msgctxt "placeholder"
 msgid "Search &hellip;"
@@ -1049,22 +1025,22 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-single.php:41
+#: template-parts/content-single.php:43
 msgid "This entry was tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: template-parts/content-single.php:43
+#: template-parts/content-single.php:45
 msgid "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: template-parts/content-single.php:48
+#: template-parts/content-single.php:50
 msgid "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: template-parts/content-single.php:50
+#: template-parts/content-single.php:52
 msgid "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: template-parts/content.php:59
+#: template-parts/content.php:61
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""

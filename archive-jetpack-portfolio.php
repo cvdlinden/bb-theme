@@ -10,14 +10,16 @@
 get_header(); ?>
 
 	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>  
-	<section id="primary" class="content-area col-md-12 <?php echo esc_attr( $layout_class ); ?>">
+	<section id="primary" class="col-md-12 <?php echo esc_attr( $layout_class ); ?>">
 
 	<?php
 	if ( have_posts() ) : ?>
 		
 		<header>
 			<?php
-				echo ( '' !== get_theme_mod( 'portfolio_name' ) ) ? '<h1 class="post-title">' . esc_html( get_theme_mod( 'portfolio_name' ) ) . '</h1>' : '';
+				if ( ! get_theme_mod( 'top_callout', true ) ) {
+					echo ( '' !== get_theme_mod( 'portfolio_name' ) ) ? '<h1 class="post-title">' . esc_html( get_theme_mod( 'portfolio_name' ) ) . '</h1>' : '';
+				};
 				echo ( '' !== get_theme_mod( 'portfolio_description' ) ) ? '<p>' . esc_html( get_theme_mod( 'portfolio_description' ) ) . '</p>' : '';
 			?>
 		</header><!-- .page-header -->
