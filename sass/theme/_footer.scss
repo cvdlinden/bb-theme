@@ -3,7 +3,10 @@
 // --------------------------------------------------
 
 footer {
-	padding: 60px 0 90px;
+
+	&#colophon {
+		padding: 60px 0 90px;
+	}
 
 	.back-to-top {
 		position: absolute;

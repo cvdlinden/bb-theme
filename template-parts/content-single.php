@@ -11,15 +11,11 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header>
-		<?php if ( ! get_theme_mod( 'top_callout', true ) ) { ?>
+	<?php if ( ! get_theme_mod( 'top_callout', true ) ) { ?>
+		<header>
 			<h1 class="page-title"><?php the_title(); ?></h1>
-		<?php }; ?>
-
-		<div class="entry-meta">
-			<?php bb_posted_on(); ?>
-		</div><!-- .entry-meta -->
-	</header><!-- .entry-header -->
+		</header><!-- .entry-header -->
+	<?php }; ?>
 
 	<div class="entry-content">
 		<div class="entry-content-thumbnail">
@@ -30,6 +26,9 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
+		<div class="entry-meta">
+			<?php bb_posted_on(); ?>
+		</div><!-- .entry-meta -->
 		<?php
 			/* translators: used between list items, there is a space after the comma */
 			$category_list = get_the_category_list( esc_html__( ', ', 'bb' ) );

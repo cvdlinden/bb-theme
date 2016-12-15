@@ -38,39 +38,47 @@
 		}
 		?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php bb_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-
 	</header><!-- .entry-header -->
 
 	<?php if ( is_search() || is_archive() ) : // Only display Excerpts for Search and Archive Pages. ?>
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
+		<div class="entry-summary">
+			<?php the_excerpt(); ?>
+		</div><!-- .entry-summary -->
 	<?php else : ?>
-	<div class="entry-content">
-		<?php
-			if ( ! is_single() ) {
-			the_excerpt();
-			} else {
-			the_content( sprintf(
-			/* translators: %s: Name of current post. */
-			wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'bb' ), array( 'span' => array( 'class' => array() ) ) ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
+		<div class="entry-content">
+			<?php
+				if ( ! is_single() ) {
+					the_excerpt();
+				} else {
+					the_content( sprintf(
+					/* translators: %s: Name of current post. */
+					wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'bb' ), array( 'span' => array( 'class' => array() ) ) ),
+					the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				) );
 
-		echo '<hr>';
-			}
-		?>
-		<?php bb_link_pages(); ?>
-	</div><!-- .entry-content -->
+			echo '<hr>';
+				}
+			?>
+			<?php bb_link_pages(); ?>
+		</div><!-- .entry-content -->
 	<?php endif; ?>
 
-	<!-- <footer class="entry-footer">
-		<?php bb_entry_footer(); ?>
-	</footer> -->
+	<footer class="entry-footer">
+
+		<?php
+			if ( is_single() ) {
+				echo '<div class="pull-right">';
+				bb_entry_footer();
+				echo '</div>';
+			}
+		?>
+
+		<?php if ( 'post' === get_post_type() ) : ?>
+			<div class="entry-meta">
+				<?php bb_posted_on(); ?>
+			</div><!-- .entry-meta -->
+		<?php endif; ?>
+
+	</footer> 
 
 </article><!-- #post-## -->

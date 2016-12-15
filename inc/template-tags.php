@@ -7,38 +7,6 @@
  * @package BijBest
  */
 
-if ( ! function_exists( 'bb_posted_on' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time and author.
- */
-function bb_posted_on() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-			}
-
-		$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
-			);
-
-			$posted_on = sprintf(
-			esc_html_x( 'Posted on %s', 'post date', 'bb' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-			);
-
-			$byline = sprintf(
-			esc_html_x( 'by %s', 'post author', 'bb' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-			);
-
-			echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
-
-}
-endif; // bb_posted_on
-
 if ( ! function_exists( 'bb_comment' ) ) :
 /**
  * Template for comments and pingbacks.
@@ -108,45 +76,6 @@ function bb_comment( $comment, $args, $depth ) {
 }
 endif; // ends check for bb_comment()
 
-if ( ! function_exists( 'bb_entry_footer' ) ) :
-/**
- * Prints HTML with meta information for the categories, tags and comments.
- */
-function bb_entry_footer() {
-		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'bb' ) );
-			if ( $categories_list && bb_categorized_blog() ) {
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'bb' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-			}
-
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'bb' ) );
-			if ( $tags_list ) {
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'bb' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-			}
-			}
-
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
-			/* translators: %s: post title */
-			comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'bb' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
-			echo '</span>';
-			}
-
-		edit_post_link(
-		sprintf(
-			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'bb' ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-		),
-		'<span class="edit-link">',
-		'</span>'
-			);
-}
-endif; // bb_entry_footer
-
 if ( ! function_exists( 'bb_the_attached_image' ) ) :
 /**
  * Prints the attached image with a link to the next attached image.
@@ -202,48 +131,74 @@ function bb_the_attached_image() {
 endif; // bb_the_attached_image
 
 if ( ! function_exists( 'bb_posted_on' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time and author.
- */
-function bb_posted_on() {
+	/**
+	* Prints HTML with meta information for the current post-date/time and author.
+	*/
+	function bb_posted_on() {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		}
 
-	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date() )
+		); ?>
 
-	$time_string = sprintf( $time_string,
-							esc_attr( get_the_date( 'c' ) ),
-							esc_html( get_the_date() )
-	);
+		<ul class="list-inline">
+			<li><i class="fa fa-user"></i> <span><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) );?>" title="<?php echo get_the_author(); ?>"><?php the_author(); ?></a></span></li>
+			<li><i class="fa fa-calendar-o"></i> <span class="posted-on"><?php echo $time_string; ?></span></li>
+			<?php
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list( esc_html__( ', ', 'bb' ) );
+			if ( $categories_list && bb_categorized_blog() ) {
+				printf( '<li><i class="fa fa-list-ul"></i> <span class="cat-links">%1$s</span></li>', $categories_list ); // WPCS: XSS OK.
+			}
+			?>
+		</ul><?php
 
-	$time_string = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
-							esc_url( get_permalink() ),
-							esc_attr( get_the_time() ),
-							$time_string
-	);
-
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string_update = '<time class="updated" datetime="%1$s">%2$s</time>';
-		$time_string_update = sprintf( $time_string_update,
-										esc_attr( get_the_modified_date( 'c' ) ),
-										esc_html( get_the_modified_date() )
-		);
-		$time_string_update = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
-										esc_url( get_permalink() ),
-										esc_attr( get_the_time() ),
-										$time_string_update
-		);
-		$time_string .= __( ', updated on ', 'bb' ) . $time_string_update;
 	}
-
-	printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'bb' ),
-				$time_string,
-				sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
-						esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-						esc_attr( sprintf( __( 'View all posts by %s', 'bb' ), get_the_author() ) ),
-						esc_html( get_the_author() )
-				)
-	);
-}
 endif; // bb_posted_on
+
+if ( ! function_exists( 'bb_entry_footer' ) ) :
+	/**
+	* Prints HTML with meta information for the categories, tags and comments.
+	*/
+	function bb_entry_footer() {
+
+		echo '<ul class="list-inline">';
+
+		// Hide tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'bb' ) );
+			if ( $tags_list ) {
+				printf( '<li><i class="fa fa-tags" aria-hidden="true"></i> <span class="tags-links">%1$s</span></li>', $tags_list ); // WPCS: XSS OK.
+			}
+		}
+
+		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			echo '<li><i class="fa fa-comments-o" aria-hidden="true"></i> <span class="comments-link">';
+			/* translators: %s: post title */
+			comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'bb' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
+			echo '</span></li>';
+		}
+
+		edit_post_link(
+			sprintf(
+				/* translators: %s: Name of current post */
+				esc_html__( 'Edit %s', 'bb' ),
+				the_title( '<span class="screen-reader-text">"', '"</span>', false )
+			),
+			'<li><i class="fa fa-pencil" aria-hidden="true"></i> <span class="edit-link">',
+			'</span></li>'
+		);
+
+		echo '</ul>';
+	}
+endif; // bb_entry_footer
 
 /**
  * Returns true if a blog has more than 1 category.
@@ -472,16 +427,3 @@ function bb_link_page( $i, $aria_label = '', $class = '' ) {
 	}
 	return '<a href="' . esc_url( $url ) . '"' . $aria_label . $class . '>';
 }
-
-if ( ! function_exists( 'bb_post_category' ) ) :
-/**
- * Get category attached to post.
- */
-function bb_post_category() {
-		$category = get_the_category();
-		if ( ! empty( $category ) ) {
-			$i = ( $category[0]->slug == 'uncategorized' && array_key_exists( '1', $category ) ) ? 1 : 0 ;
-			echo '<li><i class="fa fa-folder-open-o"></i><span class="cat-links"><a href="' . get_category_link( $category[ $i ]->term_id ) . '" title="' . sprintf( __( 'View all posts in %s', 'bb' ), $category[ $i ]->name ) . '" ' . '>' . $category[ $i ]->name . '</a></span></li> ';
-			}
-}
-endif;

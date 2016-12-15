@@ -78,7 +78,7 @@ add_filter( 'woocommerce_loop_add_to_cart_link', 'bb_commerce_switch_buttons' );
 
 function bb_commerce_switch_buttons( $button ) {
 
-	$button = str_replace( 'button', 'btn btn-filled', $button );
+	$button = str_replace( 'button', 'btn btn-primary', $button );
 
 	return $button;
 

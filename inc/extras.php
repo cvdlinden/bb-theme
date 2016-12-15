@@ -259,7 +259,7 @@ add_filter( 'nav_menu_link_attributes', 'bb_add_top_level_menu_url', 99, 3 );
  * Add Read More button to post archive
  */
 function bb_excerpt_more( $more ) {
-	return '<div><a class="btn-filled btn" href="' . get_the_permalink() . '" title="' . get_the_title() . '">' . esc_html_x( 'Read More', 'Read More', 'bb' ) . '</a></div>';
+	return '<div><a class="btn btn-primary" href="' . get_the_permalink() . '" title="' . get_the_title() . '">' . esc_html_x( 'Read More', 'Read More', 'bb' ) . '</a></div>';
 }
 add_filter( 'excerpt_more', 'bb_excerpt_more' );
 
