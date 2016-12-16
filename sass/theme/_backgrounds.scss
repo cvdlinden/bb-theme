@@ -19,12 +19,16 @@ footer {
 	background-color: transparent;
 }
 
-.bg-primary { // alt white background
+.bg-default { // alt white background
 	background: #fff;;
 }
 
 .bg-secondary { // alt light grey background
 	background: $gray-lighter;
+}
+
+.bg-transparent-grid { // alt transparent grid background
+	background: $gray-lighter url("inc/img/transparent-grid.gif");
 }
 
 .bg-dark { // alt dark background

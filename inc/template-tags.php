@@ -148,13 +148,13 @@ if ( ! function_exists( 'bb_posted_on' ) ) :
 		); ?>
 
 		<ul class="list-inline">
-			<li><i class="fa fa-user"></i> <span><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) );?>" title="<?php echo get_the_author(); ?>"><?php the_author(); ?></a></span></li>
-			<li><i class="fa fa-calendar-o"></i> <span class="posted-on"><?php echo $time_string; ?></span></li>
+			<li><i class="fa fa-user" title="<?php echo esc_attr_e( 'Author' )?>" aria-hidden="true"></i> <span><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) );?>" title="<?php echo get_the_author(); ?>"><?php the_author(); ?></a></span></li>
+			<li><i class="fa fa-calendar-o" title="<?php echo esc_attr_e( 'Published' )?>" aria-hidden="true"></i> <span class="posted-on"><?php echo $time_string; ?></span></li>
 			<?php
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'bb' ) );
 			if ( $categories_list && bb_categorized_blog() ) {
-				printf( '<li><i class="fa fa-list-ul"></i> <span class="cat-links">%1$s</span></li>', $categories_list ); // WPCS: XSS OK.
+				printf( '<li><i class="fa fa-list-ul" title="%1$s" aria-hidden="true"></i> <span class="cat-links">%2$s</span></li>', esc_attr__( 'Categories' ), $categories_list ); // WPCS: XSS OK.
 			}
 			?>
 		</ul><?php
@@ -175,12 +175,12 @@ if ( ! function_exists( 'bb_entry_footer' ) ) :
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'bb' ) );
 			if ( $tags_list ) {
-				printf( '<li><i class="fa fa-tags" aria-hidden="true"></i> <span class="tags-links">%1$s</span></li>', $tags_list ); // WPCS: XSS OK.
+				printf( '<li><i class="fa fa-tags" title="%1$s" aria-hidden="true"></i> <span class="tags-links">%2$s</span></li>', esc_attr__( 'Tags' ), $tags_list ); // WPCS: XSS OK.
 			}
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<li><i class="fa fa-comments-o" aria-hidden="true"></i> <span class="comments-link">';
+			echo '<li><i class="fa fa-comments-o" title="' . esc_attr__( 'Comments' ) . '" aria-hidden="true"></i> <span class="comments-link">';
 			/* translators: %s: post title */
 			comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'bb' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
 			echo '</span></li>';
@@ -192,7 +192,7 @@ if ( ! function_exists( 'bb_entry_footer' ) ) :
 				esc_html__( 'Edit %s', 'bb' ),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			),
-			'<li><i class="fa fa-pencil" aria-hidden="true"></i> <span class="edit-link">',
+			'<li><i class="fa fa-pencil" title="' . esc_attr__( 'Edit' ) . '" aria-hidden="true"></i> <span class="edit-link">',
 			'</span></li>'
 		);
 

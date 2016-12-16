@@ -68,7 +68,7 @@
 					esc_html__( 'Edit %s', 'bb' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				),
-				'<span class="edit-link">',
+				'<i class="fa fa-pencil" title="' . esc_attr__( 'Edit' ) . '" aria-hidden="true"></i> <span class="edit-link">',
 				'</span>'
 			);
 		endif; ?>

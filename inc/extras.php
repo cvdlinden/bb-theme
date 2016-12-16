@@ -600,7 +600,7 @@ function bb_top_callout() {
 	} else {
 	?>
 		<?php if ( function_exists( 'yoast_breadcrumb' ) ) { ?>
-		<div class="container bg-primary">
+		<div class="container bg-default">
 			<div class="row">
 				<div class="col-xs-12">
 					<?php yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>' ); ?>

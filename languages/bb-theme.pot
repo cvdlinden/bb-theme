@@ -103,11 +103,19 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: image.php:131
+#: image.php:75
+msgid "Image size"
+msgstr ""
+
+#: image.php:91, inc/template-tags.php:383, template-home.php:83, template-parts/content-page.php:67, template-parts/content-single.php:135
+msgid "Edit %s"
+msgstr ""
+
+#: image.php:171
 msgid "Pages:"
 msgstr ""
 
-#: image.php:161
+#: image.php:201
 msgid "Both comments and trackbacks are currently closed."
 msgstr ""
 
@@ -710,10 +718,6 @@ msgstr ""
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:383, template-home.php:79, template-parts/content-page.php:67, template-parts/content-single.php:135
-msgid "Edit %s"
-msgstr ""
-
 #: inc/widgets/widget-categories.php:37
 msgid "Bij Best Categories"
 msgstr ""
@@ -971,7 +975,7 @@ msgctxt "submit button"
 msgid "Search"
 msgstr ""
 
-#: template-home.php:47
+#: template-home.php:51
 msgid "This is the \"Home Sidebar Section\", add some widgets to it to override the look and feel."
 msgstr ""
 
