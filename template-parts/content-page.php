@@ -13,7 +13,7 @@
 
 	<?php if ( ! get_theme_mod( 'top_callout', true ) ) { ?>
 		<header>
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+			<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
 		</header><!-- .entry-header -->
 	<?php }; ?>
 

@@ -103,11 +103,11 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: image.php:145
+#: image.php:149
 msgid "Image size"
 msgstr ""
 
-#: image.php:161, inc/template-tags.php:383, template-home.php:83, template-parts/content-page.php:67, template-parts/content-single.php:135
+#: image.php:165, inc/template-tags.php:383, template-home.php:83, template-parts/content-page.php:67, template-parts/content-single.php:135
 msgid "Edit %s"
 msgstr ""
 
@@ -605,11 +605,6 @@ msgstr ""
 
 #: inc/extras.php:303
 msgid "Theme: %1$s. Powered by: %2$s"
-msgstr ""
-
-#: inc/extras.php:523
-msgctxt "Read More"
-msgid "Read More"
 msgstr ""
 
 #: inc/extras.php:975
