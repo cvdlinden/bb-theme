@@ -386,7 +386,7 @@ if ( ! function_exists( 'bb_author_bio' ) ) {
 		$author_description = get_the_author_meta( 'description' );
 		$author_name = ( trim( $author_nickname ) != '' ) ? $author_nickname : ( trim( $author_displayname ) != '' ) ? $author_displayname : $author_fullname ?>
 
-		<div class="author-bio well well-sm">
+		<div class="author-bio well">
 			<div class="row">
 				<div class="col-sm-2">
 					<div class="avatar">

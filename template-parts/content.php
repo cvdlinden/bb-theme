@@ -20,7 +20,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post-snippet' . ( is_single() ? ' content': '') ); ?>>
 
-	<header>
+	<header class="entry-header">
 
 		<?php
 		if ( has_post_thumbnail() && ! is_single() ) { ?>

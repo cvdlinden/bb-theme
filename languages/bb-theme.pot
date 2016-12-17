@@ -103,20 +103,12 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: image.php:75
+#: image.php:145
 msgid "Image size"
 msgstr ""
 
-#: image.php:91, inc/template-tags.php:383, template-home.php:83, template-parts/content-page.php:67, template-parts/content-single.php:135
+#: image.php:161, inc/template-tags.php:383, template-home.php:83, template-parts/content-page.php:67, template-parts/content-single.php:135
 msgid "Edit %s"
-msgstr ""
-
-#: image.php:171
-msgid "Pages:"
-msgstr ""
-
-#: image.php:201
-msgid "Both comments and trackbacks are currently closed."
 msgstr ""
 
 #: inc/class-tgm-plugin-activation.php:649
