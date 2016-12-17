@@ -27,7 +27,7 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 //## Settings for some of the most global styles.
 
 // //** Background color for `<body>`.
-$body-bg:               $gray !default;
+$body-bg:               $gray-light !default;
 // //** Global text color on `<body>`.
 // $text-color:            $gray-dark !default;
 
