@@ -8,126 +8,133 @@
  */
 
 if ( ! function_exists( 'bb_comment' ) ) :
-/**
- * Template for comments and pingbacks.
- *
- * Used as a callback by wp_list_comments() for displaying the comments.
- */
-function bb_comment( $comment, $args, $depth ) {
+	/**
+	* Template for comments and pingbacks.
+	*
+	* Used as a callback by wp_list_comments() for displaying the comments.
+	*/
+	function bb_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
+		switch( $comment->comment_type ) :
+			case 'pingback' :
+			case 'trackback' : ?>
 
-		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
-
-		<li id="comment-<?php comment_ID(); ?>" <?php comment_class( 'media' ); ?>>
-			<div class="comment-body">
-				<?php _e( 'Pingback:', 'bb' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'bb' ), '<span class="edit-link">', '</span>' ); ?>
-			</div>
-
-		<?php else : ?>
-
-	<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
-		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body media">
-			<a class="pull-left" href="#">
-				<?php if ( 0 != $args['avatar_size'] ) { echo get_avatar( $comment, $args['avatar_size'] );} ?>
-			</a>
-
-			<div class="media-body">
-				<div class="media-body-wrap panel panel-default">
-
-					<div class="panel-heading">
-						<h5 class="media-heading"><?php printf( __( '%s <span class="says">says:</span>', 'bb' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?></h5>
-						<div class="comment-meta">
-							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
-								<time datetime="<?php comment_time( 'c' ); ?>">
-									<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'bb' ), get_comment_date(), get_comment_time() ); ?>
-								</time>
-							</a>
-							<?php edit_comment_link( __( '<span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span> Edit', 'bb' ), '<span class="edit-link">', '</span>' ); ?>
-						</div>
+				<li class="post pingback">
+					<div class="comment-body text-muted">
+						<?php _e( 'Pingback:', 'jetpack' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'bb' ), '<span class="edit-link">', '</span>' ); ?>
 					</div>
 
-					<?php if ( '0' == $comment->comment_approved ) : ?>
-						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'bb' ); ?></p>
-					<?php endif; ?>
+		<?php
+				break;
+			default : 
+		?>
 
-					<div class="comment-content panel-body">
-						<?php comment_text(); ?>
-					</div><!-- .comment-content -->
+				<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
+					<article id="div-comment-<?php comment_ID(); ?>" class="comment-body media">
 
-					<?php comment_reply_link(
-						array_merge(
-							$args, array(
-								'add_below' => 'div-comment',
-								'depth' 	=> $depth,
-								'max_depth' => $args['max_depth'],
-								'before' 	=> '<footer class="reply comment-reply panel-footer">',
-								'after' 	=> '</footer><!-- .reply -->',
-							)
-						)
-					); ?>
+						<div class="media-left">
+							<?php if ( 0 != $args['avatar_size'] ) { echo get_avatar( $comment, $args['avatar_size'] );} ?>
+						</div>
 
-				</div>
-			</div><!-- .media-body -->
+						<div class="media-body">
 
-		</article><!-- .comment-body -->
+							<?php if ( '0' == $comment->comment_approved ) : ?>
+								<p class="alert alert-info" role="alert"><?php _e( 'Your comment is awaiting moderation.', 'bb' ); ?></p>
+							<?php endif; ?>
 
-	<?php
-	endif;
-}
+							<div class="media-body-wrap panel panel-default">
+
+								<div class="panel-heading">
+									<h5 class="media-heading"><?php printf( __( '%s <span class="says">says:</span>', 'bb' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?></h5>
+									<div class="comment-meta">
+										<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+											<time datetime="<?php comment_time( 'c' ); ?>">
+												<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'bb' ), get_comment_date(), get_comment_time() ); ?>
+											</time>
+										</a>
+										<?php edit_comment_link( __( '<span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span> Edit', 'bb' ), '<span class="edit-link">', '</span>' ); ?>
+									</div>
+								</div>
+
+								<div class="comment-content panel-body">
+									<?php comment_text(); ?>
+								</div><!-- .comment-content -->
+
+								<?php comment_reply_link(
+									array_merge(
+										$args, array(
+											'add_below' => 'div-comment',
+											'depth' 	=> $depth,
+											'max_depth' => $args['max_depth'],
+											'before' 	=> '<footer class="reply comment-reply panel-footer">',
+											'after' 	=> '</footer><!-- .reply -->',
+										)
+									)
+								); ?>
+
+							</div>
+						</div><!-- .media-body -->
+
+					</article><!-- .comment-body -->
+
+		<?php // End the default styling of comment
+			break;
+		endswitch;
+	}
 endif; // ends check for bb_comment()
 
 if ( ! function_exists( 'bb_the_attached_image' ) ) :
-/**
- * Prints the attached image with a link to the next attached image.
- */
-function bb_the_attached_image() {
-
-	$post                = get_post();
-	$attachment_size     = apply_filters( 'bb_attachment_size', array( 1200, 1200 ) );
-	$next_attachment_url = wp_get_attachment_url();
-
 	/**
-	 * Grab the IDs of all the image attachments in a gallery so we can get the
-	 * URL of the next adjacent image in a gallery, or the first image (if
-	 * we're looking at the last image in a gallery), or, in a gallery of one,
-	 * just the link to that image file.
-	 */
-	$attachment_ids = get_posts( array(
-		'post_parent'    => $post->post_parent,
-		'fields'         => 'ids',
-		'numberposts'    => -1,
-		'post_status'    => 'inherit',
-		'post_type'      => 'attachment',
-		'post_mime_type' => 'image',
-		'order'          => 'ASC',
-		'orderby'        => 'menu_order ID',
-	) );
+	* Prints the attached image with a link to the next attached image.
+	*/
+	function bb_the_attached_image() {
 
-	// If there is more than 1 attachment in a gallery...
-	if ( count( $attachment_ids ) > 1 ) {
-		foreach ( $attachment_ids as $attachment_id ) {
-			if ( $attachment_id == $post->ID ) {
-				$next_id = current( $attachment_ids );
-				break;
+		$post                = get_post();
+		$attachment_size     = apply_filters( 'bb_attachment_size', array( 1200, 1200 ) );
+		$next_attachment_url = wp_get_attachment_url();
+
+		/**
+		* Grab the IDs of all the image attachments in a gallery so we can get the
+		* URL of the next adjacent image in a gallery, or the first image (if
+		* we're looking at the last image in a gallery), or, in a gallery of one,
+		* just the link to that image file.
+		*/
+		$attachment_ids = get_posts( array(
+			'post_parent'    => $post->post_parent,
+			'fields'         => 'ids',
+			'numberposts'    => -1,
+			'post_status'    => 'inherit',
+			'post_type'      => 'attachment',
+			'post_mime_type' => 'image',
+			'order'          => 'ASC',
+			'orderby'        => 'menu_order ID',
+		) );
+
+		// If there is more than 1 attachment in a gallery...
+		if ( count( $attachment_ids ) > 1 ) {
+			foreach ( $attachment_ids as $attachment_id ) {
+				if ( $attachment_id == $post->ID ) {
+					$next_id = current( $attachment_ids );
+					break;
+				}
+			}
+
+			// get the URL of the next image attachment...
+			if ( $next_id ) {
+				$next_attachment_url = get_attachment_link( $next_id );
+			} // or get the URL of the first image attachment.
+			else {
+				$next_attachment_url = get_attachment_link( array_shift( $attachment_ids ) );
 			}
 		}
 
-		// get the URL of the next image attachment...
-		if ( $next_id ) {
-			$next_attachment_url = get_attachment_link( $next_id );
-		} // or get the URL of the first image attachment.
-		else {
-			$next_attachment_url = get_attachment_link( array_shift( $attachment_ids ) );
-		}
+		printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
+				esc_url( $next_attachment_url ),
+				the_title_attribute( array( 'echo' => false ) ),
+				wp_get_attachment_image( $post->ID, $attachment_size )
+		);
+
 	}
-
-	printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
-			esc_url( $next_attachment_url ),
-			the_title_attribute( array( 'echo' => false ) ),
-			wp_get_attachment_image( $post->ID, $attachment_size )
-	);
-
-}
 endif; // bb_the_attached_image
 
 if ( ! function_exists( 'bb_posted_on' ) ) :

@@ -31,11 +31,20 @@ if ( post_password_required() ) {
 		<header>
 			<h2 class="comments-title">
 				<?php
-				printf( // WPCS: XSS OK.
-					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'bb' ) ),
-					number_format_i18n( get_comments_number() ),
-					'<span>' . get_the_title() . '</span>'
-				);
+				$count = number_format_i18n( get_comments_number() );
+				if ( '1' === $count ) {
+					printf(
+						esc_html_x( 'One thought on &ldquo;%2$s&rdquo;', 'bb' ),
+						$count,
+						'<span>' . get_the_title() . '</span>'
+					);
+				} else {
+					printf( // WPCS: XSS OK.
+						esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'bb' ) ),
+						$count,
+						'<span>' . get_the_title() . '</span>'
+					);
+				}
 				?>
 			</h2>
 		</header>
@@ -66,7 +75,7 @@ if ( post_password_required() ) {
 					'style'      => 'ol',
 					'short_ping' => true,
 					'callback' => 'bb_comment',
-					'avatar_size' => 50,
+					'avatar_size' => 60,
 				) );
 			?>
 		</ol><!-- .comment-list -->

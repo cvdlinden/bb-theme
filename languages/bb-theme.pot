@@ -1,4 +1,4 @@
-# Copyright (C) 2016 Bij Best
+# Copyright (C) 2017 Bij Best
 # This file is distributed under the same license as the Bij Best package.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Language-Team: Caspar <cvdlinden@gmail.com>\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -16,988 +16,989 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 404.php:37, inc/extras.php:1175
+#: 404.php:19, inc/extras.php:588
 msgid "Oops! Something went wrong here."
 msgstr ""
 
-#: 404.php:49
+#: 404.php:25
 msgid "Nothing could be found at this location. Maybe try a search?"
 msgstr ""
 
-#: comments.php:69
-msgctxt "comments title"
+#: comments.php:37
+msgctxt "bb"
 msgid "One thought on &ldquo;%2$s&rdquo;"
+msgstr ""
+
+#: comments.php:43
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:89, comments.php:153
+#: comments.php:54, comments.php:86
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:95, comments.php:159
+#: comments.php:57, comments.php:89
 msgid "Older Comments"
 msgstr ""
 
-#: comments.php:97, comments.php:161
+#: comments.php:58, comments.php:90
 msgid "Newer Comments"
 msgstr ""
 
-#: comments.php:185
+#: comments.php:102
 msgid "Comments are closed."
 msgstr ""
 
-#: functions.php:111
+#: functions.php:56
 msgid "Primary"
 msgstr ""
 
-#: functions.php:229
+#: functions.php:115
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:233
+#: functions.php:117
 msgid "Add widgets here."
 msgstr ""
 
-#: functions.php:247
+#: functions.php:124
 msgid "Homepage"
 msgstr ""
 
-#: functions.php:251
+#: functions.php:126
 msgid "Used for homepage widget area"
 msgstr ""
 
-#: functions.php:269
+#: functions.php:135
 msgid "Footer Widget %s"
 msgstr ""
 
-#: functions.php:271
+#: functions.php:136
 msgid "Used for footer widget area"
 msgstr ""
 
-#: functions.php:761
+#: functions.php:381
 msgid "Left Sidebar"
 msgstr ""
 
-#: functions.php:761
+#: functions.php:381
 msgid "Right Sidebar"
 msgstr ""
 
-#: functions.php:761
+#: functions.php:381
 msgid "No Sidebar"
 msgstr ""
 
-#: functions.php:761
+#: functions.php:381
 msgid "Full Width"
 msgstr ""
 
-#: header.php:55
+#: header.php:28
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:131
+#: header.php:66
 msgid "Toggle navigation"
 msgstr ""
 
-#: header.php:191, header.php:191, header.php:201, inc/extras.php:617
+#: header.php:96, header.php:96, header.php:101, inc/extras.php:309
 msgid "Search"
 msgstr ""
 
-#: image.php:149
+#: image.php:75
 msgid "Image size"
 msgstr ""
 
-#: image.php:165, inc/template-tags.php:383, template-home.php:83, template-parts/content-page.php:67, template-parts/content-single.php:135
+#: image.php:83, inc/template-tags.php:199, template-home.php:42, template-parts/content-page.php:34, template-parts/content-single.php:68
 msgid "Edit %s"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:649
+#: inc/class-tgm-plugin-activation.php:325
 msgid "Install Required Plugins"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:651
+#: inc/class-tgm-plugin-activation.php:326
 msgid "Install Plugins"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:655
+#: inc/class-tgm-plugin-activation.php:328
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:659
+#: inc/class-tgm-plugin-activation.php:330
 msgid "Updating Plugin: %s"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:661
+#: inc/class-tgm-plugin-activation.php:331
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:663
+#: inc/class-tgm-plugin-activation.php:332
 msgid "/*translators:1:pluginnames.*/This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:675
+#: inc/class-tgm-plugin-activation.php:338
 msgid "/*translators:1:pluginnames.*/This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:687
+#: inc/class-tgm-plugin-activation.php:344
 msgid "/*translators:1:pluginnames.*/The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
 msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:699
+#: inc/class-tgm-plugin-activation.php:350
 msgid "/*translators:1:pluginnames.*/There is an update available for: %1$s."
 msgid_plural "There are updates available for the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:711
+#: inc/class-tgm-plugin-activation.php:356
 msgid "/*translators:1:pluginnames.*/The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:723
+#: inc/class-tgm-plugin-activation.php:362
 msgid "/*translators:1:pluginnames.*/The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:735
+#: inc/class-tgm-plugin-activation.php:368
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:745
+#: inc/class-tgm-plugin-activation.php:373
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:755
+#: inc/class-tgm-plugin-activation.php:378
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:765
+#: inc/class-tgm-plugin-activation.php:383
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:767, inc/class-tgm-plugin-activation.php:1649, inc/class-tgm-plugin-activation.php:5061, inc/class-tgm-plugin-activation.php:7155
+#: inc/class-tgm-plugin-activation.php:384, inc/class-tgm-plugin-activation.php:825, inc/class-tgm-plugin-activation.php:2531, inc/class-tgm-plugin-activation.php:3578
 msgid "Return to the Dashboard"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:769, inc/class-tgm-plugin-activation.php:6313
+#: inc/class-tgm-plugin-activation.php:385, inc/class-tgm-plugin-activation.php:3157
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:771, inc/class-tgm-plugin-activation.php:5899
+#: inc/class-tgm-plugin-activation.php:386, inc/class-tgm-plugin-activation.php:2950
 msgid "The following plugin was activated successfully:"
 msgid_plural "The following plugins were activated successfully:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:775
+#: inc/class-tgm-plugin-activation.php:388
 msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:779
+#: inc/class-tgm-plugin-activation.php:390
 msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:783
+#: inc/class-tgm-plugin-activation.php:392
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:785
+#: inc/class-tgm-plugin-activation.php:393
 msgid "Dismiss this notice"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:787
+#: inc/class-tgm-plugin-activation.php:394
 msgid "There are one or more required or recommended plugins to install, update or activate."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:789
+#: inc/class-tgm-plugin-activation.php:395
 msgid "Please contact the administrator of this site for help."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1039
+#: inc/class-tgm-plugin-activation.php:520
 msgid "This plugin needs to be updated to be compatible with your theme."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1041
+#: inc/class-tgm-plugin-activation.php:521
 msgid "Update Required"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1863
+#: inc/class-tgm-plugin-activation.php:932
 msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1863, inc/class-tgm-plugin-activation.php:1869
+#: inc/class-tgm-plugin-activation.php:932, inc/class-tgm-plugin-activation.php:935
 msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:1869
+#: inc/class-tgm-plugin-activation.php:935
 msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2237, inc/class-tgm-plugin-activation.php:5891
+#: inc/class-tgm-plugin-activation.php:1119, inc/class-tgm-plugin-activation.php:2946
 msgctxt "plugin A *and* plugin B"
 msgid "and"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:3959
+#: inc/class-tgm-plugin-activation.php:1980
 msgid "TGMPA v%s"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4541
+#: inc/class-tgm-plugin-activation.php:2271
 msgid "Required"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4547
+#: inc/class-tgm-plugin-activation.php:2274
 msgid "Recommended"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4579
+#: inc/class-tgm-plugin-activation.php:2290
 msgid "WordPress Repository"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4585
+#: inc/class-tgm-plugin-activation.php:2293
 msgid "External Source"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4591
+#: inc/class-tgm-plugin-activation.php:2296
 msgid "Pre-Packaged"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4625
+#: inc/class-tgm-plugin-activation.php:2313
 msgid "Not Installed"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4633
+#: inc/class-tgm-plugin-activation.php:2317
 msgid "Installed But Not Activated"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4637
+#: inc/class-tgm-plugin-activation.php:2319
 msgid "Active"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4649
+#: inc/class-tgm-plugin-activation.php:2325
 msgid "Required Update not Available"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4655
+#: inc/class-tgm-plugin-activation.php:2328
 msgid "Requires Update"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4661
+#: inc/class-tgm-plugin-activation.php:2331
 msgid "Update recommended"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4679
+#: inc/class-tgm-plugin-activation.php:2340
 msgctxt "Install/Update Status"
 msgid "%1$s, %2$s"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4771
+#: inc/class-tgm-plugin-activation.php:2386
 msgctxt "plugins"
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:4779
+#: inc/class-tgm-plugin-activation.php:2390
 msgid "To Install <span class=\"count\">(%s)</span>"
 msgid_plural "To Install <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:4787
+#: inc/class-tgm-plugin-activation.php:2394
 msgid "Update Available <span class=\"count\">(%s)</span>"
 msgid_plural "Update Available <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:4795
+#: inc/class-tgm-plugin-activation.php:2398
 msgid "To Activate <span class=\"count\">(%s)</span>"
 msgid_plural "To Activate <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:4959
+#: inc/class-tgm-plugin-activation.php:2480
 msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4975
+#: inc/class-tgm-plugin-activation.php:2488
 msgid "Installed version:"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:4991
+#: inc/class-tgm-plugin-activation.php:2496
 msgid "Minimum required version:"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5015
+#: inc/class-tgm-plugin-activation.php:2508
 msgid "Available version:"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5061
+#: inc/class-tgm-plugin-activation.php:2531
 msgid "No plugins to install, update or activate."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5089
+#: inc/class-tgm-plugin-activation.php:2545
 msgid "Plugin"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5091
+#: inc/class-tgm-plugin-activation.php:2546
 msgid "Source"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5093
+#: inc/class-tgm-plugin-activation.php:2547
 msgid "Type"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5101
+#: inc/class-tgm-plugin-activation.php:2551
 msgid "Version"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5103
+#: inc/class-tgm-plugin-activation.php:2552
 msgid "Status"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5201
+#: inc/class-tgm-plugin-activation.php:2601
 msgid "Install %2$s"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5211
+#: inc/class-tgm-plugin-activation.php:2606
 msgid "Update %2$s"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5223
+#: inc/class-tgm-plugin-activation.php:2612
 msgid "Activate %2$s"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5363
+#: inc/class-tgm-plugin-activation.php:2682
 msgid "Upgrade message from the plugin author:"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5429
+#: inc/class-tgm-plugin-activation.php:2715
 msgid "Install"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5441
+#: inc/class-tgm-plugin-activation.php:2721
 msgid "Update"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5447
+#: inc/class-tgm-plugin-activation.php:2724
 msgid "Activate"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5509
+#: inc/class-tgm-plugin-activation.php:2755
 msgid "No plugins were selected to be installed. No action taken."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5513
+#: inc/class-tgm-plugin-activation.php:2757
 msgid "No plugins were selected to be updated. No action taken."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5595
+#: inc/class-tgm-plugin-activation.php:2798
 msgid "No plugins are available to be installed at this time."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5599
+#: inc/class-tgm-plugin-activation.php:2800
 msgid "No plugins are available to be updated at this time."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5811
+#: inc/class-tgm-plugin-activation.php:2906
 msgid "No plugins were selected to be activated. No action taken."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:5863
+#: inc/class-tgm-plugin-activation.php:2932
 msgid "No plugins are available to be activated at this time."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:6311
+#: inc/class-tgm-plugin-activation.php:3156
 msgid "Plugin activation failed."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:6991
+#: inc/class-tgm-plugin-activation.php:3496
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:6997
+#: inc/class-tgm-plugin-activation.php:3499
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:7001
+#: inc/class-tgm-plugin-activation.php:3501
 msgid "The installation of %1$s failed."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:7009
+#: inc/class-tgm-plugin-activation.php:3505
 msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:7013
+#: inc/class-tgm-plugin-activation.php:3507
 msgid "%1$s installed and activated successfully."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:7013, inc/class-tgm-plugin-activation.php:7029
+#: inc/class-tgm-plugin-activation.php:3507, inc/class-tgm-plugin-activation.php:3515
 msgid "Show Details"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:7013, inc/class-tgm-plugin-activation.php:7029
+#: inc/class-tgm-plugin-activation.php:3507, inc/class-tgm-plugin-activation.php:3515
 msgid "Hide Details"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:7015
+#: inc/class-tgm-plugin-activation.php:3508
 msgid "All installations and activations have been completed."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:7019
+#: inc/class-tgm-plugin-activation.php:3510
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:7025
+#: inc/class-tgm-plugin-activation.php:3513
 msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:7029
+#: inc/class-tgm-plugin-activation.php:3515
 msgid "%1$s installed successfully."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:7031
+#: inc/class-tgm-plugin-activation.php:3516
 msgid "All installations have been completed."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:7035
+#: inc/class-tgm-plugin-activation.php:3518
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/customizer.php:63
+#: inc/customizer.php:32
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:83
+#: inc/customizer.php:42
 msgid "Bij Best Options"
 msgstr ""
 
-#: inc/customizer.php:85
+#: inc/customizer.php:43
 msgid "Panel to update bb theme options"
 msgstr ""
 
-#: inc/customizer.php:97
+#: inc/customizer.php:49
 msgid "Layout options"
 msgstr ""
 
-#: inc/customizer.php:123
+#: inc/customizer.php:62
 msgid "Website Layout Options"
 msgstr ""
 
-#: inc/customizer.php:129
+#: inc/customizer.php:65
 msgid "Choose between different layout options to be used as default"
 msgstr ""
 
-#: inc/customizer.php:147
+#: inc/customizer.php:74
 msgid "Link Color"
 msgstr ""
 
-#: inc/customizer.php:149, inc/customizer.php:167, inc/customizer.php:185, inc/customizer.php:203, inc/customizer.php:223
+#: inc/customizer.php:75, inc/customizer.php:84, inc/customizer.php:93, inc/customizer.php:102, inc/customizer.php:112
 msgid "Default used if no color is selected"
 msgstr ""
 
-#: inc/customizer.php:165
+#: inc/customizer.php:83
 msgid "Link Hover Color"
 msgstr ""
 
-#: inc/customizer.php:183
+#: inc/customizer.php:92
 msgid "Button Color"
 msgstr ""
 
-#: inc/customizer.php:201
+#: inc/customizer.php:101
 msgid "Button Hover Color"
 msgstr ""
 
-#: inc/customizer.php:221
+#: inc/customizer.php:111
 msgid "Social Icon Color"
 msgstr ""
 
-#: inc/customizer.php:235
+#: inc/customizer.php:118
 msgid "Main options"
 msgstr ""
 
-#: inc/customizer.php:257
+#: inc/customizer.php:129
 msgid "check to show title in top call out box"
 msgstr ""
 
-#: inc/customizer.php:279
+#: inc/customizer.php:140
 msgid "Blog Name in top callout"
 msgstr ""
 
-#: inc/customizer.php:281
+#: inc/customizer.php:141
 msgid "Heading for the Blog page"
 msgstr ""
 
-#: inc/customizer.php:301
+#: inc/customizer.php:151
 msgid "Portfolio Archive Title"
 msgstr ""
 
-#: inc/customizer.php:321
+#: inc/customizer.php:161
 msgid "Portfolio Archive Description"
 msgstr ""
 
-#: inc/customizer.php:341
+#: inc/customizer.php:171
 msgid "Text for footer callout"
 msgstr ""
 
-#: inc/customizer.php:343
+#: inc/customizer.php:172
 msgid "Footer Callout"
 msgstr ""
 
-#: inc/customizer.php:361
+#: inc/customizer.php:181
 msgid "Text for footer callout button"
 msgstr ""
 
-#: inc/customizer.php:377
+#: inc/customizer.php:189
 msgid "CFA button link"
 msgstr ""
 
-#: inc/customizer.php:381
+#: inc/customizer.php:191
 msgid "Enter the link for Call For Action button in footer"
 msgstr ""
 
-#: inc/customizer.php:393
+#: inc/customizer.php:197
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer.php:431
+#: inc/customizer.php:216
 msgid "Other"
 msgstr ""
 
-#: inc/customizer.php:449
+#: inc/customizer.php:225
 msgid "Custom CSS"
 msgstr ""
 
-#: inc/customizer.php:451
+#: inc/customizer.php:226
 msgid "Additional CSS"
 msgstr ""
 
-#: inc/extras.php:201
+#: inc/extras.php:101
 msgid "Page %s"
 msgstr ""
 
-#: inc/extras.php:253
+#: inc/extras.php:127
 msgid "This post is password protected. To view it please enter your password below:"
 msgstr ""
 
-#: inc/extras.php:259
+#: inc/extras.php:130
 msgid "Password:"
 msgstr ""
 
-#: inc/extras.php:265, inc/extras.php:265
+#: inc/extras.php:133, inc/extras.php:133
 msgid "Submit"
 msgstr ""
 
-#: inc/extras.php:303
+#: inc/extras.php:152
 msgid "Theme: %1$s. Powered by: %2$s"
 msgstr ""
 
-#: inc/extras.php:975
+#: inc/extras.php:488
 msgid "Your Name"
 msgstr ""
 
-#: inc/extras.php:983
+#: inc/extras.php:492
 msgid "Email Address"
 msgstr ""
 
-#: inc/extras.php:991
+#: inc/extras.php:496
 msgid "Your Website (optional)"
 msgstr ""
 
-#: inc/extras.php:1005
+#: inc/extras.php:503
 msgid "Leave a Reply"
 msgstr ""
 
-#: inc/extras.php:1007
+#: inc/extras.php:504
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: inc/extras.php:1009
+#: inc/extras.php:505
 msgid "Cancel Reply"
 msgstr ""
 
-#: inc/extras.php:1011
+#: inc/extras.php:506
 msgid "Post Comment"
 msgstr ""
 
-#: inc/extras.php:1021
+#: inc/extras.php:511
 msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes:"
 msgstr ""
 
-#: inc/extras.php:1163
+#: inc/extras.php:582
 msgid "get_theme_modblog_name?get_theme_modblog_name:Blog"
 msgstr ""
 
-#: inc/extras.php:1167, search.php:39
+#: inc/extras.php:584, search.php:20
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/extras.php:1171, inc/extras.php:1179
+#: inc/extras.php:586, inc/extras.php:590
 msgid "Portfolio"
 msgstr ""
 
-#: inc/metaboxes.php:27
+#: inc/metaboxes.php:14
 msgid "Select layout for this specific Page only ( Note: This setting only reflects if page Template is set as Default Template and Blog Type Templates.)"
 msgstr ""
 
-#: inc/metaboxes.php:37
+#: inc/metaboxes.php:19
 msgid "Select layout for this specific Post only"
 msgstr ""
 
-#: inc/metaboxes.php:51
+#: inc/metaboxes.php:26
 msgid "Select layout for this specific Product only"
 msgstr ""
 
-#: inc/metaboxes.php:67
+#: inc/metaboxes.php:34
 msgid "Select layout for this specific Portfolio only"
 msgstr ""
 
-#: inc/socialnav.php:23
+#: inc/socialnav.php:12
 msgctxt "nav menu location"
 msgid "Social Menu"
 msgstr ""
 
-#: inc/template-tags.php:45
-msgid "Pingback:"
-msgstr ""
-
-#: inc/template-tags.php:45
+#: inc/template-tags.php:24
 msgid "Edit"
 msgstr ""
 
-#: inc/template-tags.php:75
+#: inc/template-tags.php:42
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/template-tags.php:48
 msgid "%s <span class=\"says\">says:</span>"
 msgstr ""
 
-#: inc/template-tags.php:83
+#: inc/template-tags.php:52
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:89
+#: inc/template-tags.php:55
 msgid "<span style=\"margin-left: 5px;\" class=\"glyphicon glyphicon-edit\"></span> Edit"
 msgstr ""
 
-#: inc/template-tags.php:99
-msgid "Your comment is awaiting moderation."
-msgstr ""
-
-#: inc/template-tags.php:309, inc/template-tags.php:351, template-parts/content-single.php:67, template-parts/content-single.php:73
+#: inc/template-tags.php:162, inc/template-tags.php:183, template-parts/content-single.php:34, template-parts/content-single.php:37
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:369
+#: inc/template-tags.php:192
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/widgets/widget-categories.php:37
+#: inc/widgets/widget-categories.php:19
 msgid "Bij Best Categories"
 msgstr ""
 
-#: inc/widgets/widget-categories.php:39
+#: inc/widgets/widget-categories.php:20
 msgid "[BB] Categories"
 msgstr ""
 
-#: inc/widgets/widget-categories.php:61, inc/widgets/widget-categories.php:179
+#: inc/widgets/widget-categories.php:31, inc/widgets/widget-categories.php:90
 msgid "Categories"
 msgstr ""
 
-#: inc/widgets/widget-categories.php:195, inc/widgets/widget-home-clients.php:173, inc/widgets/widget-home-features.php:219, inc/widgets/widget-home-features.php:255, inc/widgets/widget-home-parallax.php:241, inc/widgets/widget-home-portfolio.php:273, inc/widgets/widget-home-testimonials.php:265, inc/widgets/widget-social.php:111
+#: inc/widgets/widget-categories.php:98, inc/widgets/widget-home-clients.php:87, inc/widgets/widget-home-features.php:110, inc/widgets/widget-home-features.php:128, inc/widgets/widget-home-parallax.php:121, inc/widgets/widget-home-portfolio.php:137, inc/widgets/widget-home-testimonials.php:133, inc/widgets/widget-social.php:56
 msgid "Title "
 msgstr ""
 
-#: inc/widgets/widget-categories.php:211
+#: inc/widgets/widget-categories.php:106
 msgid "Limit Categories "
 msgstr ""
 
-#: inc/widgets/widget-categories.php:237
+#: inc/widgets/widget-categories.php:119
 msgid "Enable Posts Count"
 msgstr ""
 
-#: inc/widgets/widget-home-call-for-action.php:37
+#: inc/widgets/widget-home-call-for-action.php:19
 msgid "Call for Action Section"
 msgstr ""
 
-#: inc/widgets/widget-home-call-for-action.php:39
+#: inc/widgets/widget-home-call-for-action.php:20
 msgid "[BB] Call for Action Section For FrontPage"
 msgstr ""
 
-#: inc/widgets/widget-home-call-for-action.php:157
+#: inc/widgets/widget-home-call-for-action.php:79
 msgid "Callout Text "
 msgstr ""
 
-#: inc/widgets/widget-home-call-for-action.php:173
+#: inc/widgets/widget-home-call-for-action.php:87
 msgid "Button Text "
 msgstr ""
 
-#: inc/widgets/widget-home-call-for-action.php:189
+#: inc/widgets/widget-home-call-for-action.php:95
 msgid "Button Link "
 msgstr ""
 
-#: inc/widgets/widget-home-clients.php:37
+#: inc/widgets/widget-home-clients.php:19
 msgid "Client Section That Displays Logos In A Slider"
 msgstr ""
 
-#: inc/widgets/widget-home-clients.php:39
+#: inc/widgets/widget-home-clients.php:20
 msgid "[BB] Client Section For FrontPage"
 msgstr ""
 
-#: inc/widgets/widget-home-clients.php:61
+#: inc/widgets/widget-home-clients.php:31
 msgid "Our Main Clients"
 msgstr ""
 
-#: inc/widgets/widget-home-clients.php:111
+#: inc/widgets/widget-home-clients.php:56
 msgid "Logos"
 msgstr ""
 
-#: inc/widgets/widget-home-clients.php:203
+#: inc/widgets/widget-home-clients.php:102
 msgid "Logo #"
 msgstr ""
 
-#: inc/widgets/widget-home-clients.php:207
+#: inc/widgets/widget-home-clients.php:104
 msgid "Upload Logo"
 msgstr ""
 
-#: inc/widgets/widget-home-clients.php:213
+#: inc/widgets/widget-home-clients.php:107
 msgid "Link:"
 msgstr ""
 
-#: inc/widgets/widget-home-clients.php:219
+#: inc/widgets/widget-home-clients.php:110
 msgid "Add"
 msgstr ""
 
-#: inc/widgets/widget-home-clients.php:221
+#: inc/widgets/widget-home-clients.php:111
 msgid "Delete"
 msgstr ""
 
-#: inc/widgets/widget-home-features.php:37
+#: inc/widgets/widget-home-features.php:19
 msgid "Widget to set Features in Home Section"
 msgstr ""
 
-#: inc/widgets/widget-home-features.php:39
+#: inc/widgets/widget-home-features.php:20
 msgid "[BB] Features Section For FrontPage"
 msgstr ""
 
-#: inc/widgets/widget-home-features.php:233, inc/widgets/widget-home-features.php:293, inc/widgets/widget-home-parallax.php:269, inc/widgets/widget-home-portfolio.php:287
+#: inc/widgets/widget-home-features.php:117, inc/widgets/widget-home-features.php:147, inc/widgets/widget-home-parallax.php:135, inc/widgets/widget-home-portfolio.php:144
 msgid "Content "
 msgstr ""
 
-#: inc/widgets/widget-home-features.php:251
+#: inc/widgets/widget-home-features.php:126
 msgid "Feature %s"
 msgstr ""
 
-#: inc/widgets/widget-home-features.php:269
+#: inc/widgets/widget-home-features.php:135
 msgid "Icon( Font Awsome ) "
 msgstr ""
 
-#: inc/widgets/widget-home-features.php:277
+#: inc/widgets/widget-home-features.php:139
 msgid "Select Icon"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:41
+#: inc/widgets/widget-home-parallax.php:21
 msgid "FrontPage Parallax Section"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:43
+#: inc/widgets/widget-home-parallax.php:22
 msgid "[BB] Parralax Section For FrontPage"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:69
+#: inc/widgets/widget-home-parallax.php:35
 msgid "left"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:257
+#: inc/widgets/widget-home-parallax.php:129
 msgid "Image:"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:261, inc/widgets/widget-home-testimonials.php:313
+#: inc/widgets/widget-home-parallax.php:131, inc/widgets/widget-home-testimonials.php:157
 msgid "Upload Image"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:281
+#: inc/widgets/widget-home-parallax.php:141
 msgid "Image Position "
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:287
+#: inc/widgets/widget-home-parallax.php:144
 msgid "Left"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:289
+#: inc/widgets/widget-home-parallax.php:145
 msgid "Right"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:291
+#: inc/widgets/widget-home-parallax.php:146
 msgid "Top"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:293
+#: inc/widgets/widget-home-parallax.php:147
 msgid "Bottom"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:295
+#: inc/widgets/widget-home-parallax.php:148
 msgid "Background Full"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:297
+#: inc/widgets/widget-home-parallax.php:149
 msgid "Background Small"
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:305
+#: inc/widgets/widget-home-parallax.php:153
 msgid "Button 1 Text "
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:319
+#: inc/widgets/widget-home-parallax.php:160
 msgid "Button 1 Link "
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:333
+#: inc/widgets/widget-home-parallax.php:167
 msgid "Button 2 Text "
 msgstr ""
 
-#: inc/widgets/widget-home-parallax.php:347
+#: inc/widgets/widget-home-parallax.php:174
 msgid "Button 2 Link "
 msgstr ""
 
-#: inc/widgets/widget-home-portfolio.php:37
+#: inc/widgets/widget-home-portfolio.php:19
 msgid "Porfolio for Home Widget Section"
 msgstr ""
 
-#: inc/widgets/widget-home-portfolio.php:39
+#: inc/widgets/widget-home-portfolio.php:20
 msgid "[BB] Porfolio for Home Widget Section"
 msgstr ""
 
-#: inc/widgets/widget-home-testimonials.php:37
+#: inc/widgets/widget-home-testimonials.php:19
 msgid "Testimonial Widget Section"
 msgstr ""
 
-#: inc/widgets/widget-home-testimonials.php:39
+#: inc/widgets/widget-home-testimonials.php:20
 msgid "[bb] Testimonial Section For FrontPage"
 msgstr ""
 
-#: inc/widgets/widget-home-testimonials.php:61
+#: inc/widgets/widget-home-testimonials.php:31
 msgid "Testimonials"
 msgstr ""
 
-#: inc/widgets/widget-home-testimonials.php:279
+#: inc/widgets/widget-home-testimonials.php:140
 msgid "Limit "
 msgstr ""
 
-#: inc/widgets/widget-home-testimonials.php:295
+#: inc/widgets/widget-home-testimonials.php:148
 msgid "Background Parallax Image:"
 msgstr ""
 
-#: inc/widgets/widget-recent-posts.php:37
+#: inc/widgets/widget-recent-posts.php:19
 msgid "Widget to show recent posts with thumbnails"
 msgstr ""
 
-#: inc/widgets/widget-recent-posts.php:39
+#: inc/widgets/widget-recent-posts.php:20
 msgid "[BB] Recent Posts"
 msgstr ""
 
-#: inc/widgets/widget-recent-posts.php:61, inc/widgets/widget-recent-posts.php:219
+#: inc/widgets/widget-recent-posts.php:31, inc/widgets/widget-recent-posts.php:110
 msgid "Recent Posts"
 msgstr ""
 
-#: inc/widgets/widget-recent-posts.php:233
+#: inc/widgets/widget-recent-posts.php:117
 msgid "Title"
 msgstr ""
 
-#: inc/widgets/widget-recent-posts.php:247
+#: inc/widgets/widget-recent-posts.php:124
 msgid "Limit Posts Number"
 msgstr ""
 
-#: inc/widgets/widget-social.php:37
+#: inc/widgets/widget-social.php:19
 msgid "Social Icon Menu Widget"
 msgstr ""
 
-#: inc/widgets/widget-social.php:39
+#: inc/widgets/widget-social.php:20
 msgid "[BB] Social Icon Menu Widget"
 msgstr ""
 
-#: inc/widgets/widget-social.php:61, inc/widgets/widget-social.php:103
+#: inc/widgets/widget-social.php:31, inc/widgets/widget-social.php:52
 msgid "Follow us"
 msgstr ""
 
-#: inc/woo-setup.php:197
+#: inc/woo-setup.php:99
 msgid "View your shopping cart"
 msgstr ""
 
-#: inc/woo-setup.php:199
+#: inc/woo-setup.php:100
 msgid "Start shopping"
 msgstr ""
 
-#: inc/woo-setup.php:207
+#: inc/woo-setup.php:104
 msgid "%d item"
 msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: searchform.php:21
+#: searchform.php:11
 msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr ""
 
-#: searchform.php:21
+#: searchform.php:11
 msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: searchform.php:25
+#: searchform.php:13
 msgctxt "submit button"
 msgid "Search"
 msgstr ""
 
-#: template-home.php:51
+#: template-home.php:26
 msgid "This is the \"Home Sidebar Section\", add some widgets to it to override the look and feel."
 msgstr ""
 
-#: template-parts/content-none.php:29
+#: template-parts/content-none.php:15
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:43
+#: template-parts/content-none.php:22
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:51
+#: template-parts/content-none.php:26
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:63
+#: template-parts/content-none.php:32
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-single.php:83
+#: template-parts/content-single.php:42
 msgid "This entry was tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: template-parts/content-single.php:87
+#: template-parts/content-single.php:44
 msgid "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: template-parts/content-single.php:97
+#: template-parts/content-single.php:49
 msgid "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: template-parts/content-single.php:101
+#: template-parts/content-single.php:51
 msgid "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: template-parts/content.php:109
+#: template-parts/content.php:55
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""

@@ -1,0 +1,29 @@
+//
+// Comments
+// --------------------------------------------------
+
+.comments-area {
+
+	.comments-title {
+		font-size: 1.8em;
+	}
+
+	.comment-list {
+		list-style: outside none none;
+		padding-left: 0;
+
+		ol {
+			&.children {
+				list-style: outside none none;
+				padding-left: 70px;
+			}
+		}
+
+		img {
+			&.avatar {
+				max-width: inherit;
+			}
+		}
+	}
+
+}
