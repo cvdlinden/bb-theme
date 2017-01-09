@@ -9,27 +9,34 @@
 
 get_header(); ?>
 
-	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>  
-	<div id="primary" class="col-md-9 <?php echo esc_attr( $layout_class ); ?>">
+	<div class="container">
+		<div class="row">
 
-		<?php
-		while ( have_posts() ) : the_post();
+			<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>  
+			<div id="primary" class="col-md-9 <?php echo esc_attr( $layout_class ); ?>">
 
-			get_template_part( 'template-parts/content', get_post_format() );
+				<?php
+				while ( have_posts() ) : the_post();
 
-			bb_author_bio();
+					get_template_part( 'template-parts/content', get_post_format() );
 
-			bb_pagination();
+					bb_author_bio();
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+					bb_pagination();
 
-		endwhile; // End of the loop.
-		?>
+					// If comments are open or we have at least one comment, load up the comment template.
+					if ( comments_open() || get_comments_number() ) :
+						comments_template();
+					endif;
 
-	</div><!-- #primary -->
+				endwhile; // End of the loop.
+				?>
 
-<?php get_sidebar(); ?>
+			</div><!-- #primary -->
+
+			<?php get_sidebar(); ?>
+
+		</div><!--end of row-->
+	</div><!--end of container-->
+
 <?php get_footer(); ?>

@@ -15,83 +15,89 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'alt' ); ?>
 
-	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>
-	<section id="primary" class="col-md-9 <?php echo esc_attr( $layout_class ); ?>">
-		
-		<?php
-		/**
-		 * Woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-		?>
+	<div class="container">
+		<div class="row">
 
-		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-
-			<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
-
-		<?php endif; ?>
-
-		<?php do_action( 'woocommerce_archive_description' ); ?>
-
-		<?php if ( have_posts() ) : ?>
-
-			<?php
-				/**
-				 * Woocommerce_before_shop_loop hook.
-				 *
-				 * @hooked woocommerce_result_count - 20
-				 * @hooked woocommerce_catalog_ordering - 30
-				 */
-				do_action( 'woocommerce_before_shop_loop' );
-				?>
-
-				<?php woocommerce_product_loop_start(); ?>
-
-				<?php woocommerce_product_subcategories(); ?>
-
-				<?php $i = 0; ?>
-				<div class="row">
-					<?php while ( have_posts() ) : the_post(); ?>
-						<div class="col-sm-4">
-							<?php wc_get_template_part( 'content', 'product' ); ?>
-						</div>
-						<?php
-						$i++;
-						if ( 0 === $i % 3 ) {
-							echo '</div><div class="row">';
-						}
-
-						?>
-					<?php endwhile; // end of the loop. ?>
-				</div>
-				<?php woocommerce_product_loop_end(); ?>
-
+			<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>
+			<section id="primary" class="col-md-9 <?php echo esc_attr( $layout_class ); ?>">
+				
 				<?php
 				/**
-				 * Woocommerce_after_shop_loop hook.
-				 *
-				 * @hooked woocommerce_pagination - 10
-				 */
-				do_action( 'woocommerce_after_shop_loop' );
+				* Woocommerce_before_main_content hook.
+				*
+				* @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+				* @hooked woocommerce_breadcrumb - 20
+				*/
+				do_action( 'woocommerce_before_main_content' );
 				?>
 
-			<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+				<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 
-				<?php wc_get_template( 'loop/no-products-found.php' ); ?>
+					<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
 
-			<?php endif; ?>
+				<?php endif; ?>
 
-			<?php
-		/**
-		 * Woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-		?>
-	</section><!-- #primary -->
+				<?php do_action( 'woocommerce_archive_description' ); ?>
+
+				<?php if ( have_posts() ) : ?>
+
+					<?php
+						/**
+						* Woocommerce_before_shop_loop hook.
+						*
+						* @hooked woocommerce_result_count - 20
+						* @hooked woocommerce_catalog_ordering - 30
+						*/
+						do_action( 'woocommerce_before_shop_loop' );
+						?>
+
+						<?php woocommerce_product_loop_start(); ?>
+
+						<?php woocommerce_product_subcategories(); ?>
+
+						<?php $i = 0; ?>
+						<div class="row">
+							<?php while ( have_posts() ) : the_post(); ?>
+								<div class="col-sm-4">
+									<?php wc_get_template_part( 'content', 'product' ); ?>
+								</div>
+								<?php
+								$i++;
+								if ( 0 === $i % 3 ) {
+									echo '</div><div class="row">';
+								}
+
+								?>
+							<?php endwhile; // end of the loop. ?>
+						</div>
+						<?php woocommerce_product_loop_end(); ?>
+
+						<?php
+						/**
+						* Woocommerce_after_shop_loop hook.
+						*
+						* @hooked woocommerce_pagination - 10
+						*/
+						do_action( 'woocommerce_after_shop_loop' );
+						?>
+
+					<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+
+						<?php wc_get_template( 'loop/no-products-found.php' ); ?>
+
+					<?php endif; ?>
+
+					<?php
+				/**
+				* Woocommerce_after_main_content hook.
+				*
+				* @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+				*/
+				do_action( 'woocommerce_after_main_content' );
+				?>
+			</section><!-- #primary -->
+
+		</div><!--end of row-->
+	</div><!--end of container-->
 
 <?php get_footer( 'alt' ); ?>

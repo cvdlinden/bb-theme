@@ -65,8 +65,11 @@
 }
 
 // Masonry items
-.container .masonry-item {
-	margin-bottom: 0px;
+.container,
+.container-fluid {
+	.masonry-item {
+		margin-bottom: 0px;
+	}
 }
 .masonry-item {
 	max-width: 100%;

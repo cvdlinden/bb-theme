@@ -16,11 +16,11 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 404.php:19, inc/extras.php:588
+#: 404.php:22, inc/extras.php:590
 msgid "Oops! Something went wrong here."
 msgstr ""
 
-#: 404.php:25
+#: 404.php:28
 msgid "Nothing could be found at this location. Maybe try a search?"
 msgstr ""
 
@@ -108,11 +108,11 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: image.php:75
+#: image.php:78
 msgid "Image size"
 msgstr ""
 
-#: image.php:83, inc/template-tags.php:199, template-home.php:42, template-parts/content-page.php:34, template-parts/content-single.php:68
+#: image.php:86, inc/template-tags.php:199, template-home.php:46, template-parts/content-page.php:34, template-parts/content-single.php:68
 msgid "Edit %s"
 msgstr ""
 
@@ -644,15 +644,15 @@ msgstr ""
 msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes:"
 msgstr ""
 
-#: inc/extras.php:582
+#: inc/extras.php:584
 msgid "get_theme_modblog_name?get_theme_modblog_name:Blog"
 msgstr ""
 
-#: inc/extras.php:584, search.php:20
+#: inc/extras.php:586, search.php:23
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/extras.php:586, inc/extras.php:590
+#: inc/extras.php:588, inc/extras.php:592
 msgid "Portfolio"
 msgstr ""
 
@@ -963,7 +963,7 @@ msgctxt "submit button"
 msgid "Search"
 msgstr ""
 
-#: template-home.php:26
+#: template-home.php:30
 msgid "This is the \"Home Sidebar Section\", add some widgets to it to override the look and feel."
 msgstr ""
 

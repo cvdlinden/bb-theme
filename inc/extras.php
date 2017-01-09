@@ -573,27 +573,31 @@ function bb_show_sidebar() {
  */
 function bb_top_callout() {
 	if ( get_theme_mod( 'top_callout', true ) ) { ?>
-		<div class="container bg-secondary top-callout">
+		<div class="container-fluid bg-secondary top-callout">
 			<div class="row">
-				<div class="col-xs-12">
-					<h2>
-						<?php
-						if ( is_home() ) {
-							esc_html_e( ( get_theme_mod( 'blog_name' ) ) ? get_theme_mod( 'blog_name' ) : 'Blog'  , 'bb' );
-						} elseif ( is_search() ) {
-							printf( esc_html__( 'Search Results for: %s', 'bb' ), '<span>' . get_search_query() . '</span>' );
-						} elseif ( is_archive() ) {
-							echo ( is_post_type_archive( 'jetpack-portfolio' ) ) ? __( 'Portfolio', 'bb' ) : get_the_archive_title();
-						} elseif ( is_404() ) {
-							esc_html_e( 'Oops! Something went wrong here.', 'bb' );
-						} else {
-							echo ( is_singular( 'jetpack-portfolio' ) ) ? __( 'Portfolio', 'bb' ) : get_the_title();
-						}?>
-					</h2>
-					<?php if ( function_exists( 'yoast_breadcrumb' ) ) {
-						yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>' );
-					} ?>
-				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<h2>
+								<?php
+								if ( is_home() ) {
+									esc_html_e( ( get_theme_mod( 'blog_name' ) ) ? get_theme_mod( 'blog_name' ) : 'Blog'  , 'bb' );
+								} elseif ( is_search() ) {
+									printf( esc_html__( 'Search Results for: %s', 'bb' ), '<span>' . get_search_query() . '</span>' );
+								} elseif ( is_archive() ) {
+									echo ( is_post_type_archive( 'jetpack-portfolio' ) ) ? __( 'Portfolio', 'bb' ) : get_the_archive_title();
+								} elseif ( is_404() ) {
+									esc_html_e( 'Oops! Something went wrong here.', 'bb' );
+								} else {
+									echo ( is_singular( 'jetpack-portfolio' ) ) ? __( 'Portfolio', 'bb' ) : get_the_title();
+								}?>
+							</h2>
+							<?php if ( function_exists( 'yoast_breadcrumb' ) ) {
+								yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>' );
+							} ?>
+						</div>
+					</div><!--end of row-->
+				</div><!--end of container-->
 			</div><!--end of row-->
 		</div><!--end of container-->
 	<?php

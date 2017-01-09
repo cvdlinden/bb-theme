@@ -9,28 +9,35 @@
 
 get_header(); ?>
 
-	<div id="primary" class="col-md-12">
+	<div class="container">
+		<div class="row">
 
-		<?php // Add the class "panel" below here to wrap the content-padder in Bootstrap style. ?>
-		<section class="content-padder error-404 not-found">
+			<div id="primary" class="col-md-12">
 
-			<?php if ( ! get_theme_mod( 'top_callout', true ) ) { ?>
-				<header>
-					<h1 class="page-title"><?php esc_html_e( 'Oops! Something went wrong here.', 'bb' ); ?></h1>
-				</header><!-- .page-header -->
-			<?php }; ?>
+				<?php // Add the class "panel" below here to wrap the content-padder in Bootstrap style. ?>
+				<section class="content-padder error-404 not-found">
 
-			<div class="page-content">
+					<?php if ( ! get_theme_mod( 'top_callout', true ) ) { ?>
+						<header>
+							<h1 class="page-title"><?php esc_html_e( 'Oops! Something went wrong here.', 'bb' ); ?></h1>
+						</header><!-- .page-header -->
+					<?php }; ?>
 
-				<p><?php esc_html_e( 'Nothing could be found at this location. Maybe try a search?', 'bb' ); ?></p>
+					<div class="page-content">
 
-				<?php get_search_form(); ?>
+						<p><?php esc_html_e( 'Nothing could be found at this location. Maybe try a search?', 'bb' ); ?></p>
 
-			</div><!-- .page-content -->
+						<?php get_search_form(); ?>
 
-		</section><!-- .content-padder -->
+					</div><!-- .page-content -->
 
-	</div><!-- #primary -->
+				</section><!-- .content-padder -->
 
-<?php // Obsolete get_sidebar();. ?>
+			</div><!-- #primary -->
+
+			<?php // Obsolete get_sidebar();. ?>
+
+		</div><!--end of row-->
+	</div><!--end of container-->
+
 <?php get_footer(); ?>

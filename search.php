@@ -9,40 +9,47 @@
 
 get_header(); ?>
 
-	<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>
-	<section id="primary" class="col-md-9 <?php echo esc_attr( $layout_class ); ?>">
+	<div class="container">
+		<div class="row">
 
-		<?php
-		if ( have_posts() ) : ?>
+			<?php $layout_class = ( function_exists( 'bb_get_layout_class' ) ) ? bb_get_layout_class(): ''; ?>
+			<section id="primary" class="col-md-9 <?php echo esc_attr( $layout_class ); ?>">
 
-			<?php if ( ! get_theme_mod( 'top_callout', true ) ) { ?>
-				<header>
-					<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'bb' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-				</header><!-- .page-header -->
-			<?php }; ?>
+				<?php
+				if ( have_posts() ) : ?>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+					<?php if ( ! get_theme_mod( 'top_callout', true ) ) { ?>
+						<header>
+							<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'bb' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+						</header><!-- .page-header -->
+					<?php }; ?>
 
-				/**
-				* Run the loop for the search to output the results.
-				* If you want to overload this in a child theme then include a file
-				* called content-search.php and that will be used instead.
-				*/
-				get_template_part( 'template-parts/content', 'search' );
+					<?php
+					/* Start the Loop */
+					while ( have_posts() ) : the_post();
 
-			endwhile;
+						/**
+						* Run the loop for the search to output the results.
+						* If you want to overload this in a child theme then include a file
+						* called content-search.php and that will be used instead.
+						*/
+						get_template_part( 'template-parts/content', 'search' );
 
-			bb_pagination();
+					endwhile;
 
-		else :
+					bb_pagination();
 
-			get_template_part( 'template-parts/content', 'none' );
+				else :
 
-		endif; ?>
+					get_template_part( 'template-parts/content', 'none' );
 
-	</section><!-- #primary -->
+				endif; ?>
 
-<?php get_sidebar(); ?>
+			</section><!-- #primary -->
+
+			<?php get_sidebar(); ?>
+
+		</div><!--end of row-->
+	</div><!--end of container-->
+
 <?php get_footer(); ?>

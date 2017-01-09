@@ -2,9 +2,12 @@
 // Backgrounds
 // --------------------------------------------------
 
-header .container {
-	position: relative;
-	background-color: #fff;
+header {
+	.container,
+	.container-fluid {
+		position: relative;
+		background-color: #fff;
+	}
 }
 
 section,

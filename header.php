@@ -127,5 +127,5 @@
 			<?php ( is_page_template( 'template-home.php' ) ) ? '' : bb_top_callout(); ?>
 
 			<!-- Content Area -->
-			<div id="main" class="container content-area <?php echo ( get_theme_mod( 'top_callout', true ) ) ? 'top-callout-present' : '' ?>" role="main">
+			<div id="main" class="container-fluid content-area <?php echo ( get_theme_mod( 'top_callout', true ) ) ? 'top-callout-present' : '' ?>" role="main">
 				<div class="row">
