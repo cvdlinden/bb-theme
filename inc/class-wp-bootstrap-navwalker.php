@@ -1,23 +1,36 @@
 <?php
-
 /**
- * Class Name: wp_bootstrap_navwalker
- * GitHub URI: https://github.com/twittem/wp-bootstrap-navwalker
- * Description: A custom WordPress nav walker class to implement the Bootstrap 3 navigation style in a custom theme using the WordPress built in menu manager.
- * Version: 2.0.4
- * Author: Edward McIntyre - @twittem
- * License: GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Bij Best WP Bootstrap navigation walker class.
+ *
+ * @package BijBest
+ * @version 2.0.4
+ * @link    https://github.com/twittem/wp-bootstrap-navwalker
+ * @author  Edward McIntyre - @twittem
+ * @license GPL-2.0+
  */
 
-class wp_bootstrap_navwalker extends Walker_Nav_Menu {
+/**
+ * Class Name: WP_Bootstrap_Navwalker
+ * GitHub URI: https://github.com/twittem/wp-bootstrap-navwalker
+ * Description: A custom WordPress nav walker class to implement the Bootstrap 3 navigation style in a custom theme using the WordPress built in menu manager.
+ *
+ * @version: 2.0.4
+ * @author:  Edward McIntyre - @twittem
+ * @license: GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ */
+class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
+
 
 	/**
+	 * Public start_lvl function.
+	 *
 	 * @see Walker::start_lvl()
 	 * @since 3.0.0
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
-	 * @param int    $depth Depth of page. Used for padding.
+	 * @param int    $depth  Depth of page. Used for padding.
+	 * @param object $args   Arguments array.
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat( "\t", $depth );
@@ -25,14 +38,16 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 	}
 
 	/**
+	 * Public start_el function.
+	 *
 	 * @see Walker::start_el()
 	 * @since 3.0.0
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
-	 * @param object $item Menu item data object.
-	 * @param int    $depth Depth of menu item. Used for padding.
-	 * @param int    $current_page Menu item ID.
-	 * @param object $args
+	 * @param object $item   Menu item data object.
+	 * @param int    $depth  Depth of menu item. Used for padding.
+	 * @param object $args   Arguments array.
+	 * @param int    $id     Menu item ID.
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -45,13 +60,13 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 		 * comparison that is not case sensitive. The strcasecmp() function returns
 		 * a 0 if the strings are equal.
 		 */
-		if ( strcasecmp( $item->attr_title, 'divider' ) == 0 && $depth === 1 ) {
+		if ( 0 == strcasecmp( $item->attr_title, 'divider' ) && 1 === $depth ) {
 			$output .= $indent . '<li role="presentation" class="divider">';
-		} elseif ( strcasecmp( $item->title, 'divider' ) == 0 && $depth === 1 ) {
+		} elseif ( 0 == strcasecmp( $item->title, 'divider' ) && 1 === $depth ) {
 			$output .= $indent . '<li role="presentation" class="divider">';
-		} elseif ( strcasecmp( $item->attr_title, 'dropdown-header' ) == 0 && $depth === 1 ) {
+		} elseif ( 0 == strcasecmp( $item->attr_title, 'dropdown-header' ) && 1 === $depth ) {
 			$output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
-		} elseif ( strcasecmp( $item->attr_title, 'disabled' ) == 0 ) {
+		} elseif ( 0 == strcasecmp( $item->attr_title, 'disabled' ) ) {
 			$output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
 		} else {
 
@@ -78,16 +93,16 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$output .= $indent . '<li' . $id . $value . $class_names . '>';
 
 			$atts = array();
-			$atts['title']  = ! empty( $item->title )	? strip_tags( $item->title ) : '';
-			$atts['target'] = ! empty( $item->target )	? $item->target	: '';
-			$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
+			$atts['title']  = ! empty( $item->title )    ? strip_tags( $item->title ) : '';
+			$atts['target'] = ! empty( $item->target )    ? $item->target    : '';
+			$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn    : '';
 
 			// If item has_children add atts to a.
-			if ( $args->has_children && $depth === 0 ) {
-				$atts['href']   		= '#';
-				$atts['data-toggle']	= 'dropdown';
-				$atts['class']			= 'dropdown-toggle';
-				$atts['aria-haspopup']	= 'true';
+			if ( $args->has_children && 0 === $depth ) {
+				$atts['href']           = '#';
+				$atts['data-toggle']    = 'dropdown';
+				$atts['class']            = 'dropdown-toggle';
+				$atts['aria-haspopup']    = 'true';
 			} else {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
 			}
@@ -113,7 +128,8 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			 */
 			if ( ! empty( $item->attr_title ) ) {
 				$item_output .= '<a' . $attributes . '><span class="glyphicon ' . esc_attr( $item->attr_title ) . '"></span>&nbsp;';
-			} else { $item_output .= '<a' . $attributes . '>';
+			} else {
+				$item_output .= '<a' . $attributes . '>';
 			}
 
 			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
@@ -133,15 +149,15 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 	 *
 	 * This method shouldn't be called directly, use the walk() method instead.
 	 *
-	 * @see Walker::start_el()
+	 * @see   Walker::start_el()
 	 * @since 2.5.0
 	 *
-	 * @param object $element Data object
-	 * @param array  $children_elements List of elements to continue traversing.
-	 * @param int    $max_depth Max depth to traverse.
-	 * @param int    $depth Depth of current element.
-	 * @param array  $args
-	 * @param string $output Passed by reference. Used to append additional content.
+	 * @param  object $element           Data object.
+	 * @param  array  $children_elements List of elements to continue traversing.
+	 * @param  int    $max_depth         Max depth to traverse.
+	 * @param  int    $depth             Depth of current element.
+	 * @param  array  $args              Arguments array.
+	 * @param  string $output            Passed by reference. Used to append additional content.
 	 * @return null Null on failure with no changes to parameters.
 	 */
 	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
@@ -153,7 +169,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 
 		// Display this element.
 		if ( is_object( $args[0] ) ) {
-		   $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
+			  $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
 		}
 
 		parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
@@ -163,54 +179,39 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 	 * Menu Fallback
 	 * =============
 	 * If this function is assigned to the wp_nav_menu's fallback_cb variable
-	 * and a manu has not been assigned to the theme location in the WordPress
+	 * and a menu has not been assigned to the theme location in the WordPress
 	 * menu manager the function with display nothing to a non-logged in user,
 	 * and will add a link to the WordPress menu manager if logged in as an admin.
 	 *
 	 * @param array $args passed from the wp_nav_menu function.
 	 */
 	public static function fallback( $args ) {
-		if ( current_user_can( 'manage_options' ) ) {
-
-			extract( $args );
-
-			$fb_output = null;
-
-			if ( $container ) {
-				$fb_output = '<' . $container;
-
-				if ( $container_id ) {
-					$fb_output .= ' id="' . $container_id . '"';
-				}
-
-				if ( $container_class ) {
-					$fb_output .= ' class="' . $container_class . '"';
-				}
-
-				$fb_output .= '>';
-			}
-
-			$fb_output .= '<ul';
-
-			if ( $menu_id ) {
-				$fb_output .= ' id="' . $menu_id . '"';
-			}
-
-			if ( $menu_class ) {
-				$fb_output .= ' class="' . $menu_class . '"';
-			}
-
-			$fb_output .= '>';
-			$fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a></li>';
-			$fb_output .= '</ul>';
-
-			if ( $container ) {
-				$fb_output .= '</' . $container . '>';
-			}
-
-			echo $fb_output;
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
 		}
+
+		if ( $args['container'] ) {
+			printf(
+				'<%1$s id="%2$s" class="%3$s">',
+				esc_attr( $args['container'] ),
+				esc_attr( $args['container_id'] ),
+				esc_attr( $args['container_class'] )
+			);
+		}
+
+		printf(
+			'<ul id="%1$s" class="%2$s"><li><a href="%3$s">[Add a menu]</a></li></ul>',
+			esc_attr( $args['menu_id'] ),
+			esc_attr( $args['menu_class'] ),
+			esc_url( admin_url( 'nav-menus.php' ) )
+		);
+
+		if ( $args['container'] ) {
+			printf(
+				'</%1$s>',
+				esc_attr( $args['container'] )
+			);
+		}
+
 	}
 }
-
-

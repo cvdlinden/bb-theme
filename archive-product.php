@@ -23,11 +23,11 @@ get_header( 'alt' ); ?>
 				
 				<?php
 				/**
-				* Woocommerce_before_main_content hook.
-				*
-				* @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-				* @hooked woocommerce_breadcrumb - 20
-				*/
+				 * Woocommerce_before_main_content hook.
+				 *
+				 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+				 * @hooked woocommerce_breadcrumb - 20
+				 */
 				do_action( 'woocommerce_before_main_content' );
 				?>
 
@@ -43,11 +43,11 @@ get_header( 'alt' ); ?>
 
 					<?php
 						/**
-						* Woocommerce_before_shop_loop hook.
-						*
-						* @hooked woocommerce_result_count - 20
-						* @hooked woocommerce_catalog_ordering - 30
-						*/
+						 * Woocommerce_before_shop_loop hook.
+						 *
+						 * @hooked woocommerce_result_count - 20
+						 * @hooked woocommerce_catalog_ordering - 30
+						 */
 						do_action( 'woocommerce_before_shop_loop' );
 						?>
 
@@ -74,10 +74,10 @@ get_header( 'alt' ); ?>
 
 						<?php
 						/**
-						* Woocommerce_after_shop_loop hook.
-						*
-						* @hooked woocommerce_pagination - 10
-						*/
+						 * Woocommerce_after_shop_loop hook.
+						 *
+						 * @hooked woocommerce_pagination - 10
+						 */
 						do_action( 'woocommerce_after_shop_loop' );
 						?>
 
@@ -89,10 +89,10 @@ get_header( 'alt' ); ?>
 
 					<?php
 				/**
-				* Woocommerce_after_main_content hook.
-				*
-				* @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-				*/
+				 * Woocommerce_after_main_content hook.
+				 *
+				 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+				 */
 				do_action( 'woocommerce_after_main_content' );
 				?>
 			</section><!-- #primary -->

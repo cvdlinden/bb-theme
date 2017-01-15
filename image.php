@@ -19,9 +19,9 @@ get_header(); ?>
 
 						<header class="entry-header">
 
-							<?php 
+							<?php
 							if ( ! get_theme_mod( 'top_callout', true ) ) {
-								the_title( '<h1 class="page-title">Image: ', '</h1>' ); 
+								the_title( '<h1 class="page-title">Image: ', '</h1>' );
 							};
 							?>
 

@@ -86,8 +86,8 @@
 											'container_id'      => '',
 											'container_class'   => '',
 											'menu_class' 		=> 'nav navbar-nav',
-											'fallback_cb' 		=> 'wp_bootstrap_navwalker::fallback',
-											'walker' 			=> new wp_bootstrap_navwalker(),
+											'fallback_cb' 		=> 'WP_Bootstrap_Navwalker::fallback',
+											'walker' 			=> new WP_Bootstrap_Navwalker(),
 										)
 									); ?>
 

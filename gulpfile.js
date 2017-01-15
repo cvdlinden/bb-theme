@@ -97,7 +97,7 @@ gulp.task('codesniffer', function () {
       standard: 'codesniffer.ruleset.xml',
       warningSeverity: 0
     }))
-    // Log all problems that was found 
+    // Log all problems that were found 
     .pipe(phpcs.reporter('file', {
       path: "codesniffer.report.txt"
     }));

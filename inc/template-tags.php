@@ -9,13 +9,13 @@
 
 if ( ! function_exists( 'bb_comment' ) ) :
 	/**
-	* Template for comments and pingbacks.
-	*
-	* Used as a callback by wp_list_comments() for displaying the comments.
-	*/
+	 * Template for comments and pingbacks.
+	 *
+	 * Used as a callback by wp_list_comments() for displaying the comments.
+	 */
 	function bb_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
-		switch( $comment->comment_type ) :
+		switch ( $comment->comment_type ) :
 			case 'pingback' :
 			case 'trackback' : ?>
 
@@ -26,7 +26,7 @@ if ( ! function_exists( 'bb_comment' ) ) :
 
 		<?php
 				break;
-			default : 
+			default :
 		?>
 
 				<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
@@ -85,8 +85,8 @@ endif; // ends check for bb_comment()
 
 if ( ! function_exists( 'bb_the_attached_image' ) ) :
 	/**
-	* Prints the attached image with a link to the next attached image.
-	*/
+	 * Prints the attached image with a link to the next attached image.
+	 */
 	function bb_the_attached_image() {
 
 		$post                = get_post();
@@ -139,8 +139,8 @@ endif; // bb_the_attached_image
 
 if ( ! function_exists( 'bb_posted_on' ) ) :
 	/**
-	* Prints HTML with meta information for the current post-date/time and author.
-	*/
+	 * Prints HTML with meta information for the current post-date/time and author.
+	 */
 	function bb_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -171,8 +171,8 @@ endif; // bb_posted_on
 
 if ( ! function_exists( 'bb_entry_footer' ) ) :
 	/**
-	* Prints HTML with meta information for the categories, tags and comments.
-	*/
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
 	function bb_entry_footer() {
 
 		echo '<ul class="list-inline">';

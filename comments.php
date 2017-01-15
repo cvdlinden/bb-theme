@@ -34,8 +34,7 @@ if ( post_password_required() ) {
 				$count = number_format_i18n( get_comments_number() );
 				if ( '1' === $count ) {
 					printf(
-						esc_html_x( 'One thought on &ldquo;%2$s&rdquo;', 'bb' ),
-						$count,
+						esc_html_x( 'One thought on &ldquo;%1$s&rdquo;', 'bb' ),
 						'<span>' . get_the_title() . '</span>'
 					);
 				} else {

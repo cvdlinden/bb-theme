@@ -1,6 +1,6 @@
 <?php
 /**
- * BijBest functions and definitions.
+ * Bij Best functions and definitions.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -184,9 +184,6 @@ function bb_scripts() {
 	}
 
 	// Add Masonry libs.
-	// if ( post_type_exists( 'jetpack-portfolio' ) ) {
-	// 	wp_enqueue_script( 'jquery-masonry' );
-	// }
 	if ( post_type_exists( 'jetpack-portfolio' ) ) {
 		wp_enqueue_script( 'jquery-masonry', array( 'jquery' ), '20160115', true );
 	}
@@ -204,7 +201,7 @@ function bb_scripts() {
 		wp_enqueue_script( 'bb-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.min.js', array( 'jquery' ), '20120202' );
 	}
 
-	// Load theme specific scripts
+	// Load theme specific scripts.
 	wp_enqueue_script( 'bb-scripts', get_template_directory_uri() . '/js/bb-scripts.min.js', array( 'jquery' ), '20160115', true );
 
 }
@@ -267,7 +264,7 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
  * Load custom WordPress nav walker.
  */
-require get_template_directory() . '/inc/bootstrap-wp-navwalker.php';
+require get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
 // /**
 // * Adds WooCommerce support
