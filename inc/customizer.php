@@ -19,10 +19,12 @@ add_action( 'customize_register', 'bb_customize_register' );
 
 /**
  * Options for WordPress Theme Customizer.
+ *
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function bb_customizer( $wp_customize ) {
 
-	// logo
+	// Header logo options.
 	$wp_customize->add_setting('header_logo', array(
 		'default' => '',
 		'transport' => 'refresh',
@@ -35,7 +37,7 @@ function bb_customizer( $wp_customize ) {
 		'priority' => 10,
 	)));
 
-	  /* Main option Settings Panel */
+	// Main option Settings Panel.
 	$wp_customize->add_panel('bb_main_options', array(
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
@@ -44,7 +46,7 @@ function bb_customizer( $wp_customize ) {
 		'priority' => 10, // Mixed with top-level-section hierarchy.
 	));
 
-	// add "Sidebar" section
+	// Add "Sidebar" section.
 	$wp_customize->add_section('bb_layout_section', array(
 		'title' => __( 'Layout options', 'bb' ),
 		'description' => '',
@@ -52,7 +54,7 @@ function bb_customizer( $wp_customize ) {
 		'panel' => 'bb_main_options',
 	));
 
-	// Layout options
+	// Layout options.
 	global $bb_site_layout;
 	$wp_customize->add_setting('bb_sidebar_position', array(
 		'default' => 'side-right',
@@ -113,7 +115,7 @@ function bb_customizer( $wp_customize ) {
 		'section' => 'bb_layout_section',
 	)));
 
-		// add "Sidebar" section
+	// Add "Sidebar" section.
 	$wp_customize->add_section('bb_main_section', array(
 		'title' => __( 'Main options', 'bb' ),
 		'priority' => 11,
@@ -192,7 +194,7 @@ function bb_customizer( $wp_customize ) {
 		'type' => 'text',
 	));
 
-	// add "Footer" section
+	// Add "Footer" section.
 	$wp_customize->add_section('bb_footer_section', array(
 		'title' => esc_html__( 'Footer', 'bb' ),
 		'priority' => 90,
@@ -211,7 +213,7 @@ function bb_customizer( $wp_customize ) {
 		'section' => 'bb_footer_section',
 	));
 
-	/* bb Other Options */
+	// Bij Best Other section.
 	$wp_customize->add_section('bb_other_options', array(
 		'title' => __( 'Other', 'bb' ),
 		'priority' => 70,
@@ -233,16 +235,20 @@ add_action( 'customize_register', 'bb_customizer' );
 
 /**
  * Adds sanitization callback function: Strip Slashes.
+ *
+ * @param String $input Function input.
  */
 function bb_sanitize_strip_slashes( $input ) {
 	return wp_kses_stripslashes( $input );
 }
 
 /**
- * Sanitzie checkbox for WordPress customizer.
+ * Sanitize checkbox for WordPress customizer.
+ *
+ * @param int $input Function input.
  */
 function bb_sanitize_checkbox( $input ) {
-	if ( $input == 1 ) {
+	if ( 1 == $input ) {
 		return 1;
 	} else {
 		return '';
@@ -251,6 +257,8 @@ function bb_sanitize_checkbox( $input ) {
 
 /**
  * Adds sanitization callback function: Sidebar Layout.
+ *
+ * @param String $input Function input.
  */
 function bb_sanitize_layout( $input ) {
 	global $bb_site_layout;
@@ -263,6 +271,8 @@ function bb_sanitize_layout( $input ) {
 
 /**
  * Adds sanitization callback function: colors.
+ *
+ * @param String $color Hex color value.
  */
 function bb_sanitize_hexcolor( $color ) {
 	if ( $unhashed = sanitize_hex_color_no_hash( $color ) ) {
@@ -273,6 +283,8 @@ function bb_sanitize_hexcolor( $color ) {
 
 /**
  * Adds sanitization callback function: Slider Category.
+ *
+ * @param String $input Function input.
  */
 function bb_sanitize_slidecat( $input ) {
 	if ( array_key_exists( $input, bb_cats() ) ) {
@@ -284,6 +296,8 @@ function bb_sanitize_slidecat( $input ) {
 
 /**
  * Adds sanitization callback function: Radio Header.
+ *
+ * @param String $input Function input.
  */
 function bb_sanitize_radio_header( $input ) {
 	global $header_show;
@@ -296,6 +310,8 @@ function bb_sanitize_radio_header( $input ) {
 
 /**
  * Adds sanitization callback function: Number.
+ *
+ * @param String $input Function input.
  */
 function bb_sanitize_number( $input ) {
 	if ( isset( $input ) && is_numeric( $input ) ) {

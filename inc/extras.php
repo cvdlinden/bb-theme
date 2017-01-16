@@ -62,6 +62,9 @@ add_action( 'wp_head', 'bb_pingback_header' );
 
 /**
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
+ *
+ * @param url $url Image url.
+ * @param int $id  Image id.
  */
 function bb_enhanced_image_navigation( $url, $id ) {
 	if ( ! is_attachment() && ! wp_attachment_is_image( $id ) ) {
@@ -79,6 +82,9 @@ add_filter( 'attachment_link', 'bb_enhanced_image_navigation', 10, 2 );
 
 /**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
+ *
+ * @param string $title Title.
+ * @param string $sep Separator.
  */
 function bb_wp_title( $title, $sep ) {
 	global $page, $paged;
@@ -87,7 +93,7 @@ function bb_wp_title( $title, $sep ) {
 		return $title;
 	}
 
-	// Add the blog name
+	// Add the blog name.
 	$title .= get_bloginfo( 'name' );
 
 	// Add the blog description for the home/front page.
@@ -96,7 +102,7 @@ function bb_wp_title( $title, $sep ) {
 		$title .= " $sep $site_description";
 	}
 
-	// Add a page number if necessary:
+	// Add a page number if necessary.
 	if ( $paged >= 2 || $page >= 2 ) {
 		$title .= " $sep " . sprintf( __( 'Page %s', 'bb' ), max( $paged, $page ) );
 	}
@@ -107,9 +113,11 @@ add_filter( 'wp_title', 'bb_wp_title', 10, 2 );
 
 /**
  * Mark Posts/Pages as Untitled when no title is used.
+ *
+ * @param string $title Title.
  */
 function bb_title( $title ) {
-	if ( $title == '' ) {
+	if ( '' == $title ) {
 		return 'Untitled';
 	} else {
 		return $title;
@@ -139,14 +147,18 @@ function custom_password_form() {
 }
 add_filter( 'the_password_form', 'custom_password_form' );
 
-// Add Bootstrap classes for table
+/**
+ * Add Bootstrap classes for table
+ *
+ * @param string $content Class names.
+ */
 function bb_add_custom_table_class( $content ) {
 	return preg_replace( '/(<table) ?(([^>]*)class="([^"]*)")?/', '$1 $3 class="$4 table table-hover" ', $content );
 }
 add_filter( 'the_content', 'bb_add_custom_table_class' );
 
 /**
- * function to show the footer info, copyright information
+ * Function to show the footer info, copyright information
  */
 function bb_footer_info() {
 	printf( esc_html__( 'Theme: %1$s. Powered by: %2$s', 'bb' ) , 'BijBest', '_s - Automattic; _tk - ThemeKraft; Shapely - Colorlib' );
@@ -156,6 +168,9 @@ function bb_footer_info() {
  * Get information from Theme Options and add it into wp_head
  */
 if ( ! function_exists( 'get_bb_theme_options' ) ) {
+	/**
+	 * Theme options function
+	 */
 	function get_bb_theme_options() {
 
 		echo '<style type="text/css">';
@@ -201,6 +216,10 @@ add_action( 'wp_head', 'get_bb_theme_options', 10 );
  * Use <figure> and <figcaption>
  *
  * @link http://justintadlock.com/archives/2011/07/01/captions-in-wordpress
+ *
+ * @param string $output Output string.
+ * @param array  $attr Array of attributes.
+ * @param string $content Content string.
  */
 function bb_caption( $output, $attr, $content ) {
 	if ( is_feed() ) {
@@ -216,12 +235,12 @@ function bb_caption( $output, $attr, $content ) {
 
 	$attr = shortcode_atts( $defaults, $attr );
 
-	// If the width is less than 1 or there is no caption, return the content wrapped between the [caption] tags
+	// If the width is less than 1 or there is no caption, return the content wrapped between the [caption] tags.
 	if ( $attr['width'] < 1 || empty( $attr['caption'] ) ) {
 		return $content;
 	}
 
-	// Set up the attributes for the caption <figure>
+	// Set up the attributes for the caption <figure>.
 	$attributes  = ( ! empty( $attr['id'] ) ? ' id="' . esc_attr( $attr['id'] ) . '"' : '' );
 	$attributes .= ' class="thumbnail wp-caption ' . esc_attr( $attr['align'] ) . '"';
 	$attributes .= ' style="width: ' . (esc_attr( $attr['width'] ) + 10) . 'px"';
@@ -237,6 +256,8 @@ add_filter( 'img_caption_shortcode', 'bb_caption', 10, 3 );
 
 /**
  * Skype URI support for social media icons
+ *
+ * @param Array $protocols Protocols array.
  */
 function bb_allow_skype_protocol( $protocols ) {
 	$protocols[] = 'skype';
@@ -246,35 +267,48 @@ add_filter( 'kses_allowed_protocols' , 'bb_allow_skype_protocol' );
 
 /**
  * Adds the URL to the top level navigation menu item
+ *
+ * @param Array  $atts Array of attributes.
+ * @param Object $item Item object.
+ * @param Object $args Arguments.
  */
 function bb_add_top_level_menu_url( $atts, $item, $args ) {
-	if ( ! wp_is_mobile() && isset( $args->has_children ) && $args->has_children  ) {
+	if ( ! jetpack_is_mobile() && isset( $args->has_children ) && $args->has_children  ) {
 		$atts['href'] = ! empty( $item->url ) ? $item->url : '';
 	}
 	return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'bb_add_top_level_menu_url', 99, 3 );
 
-/*
+/**
  * Add Read More button to post archive
+ *
+ * @param string $more Dummy.
  */
 function bb_excerpt_more( $more ) {
 	return ' <a href="' . get_the_permalink() . '" title="Read more on ' . get_the_title() . '">&hellip; <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>';
 }
 add_filter( 'excerpt_more', 'bb_excerpt_more' );
 
-/*
+/**
  * Pagination
  */
 if ( ! function_exists( 'bb_pagination' ) ) {
+	/**
+	 * Pagination function
+	 *
+	 * @param int $pages Number of pages.
+	 * @param int $range Range.
+	 */
 	function bb_pagination( $pages = '', $range = 2 ) {
 		global $paged;
 		$showitems = ( $range * 2 ) + 1;
 
-		if ( empty( $paged ) ) { $paged = 1;
+		if ( empty( $paged ) ) {
+			$paged = 1;
 		}
 
-		if ( $pages == '' ) {
+		if ( '' == $pages ) {
 			global $wp_query;
 			$pages = $wp_query->max_num_pages;
 			if ( ! $pages ) {
@@ -284,7 +318,7 @@ if ( ! function_exists( 'bb_pagination' ) ) {
 
 		if ( 1 != $pages ) {
 			echo '<div class="text-center"><ul class="pagination">';
-			// if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo; First</a>";
+			// if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo; First</a>";.
 			if ( $paged > 1 && $showitems < $pages ) { echo "</li><a aria-label=\"Previous\" href='" . get_pagenum_link( $paged - 1 ) . "'><span aria-hidden=\"true\">&laquo;</span></a></li>";
 			}
 			for ( $i = 1; $i <= $pages; $i++ ) {
@@ -294,14 +328,16 @@ if ( ! function_exists( 'bb_pagination' ) ) {
 			}
 			if ( $paged < $pages && $showitems < $pages ) { echo "<li><a aria-label=\"Next\" href='" . get_pagenum_link( $paged + 1 ) . "'><span aria-hidden=\"true\">&raquo;</span></a></li>";
 			}
-			// if ($paged < ($pages-1) && ( $paged+$range-1 < $pages ) && $showitems < $pages) echo '<a href="'. get_pagenum_link($pages).'">Last &raquo;</a>';
+			// if ($paged < ($pages-1) && ( $paged+$range-1 < $pages ) && $showitems < $pages) echo '<a href="'. get_pagenum_link($pages).'">Last &raquo;</a>';.
 			echo "</ul></div>\n";
 		}
 	}
 }
 
-/*
+/**
  * Search Widget
+ *
+ * @param string $form Form html.
  */
 function bb_search_form( $form ) {
 	$form = '<form role="search" method="get" id="searchform" class="search-form" action="' . home_url( '/' ) . '" >
@@ -317,7 +353,7 @@ function bb_search_form( $form ) {
 }
 add_filter( 'get_search_form', 'bb_search_form', 100 );
 
-/*
+/**
  * Admin Css
  */
 function bb_admin_style() {
@@ -349,18 +385,23 @@ add_action( 'customize_controls_print_styles', 'bb_admin_style' );
 
 /* Social Fields in Author Profile */
 if ( ! function_exists( 'bb_author_social_links' ) ) {
+	/**
+	 * Social fields function
+	 *
+	 * @param Array $contactmethods Array of contact methods.
+	 */
 	function bb_author_social_links( $contactmethods ) {
-		// Add Google+
+		// Add Google+.
 		$contactmethods['googleplus'] = 'Google+';
-		// Add Twitter
+		// Add Twitter.
 		$contactmethods['twitter'] = 'Twitter';
-		// add Facebook
+		// Add Facebook.
 		$contactmethods['facebook'] = 'Facebook';
-		// add Github
+		// Add Github.
 		$contactmethods['github'] = 'Github';
-		// add Dribble
+		// Add Dribble.
 		$contactmethods['dribble'] = 'Dribble';
-		// add Vimeo
+		// Add Vimeo.
 		$contactmethods['vimeo'] = 'Vimeo';
 
 		return $contactmethods;
@@ -368,10 +409,13 @@ if ( ! function_exists( 'bb_author_social_links' ) ) {
 }
 add_filter( 'user_contactmethods','bb_author_social_links',10,1 );
 
-/*
+/**
  * Author bio on single page
  */
 if ( ! function_exists( 'bb_author_bio' ) ) {
+	/**
+	 * Author bio function
+	 */
 	function bb_author_bio() {
 
 		if ( ! get_the_ID() ) {
@@ -381,10 +425,10 @@ if ( ! function_exists( 'bb_author_bio' ) ) {
 		$author_fields = "'user_url','display_name', 'nickname', 'first_name','last_name','description', 'ID'";
 		$author_displayname = get_the_author_meta( 'display_name' );
 		$author_nickname = get_the_author_meta( 'nickname' );
-		$author_fullname = ( get_the_author_meta( 'first_name' ) != '' && get_the_author_meta( 'last_name' ) != '' ) ? get_the_author_meta( 'first_name' ) . ' ' . get_the_author_meta( 'last_name' ) : '';
+		$author_fullname = ( '' != get_the_author_meta( 'first_name' ) && '' != get_the_author_meta( 'last_name' ) ) ? get_the_author_meta( 'first_name' ) . ' ' . get_the_author_meta( 'last_name' ) : '';
 		$author_url = get_the_author_meta( 'user_url' );
 		$author_description = get_the_author_meta( 'description' );
-		$author_name = ( trim( $author_nickname ) != '' ) ? $author_nickname : ( trim( $author_displayname ) != '' ) ? $author_displayname : $author_fullname ?>
+		$author_name = ( '' != trim( $author_nickname ) ) ? $author_nickname : ( '' != trim( $author_displayname ) ) ? $author_displayname : $author_fullname ?>
 
 		<div class="author-bio well">
 			<div class="row">
@@ -396,7 +440,7 @@ if ( ! function_exists( 'bb_author_bio' ) ) {
 				<div class="col-sm-10">
 					<h4 class="fn"><?php echo $author_name; ?></h4>
 					<p><?php
-					if ( trim( $author_description ) != '' ) {
+					if ( '' != trim( $author_description ) ) {
 						echo $author_description;
 					} ?>
 					</p>
@@ -404,7 +448,7 @@ if ( ! function_exists( 'bb_author_bio' ) ) {
 						<ul class="nav nav-pills">
 							<?php
 							$googleplus_profile = get_the_author_meta( 'googleplus' );
-							if ( $googleplus_profile && $googleplus_profile != '' ) { ?>
+							if ( $googleplus_profile && '' != $googleplus_profile ) { ?>
 							<li>
 								<a href="<?php echo esc_url( $googleplus_profile ); ?>" title="My Google Plus">
 									<i class="fa fa-google-plus"></i>
@@ -413,7 +457,7 @@ if ( ! function_exists( 'bb_author_bio' ) ) {
 							}
 
 							$twitter_profile = get_the_author_meta( 'twitter' );
-							if ( $twitter_profile && $twitter_profile != '' ) { ?>
+							if ( $twitter_profile && '' != $twitter_profile ) { ?>
 							<li>
 								<a href="<?php echo esc_url( $twitter_profile ); ?>" title="My Twitter">
 									<i class="fa fa-twitter"></i>
@@ -422,7 +466,7 @@ if ( ! function_exists( 'bb_author_bio' ) ) {
 							}
 
 							$fb_profile = get_the_author_meta( 'facebook' );
-							if ( $fb_profile && $fb_profile != '' ) { ?>
+							if ( $fb_profile && '' != $fb_profile ) { ?>
 							<li>
 								<a href="<?php echo esc_url( $fb_profile ); ?>" title="My Facebook">
 									<i class="fa fa-facebook"></i>
@@ -431,7 +475,7 @@ if ( ! function_exists( 'bb_author_bio' ) ) {
 							}
 
 							$dribble_profile = get_the_author_meta( 'dribble' );
-							if ( $dribble_profile && $dribble_profile != '' ) { ?>
+							if ( $dribble_profile && '' != $dribble_profile ) { ?>
 							<li>
 								<a href="<?php echo esc_url( $dribble_profile ); ?>" title="My Dribble">
 									<i class="fa fa-dribbble"></i>
@@ -441,7 +485,7 @@ if ( ! function_exists( 'bb_author_bio' ) ) {
 							}
 
 							$github_profile = get_the_author_meta( 'github' );
-							if ( $github_profile && $github_profile != '' ) { ?>
+							if ( $github_profile && '' != $github_profile ) { ?>
 							<li>
 								<a href="<?php echo esc_url( $github_profile ); ?>" title="My Github">
 									<i class="fa fa-github"></i>
@@ -450,7 +494,7 @@ if ( ! function_exists( 'bb_author_bio' ) ) {
 							}
 
 							$vimeo_profile = get_the_author_meta( 'vimeo' );
-							if ( $vimeo_profile && $vimeo_profile != '' ) { ?>
+							if ( $vimeo_profile && '' != $vimeo_profile ) { ?>
 							<li>
 								<a href="<?php echo esc_url( $vimeo_profile ); ?>" title="My Vimeo">
 									<i class="fa fa-vimeo"></i>
@@ -467,16 +511,18 @@ if ( ! function_exists( 'bb_author_bio' ) ) {
 	}
 }
 
-/*
+/**
  * Filter to replace
  * Reply button class
+ *
+ * @param string $class Class name.
  */
 function bb_reply_link_class( $class ) {
 	$class = str_replace( "class='comment-reply-link", "class='btn btn-sm comment-reply", $class );
 	return $class;
 }
 
-/*
+/**
  * Comment form template
  */
 function bb_custom_comment_form() {
@@ -498,12 +544,12 @@ function bb_custom_comment_form() {
 	);
 
 	$comments_args = array(
-		'id_form'           => 'commentform',  // that's the wordpress default value! delete it or edit it ;)
+		'id_form'           => 'commentform',  // that's the wordpress default value! delete it or edit it ;).
 		'id_submit'         => 'commentsubmit',
-		'title_reply'       => esc_html__( 'Leave a Reply', 'bb' ),  // that's the wordpress default value! delete it or edit it ;)
-		'title_reply_to'    => esc_html__( 'Leave a Reply to %s', 'bb' ),  // that's the wordpress default value! delete it or edit it ;)
-		'cancel_reply_link' => esc_html__( 'Cancel Reply', 'bb' ),  // that's the wordpress default value! delete it or edit it ;)
-		'label_submit'      => esc_html__( 'Post Comment', 'bb' ),  // that's the wordpress default value! delete it or edit it ;)
+		'title_reply'       => esc_html__( 'Leave a Reply', 'bb' ),  // that's the wordpress default value! delete it or edit it ;).
+		'title_reply_to'    => esc_html__( 'Leave a Reply to %s', 'bb' ),  // that's the wordpress default value! delete it or edit it ;).
+		'cancel_reply_link' => esc_html__( 'Cancel Reply', 'bb' ),  // that's the wordpress default value! delete it or edit it ;).
+		'label_submit'      => esc_html__( 'Post Comment', 'bb' ),  // that's the wordpress default value! delete it or edit it ;).
 
 		'comment_field' => '<p><textarea placeholder="Start typing..." id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
 
@@ -516,12 +562,12 @@ function bb_custom_comment_form() {
 		// So, that was the needed stuff to have bootstrap basic styles for the form elements and buttons
 		// Basically you can edit everything here!
 		// Checkout the docs for more: http://codex.wordpress.org/Function_Reference/comment_form
-		// Another note: some classes are added in the bootstrap-wp.js - check from line 1
+		// Another note: some classes are added in the bootstrap-wp.js - check from line 1.
 	);
 	return $comments_args;
 }
 
-/*
+/**
  * Header Logo
  */
 function bb_get_header_logo() {
@@ -529,7 +575,7 @@ function bb_get_header_logo() {
 	$logo = wp_get_attachment_image_src( $logo_id, 'full' ); ?>
 
 	<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php
-	if ( $logo[0] != '' ) { ?>
+	if ( '' != $logo[0] ) { ?>
 		<img src="<?php echo $logo[0]; ?>" class="logo" alt="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>"><?php
 	} else { ?>
 		<h1 class="site-title"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></h1><?php
@@ -537,7 +583,7 @@ function bb_get_header_logo() {
 	</a><?php
 }
 
-/*
+/**
  * Get layout class from single page
  * then from themeoptions
  */
@@ -551,7 +597,7 @@ function bb_get_layout_class() {
 	return $layout_class;
 }
 
-/*
+/**
  * Show Sidebar or not
  */
 function bb_show_sidebar() {
@@ -567,7 +613,7 @@ function bb_show_sidebar() {
 	return $show_sidebar;
 }
 
-/*
+/**
  * Top Callout (optional section see customizer settings)
  * If disabled you may also want to configure Yoast SEO - Breadcrumbs
  */
@@ -585,11 +631,11 @@ function bb_top_callout() {
 								} elseif ( is_search() ) {
 									printf( esc_html__( 'Search Results for: %s', 'bb' ), '<span>' . get_search_query() . '</span>' );
 								} elseif ( is_archive() ) {
-									echo ( is_post_type_archive( 'jetpack-portfolio' ) ) ? __( 'Portfolio', 'bb' ) : get_the_archive_title();
+									echo ( is_post_type_archive( 'jetpack-portfolio' ) ) ? esc_html__( 'Portfolio', 'bb' ) : get_the_archive_title();
 								} elseif ( is_404() ) {
 									esc_html_e( 'Oops! Something went wrong here.', 'bb' );
 								} else {
-									echo ( is_singular( 'jetpack-portfolio' ) ) ? __( 'Portfolio', 'bb' ) : get_the_title();
+									echo ( is_singular( 'jetpack-portfolio' ) ) ? esc_html__( 'Portfolio', 'bb' ) : get_the_title();
 								}?>
 							</h2>
 							<?php if ( function_exists( 'yoast_breadcrumb' ) ) {
@@ -616,11 +662,11 @@ function bb_top_callout() {
 	}
 }
 
-/*
+/**
  * Footer Callout
  */
 function bb_footer_callout() {
-	if ( get_theme_mod( 'footer_callout_text' ) != '' ) { ?>
+	if ( '' != get_theme_mod( 'footer_callout_text' ) ) { ?>
 
 	<div class="bb_home_CFA">
 		<section class="cfa-section bg-secondary">
